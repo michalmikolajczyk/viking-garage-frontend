@@ -1,0 +1,31 @@
+### Project ###
+dist
+
+### Sass ###
+.sass-cache/
+*.css.map
+
+### TypeScript ###
+ts-build
+
+### Node ###
+# Logs
+logs
+*.log
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+node_modules
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
