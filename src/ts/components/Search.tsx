@@ -25,7 +25,7 @@ export default muiThemeable()(Search);
 
 function Search(props) {
   return (
-    <div style={props.muiTheme.container} className='search-input'>
+    <div className='container'>
       <FontIcon
         style={styles.icon}
         className='fa fa-map-marker' />

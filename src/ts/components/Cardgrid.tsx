@@ -8,37 +8,9 @@ import {
   GridList,
   GridTile
 } from 'material-ui/GridList';
-import { muiThemeable } from 'material-ui/styles';
+import 'Cardgrid.scss';
 
-const styles = {
-  image: {
-    width: 'initial',
-    height: 'initial',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  },
-  load: {
-    width: '100%',
-    height: 135,
-    paddingTop: 40,
-    boxSizing: 'border-box',
-    backgroundColor: '#606060',
-    textAlign: 'center',
-  },
-  loadmore: {
-    color: 'white',
-    fontSize: 30,
-    cursor: 'pointer',
-    textDecoration: 'underline',
-    backgroundColor: 'transparent',
-    border: 'none',
-    outline: 'none',
-  }
-};
-
-export default muiThemeable()(Cardgrid);
-
-function Cardgrid(props) {
+export default function Cardgrid(props) {
 
   const {
     data,
@@ -50,7 +22,7 @@ function Cardgrid(props) {
   const loader = loading ? (
       <CircularProgress size={60} thickness={7} color="white" />
     ) : (
-      <button style={styles.loadmore} onClick={loadMore}>
+      <button className="loadmore" onClick={loadMore}>
         Load more results
       </button>
     );
@@ -70,17 +42,17 @@ function Cardgrid(props) {
       subtitle={<span><b>{item.price} - {item.approx}</b></span>}
       actionIcon={actionIconButton(item)}
     >
-      <img style={styles.image} src={item.img} alt={item.title} />
+      <img className="image" src={item.img} alt={item.title} />
     </GridTile>));
 
   return (
-    <div style={{fontFamily: muiTheme.fontFamily}}>
-      <div style={muiTheme.container}>
+    <div className="cardgrid">
+      <div className="container">
         <GridList cellHeight={300}>
           {mappedItems}
         </GridList>
       </div>
-      <div style={styles.load}>
+      <div className="load">
         {loader}
       </div>
     </div>

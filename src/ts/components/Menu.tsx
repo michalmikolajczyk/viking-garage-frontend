@@ -21,10 +21,10 @@ export default function Menu (props) {
 
   return (
     <div>
-      <div style={{display: 'inline-block'}}>
+      <div className="inline">
         <MenuItem primaryText="Motocross" />
       </div>
-      <div style={{display: 'inline-block'}}>
+      <div className="inline">
         <MenuItem primaryText="Enduro" />
       </div>
       <IconMenu

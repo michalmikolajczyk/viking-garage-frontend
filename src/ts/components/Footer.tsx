@@ -2,67 +2,52 @@ import React from 'react';
 import {
   FontIcon,
 } from 'material-ui';
-import { muiThemeable } from 'material-ui/styles';
+import 'Footer.scss';
 
 const styles = {
-  wrap: {
-    width: '100%',
-    height: 300,
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    boxSizing: 'border-box',
-    padding: 60,
-    backgroundColor: 'black',
-    color: 'white',
-  },
-  connect: {
-    flex: 1,
-  },
-  madeby: {
-    flex: 1,
-    textAlign: 'right',
-  },
-  icon: {
+  iconStyle: {
     paddingTop: 20,
     paddingRight: 30,
     cursor: 'pointer',
   },
+  iconMadeby: {
+    paddingTop: 20,
+    fontSize: 18,
+  }
 }
 
-export default muiThemeable()(Footer);
+export default function Footer (props) {
 
-function Footer (props) {
   return (
-    <div style={{...styles.wrap, fontFamily: props.muiTheme.fontFamily}}>
-      <div style={styles.connect}>
+    <div className="footer">
+      <div className="connect">
         Connect with us:
-        <div style={{whiteSpace: 'nowrap'}}>
+        <div className="nowrap">
           <a href="https://vikinggarage.slack.com" target="_blank">
-            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-slack" />
+            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-slack" />
           </a>
           <a href="http://stackoverflow.com/users/2445063/wiherek" target="_blank">
-            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-stack-overflow" />
+            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-stack-overflow" />
           </a>
           <a href="https://www.facebook.com/michal.mikolajczyk" target="_blank">
-            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-facebook-square" />
+            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-facebook-square" />
           </a>
           <a href="https://www.instagram.com/wiherek89/" target="_blank">
-            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-instagram" />
+            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-instagram" />
           </a>
           <a href="https://github.com/michalmikolajczyk/" target="_blank">
-            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-github" />
+            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-github" />
           </a>
-       </div>
+        </div>
       </div>
-      <div style={styles.madeby}>
+      <div className="madeby">
         Made with&#160;&#160;
-        <FontIcon style={{...styles.icon, fontSize: 18, paddingRight: 0}} color="white" hoverColor="#AD000D" className="fa fa-fire" />
-        <div style={{whiteSpace: 'nowrap'}}>
-          <FontIcon style={{...styles.icon, fontSize: 18, paddingRight: 10}} color="white" className="fa fa-copyright" />
-          2016 <span style={{textDecoration: 'underline'}}>Michal Mikolajczyk</span>
+        <FontIcon style={styles.iconMadeby} color="white" hoverColor="#AD000D" className="fa fa-fire" />
+        <div className="nowrap">
+          <FontIcon style={{...styles.iconMadeby, paddingRight: 10}} color="white" className="fa fa-copyright" />
+          2016 <span className="author">Michal Mikolajczyk</span>
         </div>
       </div>
     </div>
-   );
+  );
 }

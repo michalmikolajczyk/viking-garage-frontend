@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Junicode";
+  src: url("/assets/fonts/Junicode.woff") format("woff"), url("/assets/fonts/Junicode.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Junicode";
+  src: url("/assets/fonts/Junicode-Bold.woff") format("woff"), url("/assets/fonts/Junicode-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Junicode";
+  src: url("/assets/fonts/Junicode-Italic.woff") format("woff"), url("/assets/fonts/Junicode-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Junicode";
+  src: url("/assets/fonts/Junicode-BoldItalic.woff") format("woff"), url("/assets/fonts/Junicode-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.inline {
+  display: inline-block;
+}

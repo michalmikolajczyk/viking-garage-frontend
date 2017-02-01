@@ -1,0 +1,27 @@
+.header {
+  .title {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+    font-size: 50px;
+    font-weight: 300;
+    margin: 0;
+  }
+  .replace {
+    position: relative;
+  }
+  .raido {
+    font-family: 'Junicode';
+    color: #AD000D;
+    position: absolute;
+    font-size: 64px;
+    top: -20px;
+    left: 2px;
+  }
+  .text {
+    display: flex;
+    flex-grow: 4;
+    font-size: 31px;
+    font-weight: 200;
+  }
+}

@@ -13,6 +13,7 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Menu from 'components/Menu';
 import Search from 'components/Search';
+import 'Global.scss';
 
 const muiTheme = getMuiTheme({
   fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
@@ -23,21 +24,12 @@ const muiTheme = getMuiTheme({
   textField: {
     focusColor: '#AD000D',
   },
-  // custom styles
-  raido: {
-    color: '#AD000D',
-    fontFamily: 'Junicode'
-  },
-  container: {
-    maxWidth: 900,
-    margin: 'auto',
-    width: '100%',
-    padding: 30,
-    boxSizing: 'border-box',
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
 });
+
+const titleStyle = {
+  fontFamily: 'Junicode',
+  color: '#AD000D'
+}
 
 export default function App() {
   return (
@@ -46,7 +38,7 @@ export default function App() {
         <AppBar
           zDepth={0} // switch off box-shadow
           title="&#5809;"
-          titleStyle={muiTheme.raido}
+          titleStyle={titleStyle}
           showMenuIconButton={false}
           iconElementRight={<Menu />}
         />
