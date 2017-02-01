@@ -18,11 +18,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.ts', '.tsx', '.js', '.jsx'],
-    modulesDirectories: ['src', 'node_modules'],
+    modulesDirectories: ['src/ts', 'src/sass', 'node_modules'],
   },
   module: {
     loaders: [
-      { test: /\.tsx?$/, loaders: ['babel', 'ts-loader'] }
+      { test: /\.tsx?$/, loaders: ['babel', 'ts-loader'] },
+      { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
     ]
   },
   plugins: [
