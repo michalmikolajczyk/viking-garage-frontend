@@ -31,7 +31,13 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .container {
+  position: relative;
   max-width: 900px;
   width: 100%;
   margin: auto;

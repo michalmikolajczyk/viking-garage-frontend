@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 import {
   CircularProgress,
   FontIcon,
@@ -8,6 +9,7 @@ import {
   GridList,
   GridTile
 } from 'material-ui/GridList';
+import Container from 'components/Container';
 
 export default function Cardgrid(props) {
 
@@ -35,25 +37,26 @@ export default function Cardgrid(props) {
     </IconButton>);
 
   const mappedItems = data.map(item => (
-    <GridTile
-      key={item.key}
-      title={item.title}
-      subtitle={<span><b>{item.price} - {item.approx}</b></span>}
-      actionIcon={actionIconButton(item)}
-    >
-      <img className="image" src={item.img} alt={item.title} />
-    </GridTile>));
+    <Link to="/detail" key={item.key}>
+      <GridTile
+        title={item.title}
+        subtitle={<span><b>{item.price} - {item.approx}</b></span>}
+        actionIcon={actionIconButton(item)}
+      >
+        <img className="image" src={item.img} alt={item.title} />
+      </GridTile>
+    </Link>));
 
   return (
-    <div className="cardgrid">
-      <div className="container">
+    <Container>
+      <div className="cardgrid">
         <GridList cellHeight={300}>
           {mappedItems}
         </GridList>
+        <div className="load">
+          {loader}
+        </div>
       </div>
-      <div className="load">
-        {loader}
-      </div>
-    </div>
+    </Container>
   );
 }
