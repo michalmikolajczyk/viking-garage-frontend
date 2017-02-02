@@ -1,0 +1,58 @@
+.detail {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  .image {
+    flex: 3 auto;
+    width: 60%;
+    height: 100%;
+    img {
+      margin: auto;
+      width: 100%;
+      height: auto;
+    }
+  }
+  .params {
+    flex: 2 auto;
+    width: 40%;
+    height: 100%;
+    max-width: 230px;
+    margin-left: 30px;
+    .title {
+      width: 100%;
+      text-transform: uppercase;
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+    .trait {
+      display: flex;
+      height: 30px;
+      .name {
+        flex: 1 auto;
+        width: 50%;
+        font-weight: bolder;
+      }
+      .value {
+        flex: 1 auto;
+        width: 50%;
+        text-align: right;
+      }
+    }
+    .ride-btn {
+      display: block;
+      width: 100%;
+      height: 50px;
+      margin-top: 40px;
+      border: 1px solid #6B6B6B;
+      font-size: 20px;
+      letter-spacing: 3px;
+      background: transparent;
+      border-radius: 3px;
+      .raido {
+        font-size: 30px;
+      }
+    }
+  }
+}

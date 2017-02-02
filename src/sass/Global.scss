@@ -31,6 +31,13 @@ body {
   margin: 0;
 }
 
+button {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  outline : 0 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -45,6 +52,11 @@ a {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
+}
+
+.raido {
+  font-family: Junicode;
+  color: #AD000D;  
 }
 
 .nowrap {
