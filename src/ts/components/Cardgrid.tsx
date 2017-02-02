@@ -8,7 +8,6 @@ import {
   GridList,
   GridTile
 } from 'material-ui/GridList';
-import 'Cardgrid.scss';
 
 export default function Cardgrid(props) {
 

@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var WebpackNotifierPlugin = require('webpack-notifier');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -9,26 +10,36 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    'index.tsx'
+    'index.tsx',
+    './src/sass/index.scss',
   ],
   output: {
     filename: 'app.js',
     publicPath: '/dist',
-    path: path.resolve('dist')
+    path: path.resolve('dist'),
   },
   resolve: {
     extensions: ['', '.ts', '.tsx', '.js', '.jsx'],
-    modulesDirectories: ['src/ts', 'src/sass', 'node_modules'],
+    modulesDirectories: ['src/ts', 'node_modules'],
   },
   module: {
     loaders: [
-      { test: /\.tsx?$/, loaders: ['babel', 'ts-loader'] },
-      { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
-    ]
+      {
+        test: /\.tsx?$/,
+        loaders: ['babel', 'ts-loader']
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css?sourceMap!sass?sourceMap'),
+      },
+    ],
   },
   plugins: [
     // Add the Webpack HMR plugin so it will notify the browser when the app code changes
     new webpack.HotModuleReplacementPlugin(),
-    new WebpackNotifierPlugin({ alwaysNotify: true }),
+    new WebpackNotifierPlugin({alwaysNotify: true}),
+    new ExtractTextPlugin('styles.css', {
+      allChunks: true,
+    }),
   ]
 };

@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { muiThemeable } from 'material-ui/styles';
+import React, {Component} from 'react';
 import {
   FontIcon,
   TextField,
@@ -21,9 +20,7 @@ const styles = {
   },
 }
 
-export default muiThemeable()(Search);
-
-function Search(props) {
+export default function Search(props) {
   return (
     <div className='container'>
       <FontIcon

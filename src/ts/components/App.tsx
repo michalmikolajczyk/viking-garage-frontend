@@ -13,7 +13,6 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Menu from 'components/Menu';
 import Search from 'components/Search';
-import 'Global.scss';
 
 const muiTheme = getMuiTheme({
   fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
