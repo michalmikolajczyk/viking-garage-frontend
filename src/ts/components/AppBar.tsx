@@ -52,9 +52,9 @@ export default class AppBarOwn extends Component<any, any> {
   }
 
   render() {
-    const line = this.state.visible
-      ? (<div className="app-bar-line"></div>)
-      : null;
+    const line = this.state.visible ? (
+        <div className="app-bar-line"></div>
+      ) : null;
 
     return (
       <AppBar
