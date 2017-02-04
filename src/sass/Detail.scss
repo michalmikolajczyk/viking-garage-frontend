@@ -1,13 +1,12 @@
 .detail {
   width: 100%;
+  min-width: 300px;
+  padding: 112px 0;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   .image {
-    flex: 3 auto;
-    width: 60%;
-    height: 100%;
+    padding-right: 137px;
     img {
       margin: auto;
       width: 100%;
@@ -15,20 +14,20 @@
     }
   }
   .params {
-    flex: 2 auto;
-    width: 40%;
-    height: 100%;
-    max-width: 230px;
-    margin-left: 30px;
+    flex: 0 0 301px;
+    padding-right: 61px;
     .title {
       width: 100%;
       text-transform: uppercase;
-      font-size: 20px;
-      margin-bottom: 40px;
+      font-size: 28px;
+      letter-spacing: 2px;
+      margin-bottom: 62px;
     }
     .trait {
       display: flex;
-      height: 30px;
+      font-size: 21px;
+      letter-spacing: 2px;
+      margin-bottom: 13px;
       .name {
         flex: 1 auto;
         width: 50%;
@@ -38,20 +37,26 @@
         flex: 1 auto;
         width: 50%;
         text-align: right;
+        letter-spacing: 3px;
+        padding-right: 8px;
       }
     }
     .ride-btn {
-      display: block;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      height: 50px;
-      margin-top: 40px;
+      height: 66px;
+      margin-top: 90px;
       border: 1px solid #6B6B6B;
-      font-size: 20px;
-      letter-spacing: 3px;
+      font-size: 24px;
+      letter-spacing: 5px;
       background: transparent;
       border-radius: 3px;
       .raido {
-        font-size: 30px;
+        font-size: 46px;
+        line-height: 69px;
       }
     }
   }

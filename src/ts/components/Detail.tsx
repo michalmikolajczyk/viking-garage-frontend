@@ -3,7 +3,7 @@ import Container from 'components/Container';
 
 const item = {
   image: 'http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Honda-CRF-450R-Motocross-Bike-PNG-Image.png',
-  title: 'KTM 250SX 2017',
+  title: 'KTM250SX 2017',
   engine: '2-stroke',
   capacity: '249',
   maxPower: '45',
@@ -67,7 +67,9 @@ export default function Detail(props) {
             <span className="raido">
               &#5809;
             </span>
+            <span>
              IDE
+            </span>
           </button>
         </div>
       </div>

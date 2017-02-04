@@ -17,6 +17,7 @@ const titleStyle = {
   fontSize: 43,
   color: '#AD000D',
   padding: '3px 0 0 14px',
+  marginBottom: -3
 };
 
 export default class AppBarOwn extends Component<any, any> {
