@@ -14,7 +14,9 @@ const barStyle = {
 
 const titleStyle = {
   fontFamily: 'Junicode',
-  color: '#AD000D'
+  fontSize: 43,
+  color: '#AD000D',
+  padding: '3px 0 0 14px',
 };
 
 export default class AppBarOwn extends Component<any, any> {

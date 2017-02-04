@@ -5,7 +5,7 @@ export default function Header (props) {
     <div className="container header">
       <div className="title">
         VIKING
-        <div>
+        <div className="title-in">
           GA
           <span className="replace">
             &#160;&#160;
@@ -20,8 +20,9 @@ export default function Header (props) {
         rent motorcycles and gear
         <br />
         find mechanics, coaches, trails
-        <br />
-        everywhere in the world
+        <div className="text-in">
+          everywhere in the world
+        </div>
       </div>
     </div>
   );
