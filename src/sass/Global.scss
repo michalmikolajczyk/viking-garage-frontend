@@ -43,6 +43,12 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   position: relative;
   max-width: 1120px;

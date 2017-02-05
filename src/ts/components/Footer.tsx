@@ -3,48 +3,56 @@ import {
   FontIcon,
 } from 'material-ui';
 
-const styles = {
-  iconStyle: {
-    paddingTop: 20,
-    paddingRight: 30,
-    cursor: 'pointer',
-  },
-  iconMadeby: {
-    paddingTop: 20,
-    fontSize: 18,
-  }
-}
+const iconStyle = {
+  fontSize: 14,
+  paddingRight: 7,
+};
 
 export default function Footer (props) {
 
   return (
     <div className="footer">
-      <div className="connect">
-        Connect with us:
-        <div className="nowrap">
-          <a href="https://vikinggarage.slack.com" target="_blank">
-            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-slack" />
-          </a>
-          <a href="http://stackoverflow.com/users/2445063/wiherek" target="_blank">
-            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-stack-overflow" />
-          </a>
-          <a href="https://www.facebook.com/michal.mikolajczyk" target="_blank">
-            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-facebook-square" />
-          </a>
+      <ul className="contact">
+        <li>
           <a href="https://www.instagram.com/wiherek89/" target="_blank">
-            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-instagram" />
+            INSTAGRAM
           </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/michal.mikolajczyk" target="_blank">
+            FACEBOOK
+          </a>
+        </li>
+        <li>
           <a href="https://github.com/michalmikolajczyk/" target="_blank">
-            <FontIcon style={styles.iconStyle} color="white" hoverColor="#AD000D" className="fa fa-github" />
+            GITHUB
           </a>
-        </div>
-      </div>
+        </li>
+        <li>
+          <a href="mailto:michal@vikinggarage.com" target="_blank">
+            E-MAIL
+          </a>
+        </li>
+        <li>
+          <a href="https://vikinggarage.slack.com" target="_blank">
+            SLACK
+          </a>
+        </li>
+        <li>
+          <a href="tel:+48697951264" target="_blank">
+            PHONE
+          </a>
+        </li>
+        <li>
+          <a href="skype:michaljanmikolajczyk?chat" target="_blank">
+            SKYPE
+          </a>
+        </li>
+      </ul>
       <div className="madeby">
-        Made with&#160;&#160;
-        <FontIcon style={styles.iconMadeby} color="white" hoverColor="#AD000D" className="fa fa-fire" />
         <div className="nowrap">
-          <FontIcon style={{...styles.iconMadeby, paddingRight: 10}} color="white" className="fa fa-copyright" />
-          2016 <span className="author">Michal Mikolajczyk</span>
+          <FontIcon style={iconStyle} color="white" className="fa fa-copyright" />
+          2017 Michal Mikolajczyk
         </div>
       </div>
     </div>
