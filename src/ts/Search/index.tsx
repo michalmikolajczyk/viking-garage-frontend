@@ -23,33 +23,33 @@ const styles = {
 export default function Search(props) {
   return (
     <div className="cont">
-      <FontIcon
-        style={styles.icon}
-        className="fa fa-map-marker" />
+      <FontIcon className="material-icons" style={styles.icon}>
+        location_on
+      </FontIcon>
       <TextField
         style={styles.textField}
         inputStyle={styles.inputStyle}
         hintStyle={styles.inputStyle}
         hintText="Gran Canaria"/>
-      <FontIcon
-        style={styles.icon}
-        className="fa fa-angle-down" />
+      <FontIcon className="material-icons" style={styles.icon}>
+        keyboard_arrow_down
+      </FontIcon>
       <TextField
         style={styles.textField}
         inputStyle={styles.inputStyle}
         hintStyle={styles.inputStyle}
         hintText="Dirtbike" />
-      <FontIcon
-        style={styles.icon}
-        className="fa fa-calendar" />
+      <FontIcon className="material-icons" style={styles.icon}>
+        today
+      </FontIcon>
       <TextField
         style={styles.textField}
         inputStyle={styles.inputStyle}
         hintStyle={styles.inputStyle}
         hintText="Today" />
-      <FontIcon
-        style={styles.icon}
-        className="fa fa-calendar" />
+      <FontIcon className="material-icons" style={styles.icon}>
+        date_range
+      </FontIcon>
       <TextField
         style={styles.textField}
         inputStyle={styles.inputStyle}
