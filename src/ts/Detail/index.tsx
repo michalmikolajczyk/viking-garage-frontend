@@ -1,67 +1,67 @@
 import React from 'react';
 import Container from 'Container';
 
-const item = {
-  image: 'http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Honda-CRF-450R-Motocross-Bike-PNG-Image.png',
-  title: 'KTM250SX 2017',
-  engine: '2-stroke',
-  capacity: '249',
-  maxPower: '45',
-  torque: '28',
-  seatHeight: '960',
-}
+const traitsProps = [
+  {
+    label: 'Engine Type',
+    units: '',
+    key: 'engine',
+  },
+  {
+    label: 'Capacity',
+    units: 'cc',
+    key: 'capacity',
+  },
+  {
+    label: 'Max Power',
+    units: 'HP',
+    key: 'maxPower',
+  },
+  {
+    label: 'Torque',
+    units: 'Nm',
+    key: 'torque',
+  },
+  {
+    label: 'Seat Height',
+    units: 'mm',
+    key: 'seatHeight',
+  },
+];
 
-export default function Detail(props) {
+export default function Detail() {
+
+  const props = {
+    image: 'http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Honda-CRF-450R-Motocross-Bike-PNG-Image.png',
+    title: 'KTM250SX 2017',
+    engine: '2-stroke',
+    capacity: '249',
+    maxPower: '45',
+    torque: '28',
+    seatHeight: '960',
+  };
+
+  const traits = traitsProps.map(item => (
+    <div className="trait">
+      <div className="name">
+        {item.label}:
+      </div>
+      <div className="value">
+        {props[item.key] + item.units}
+      </div>
+    </div>))
+
 	return (
     <Container>
       <div className="detail">
         <div className="image">
-          <img src={item.image} />
+          <img src={props.image} />
         </div>
         <div className="params">
           <div className="title">
-            {item.title}
+            {props.title}
           </div>
-          <div className="trait">
-            <div className="name">
-              Engine Type:
-            </div>
-            <div className="value">
-              {item.engine}
-            </div>
-          </div>
-          <div className="trait">
-            <div className="name">
-              Capacity:
-            </div>
-            <div className="value">
-              {item.capacity}cc
-            </div>
-          </div>
-          <div className="trait">
-            <div className="name">
-              Max Power:
-            </div>
-            <div className="value">
-              {item.maxPower}HP
-            </div>
-          </div>
-          <div className="trait">
-            <div className="name">
-              Torque:
-            </div>
-            <div className="value">
-              {item.torque}Nm
-            </div>
-          </div>
-          <div className="trait">
-            <div className="name">
-              Seat Height:
-            </div>
-            <div className="value">
-              {item.seatHeight}mm
-            </div>
-          </div>
+          {traits}
           <button className="ride-btn">
             <span className="raido">
               &#5809;
