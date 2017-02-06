@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
-import AppBar from 'components/AppBar';
-import Footer from 'components/Footer';
-import Header from 'components/Header';
-import Search from 'components/Search';
+import AppBar from 'AppBar';
+import Footer from 'Footer';
+import Header from 'Header';
+import Search from 'Search';
 
 export default function Container(props) {
   return (

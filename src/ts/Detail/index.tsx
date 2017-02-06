@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from 'components/Container';
+import Container from 'Container';
 
 const item = {
   image: 'http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Honda-CRF-450R-Motocross-Bike-PNG-Image.png',

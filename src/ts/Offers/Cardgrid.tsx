@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { CircularProgress } from 'material-ui';
-import Container from 'components/Container';
-import Card from 'components/Card';
+import Container from 'Container';
+import Card from './Card';
 
 export default function Cardgrid(props) {
 

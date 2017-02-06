@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cardgrid from 'components/Cardgrid';
+import Cardgrid from './Cardgrid';
 
 export default class CardContainer extends Component<any, any> {
 

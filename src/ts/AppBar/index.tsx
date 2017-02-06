@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { AppBar } from 'material-ui';
-import Menu from 'components/Menu';
+import Menu from 'Menu';
 
 // Scroll logic based on https://gist.github.com/Warry/4254579
 
