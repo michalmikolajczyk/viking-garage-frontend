@@ -1,15 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {
-  CircularProgress,
-  FontIcon,
-  IconButton,
-} from 'material-ui';
-import {
-  GridList,
-  GridTile
-} from 'material-ui/GridList';
+import {CircularProgress} from 'material-ui';
 import Container from 'components/Container';
+import Card from 'components/Card';
 
 export default function Cardgrid(props) {
 
@@ -17,7 +10,6 @@ export default function Cardgrid(props) {
     data,
     loadMore,
     loading,
-    muiTheme,
   } = props;
 
   const loader = loading ? (
@@ -28,31 +20,14 @@ export default function Cardgrid(props) {
       </button>
     );
 
-  const actionIconButton = item => (
-    <IconButton>
-      <FontIcon
-        color="white"
-        hoverColor="#AD000D"
-        className='fa fa-fire'/>
-    </IconButton>);
-
-  const mappedItems = data.map(item => (
-    <Link to="/detail" key={item.key}>
-      <GridTile
-        title={item.title}
-        subtitle={<span><b>{item.price} - {item.approx}</b></span>}
-        actionIcon={actionIconButton(item)}
-      >
-        <img className="image" src={item.img} alt={item.title} />
-      </GridTile>
-    </Link>));
+  const mappedItems = data.map(item => <Card data={item} key={item.key} />);
 
   return (
     <Container>
-      <div className="cardgrid">
-        <GridList cellHeight={300}>
+      <div>
+        <div className="cardgrid">
           {mappedItems}
-        </GridList>
+        </div>
         <div className="load">
           {loader}
         </div>
