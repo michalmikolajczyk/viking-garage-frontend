@@ -12,7 +12,6 @@ const item = {
 }
 
 export default function Detail(props) {
-
 	return (
     <Container>
       <div className="detail">
@@ -68,7 +67,7 @@ export default function Detail(props) {
               &#5809;
             </span>
             <span>
-             IDE
+              IDE
             </span>
           </button>
         </div>

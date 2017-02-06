@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router';
-import {FontIcon} from 'material-ui';
+import { Link } from 'react-router';
+import { FontIcon } from 'material-ui';
 
 export default function CardOwn(props) {
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router';
-import {CircularProgress} from 'material-ui';
+import { Link } from 'react-router';
+import { CircularProgress } from 'material-ui';
 import Container from 'components/Container';
 import Card from 'components/Card';
 
