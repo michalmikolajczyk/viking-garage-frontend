@@ -16,8 +16,49 @@ const request = (url) =>
         key: rand + i,
       })
     }
-    setTimeout(() => res(data), 1000);    
+    setTimeout(() => res(data), 0);
   })
+
+const getSelectItems = () => ({
+  'Motorcycle': [
+    'Off-road',
+    'Street',
+    'Dual-sport',
+    'Scooter',
+    'Electric',
+    'Small (children)'
+  ],
+  'Mechanic': [
+    'Off-road & dual-sport',
+    'Street',
+    'Electric',
+    'Scooter',
+  ],
+  'Coach / Instructor': [
+    'Off-road',
+    'Street',
+  ],
+  'Guide': [
+    'Off-road',
+    'Street',
+  ],
+  'Equipment': [
+    'Off-road',
+    'Street',
+  ],
+  'Parts': [
+    'Dirtbikes',
+    'Streetbikes',
+  ],
+  'Circuits': [
+    'Motocross',
+    'Enduro',
+    'Race tracks',
+  ],
+  'Shops': [],
+  'Events': [],
+  'Clubs': [],
+})
 
 export default class CardContainer extends Component<any, any> {
 
@@ -45,30 +86,23 @@ export default class CardContainer extends Component<any, any> {
     })
   }
 
-  public locationFilter(filter) {
-    // new fetch
-  }
+  public locationFilter(filter) { console.log('change filter', filter) }
 
-  public typeFilter(filter) {
-    // new fetch
-  }
+  public selectFilter(filter) { console.log('change filter', filter) }
 
-  public startDateFilter(filter) {
-    // new fetch
-  }
+  public startDateFilter(filter) { console.log('change filter', filter) }
 
-  public endDateFilter(filter) {
-    // new fetch
-  }
+  public endDateFilter(filter) { console.log('change filter', filter) }
 
   public render() {
     return (
       <Container>
         <Search
-          location={this.locationFilter}
-          type={this.typeFilter}
-          startDate={this.startDateFilter}
-          endDate={this.endDateFilter}
+          selectItems={getSelectItems()}
+          locationFilter={this.locationFilter}
+          selectFilter={this.selectFilter}
+          startDateFilter={this.startDateFilter}
+          endDateFilter={this.endDateFilter}
         />
         <OffersList
           data={this.state.data}
