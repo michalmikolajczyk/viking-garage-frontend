@@ -1,0 +1,40 @@
+.header {
+  padding: 139px 0 85px 0;
+  .title {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    font-size: 69px;
+    font-weight: 400;
+    letter-spacing: 13px;
+    margin: 0;
+    .title-in {
+      letter-spacing: 3.9px;
+    }
+  }
+  .replace {
+    position: relative;
+  }
+  .raido {
+    font-family: 'Junicode';
+    color: #AD000D;
+    position: absolute;
+    font-size: 97px;
+    top: -34px;
+    left: 0;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+    padding: 12px 85px 0 0;
+    font-size: 31px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-align: center;
+    line-height: 48px;
+    .text-in {
+      letter-spacing: 3px;
+    }
+  }
+}

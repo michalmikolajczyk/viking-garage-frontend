@@ -27,5 +27,47 @@
 }
 
 body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
+}
+
+button {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  outline : 0 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cont {
+  position: relative;
+  max-width: 1120px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.raido {
+  font-family: Junicode;
+  color: #AD000D;  
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.inline {
+  display: inline-block;
 }

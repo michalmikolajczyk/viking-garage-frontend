@@ -11,7 +11,7 @@ injectTapEventPlugin();
 const { AppContainer } = require('react-hot-loader');
 
 // Import our App container (which we will create in the next step)
-import App from 'components/App';
+import App from 'App';
 
 // Get the root element from the HTML
 const rootEl = document.getElementById('app');
@@ -29,9 +29,9 @@ declare var module: { hot: any };
 
 // Handle hot reloading requests from Webpack
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
+  module.hot.accept('./App', () => {
     // If we receive a HMR request for our App container, then reload it using require (we can't do this dynamically with import)
-    const NextApp = require('./components/App').default;
+    const NextApp = require('./App').default;
 
     // And render it into the root element again
     render(

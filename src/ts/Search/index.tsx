@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { muiThemeable } from 'material-ui/styles';
+import React from 'react';
 import {
   FontIcon,
   TextField,
@@ -21,43 +20,41 @@ const styles = {
   },
 }
 
-export default muiThemeable()(Search);
-
-function Search(props) {
+export default function Search(props) {
   return (
-    <div style={props.muiTheme.container} className='search-input'>
-      <FontIcon
-        style={styles.icon}
-        className='fa fa-map-marker' />
+    <div className="cont">
+      <FontIcon className="material-icons" style={styles.icon}>
+        location_on
+      </FontIcon>
       <TextField
         style={styles.textField}
         inputStyle={styles.inputStyle}
         hintStyle={styles.inputStyle}
         hintText="Gran Canaria"/>
-      <FontIcon
-        style={styles.icon}
-        className='fa fa-angle-down' />
+      <FontIcon className="material-icons" style={styles.icon}>
+        keyboard_arrow_down
+      </FontIcon>
       <TextField
         style={styles.textField}
         inputStyle={styles.inputStyle}
         hintStyle={styles.inputStyle}
-        hintText="Dirtbike"/>
-      <FontIcon
-        style={styles.icon}
-        className='fa fa-calendar' />
+        hintText="Dirtbike" />
+      <FontIcon className="material-icons" style={styles.icon}>
+        today
+      </FontIcon>
       <TextField
         style={styles.textField}
         inputStyle={styles.inputStyle}
         hintStyle={styles.inputStyle}
-        hintText="Today"/>
-      <FontIcon
-        style={styles.icon}
-        className='fa fa-calendar' />
+        hintText="Today" />
+      <FontIcon className="material-icons" style={styles.icon}>
+        date_range
+      </FontIcon>
       <TextField
         style={styles.textField}
         inputStyle={styles.inputStyle}
         hintStyle={styles.inputStyle}
-        hintText="19/01/2017"/>
+        hintText="19/01/2017" />
     </div>
   );
 }
