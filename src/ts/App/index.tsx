@@ -1,9 +1,9 @@
 import React from 'react';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {
-  getMuiTheme,
   MuiThemeProvider,
 } from 'material-ui/styles';
-import Router from 'router';
+import Router from 'react-router';
 
 const muiTheme = getMuiTheme({
   fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',

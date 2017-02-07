@@ -16,8 +16,8 @@ export default function Menu (props) {
         className='fa fa-ellipsis-v'/>
     </MenuItem>);
 
-  const anchorOrigin = {horizontal: 'right', vertical: 'top'};
-  const targetOrigin = {horizontal: 'right', vertical: 'top'};
+  // const anchorOrigin = {horizontal: 'right', vertical: 'top'};
+  // const targetOrigin = {horizontal: 'right', vertical: 'top'};
 
   return (
     <div>
@@ -29,8 +29,6 @@ export default function Menu (props) {
       </div>
       <IconMenu
         iconButtonElement={iconButtonElement}
-        anchorOrigin={anchorOrigin}
-        targetOrigin={targetOrigin}
       >
         <MenuItem primaryText="Supercross" />
         <MenuItem primaryText="Trials" />
