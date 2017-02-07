@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { FontIcon } from 'material-ui';
 
-export default function CardOwn(props) {
+export default function Card(props) {
 
   const {
     key,
@@ -13,16 +13,16 @@ export default function CardOwn(props) {
   } = props.data;
 
   const actionIconButton = url => (
-    <Link to={url} className="button">
-      <FontIcon
-        style={{fontSize: 45}}
-        color="white"
-        hoverColor="#AD000D"
-        className='fa fa-fire'/>
-    </Link>);
+    <div className="offer-btn">
+      <Link to={url} className="offer-btn-link">
+        <FontIcon className="material-icons">
+          whatshot
+        </FontIcon>
+      </Link>
+    </div>);
 
   return (
-    <div className="tile">
+    <div className="card">
       <img alt={title} src={img} className="image"/>
       <div className="head">
         <div className="descript">

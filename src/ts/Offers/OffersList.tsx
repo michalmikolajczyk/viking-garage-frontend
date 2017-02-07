@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { CircularProgress } from 'material-ui';
-import Container from 'Container';
 import Card from './Card';
 
 export default function Cardgrid(props) {
@@ -23,15 +22,13 @@ export default function Cardgrid(props) {
   const mappedItems = data.map(item => <Card data={item} key={item.key} />);
 
   return (
-    <Container>
-      <div>
-        <div className="cardgrid">
-          {mappedItems}
-        </div>
-        <div className="load">
-          {loader}
-        </div>
+    <div>
+      <div className="offers">
+        {mappedItems}
       </div>
-    </Container>
+      <div className="load">
+        {loader}
+      </div>
+    </div>
   );
 }

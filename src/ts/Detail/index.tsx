@@ -42,7 +42,7 @@ export default function Detail() {
   };
 
   const traits = traitsProps.map(item => (
-    <div className="trait">
+    <div className="trait" key={item.key}>
       <div className="name">
         {item.label}:
       </div>

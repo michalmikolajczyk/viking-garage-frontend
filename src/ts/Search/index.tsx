@@ -22,7 +22,7 @@ const styles = {
 
 export default function Search(props) {
   return (
-    <div className="cont">
+    <div className="cont search">
       <FontIcon className="material-icons" style={styles.icon}>
         location_on
       </FontIcon>
