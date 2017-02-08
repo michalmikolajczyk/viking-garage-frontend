@@ -112,13 +112,11 @@ export default class CardContainer extends Component<any, any> {
     })
   }
 
-  public locationFilter(filter) { console.log('change filter', filter) }
+  public locationFilter(filter) { console.log('change filter location', filter) }
 
-  public selectFilter(filter) { console.log('change filter', filter) }
+  public selectFilter(filter) { console.log('change filter select', filter) }
 
-  public startDateFilter(filter) { console.log('change filter', filter) }
-
-  public endDateFilter(filter) { console.log('change filter', filter) }
+  public dateFilter(filter) { console.log('change filter date', filter) }
 
   public render() {
     return (
@@ -127,8 +125,7 @@ export default class CardContainer extends Component<any, any> {
           selectItems={getSelectItems()}
           locationFilter={this.locationFilter}
           selectFilter={this.selectFilter}
-          startDateFilter={this.startDateFilter}
-          endDateFilter={this.endDateFilter}
+          dateFilter={this.dateFilter}
         />
         <OffersList
           data={this.state.data}

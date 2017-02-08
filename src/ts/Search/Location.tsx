@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { AutoComplete } from 'material-ui';
+import {
+  AutoComplete,
+  FontIcon,
+} from 'material-ui';
 
 declare const config: any;
 declare const google: any;
@@ -56,14 +59,17 @@ export default class Location extends Component<any, any> {
 
   public render() {
     return (
-      <AutoComplete
-        hintText="Gran Canaria"
-        maxSearchResults={5}
-        openOnFocus={true}
-        filter={AutoComplete.noFilter}
-        onNewRequest={this.onNewRequest}
-        onUpdateInput={this.onUpdateInput}
-        dataSource={this.state.data}
-      />);
+      <div className="location">
+        <FontIcon className="material-icons">location_on</FontIcon>
+        <AutoComplete
+          hintText="Gran Canaria"
+          maxSearchResults={5}
+          openOnFocus={true}
+          filter={AutoComplete.noFilter}
+          onNewRequest={this.onNewRequest}
+          onUpdateInput={this.onUpdateInput}
+          dataSource={this.state.data}
+        />
+      </div>);
   }
 }
