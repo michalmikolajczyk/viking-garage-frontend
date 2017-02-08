@@ -19,23 +19,31 @@ export default class Location extends Component<any, any> {
       load: false,
     };
     this.filter = props.filter;
+    this.initMap = this.initMap.bind(this);
     this.displayData = this.displayData.bind(this);
     this.onNewRequest = this.onNewRequest.bind(this);
     this.onUpdateInput = this.onUpdateInput.bind(this);
   }
 
   public componentDidMount() {
+    if (document.getElementById('google-maps-script')) {
+      this.initMap();
+      return;
+    }
     if (typeof window !== 'undefined') {
       const API_KEY = config.GOOGLE_MAP_API;
-      window['initMap'] = () => {
-        this.service = new google.maps.places.AutocompleteService();
-        this.setState({load: true});
-      }
+      window['initMap'] = this.initMap;
       let script = document.createElement('script');
+      script.id = 'google-maps-script';
       script.type = 'text/javascript';
       script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap`;
       document.body.appendChild(script);
     }
+  }
+
+  public initMap() {
+    this.service = new google.maps.places.AutocompleteService();
+    this.setState({load: true});
   }
 
   public displayData(predictions, status) {
