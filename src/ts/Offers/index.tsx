@@ -16,7 +16,7 @@ const request = (url) =>
         key: rand + i,
       })
     }
-    setTimeout(() => res(data), 0);
+    setTimeout(() => res(data), 1000);
   })
 
 const getSelectItems = () => ([
@@ -102,6 +102,7 @@ export default class CardContainer extends Component<any, any> {
   }
 
   public loadMore() {
+    console.debug('load more results');
     this.setState({loading: true});
     request('url')
     .then(res => {
@@ -112,11 +113,11 @@ export default class CardContainer extends Component<any, any> {
     })
   }
 
-  public locationFilter(filter) { console.log('change filter location', filter) }
+  public locationFilter(filter) { console.debug('change filter location', filter) }
 
-  public selectFilter(filter) { console.log('change filter select', filter) }
+  public selectFilter(filter) { console.debug('change filter select', filter) }
 
-  public dateFilter(filter) { console.log('change filter date', filter) }
+  public dateFilter(filter) { console.debug('change filter date', filter) }
 
   public render() {
     return (

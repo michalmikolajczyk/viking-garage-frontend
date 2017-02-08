@@ -10,10 +10,8 @@ export default function Container(props) {
      <div>
       <AppBar />
       <Header />
-      <div className="cont">
-        {props.children}
-      </div>
+      {props.children}
       <Footer />
-    </div>   
+    </div>
   );
 }

@@ -71,19 +71,22 @@ export default class Select extends Component<any, any> {
 
   public render() {
     return (
-      <div className="super-select">
+      <div className="select">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
-        <SuperSelect
-          // select with multiple choice
-          multiple={true}
-          // actual user choices
-          value={this.state.select}
-          onChange={this.onChange}
-          hintText="Select some values"
-          selectionsRenderer={this.selectionRenderer}
-        >
-          {this.selectItems}
-        </SuperSelect>
+        <div className="filter">
+          <SuperSelect
+            // select with multiple choice
+            multiple={true}
+            // actual user choices
+            value={this.state.select}
+            onChange={this.onChange}
+            hintText="Select some values"
+            selectionsRenderer={this.selectionRenderer}
+            fullWidth={true}
+          >
+            {this.selectItems}
+          </SuperSelect>
+        </div>
       </div>);
   }
 }

@@ -22,8 +22,8 @@ export default function Cardgrid(props) {
   const mappedItems = data.map(item => <Card data={item} key={item.key} />);
 
   return (
-    <div>
-      <div className="offers">
+    <div className="offers-wrap">
+      <div className="offers cont">
         {mappedItems}
       </div>
       <div className="load">

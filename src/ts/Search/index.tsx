@@ -14,7 +14,7 @@ export default function Search(props) {
   } = props;
 
   return (
-    <div className="cont search">
+    <div className="search cont">
       <Location filter={locationFilter} />
       <Select
         filter={selectFilter}

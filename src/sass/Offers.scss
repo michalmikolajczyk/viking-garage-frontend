@@ -51,7 +51,7 @@
   display: flex;
   margin-right: 30px;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   .offer-btn-link {
     width: 55px;
     height: 55px;
@@ -77,23 +77,26 @@
   }
 }
 
-.load {
-  position: absolute;
-  bottom: 0;
-  left: -2000px;
-  right: -2000px;
-  height: 135px;
-  padding-top: 40px;
-  box-sizing: border-box;
-  background-color: #606060;
-  text-align: center;
-  .loadmore {
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-    text-decoration: underline;
-    background-color: transparent;
-    border: none;
-    outline: none;
+.offers-wrap {
+  position: relative;
+  .load {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 135px;
+    padding-top: 40px;
+    box-sizing: border-box;
+    background-color: #606060;
+    text-align: center;
+    .loadmore {
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      text-decoration: underline;
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
   }
 }

@@ -53,7 +53,7 @@ export default function Detail() {
 
 	return (
     <Container>
-      <div className="detail">
+      <div className="detail cont">
         <div className="image">
           <img src={props.image} />
         </div>

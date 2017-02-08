@@ -11,8 +11,8 @@ export default class DateComponent extends Component<any, any> {
     let now = new Date()
     this.state = {
       startDate: now,
-      // get a week forward
-      endDate: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000),
+      // get a two weeks forward
+      endDate: new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000),
     }
     this.onChangeStart = this.onChangeStart.bind(this);
     this.onChangeEnd = this.onChangeEnd.bind(this);
@@ -37,21 +37,26 @@ export default class DateComponent extends Component<any, any> {
 
   render() {
     return (
-      <div>
+      <div className="date">
         <FontIcon className="material-icons">today</FontIcon>
         <DatePicker
+          className="filter"
           // automatically accept and close the picker on select
           autoOk={true}
           value={this.state.startDate}
           onChange={this.onChangeStart}
-          hintText="Today" />
+          hintText="Today"
+          fullWidth={true}
+        />
         <FontIcon className="material-icons">date_range</FontIcon>
         <DatePicker
+          className="filter"
           autoOk={true}
           value={this.state.endDate}
           onChange={this.onChangeEnd}
-          hintText="19/01/2017" />
+          hintText="19/01/2017"
+          fullWidth={true}
+        />
       </div>);
   }
 }
-

@@ -61,15 +61,18 @@ export default class Location extends Component<any, any> {
     return (
       <div className="location">
         <FontIcon className="material-icons">location_on</FontIcon>
-        <AutoComplete
-          hintText="Gran Canaria"
-          maxSearchResults={5}
-          openOnFocus={true}
-          filter={AutoComplete.noFilter}
-          onNewRequest={this.onNewRequest}
-          onUpdateInput={this.onUpdateInput}
-          dataSource={this.state.data}
-        />
+        <div className="filter">
+          <AutoComplete
+            hintText="Gran Canaria"
+            maxSearchResults={5}
+            openOnFocus={true}
+            filter={AutoComplete.noFilter}
+            onNewRequest={this.onNewRequest}
+            onUpdateInput={this.onUpdateInput}
+            dataSource={this.state.data}
+            fullWidth={true}
+          />
+        </div>
       </div>);
   }
 }
