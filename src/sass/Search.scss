@@ -9,9 +9,6 @@
     flex-direction: row;
     flex-wrap: nowrap;
   }
-  .select {
-    overflow: hidden;
-  }
   .date {
     flex: 1 1 100%;
     display: flex;
@@ -39,8 +36,19 @@
 
 .select {
   position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  .filter {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   .selected {
     line-height: 48px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     &.empty {
       color: rgba(0, 0, 0, 0.298039);
     }
