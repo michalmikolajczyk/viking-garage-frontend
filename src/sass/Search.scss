@@ -1,3 +1,56 @@
 .search {
-  // padding-top: 139px;
+  .material-icons {
+    width: 24px !important;
+    font-size: 18px !important;
+    margin: 14px 0 0 -24px !important;
+  }
+  .text-field {
+    padding-left: 24px;
+    flex: 1,
+  }
+  .start-date, .end-date {
+    width: 200px;
+  }
+}
+
+.super-select {
+  & > div {
+    height: 100%;
+    position: relative;
+    outline: none;
+  }
+  .selected {
+    // overflow: hidden + ellipsis
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    // copied from material-ui inputs
+    line-height: 24px;
+    position: absolute;
+    opacity: 1;
+    bottom: 12px;
+    &.empty {
+      color: rgba(0, 0, 0, 0.298039);
+    }
+  }
+  svg {
+    display: none !important
+  }
+  hr {
+    bottom: 8px;
+    border-top: none rgb(224, 224, 224);
+    border-right: none rgb(224, 224, 224);
+    border-bottom: 1px solid rgb(224, 224, 224);
+    border-left: none;
+    box-sizing: content-box;
+    margin: 0px;
+    position: absolute;
+    width: 100%;
+    outline : 0 !important;
+  }
+}
+.select-item {
+  margin: -3px -5px -5px;
+  color: black;
 }

@@ -26,6 +26,7 @@ export default function Search(props) {
         className="text-field location" />
       <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
       <Select
+        filter={selectFilter}
         selectItems={selectItems}
         className="text-field select"
         hintText="Dirtbike"

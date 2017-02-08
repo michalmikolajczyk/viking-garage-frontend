@@ -19,46 +19,72 @@ const request = (url) =>
     setTimeout(() => res(data), 0);
   })
 
-const getSelectItems = () => ({
-  'Motorcycle': [
-    'Off-road',
-    'Street',
-    'Dual-sport',
-    'Scooter',
-    'Electric',
-    'Small (children)'
-  ],
-  'Mechanic': [
-    'Off-road & dual-sport',
-    'Street',
-    'Electric',
-    'Scooter',
-  ],
-  'Coach / Instructor': [
-    'Off-road',
-    'Street',
-  ],
-  'Guide': [
-    'Off-road',
-    'Street',
-  ],
-  'Equipment': [
-    'Off-road',
-    'Street',
-  ],
-  'Parts': [
-    'Dirtbikes',
-    'Streetbikes',
-  ],
-  'Circuits': [
-    'Motocross',
-    'Enduro',
-    'Race tracks',
-  ],
-  'Shops': [],
-  'Events': [],
-  'Clubs': [],
-})
+const getSelectItems = () => ([
+  {
+    group: 'Motorcycle',
+    value: [
+      'Off-road',
+      'Street',
+      'Dual-sport',
+      'Scooter',
+      'Electric',
+      'Small (children)'
+    ]
+  },
+  {
+    group: 'Mechanic',
+    value: [
+      'Off-road & dual-sport',
+      'Street',
+      'Electric',
+      'Scooter',
+    ],
+  },
+  {
+    group: 'Coach / Instructor',
+    value: [
+      'Off-road',
+      'Street',
+    ],
+  },
+  {
+    group: 'Guide',
+    value: [
+      'Off-road',
+      'Street',
+    ],
+  },
+  {
+    group: 'Equipment',
+    value: [
+      'Off-road',
+      'Street',
+    ],
+  },
+  {
+    group: 'Parts',
+    value: [
+      'Dirtbikes',
+      'Streetbikes',
+    ],
+  },
+  {
+    group: 'Circuits',
+    value: [
+      'Motocross',
+      'Enduro',
+      'Race tracks',
+    ],
+  },
+  {
+    group: 'Other',
+    value: [
+      'Shops',
+      'Events',
+      'Clubs',
+    ],
+  },
+]);
 
 export default class CardContainer extends Component<any, any> {
 
