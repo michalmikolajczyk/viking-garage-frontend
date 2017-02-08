@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import Cardgrid from './Cardgrid';
 
-export default class CardContainer extends Component<any, any> {
+export default class CardContainer extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);

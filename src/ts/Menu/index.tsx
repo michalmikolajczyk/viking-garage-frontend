@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import {
   IconButton,
   IconMenu,
@@ -27,11 +27,14 @@ export default function Menu (props) {
       <div className="inline">
         <MenuItem primaryText="Enduro" />
       </div>
-      <IconMenu
-        iconButtonElement={iconButtonElement}
-        anchorOrigin={anchorOrigin}
-        targetOrigin={targetOrigin}
-      >
+      { /* some TS problem
+        <IconMenu
+          iconButtonElement={iconButtonElement}
+          anchorOrigin={anchorOrigin}
+          targetOrigin={targetOrigin}
+        >
+      */ }
+      <IconMenu iconButtonElement={iconButtonElement} >
         <MenuItem primaryText="Supercross" />
         <MenuItem primaryText="Trials" />
         <MenuItem primaryText="Scooters" />

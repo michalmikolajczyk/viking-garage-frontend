@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"module": "es6",
+		"module": "commonjs",
 		"target": "es6",
 		"moduleResolution": "node",
 		"baseUrl": "src/ts",
@@ -8,9 +8,11 @@
 		"noImplicitAny": false,
 		"sourceMap": true,
 		"outDir": "ts-build",
-		"jsx": "preserve"
+		"jsx": "react"
 	},
 	"exclude": [
-		"node_modules"
+		"node_modules",
+		"src/ts/**/*.spec.ts",
+		"src/ts/**/*.spec.tsx"
 	]
 }
