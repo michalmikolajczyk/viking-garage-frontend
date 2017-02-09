@@ -1,25 +1,13 @@
-import React from 'react';
-import {
-  getMuiTheme,
-  MuiThemeProvider,
-} from 'material-ui/styles';
-import Router from 'router';
+import * as React from 'react';
+import { MuiThemeProvider } from "material-ui/styles";
+import AppRouter from '../Router';
+import muiThemeVG from '../muiThemeVG'
 
-const muiTheme = getMuiTheme({
-  fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
-  palette: {
-    primary1Color: 'black',
-  },
-  appBar: {
-    color: 'white',
-    textColor: 'black',
-  },
-});
 
 export default function App() {
   return (
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <Router />
+    <MuiThemeProvider muiTheme={muiThemeVG}>
+      <AppRouter />
     </MuiThemeProvider>
   );
 }

@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Link } from 'react-router';
 import { AppBar } from 'material-ui';
-import Menu from 'Menu';
+import Menu from '../Menu';
+import muiThemeVG from '../muiThemeVG'
 
 // Scroll logic based on https://gist.github.com/Warry/4254579
 
@@ -20,13 +21,14 @@ const titleStyle = {
   marginBottom: -3
 };
 
-export default class AppBarOwn extends Component<any, any> {
-
+export default class AppBarVG extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {visible: false};
     this.handleScroll = this.handleScroll.bind(this)
   }
+
+  static childContextTypes: any
 
   shouldComponentUpdate() {
     return false;
@@ -38,6 +40,10 @@ export default class AppBarOwn extends Component<any, any> {
 
   componentWillUnmount() {
     this.handleScroll = () => null;
+  }
+
+  getChildContext() {
+    return { muiTheme: muiThemeVG };
   }
 
   handleScroll() {
@@ -73,4 +79,6 @@ export default class AppBarOwn extends Component<any, any> {
   }
 }
 
-
+AppBarVG.childContextTypes = {
+  muiTheme: React.PropTypes.object.isRequired,
+};
