@@ -1,0 +1,73 @@
+.search {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  .location, .select {
+    flex: 2 1 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .date {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .filter {
+    flex: 1 1 100%;
+    input {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  .material-icons {
+    flex: 0 0 30px;
+    line-height: 46px;
+    font-size: 24px !important;
+  }
+  hr {
+    width: calc(100% + 30px) !important;
+    left: -30px !important;
+  }
+}
+
+.select {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  .filter {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .selected {
+    line-height: 48px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &.empty {
+      color: rgba(0, 0, 0, 0.298039);
+    }
+  }
+  // hide default icon
+  svg {
+    display: none !important
+  }
+  // styled copied from material-ui TextFileds for hr
+  hr {
+    position: absolute;
+    bottom: 8px;
+    border-top: none rgb(224, 224, 224);
+    border-right: none rgb(224, 224, 224);
+    border-bottom: 1px solid rgb(224, 224, 224);
+    border-left: none;
+  }
+}
+.select-item {
+  margin: -3px -5px -5px;
+  color: black;
+}

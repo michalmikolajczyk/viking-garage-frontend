@@ -31,9 +31,12 @@ body {
   margin: 0;
 }
 
+* {
+  outline : 0 !important;
+}
+
 button {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  outline : 0 !important;
   cursor: pointer !important;
   padding: 0 !important;
 }
@@ -55,13 +58,12 @@ ul {
   width: 100%;
   margin: auto;
   display: flex;
-  flex-wrap: wrap;
   box-sizing: border-box;
 }
 
 .raido {
   font-family: Junicode;
-  color: #AD000D;  
+  color: #AD000D;
 }
 
 .nowrap {

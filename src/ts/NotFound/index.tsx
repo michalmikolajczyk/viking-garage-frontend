@@ -4,7 +4,9 @@ import Container from '../Container';
 export default function NotFound(props) {
 	return (
     <Container>
-      <h1>404... page not found!</h1>
+      <div className="cont">
+        <h1>404... page not found!</h1>
+      </div>
     </Container>
   );
 }
