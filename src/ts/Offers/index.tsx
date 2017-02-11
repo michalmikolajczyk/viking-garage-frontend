@@ -2,8 +2,10 @@ import * as React from 'react';
 import Container from '../Container';
 import Search from '../Search';
 import OffersList from './OffersList';
+import debug from 'debug';
+var log = debug('app:Offers');
 
-const request = (url) =>
+const request = (url) => (
   new Promise((res, rej) => {
     const data = [];
     const rand = Math.random();
@@ -18,6 +20,7 @@ const request = (url) =>
     }
     setTimeout(() => res(data), 1000);
   })
+)
 
 const getSelectItems = () => ([
   {
@@ -102,7 +105,6 @@ export default class Offers extends React.Component<any, any> {
   }
 
   public loadMore() {
-    console.debug('load more results');
     this.setState({loading: true});
     request('url')
     .then(res => {
@@ -113,11 +115,11 @@ export default class Offers extends React.Component<any, any> {
     })
   }
 
-  public locationFilter(filter) { console.debug('change filter location', filter) }
+  public locationFilter(filter) { log('change filter location', filter) }
 
-  public selectFilter(filter) { console.debug('change filter select', filter) }
+  public selectFilter(filter) { log('change filter select', filter) }
 
-  public dateFilter(filter) { console.debug('change filter date', filter) }
+  public dateFilter(filter) { log('change filter date', filter) }
 
   public render() {
     return (
