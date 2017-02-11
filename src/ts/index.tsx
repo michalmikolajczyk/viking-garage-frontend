@@ -2,6 +2,9 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 
+// Import pollyfills for JavaScript
+import '../js/pollyfills';
+
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 import * as injectTapEventPlugin from 'react-tap-event-plugin';

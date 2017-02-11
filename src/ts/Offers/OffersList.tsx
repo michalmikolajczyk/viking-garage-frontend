@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Link } from 'react-router';
 import { CircularProgress } from 'material-ui';
-import Container from '../Container';
-import Card from './Card';
+import Offer from './Offer';
 
-export default function Cardgrid(props) {
+export default function OffersList(props) {
 
   const {
     data,
@@ -20,18 +19,16 @@ export default function Cardgrid(props) {
       </button>
     );
 
-  const mappedItems = data.map(item => <Card data={item} key={item.key} />);
+  const mappedItems = data.map(item => <Offer data={item} key={item.key} />);
 
   return (
-    <Container>
-      <div>
-        <div className="cardgrid">
-          {mappedItems}
-        </div>
-        <div className="load">
-          {loader}
-        </div>
+    <div className="offers-wrap">
+      <div className="offers cont">
+        {mappedItems}
       </div>
-    </Container>
+      <div className="load">
+        {loader}
+      </div>
+    </div>
   );
 }

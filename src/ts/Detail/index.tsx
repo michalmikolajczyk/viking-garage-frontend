@@ -42,7 +42,7 @@ export default function Detail() {
   };
 
   const traits = traitsProps.map(item => (
-    <div className="trait">
+    <div className="trait" key={item.key}>
       <div className="name">
         {item.label}:
       </div>
@@ -51,9 +51,9 @@ export default function Detail() {
       </div>
     </div>))
 
-	return (
+  return (
     <Container>
-      <div className="detail">
+      <div className="detail cont">
         <div className="image">
           <img src={props.image} />
         </div>

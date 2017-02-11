@@ -1,6 +1,6 @@
-// requestAnimFrame shim  with setTimeout fallback
-// http://stackoverflow.com/a/13002988/6041704
 (function() {
+  // requestAnimFrame shim  with setTimeout fallback
+  // http://stackoverflow.com/a/13002988/6041704
   if (typeof window !== 'undefined') {
     window.requestAnimationFrame =
       window.requestAnimationFrame ||
