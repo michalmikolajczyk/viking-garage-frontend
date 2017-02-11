@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router';
 import { CircularProgress } from 'material-ui';
-import Card from './Card';
+import Offer from './Offer';
 
 export default function OffersList(props) {
 
@@ -19,7 +19,7 @@ export default function OffersList(props) {
       </button>
     );
 
-  const mappedItems = data.map(item => <Card data={item} key={item.key} />);
+  const mappedItems = data.map(item => <Offer data={item} key={item.key} />);
 
   return (
     <div className="offers-wrap">

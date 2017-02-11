@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router';
 import { FontIcon } from 'material-ui';
 
-export default function Card(props) {
+export default function Offer(props) {
 
   const {
     key,

@@ -25,7 +25,7 @@ export default class Location extends React.Component<any, any> {
     this.onUpdateInput = this.onUpdateInput.bind(this);
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     // in case of re-creating component we do not need another script
     if (document.getElementById('google-maps-script')) {
       this.initMap();
@@ -66,9 +66,7 @@ export default class Location extends React.Component<any, any> {
     }
   }
 
-  public render() {
-    // return (<div>No co jest kurwa</div>);
-
+  render() {
     return (
       <div className="location">
         <FontIcon className="material-icons">location_on</FontIcon>

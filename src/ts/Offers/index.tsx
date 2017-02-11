@@ -100,7 +100,7 @@ export default class Offers extends React.Component<any, any> {
     this.loadMore = this.loadMore.bind(this);
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     this.loadMore();
   }
 
@@ -121,7 +121,7 @@ export default class Offers extends React.Component<any, any> {
 
   public dateFilter(filter) { log('change filter date', filter) }
 
-  public render() {
+  render() {
     return (
       <Container>
         <Search

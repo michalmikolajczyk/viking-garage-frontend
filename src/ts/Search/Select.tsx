@@ -16,9 +16,9 @@ export default class Select extends React.Component<any, any> {
   }
 
   public createSelect(items) {
-    const createGroup = (values, group) =>
-      values.map((value, index) =>
-        (<div
+    const createGroup = (values, group) => (
+      values.map((value, index) => (
+        <div
           key={index}
           label={value}
           value={group + value}
@@ -27,6 +27,7 @@ export default class Select extends React.Component<any, any> {
           {value}
         </div>)
       )
+    )
 
     this.selectItems = items.map((item, index) => (
         <optgroup key={index} label={item.group}>
@@ -63,21 +64,19 @@ export default class Select extends React.Component<any, any> {
   }
 
   public selectionRenderer(val) {
-    // rerender values display in input
+    // rerender values displayed in the input
     return val.length
       ? <div className="selected">{val.map(({_, label}) => label).join(', ')}</div>
       :  <div className="selected empty">Dirtbike</div>
   }
 
-  public render() {
+  render() {
     return (
       <div className="select">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
         <div className="filter">
           <SuperSelect
-            // select with multiple choice
             multiple={true}
-            // actual user choices
             value={this.state.select}
             onChange={this.onChange}
             hintText="Select some values"
