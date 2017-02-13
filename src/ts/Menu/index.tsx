@@ -8,37 +8,36 @@ import {
 } from 'material-ui';
 
 export default function Menu (props) {
+  const user = true
 
   const iconButtonElement = (
     <MenuItem>
       <FontIcon
         style={{fontSize: 18}}
         className='fa fa-ellipsis-v'/>
-    </MenuItem>);
+    </MenuItem>)
 
-  const anchorOrigin = {horizontal: 'right', vertical: 'top'};
-  const targetOrigin = {horizontal: 'right', vertical: 'top'};
+  const userSection = user ? (
+    <IconMenu className="user-profile" iconButtonElement={iconButtonElement} >
+      <MenuItem primaryText="Calibri" />
+      <MenuItem primaryText="Courier" />
+      <MenuItem primaryText="Verdana" />
+    </IconMenu>
+  ) : (
+    <div className="user">
+      <MenuItem href="signup" primaryText="Sign up" />
+      <MenuItem href="login" primaryText="Log in" />
+    </div>
+  )
+
 
   return (
-    <div>
-      <div className="inline">
-        <MenuItem primaryText="Motocross" />
-      </div>
-      <div className="inline">
-        <MenuItem primaryText="Enduro" />
-      </div>
-      { /* some TS problem
-        <IconMenu
-          iconButtonElement={iconButtonElement}
-          anchorOrigin={anchorOrigin}
-          targetOrigin={targetOrigin}
-        >
-      */ }
-      <IconMenu iconButtonElement={iconButtonElement} >
-        <MenuItem primaryText="Supercross" />
-        <MenuItem primaryText="Trials" />
-        <MenuItem primaryText="Scooters" />
-      </IconMenu>
+    <div className="menu">
+      <MenuItem href="/bike_owners" primaryText="Bike Owners" />
+      <MenuItem href="/guides_coaches" primaryText="Guides &amp; Coaches" />
+      <MenuItem href="/mechanics" primaryText="Mechanics" />
+      <MenuItem href="/faq" primaryText="FAQ" />
+      {userSection}
     </div>
   );
 }

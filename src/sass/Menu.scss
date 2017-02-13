@@ -1,0 +1,16 @@
+.menu {
+  display: flex;
+  font-weight: 300;
+  .user {
+    display: flex;
+    padding-left: 50px;
+  }
+  .user-profile {
+    margin-left: 0px;
+    width: 35px;
+    height: 35px;
+    margin: 5px 5px 0 50px;
+    background: url(https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg);
+    background-size: cover;
+  }
+}
