@@ -27,18 +27,25 @@ export default class Location extends React.Component<any, any> {
 
   componentDidMount() {
     // in case of re-creating component we do not need another script
-    if (document.getElementById('google-maps-script')) {
-      this.initMap();
-      return;
+    if (typeof google !== 'undefined') {
+      return this.initMap();
     }
     if (typeof window !== 'undefined') {
-      const API_KEY = config.GOOGLE_MAP_API;
-      window['initMap'] = this.initMap;
-      let script = document.createElement('script');
-      script.id = 'google-maps-script';
-      script.type = 'text/javascript';
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap`;
-      document.body.appendChild(script);
+      if (document.getElementById('google-maps-script')) {
+        const call = window['initMap']
+        window['initMap'] = () => {
+          call()
+          this.initMap()
+        }
+      } else {
+        const API_KEY = config.GOOGLE_MAP_API;
+        window['initMap'] = this.initMap;
+        let script = document.createElement('script');
+        script.id = 'google-maps-script';
+        script.type = 'text/javascript';
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap`;
+        document.body.appendChild(script);
+      }
     }
   }
 
@@ -69,10 +76,10 @@ export default class Location extends React.Component<any, any> {
   render() {
     return (
       <div className="location">
-        <FontIcon className="material-icons">location_on</FontIcon>
+        <FontIcon className="material-icons">{this.props.icon}</FontIcon>
         <div className="filter">
           <AutoComplete
-            hintText="Gran Canaria"
+            hintText="Search"
             maxSearchResults={5}
             openOnFocus={true}
             filter={AutoComplete.noFilter}
