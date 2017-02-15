@@ -1,32 +1,42 @@
 import * as React from 'react';
 import {
-  IconButton,
+  Divider,
   IconMenu,
-  FlatButton,
-  FontIcon,
   MenuItem,
 } from 'material-ui';
 
-export default function Menu (props) {
+export default function MenuVG (props) {
+
   const user = true
 
+  const userImage = "https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg"
+
   const iconButtonElement = (
-    <MenuItem>
-      <FontIcon
-        style={{fontSize: 18}}
-        className='fa fa-ellipsis-v'/>
+    <MenuItem
+      className="user-image"
+      style={{background: `url(${userImage})`}}
+    >
     </MenuItem>)
 
   const userSection = user ? (
-    <IconMenu className="user-profile" iconButtonElement={iconButtonElement} >
-      <MenuItem primaryText="Calibri" />
-      <MenuItem primaryText="Courier" />
-      <MenuItem primaryText="Verdana" />
+    <IconMenu
+      className="user-profile"
+      iconButtonElement={iconButtonElement}
+      anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+      desktop={true}
+    >
+      <MenuItem primaryText="Profile" href="/profile" />
+      <MenuItem primaryText="Add offer" href="/add_offer" />
+      <MenuItem primaryText="Deals" href="/deals" />
+      <MenuItem primaryText="Messages" href="/messages" />
+      <MenuItem primaryText="Account" href="/account" />
+      <Divider />
+      <MenuItem primaryText="Log out" href="/logout" />
     </IconMenu>
   ) : (
     <div className="user">
-      <MenuItem href="signup" primaryText="Sign up" />
-      <MenuItem href="login" primaryText="Log in" />
+      <MenuItem href="/signup" primaryText="Sign up" />
+      <MenuItem href="/login" primaryText="Log in" />
     </div>
   )
 
