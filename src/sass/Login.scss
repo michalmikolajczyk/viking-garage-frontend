@@ -1,0 +1,37 @@
+.accounts {
+  text-align: center;
+  width: 100%;
+  .title {
+    font-weight: 300;
+    font-size: 50px;
+    margin-bottom: 25px;
+  }
+  .new-user {
+    font-size: 20px;
+    font-weight: 200;
+  }
+  .signin-link {
+    text-decoration: underline;
+  }
+  .form {
+    width: 330px;
+    margin: auto;
+    .user-remember {
+      text-align: left;
+      margin: 25px 0;
+    }
+    .login {
+      width: 100%;
+      padding: 20px !important;
+      display: block;
+      font-size: 23px;
+      border: 1px solid black;
+      border-radius: 3px;
+    }
+  }
+  .reset, .create {
+    text-align: left;
+    font-weight: 300;
+    padding: 30px 10px 0;
+  }
+}
