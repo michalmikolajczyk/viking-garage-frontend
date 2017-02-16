@@ -8,6 +8,7 @@ import Offers from '../Offers'
 import Detail from '../Detail'
 import NotFound from '../NotFound'
 import Login from '../Login'
+import Signin from '../Signin'
 
 export default function AppRouter(props) {
   return (
@@ -15,12 +16,12 @@ export default function AppRouter(props) {
       <Route path="/" component={Offers} />
       <Route path="/detail" component={Detail} />
       <Route path="/login" component={Login} />
-      <Route path="/signup" component={NotFound} />
+      <Route path="/signin" component={Signin} />
       <Route path="/bike-owners" component={NotFound} />
       <Route path="/guides-coaches" component={NotFound} />
       <Route path="/mechanics" component={NotFound} />
       <Route path="/faq" component={NotFound} />
       <Route path="*" component={NotFound} />
     </Router>
-  );
+  )
 }

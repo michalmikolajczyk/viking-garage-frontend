@@ -35,6 +35,10 @@ body {
   outline : 0 !important;
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 button {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   cursor: pointer !important;
