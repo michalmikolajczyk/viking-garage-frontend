@@ -13,15 +13,16 @@ export default class LoginForm extends React.Component<any, any> {
     this.state = {canSubmit: false}
   }
 
-  submit() {}
+  submit(a, b, c) {
+    console.log(a, b, c)
+  }
 
   render() {
     return (
       <Form
         onValid={() => this.setState({canSubmit: true})}
         onInvalid={() => this.setState({canSubmit: false})}
-        onValidSubmit={() => undefined}
-        onInvalidSubmit={() => undefined}
+        onSubmit={this.submit}
       >
         <FormsyText
           name="email"
@@ -35,23 +36,23 @@ export default class LoginForm extends React.Component<any, any> {
         <FormsyText
           name="password"
           type="password"
+          value=""
+          required={true}
           fullWidth={true}
+          validations="minLength:6"
           floatingLabelText="Password"
-          errorText={this.state.passErr}
-          onChange={(evt, val) => this.setState({pass: val, passErr: ''})}
+          validationError="Password too short! Minimum 6 chars"
         />
         <div className="user-remember">
           <FormsyCheckbox
+            value={true}
             name="remember"
-            onCheck={() => undefined}
-            checked={this.state.check}
             label="Remember me"
           />
         </div>
         <button
-          onClick={() => undefined}
           className="login"
-          disabled={this.state.disabled}
+          disabled={!this.state.canSubmit}
         >
           LOG IN
         </button>

@@ -40,6 +40,9 @@ button {
   cursor: pointer !important;
   padding: 0;
   background: transparent;
+  &:disabled {
+    cursor: not-allowed !important;
+  }
 }
 
 a {
