@@ -5,16 +5,22 @@ import {
   FormsyCheckbox,
   FormsyText,
 } from 'formsy-material-ui/lib'
+import LoginDialog from './LoginDialog'
 
 export default class LoginForm extends React.Component<any, any> {
 
   constructor(props) {
-    super(props);
-    this.state = {canSubmit: false}
+    super(props)
+    this.state = {
+      canSubmit: false,
+      openDialog: false,
+    }
+    this.submit = this.submit.bind(this)
   }
 
   submit(a, b, c) {
     console.log(a, b, c)
+    this.setState({openDialog: true})
   }
 
   render() {
@@ -56,6 +62,10 @@ export default class LoginForm extends React.Component<any, any> {
         >
           LOG IN
         </button>
+        <LoginDialog
+          open={this.state.openDialog}
+          close={() => this.setState({openDialog: false})}
+        />
       </Form>
     )
   }

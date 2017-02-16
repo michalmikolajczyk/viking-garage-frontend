@@ -28,6 +28,10 @@
       font-size: 23px;
       border: 1px solid black;
       border-radius: 3px;
+      &:disabled {
+        color: #979797;
+        border: 1px solid #C8C8C8;
+      }
     }
   }
   .reset, .create {
