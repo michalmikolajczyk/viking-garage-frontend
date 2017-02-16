@@ -6,27 +6,21 @@ import LoginForm from './LoginForm'
 export default function Login (props) {
   return (
     <Container className="cont">
-      <div className="accounts">
+      <div className="form">
         <h1 className="title">Log in to your account</h1>
-        <div className="new-user">
+        <div className="title-sub">
           New user?&#160;
-          <Link to="signin">
-            <span className="signin-link">
-              Click here to create your account!
-            </span>
+          <Link to="signin" className="title-btn">
+            Click here to create your account!
           </Link>
         </div>
-        <div className="form">
+        <div className="inputs">
           <LoginForm />
-          <Link to="reset">
-            <div className="reset">
+          <Link to="reset" className="foot-btn">
             Reset your password
-            </div>
           </Link>
-          <Link to="create">
-            <div className="create">
-              CREATE NEW ACCOUNT
-            </div>
+          <Link to="signin" className="foot-btn">
+            CREATE NEW ACCOUNT
           </Link>
         </div>
       </div>
