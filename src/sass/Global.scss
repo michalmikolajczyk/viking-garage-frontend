@@ -38,7 +38,8 @@ body {
 button {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   cursor: pointer !important;
-  padding: 0 !important;
+  padding: 0;
+  background: transparent;
 }
 
 a {
