@@ -1,10 +1,15 @@
 import * as React from 'react'
+import { Form } from 'formsy-react'
 import { Link } from 'react-router'
-import Container from '../Container'
 import {
   Checkbox,
   TextField,
 } from 'material-ui'
+import {
+  FormsyCheckbox,
+  FormsyText,
+} from 'formsy-material-ui/lib'
+import Container from '../Container'
 
 // http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
 const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -14,6 +19,7 @@ export default class Login extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
+      disabled: true,
       check: true,
       email: '',
       pass: '',
@@ -39,7 +45,13 @@ export default class Login extends React.Component<any, any> {
       this.setState({passErr: 'Password too short (min 6 chars)!'});
       return;
     }
+    this.setState({disabled: false})
   }
+
+  enableButton() {}
+  disableButton() {}
+  submitForm() {}
+  notifyFormError() {}
 
   render() {
     return (
@@ -55,30 +67,47 @@ export default class Login extends React.Component<any, any> {
             </Link>
           </div>
           <div className="form">
-            <TextField
-              fullWidth={true}
-              floatingLabelText="E-mail"
-              errorText={this.state.emailErr}
-              onChange={(evt, val) => this.setState({email: val, emailErr: ''})}
-            />
-            <TextField
-              type="password"
-              fullWidth={true}
-              floatingLabelText="Password"
-              errorText={this.state.passErr}
-              onChange={(evt, val) => this.setState({pass: val, passErr: ''})}
-            />
-            <div className="user-remember">
-              <Checkbox
-                onCheck={this.check}
-                checked={this.state.check}
-                label="Remember me"
+            <Form
+              onValid={this.enableButton}
+              onInvalid={this.disableButton}
+              onValidSubmit={this.submitForm}
+              onInvalidSubmit={this.notifyFormError}
+            >
+              <FormsyText
+                name="email"
+                required={true}
+                fullWidth={true}
+                validations="isEmail"
+                floatingLabelText="E-mail"
+                validationError="Wrong e-mail address!"
+                errorText={this.state.emailErr}
+                onChange={(evt, val) => this.setState({email: val, emailErr: ''})}
               />
-            </div>
-            <button className="login" onClick={this.login}>
-              LOG IN
-            </button>
-            <Link to="reset">
+              <FormsyText
+                name="password"
+                type="password"
+                fullWidth={true}
+                floatingLabelText="Password"
+                errorText={this.state.passErr}
+                onChange={(evt, val) => this.setState({pass: val, passErr: ''})}
+              />
+              <div className="user-remember">
+                <FormsyCheckbox
+                  name="remember"
+                  onCheck={this.check}
+                  checked={this.state.check}
+                  label="Remember me"
+                />
+              </div>
+              <button
+                onClick={this.login}
+                className="login"
+                disabled={this.state.disabled}
+              >
+                LOG IN
+              </button>
+            </Form>
+              <Link to="reset">
               <div className="reset">
               Reset your password
               </div>

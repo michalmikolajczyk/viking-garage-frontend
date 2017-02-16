@@ -56,6 +56,8 @@
   },
   "dependencies": {
     "debug": "^2.6.1",
+    "formsy-material-ui": "^0.5.5",
+    "formsy-react": "^0.18.1",
     "material-ui": "^0.16.7",
     "material-ui-superselectfield": "^1.0.0",
     "react": "^15.4.2",
