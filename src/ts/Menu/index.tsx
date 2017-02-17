@@ -26,7 +26,7 @@ export default function MenuVG (props) {
       desktop={true}
     >
       <MenuItem primaryText="Profile" href="/profile" />
-      <MenuItem primaryText="Add offer" href="/add_offer" />
+      <MenuItem primaryText="Add offer" href="/add-offer" />
       <MenuItem primaryText="Deals" href="/deals" />
       <MenuItem primaryText="Messages" href="/messages" />
       <MenuItem primaryText="Account" href="/account" />
@@ -43,8 +43,8 @@ export default function MenuVG (props) {
 
   return (
     <div className="menu">
-      <MenuItem href="/bike_owners" primaryText="Bike Owners" />
-      <MenuItem href="/guides_coaches" primaryText="Guides &amp; Coaches" />
+      <MenuItem href="/bike-owners" primaryText="Bike Owners" />
+      <MenuItem href="/guides-coaches" primaryText="Guides &amp; Coaches" />
       <MenuItem href="/mechanics" primaryText="Mechanics" />
       <MenuItem href="/faq" primaryText="FAQ" />
       {userSection}

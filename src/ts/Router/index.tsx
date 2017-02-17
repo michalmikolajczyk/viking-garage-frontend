@@ -15,8 +15,8 @@ export default function AppRouter(props) {
       <Route path="/detail" component={Detail} />
       <Route path="/signup" component={NotFound} />
       <Route path="/login" component={NotFound} />
-      <Route path="/bike_owners" component={NotFound} />
-      <Route path="/guides_coaches" component={NotFound} />
+      <Route path="/bike-owners" component={NotFound} />
+      <Route path="/guides-coaches" component={NotFound} />
       <Route path="/mechanics" component={NotFound} />
       <Route path="/faq" component={NotFound} />
       <Route path="*" component={NotFound} />
