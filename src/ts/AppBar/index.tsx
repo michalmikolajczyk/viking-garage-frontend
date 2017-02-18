@@ -1,34 +1,22 @@
-import * as React from 'react';
-import { Link } from 'react-router';
-import { AppBar } from 'material-ui';
-import Menu from '../Menu';
+import * as React from 'react'
+import { Link } from 'react-router'
+import { AppBar } from 'material-ui'
+import Menu from '../Menu'
+import Search from '../Search/Location'
 import muiThemeVG from '../muiThemeVG'
+import debug from 'debug'
+var log = debug('app:AppBar')
 
 // Scroll logic based on https://gist.github.com/Warry/4254579
-
-const barStyle = {
-  position: 'fixed',
-  transform: 'translate3d(0,0,0)',
-  MozTransform: 'translate3d(0,0,0)',
-  WebkitTransform: 'translate3d(0,0,0)'
-};
-
-const titleStyle = {
-  fontFamily: 'Junicode',
-  fontSize: 43,
-  color: '#AD000D',
-  padding: '3px 0 0 14px',
-  marginBottom: -3
-};
-
 export default class AppBarVG extends React.Component<any, any> {
+
+  static childContextTypes: any
+
   constructor(props) {
     super(props);
     this.state = {visible: false};
     this.handleScroll = this.handleScroll.bind(this)
   }
-
-  static childContextTypes: any
 
   shouldComponentUpdate() {
     return false;
@@ -62,16 +50,22 @@ export default class AppBarVG extends React.Component<any, any> {
     }
   }
 
+  public search(filter) { log('AppBar search change', filter) }
+
   render() {
     const line = this.state.visible && <div className="app-bar-line"></div>
+    const search = this.state.visible && <Search icon="search" filter={this.search} />
+    const icon = this.state.visible
+      ? <Link className="title border" to="/">&#5809;</Link>
+      : <Link className="title" to="/">&#5809;</Link>
 
     return (
       <AppBar
+        className="app-bar"
         zDepth={0} // switch off box-shadow
-        style={barStyle}
-        title={<Link to="/">&#5809;</Link>}
-        titleStyle={titleStyle}
-        showMenuIconButton={false}
+        title={search}
+        showMenuIconButton={true}
+        iconElementLeft={icon}
         iconElementRight={<Menu />}
       >
         {line}

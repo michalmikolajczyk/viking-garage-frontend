@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  font-weight: 300;
+  .user {
+    display: flex;
+    padding-left: 50px;
+  }
+  .user-profile {
+    margin: 10px 16px 0 150px;
+    .user-image {
+      width: 30px;
+      height: 30px;
+      min-height: 30px !important;
+      background-size: cover !important;
+    }
+  }
+}
