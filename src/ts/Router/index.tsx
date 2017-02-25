@@ -9,6 +9,7 @@ import Detail from '../Detail'
 import NotFound from '../NotFound'
 import Login from '../Login'
 import Signin from '../Signin'
+import Confirm from '../Signin/Confirm'
 
 export default function AppRouter(props) {
   return (
@@ -17,6 +18,7 @@ export default function AppRouter(props) {
       <Route path="/detail" component={Detail} />
       <Route path="/login" component={Login} />
       <Route path="/signin" component={Signin} />
+      <Route path="/confirm*" component={Confirm} />
       <Route path="/bike-owners" component={NotFound} />
       <Route path="/guides-coaches" component={NotFound} />
       <Route path="/mechanics" component={NotFound} />

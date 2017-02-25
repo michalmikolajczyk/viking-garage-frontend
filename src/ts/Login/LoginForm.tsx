@@ -1,6 +1,9 @@
 import * as React from 'react'
+import {
+  browserHistory,
+  Link,
+} from 'react-router'
 import { Form } from 'formsy-react'
-import { Link } from 'react-router'
 import {
   FormsyCheckbox,
   FormsyText,
@@ -8,7 +11,7 @@ import {
 import LoginDialog from './LoginDialog'
 import { login } from './api'
 import debug from 'debug'
-var log = debug('app:Login')
+let log = debug('app:Login')
 
 export default class LoginForm extends React.Component<any, any> {
 
@@ -24,16 +27,13 @@ export default class LoginForm extends React.Component<any, any> {
   submit(user) {
     login(user)
     .then(res => {
-      if (res['error']) {
+      if (res['err']) {
         this.setState({openDialog: true})
       } else {
-        log('login success!')
+        browserHistory.goBack()
       }
     })
-    .catch(err => {
-      console.log(err)
-      this.setState({openDialog: true})
-    })
+    .catch(err => log(`Login network error ${err}`))
   }
 
   render() {

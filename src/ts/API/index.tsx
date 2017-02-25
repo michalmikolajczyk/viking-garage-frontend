@@ -1,9 +1,11 @@
 let url = 'http://localhost:4000'
 
 const API = {
-  login: `${url}/auth/login`,
-  signin: `${url}/auth/signin`,
-  auth_test: `${url})/test`,
+  login: `${url}/user/login`,
+  signin: `${url}/user/signin`,
+  verify: `${url}/user/verify`,
+  auth_test: `${url})/user/check`,
+  resend: `${url}/user/resend`,
 }
 
 export default API

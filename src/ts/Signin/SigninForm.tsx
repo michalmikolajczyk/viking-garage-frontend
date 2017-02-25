@@ -1,6 +1,9 @@
 import * as React from 'react'
+import {
+  browserHistory,
+  Link,
+} from 'react-router'
 import { Form } from 'formsy-react'
-import { Link } from 'react-router'
 import {
   FormsyCheckbox,
   FormsyDate,
@@ -9,7 +12,7 @@ import {
 import SigninDialog from './SigninDialog'
 import { signin } from './api'
 import debug from 'debug'
-var log = debug('app:Login')
+let log = debug('app:Signin')
 
 export default class SiginForm extends React.Component<any, any> {
 
@@ -23,18 +26,15 @@ export default class SiginForm extends React.Component<any, any> {
   }
 
   submit(user) {
-    console.log(user)
     signin(user)
     .then(res => {
-      if (res['error']) {
+      if (res['err']) {
         this.setState({openDialog: true})
       } else {
-        log('user signup success')
+        browserHistory.push(`/confirm?email=${user.email}`)
       }
     })
-    .catch(err => {
-      log('signup error', err)
-    })
+    .catch(err => log(`Signup network error ${err}`))
   }
 
   render() {
@@ -46,7 +46,7 @@ export default class SiginForm extends React.Component<any, any> {
       >
         <FormsyText
           name="name"
-          value=""
+          value="Viking Garage"
           required={true}
           fullWidth={true}
           floatingLabelText="Full Name"
@@ -55,7 +55,7 @@ export default class SiginForm extends React.Component<any, any> {
         />
         <FormsyText
           name="email"
-          value=""
+          value="vikig.garage.app+1@gmail.com"
           required={true}
           fullWidth={true}
           floatingLabelText="E-mail"
@@ -71,7 +71,7 @@ export default class SiginForm extends React.Component<any, any> {
         <FormsyText
           name="password1"
           type="password"
-          value=""
+          value="secret"
           required={true}
           fullWidth={true}
           floatingLabelText="Password"
@@ -81,7 +81,7 @@ export default class SiginForm extends React.Component<any, any> {
         <FormsyText
           name="password2"
           type="password"
-          value=""
+          value="secret"
           required={true}
           fullWidth={true}
           floatingLabelText="Repeat Password"

@@ -34,7 +34,7 @@ export default function SigninDialog(props) {
       title="Invalid e-mail"
       actions={actions}
     >
-      User with provided e-mail already exists, provide other e-mail or reset password.
+      User with provided e-mail already exists, provide other e-mail or reset the password.
     </Dialog>
   )
 }

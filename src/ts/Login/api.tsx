@@ -1,7 +1,7 @@
 import API from '../API'
 
-const login = (data) => (
-  fetch(API.login, {
+export function login(data) {
+ return fetch(API.login, {
     credentials: 'include',
     method: 'POST',
     headers: {
@@ -10,16 +10,11 @@ const login = (data) => (
     body: JSON.stringify(data)
   })
   .then(res => res.json())
-)
+}
 
-const test = () => (
-  fetch(API.auth_test, {
+export function test() {
+  return fetch(API.auth_test, {
     credentials: 'include'
   })
   .then(res => res.json())
-)
-
-export {
-  login,
-  test,
 }

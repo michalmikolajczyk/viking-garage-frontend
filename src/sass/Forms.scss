@@ -4,15 +4,17 @@
   padding-bottom: 100px;
   .title {
     font-weight: 300;
-    font-size: 50px;
-    margin-bottom: 25px;
+    font-size: 55px;
+    margin: 28px 0 49px;
   }
   .title-sub {
     font-size: 20px;
     font-weight: 200;
+    letter-spacing: 0.1px;
   }
   .title-btn {
     text-decoration: underline;
+    cursor: pointer;
   }
   .inputs {
     width: 330px;

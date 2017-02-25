@@ -1,7 +1,7 @@
 import API from '../API'
 
-const signin = (data) => (
-  fetch(API.signin, {
+export function signin(data) {
+  return fetch(API.signin, {
     credentials: 'include',
     method: 'POST',
     headers: {
@@ -10,8 +10,11 @@ const signin = (data) => (
     body: JSON.stringify(data)
   })
   .then(res => res.json())
-)
+}
 
-export {
-  signin,
+export function resend(email: string) {
+  return fetch(API.resend, {
+
+  })
+  .then(res => res.json())
 }

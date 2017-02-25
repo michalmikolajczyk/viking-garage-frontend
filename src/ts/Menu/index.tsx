@@ -7,7 +7,7 @@ import {
 
 export default function MenuVG (props) {
 
-  const user = true
+  const user = false
 
   const userImage = "https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg"
 
@@ -35,7 +35,7 @@ export default function MenuVG (props) {
     </IconMenu>
   ) : (
     <div className="user">
-      <MenuItem href="/signup" primaryText="Sign up" />
+      <MenuItem href="/signin" primaryText="Sign in" />
       <MenuItem href="/login" primaryText="Log in" />
     </div>
   )
