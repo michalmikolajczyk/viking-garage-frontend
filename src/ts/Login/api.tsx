@@ -12,6 +12,13 @@ export function login(data) {
   .then(res => res.json())
 }
 
+export function reset(data) {
+  return fetch(API.reset, {
+
+  })
+  .then(res => res.json())
+}
+
 export function test() {
   return fetch(API.auth_test, {
     credentials: 'include'

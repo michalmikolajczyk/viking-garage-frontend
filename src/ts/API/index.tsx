@@ -6,6 +6,7 @@ const API = {
   verify: `${url}/user/verify`,
   auth_test: `${url})/user/check`,
   resend: `${url}/user/resend`,
+  reset: `${url}/user/reset`,
 }
 
 export default API

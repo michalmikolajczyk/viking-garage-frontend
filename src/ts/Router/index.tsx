@@ -8,6 +8,8 @@ import Offers from '../Offers'
 import Detail from '../Detail'
 import NotFound from '../NotFound'
 import Login from '../Login'
+import Check from '../Login/Check'
+import Reset from '../Login/Reset'
 import Signin from '../Signin'
 import Confirm from '../Signin/Confirm'
 
@@ -17,6 +19,8 @@ export default function AppRouter(props) {
       <Route path="/" component={Offers} />
       <Route path="/detail" component={Detail} />
       <Route path="/login" component={Login} />
+      <Route path="/check" component={Check} />
+      <Route path="/reset" component={Reset} />
       <Route path="/signin" component={Signin} />
       <Route path="/confirm*" component={Confirm} />
       <Route path="/bike-owners" component={NotFound} />

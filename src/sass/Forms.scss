@@ -8,9 +8,10 @@
     margin: 28px 0 49px;
   }
   .title-sub {
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 200;
-    letter-spacing: 0.1px;
+    line-height: 27px;
+    letter-spacing: 0.15px;
   }
   .title-btn {
     text-decoration: underline;
@@ -19,6 +20,9 @@
   .inputs {
     width: 330px;
     margin: auto;
+    .reset {
+      padding: 97px 0 81px 0;
+    }
     .checkbox {
       text-align: left;
       margin: 25px 0;
