@@ -10,6 +10,7 @@ import {
   FormsyText,
 } from 'formsy-material-ui/lib'
 import SigninDialog from './SigninDialog'
+import NetworkError from '../Dialogs/NetworkError'
 import { signin } from './api'
 import debug from 'debug'
 let log = debug('app:Signin')
@@ -21,6 +22,7 @@ export default class SiginForm extends React.Component<any, any> {
     this.state = {
       canSubmit: false,
       openDialog: false,
+      networkErr: false,
     }
     this.submit = this.submit.bind(this)
   }
@@ -34,7 +36,9 @@ export default class SiginForm extends React.Component<any, any> {
         browserHistory.push(`/confirm?email=${user.email}`)
       }
     })
-    .catch(err => log(`Signup network error ${err}`))
+    .catch(err => {
+      this.setState({networkErr: true})
+    })
   }
 
   render() {
@@ -107,6 +111,10 @@ export default class SiginForm extends React.Component<any, any> {
         <SigninDialog
           open={this.state.openDialog}
           close={() => this.setState({openDialog: false})}
+        />
+        <NetworkError
+          open={this.state.networkErr}
+          close={() => this.setState({networkErr: false})}
         />
       </Form>
     )

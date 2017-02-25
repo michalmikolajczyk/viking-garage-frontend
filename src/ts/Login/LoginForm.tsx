@@ -9,6 +9,7 @@ import {
   FormsyText,
 } from 'formsy-material-ui/lib'
 import LoginDialog from './LoginDialog'
+import NetworkError from '../Dialogs/NetworkError'
 import { login } from './api'
 import debug from 'debug'
 let log = debug('app:Login')
@@ -20,6 +21,7 @@ export default class LoginForm extends React.Component<any, any> {
     this.state = {
       canSubmit: false,
       openDialog: false,
+      networkErr: false,
     }
     this.submit = this.submit.bind(this)
   }
@@ -33,7 +35,9 @@ export default class LoginForm extends React.Component<any, any> {
         browserHistory.goBack()
       }
     })
-    .catch(err => log(`Login network error ${err}`))
+    .catch(err => {
+      this.setState({networkErr: true})
+    })
   }
 
   render() {
@@ -78,6 +82,10 @@ export default class LoginForm extends React.Component<any, any> {
         <LoginDialog
           open={this.state.openDialog}
           close={() => this.setState({openDialog: false})}
+        />
+        <NetworkError
+          open={this.state.networkErr}
+          close={() => this.setState({networkErr: false})}
         />
       </Form>
     )
