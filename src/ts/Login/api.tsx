@@ -19,6 +19,18 @@ export function reset(data) {
   .then(res => res.json())
 }
 
+export function change(data) {
+  return fetch(API.change, {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+}
+
 export function test() {
   return fetch(API.auth_test, {
     credentials: 'include'
