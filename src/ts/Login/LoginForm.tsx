@@ -1,8 +1,5 @@
 import * as React from 'react'
-import {
-  browserHistory,
-  Link,
-} from 'react-router'
+import { browserHistory } from 'react-router'
 import { Form } from 'formsy-react'
 import {
   FormsyCheckbox,
