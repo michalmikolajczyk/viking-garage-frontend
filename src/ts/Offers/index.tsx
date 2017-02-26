@@ -1,9 +1,13 @@
-import * as React from 'react';
-import Container from '../Container';
-import Search from '../Search';
-import OffersList from './OffersList';
-import debug from 'debug';
-var log = debug('app:Offers');
+import * as React from 'react'
+import Container from '../Container'
+import Search from '../Search'
+import OffersList from './OffersList'
+import NetworkError from '../Dialogs/NetworkError'
+import VerifyError from './VerifyError'
+import VerifySuccess from './VerifySuccess'
+import { verify } from './api'
+import debug from 'debug'
+let log = debug('app:Offers')
 
 const request = (url) => (
   new Promise((res, rej) => {
@@ -96,12 +100,32 @@ export default class Offers extends React.Component<any, any> {
     this.state = {
       data: [],
       loading: true,
+      networkErr: false,
+      verifyError: false,
+      verifySuccess: false,
     }
-    this.loadMore = this.loadMore.bind(this);
+    this.loadMore = this.loadMore.bind(this)
+    this.verifyAccount = this.verifyAccount.bind(this)
   }
 
   componentDidMount() {
-    this.loadMore();
+    this.loadMore()
+    if (this.props.params.token) {
+      this.verifyAccount()
+    }
+  }
+
+  verifyAccount() {
+    let token = this.props.params.token
+    verify({token})
+    .then(res => {
+      if (res['err']) {
+        this.setState({verifyError: true})
+      } else {
+        this.setState({verifySuccess: true})
+      }
+    })
+    .catch(err => this.setState({networkErr: true}))
   }
 
   public loadMore() {
@@ -134,6 +158,18 @@ export default class Offers extends React.Component<any, any> {
           data={this.state.data}
           loading={this.state.loading}
           loadMore={this.loadMore}
+        />
+        <VerifyError
+          open={this.state.verifyError}
+          close={() => this.setState({verifyError: false})}
+        />
+        <VerifySuccess
+          open={this.state.verifySuccess}
+          close={() => this.setState({verifySuccess: false})}
+        />
+        <NetworkError
+          open={this.state.networkErr}
+          close={() => this.setState({networkErr: false})}
         />
       </Container>
     );

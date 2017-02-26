@@ -19,8 +19,9 @@ export default class Reset extends React.Component<any, any> {
     this.submit = this.submit.bind(this)
   }
 
-  submit(user) {
-    reset(user)
+  submit(email) {
+    this.setState({canSubmit: false})
+    reset(email)
     .then(res => {
       if (res['err']) {
         this.setState({openDialog: true})
@@ -52,7 +53,7 @@ export default class Reset extends React.Component<any, any> {
               <div className="reset">
                 <FormsyText
                   name="email"
-                  value=""
+                  value="viking.garage.app@gmail.com"
                   required={true}
                   fullWidth={true}
                   validations="isEmail"

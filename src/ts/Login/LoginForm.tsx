@@ -27,12 +27,13 @@ export default class LoginForm extends React.Component<any, any> {
   }
 
   submit(user) {
+    this.setState({canSubmit: false})
     login(user)
     .then(res => {
       if (res['err']) {
         this.setState({openDialog: true})
       } else {
-        browserHistory.goBack()
+        browserHistory.push('/')
       }
     })
     .catch(err => {
@@ -49,7 +50,7 @@ export default class LoginForm extends React.Component<any, any> {
       >
         <FormsyText
           name="email"
-          value="viking@garage.com"
+          value="viking.garage.app@gmail.com"
           required={true}
           fullWidth={true}
           validations="isEmail"

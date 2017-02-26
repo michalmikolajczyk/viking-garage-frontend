@@ -1,7 +1,7 @@
 import API from '../API'
 
 export function login(data) {
- return fetch(API.login, {
+  return fetch(API.login, {
     credentials: 'include',
     method: 'POST',
     headers: {
@@ -14,7 +14,12 @@ export function login(data) {
 
 export function reset(data) {
   return fetch(API.reset, {
-
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
   })
   .then(res => res.json())
 }
@@ -31,8 +36,8 @@ export function change(data) {
   .then(res => res.json())
 }
 
-export function test() {
-  return fetch(API.auth_test, {
+export function check() {
+  return fetch(API.check, {
     credentials: 'include'
   })
   .then(res => res.json())

@@ -1,13 +1,15 @@
 let url = 'http://localhost:4000'
 
 const API = {
+  change: `${url}/user/change`,
+  check: `${url})/user/check`,
   login: `${url}/user/login`,
-  signin: `${url}/user/signin`,
-  verify: `${url}/user/verify`,
-  auth_test: `${url})/user/check`,
+  logout: `${url}/user/logout`,
+  me: `${url}/me`,
   resend: `${url}/user/resend`,
   reset: `${url}/user/reset`,
-  change: `${url}/user/change`,
+  signin: `${url}/user/signin`,
+  verify: `${url}/user/verify`,
 }
 
 export default API

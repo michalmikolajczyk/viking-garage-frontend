@@ -20,11 +20,12 @@ export default function AppRouter(props) {
       <Route path="/" component={Offers} />
       <Route path="/detail" component={Detail} />
       <Route path="/login" component={Login} />
-      <Route path="/check" component={Check} />
       <Route path="/reset" component={Reset} />
-      <Route path="/signin" component={Signin} />
-      <Route path="/change/:token" component={Change} />
       <Route path="/confirm/:email" component={Confirm} />
+      <Route path="/change/:token" component={Change} />
+      <Route path="/signin" component={Signin} />
+      <Route path="/check" component={Check} />
+      <Route path="/verify/:token" component={Offers} />
       <Route path="/bike-owners" component={NotFound} />
       <Route path="/guides-coaches" component={NotFound} />
       <Route path="/mechanics" component={NotFound} />

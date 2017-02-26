@@ -28,12 +28,13 @@ export default class SiginForm extends React.Component<any, any> {
   }
 
   submit(user) {
+    this.setState({canSubmit: false})
     signin(user)
     .then(res => {
       if (res['err']) {
         this.setState({openDialog: true})
       } else {
-        browserHistory.push(`/confirm?email=${user.email}`)
+        browserHistory.push(`/confirm/{user.email}`)
       }
     })
     .catch(err => {
@@ -106,7 +107,7 @@ export default class SiginForm extends React.Component<any, any> {
           className="submit"
           disabled={!this.state.canSubmit}
         >
-          SIGN UP
+          SIGN IN
         </button>
         <SigninDialog
           open={this.state.openDialog}

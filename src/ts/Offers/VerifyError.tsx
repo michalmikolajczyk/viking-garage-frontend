@@ -4,7 +4,7 @@ import {
   FlatButton,
 } from 'material-ui'
 
-export default function SigninDialog(props) {
+export default function ChangeError(props) {
 
   const {
     open,
@@ -14,8 +14,8 @@ export default function SigninDialog(props) {
   const actions = [
     <div className="float-left">
       <FlatButton
-        href="/login"
-        label="Login"
+        href="/signin"
+        label="Create new account"
         primary={true}
       />
     </div>,
@@ -31,10 +31,10 @@ export default function SigninDialog(props) {
     <Dialog
       open={open}
       contentStyle={{maxWidth: 650}}
-      title="Invalid e-mail"
+      title="Confirmation Link Invalid"
       actions={actions}
     >
-      That e-mail address is already registered. Please <a href="/login" className="link">log in</a> or use another e-mail address.
+      The confirmation link was invalid. Please try again to <a href="/signin" className="link">create account</a>, or contact us at <a href="mailto:support@vikinggarage.com" className="link">support@vikinggarage.com</a>.
     </Dialog>
   )
 }

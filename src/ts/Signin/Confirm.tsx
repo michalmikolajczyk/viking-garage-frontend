@@ -8,7 +8,7 @@ let log = debug('app:Confirm')
 export default function Confirm(props) {
 
   function resendEmail() {
-    let email = location.search.split('?email=')[1]
+    let email = props.params.email
     resend(email)
     .then(res => log(`Email resend successfully ${res}`))
     .catch(err => log(`Email resend error ${err}`))
