@@ -31,7 +31,7 @@ export default class SiginForm extends React.Component<any, any> {
       if (res['err']) {
         this.setState({openDialog: true})
       } else {
-        browserHistory.push(`/confirm/{user.email}`)
+        browserHistory.push(`/confirm/${user.email}`)
       }
     })
     .catch(err => {

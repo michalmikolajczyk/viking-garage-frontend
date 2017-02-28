@@ -30,6 +30,10 @@ export default class LoginForm extends React.Component<any, any> {
       if (res['err']) {
         this.setState({openDialog: true})
       } else {
+        let token = res['token']
+        let user = res['user']
+        localStorage.setItem('jwt', token)
+        localStorage.setItem('user', user)
         browserHistory.push('/')
       }
     })

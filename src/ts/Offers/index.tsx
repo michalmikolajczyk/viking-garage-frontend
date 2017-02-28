@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { browserHistory } from 'react-router'
 import Container from '../Container'
 import Search from '../Search'
 import OffersList from './OffersList'
@@ -122,6 +123,10 @@ export default class Offers extends React.Component<any, any> {
       if (res['err']) {
         this.setState({verifyError: true})
       } else {
+        let token = res['token']
+        let user = res['user']
+        localStorage.setItem('jwt', token)
+        localStorage.setItem('user', user)
         this.setState({verifySuccess: true})
       }
     })
@@ -165,7 +170,7 @@ export default class Offers extends React.Component<any, any> {
         />
         <VerifySuccess
           open={this.state.verifySuccess}
-          close={() => this.setState({verifySuccess: false})}
+          close={() => {this.setState({verifySuccess: false}); browserHistory.push('/')}}
         />
         <NetworkError
           open={this.state.networkErr}

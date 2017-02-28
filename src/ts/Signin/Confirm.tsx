@@ -9,7 +9,7 @@ export default function Confirm(props) {
 
   function resendEmail() {
     let email = props.params.email
-    resend(email)
+    resend({email})
     .then(res => log(`Email resend successfully ${res}`))
     .catch(err => log(`Email resend error ${err}`))
   }

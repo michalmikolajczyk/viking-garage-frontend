@@ -2,7 +2,6 @@ import API from '../API'
 
 export function signin(data) {
   return fetch(API.signin, {
-    credentials: 'include',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -12,9 +11,13 @@ export function signin(data) {
   .then(res => res.json())
 }
 
-export function resend(email: string) {
+export function resend(data) {
   return fetch(API.resend, {
-
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
   })
   .then(res => res.json())
 }

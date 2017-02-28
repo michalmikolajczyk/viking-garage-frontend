@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { browserHistory } from 'react-router'
 import {
   Divider,
   IconMenu,
@@ -7,8 +8,14 @@ import {
 
 export default function MenuVG (props) {
 
-  const user = false
+  function logout() {
+    localStorage.removeItem('jwt')
+    localStorage.removeItem('user')
+    props.update()
+    browserHistory.push('/')
+  }
 
+  const user = localStorage.getItem('user')
   const userImage = "https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg"
 
   const iconButtonElement = (
@@ -31,7 +38,7 @@ export default function MenuVG (props) {
       <MenuItem primaryText="Messages" href="/messages" />
       <MenuItem primaryText="Account" href="/account" />
       <Divider />
-      <MenuItem primaryText="Log out" href="/logout" />
+      <MenuItem primaryText="Log out" onClick={logout} />
     </IconMenu>
   ) : (
     <div className="user">

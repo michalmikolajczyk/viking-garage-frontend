@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import Container from '../Container'
 import SigninForm from './SigninForm'
 
-export default function Login(props) {
+export default function Signin(props) {
   return (
     <Container className="cont">
       <div className="form">
