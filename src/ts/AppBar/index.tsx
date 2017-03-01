@@ -66,7 +66,7 @@ export default class AppBarVG extends React.Component<any, any> {
         title={search}
         showMenuIconButton={true}
         iconElementLeft={icon}
-        iconElementRight={<Menu />}
+        iconElementRight={<Menu update={() => this.forceUpdate()} />}
       >
         {line}
       </AppBar>);

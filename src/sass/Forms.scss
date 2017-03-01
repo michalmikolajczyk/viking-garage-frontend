@@ -1,0 +1,49 @@
+.form {
+  text-align: center;
+  width: 100%;
+  padding-bottom: 100px;
+  .title {
+    font-weight: 300;
+    font-size: 55px;
+    margin: 28px 0 49px;
+  }
+  .title-sub {
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 27px;
+    letter-spacing: 0.15px;
+  }
+  .title-btn {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .inputs {
+    width: 330px;
+    margin: auto;
+    .reset {
+      padding: 97px 0 81px 0;
+    }
+    .checkbox {
+      text-align: left;
+      margin: 25px 0;
+    }
+    .submit {
+      width: 100%;
+      padding: 20px !important;
+      display: block;
+      font-size: 23px;
+      border: 1px solid black;
+      border-radius: 3px;
+      &:disabled {
+        color: #979797;
+        border: 1px solid #C8C8C8;
+      }
+    }
+  }
+  .foot-btn {
+    display: block;
+    text-align: left;
+    font-weight: 300;
+    padding: 30px 10px 0;
+  }
+}

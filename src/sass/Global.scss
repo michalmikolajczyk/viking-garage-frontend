@@ -35,10 +35,18 @@ body {
   outline : 0 !important;
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 button {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   cursor: pointer !important;
-  padding: 0 !important;
+  padding: 0;
+  background: transparent;
+  &:disabled {
+    cursor: not-allowed !important;
+  }
 }
 
 a {
@@ -50,6 +58,10 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.link {
+  text-decoration: underline;
 }
 
 .cont {
@@ -72,4 +84,8 @@ ul {
 
 .inline {
   display: inline-block;
+}
+
+.float-left {
+  float: left;
 }

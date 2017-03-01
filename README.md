@@ -14,7 +14,6 @@ Add in the root directory file `config.js` with an API keys:
 var config = {
   GOOGLE_MAP_API: 'AIzaSyCdqKWZgAE65hVV89OmGEfeNTQkOB9EXM8'
 }
-
 ```
 
 ### Debug
