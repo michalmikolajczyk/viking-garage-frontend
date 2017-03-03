@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FontIcon } from 'material-ui';
-import * as SuperSelect from 'material-ui-superselectfield';
+import { default as SuperSelect } from 'material-ui-superselectfield';
 
 export default class Select extends React.Component<any, any> {
 

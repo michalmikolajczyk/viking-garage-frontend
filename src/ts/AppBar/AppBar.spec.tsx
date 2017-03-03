@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import * as AppBarVG from './index';
+import { default as AppBarVG } from './index';
 import * as sinon from 'sinon';
 
 describe('<AppBarVG />', () => {

@@ -35,12 +35,12 @@ if (module.hot) {
   module.hot.accept('./App', () => {
     // If we receive a HMR request for our App container,
     // then reload it using require (we can't do this dynamically with import)
-    const nextApp = require('./App').default;
+    const NextApp = require('./App').default;
 
     // And render it into the root element again
     render(
       <AppContainer>
-         <nextApp />
+         <NextApp />
       </AppContainer>,
       rootEl,
     );

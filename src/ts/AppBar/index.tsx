@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router';
 import { AppBar } from 'material-ui';
 import Menu from '../Menu';
-import * as Search from '../Search/Location';
+import { default as Search } from '../Search/Location';
 import muiThemeVG from '../muiThemeVG';
 import debug from 'debug';
 const log = debug('app:AppBar');

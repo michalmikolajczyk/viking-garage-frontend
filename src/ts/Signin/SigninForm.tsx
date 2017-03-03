@@ -55,7 +55,7 @@ export default class SiginForm extends React.Component<any, any> {
         />
         <FormsyText
           name="email"
-          placeholder="user@host.domain"
+          value="user@host.domain"
           required={true}
           fullWidth={true}
           floatingLabelText="E-mail"

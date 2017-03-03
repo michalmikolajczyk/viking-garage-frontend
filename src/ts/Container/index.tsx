@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router';
-import * as AppBarVG from '../AppBar';
+import { default as AppBarVG } from '../AppBar';
 import Footer from '../Footer';
 import Header from '../Header';
 
