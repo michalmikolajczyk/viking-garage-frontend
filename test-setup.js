@@ -5,21 +5,21 @@ var jsdom = require('jsdom').jsdom;
 global.document = jsdom('');
 global.window = document.defaultView;
 Object.keys(document.defaultView).forEach((property) => {
-    if (typeof global[property] === 'undefined') {
-        global[property] = document.defaultView[property];
-    }
+  if (typeof global[property] === 'undefined') {
+    global[property] = document.defaultView[property];
+  }
 });
 
 
 global.window.requestAnimationFrame = callback => {
-    global.window.setTimeout(callback, 1000 / 60);
+  global.window.setTimeout(callback, 1000 / 60);
 };
 
 global.window.localStorage = global.localStorage = {
-    getItem: () => {},
-    removeItem: () => {},
+  getItem: () => {},
+  removeItem: () => {},
 }
 
 global.navigator = {
-    userAgent: 'node.js'
+  userAgent: 'node.js'
 }
