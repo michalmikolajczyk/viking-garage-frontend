@@ -17,7 +17,7 @@ global.window.requestAnimationFrame = callback => {
 
 global.window.localStorage = global.localStorage = {
     getItem: () => {},
-    removeItem: () => {}
+    removeItem: () => {},
 }
 
 global.navigator = {
