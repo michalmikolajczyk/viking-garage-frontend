@@ -1,15 +1,14 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
   Dialog,
   FlatButton,
-} from 'material-ui'
+} from 'material-ui';
 
 export default function SigninDialog(props) {
-
   const {
     open,
     close,
-  } = props
+  } = props;
 
   const actions = [
     <div className="float-left">
@@ -25,16 +24,17 @@ export default function SigninDialog(props) {
       keyboardFocused={true}
       onTouchTap={close}
     />,
-  ]
+  ];
 
   return (
     <Dialog
       open={open}
-      contentStyle={{maxWidth: 650}}
+      contentStyle={{ maxWidth: 650 }}
       title="Invalid e-mail"
       actions={actions}
     >
-      That e-mail address is already registered. Please <a href="/login" className="link">log in</a> or use another e-mail address.
+      That e-mail address is already registered.&#160;
+      Please <a href="/login" className="link">log in</a> or use another e-mail address.
     </Dialog>
-  )
+  );
 }

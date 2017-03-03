@@ -8,12 +8,12 @@ export default class DateVG extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
-    let now = new Date()
+    const now = new Date();
     this.state = {
       startDate: now,
       // get a two weeks forward
       endDate: new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000),
-    }
+    };
     this.onChangeStart = this.onChangeStart.bind(this);
     this.onChangeEnd = this.onChangeEnd.bind(this);
   }
@@ -22,16 +22,16 @@ export default class DateVG extends React.Component<any, any> {
     this.props.filter({
       startDate: this.state.startDate,
       endDate: this.state.endDate,
-    })
+    });
   }
 
   public onChangeStart(event, date) {
-    this.setState({startDate: date});
+    this.setState({ startDate: date });
     this.updateFilter();
   }
 
   public onChangeEnd(event, date) {
-    this.setState({endDate: date});
+    this.setState({ endDate: date });
     this.updateFilter();
   }
 

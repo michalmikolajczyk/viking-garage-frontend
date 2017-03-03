@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FontIcon } from 'material-ui';
-import SuperSelect from 'material-ui-superselectfield';
+import * as SuperSelect from 'material-ui-superselectfield';
 
 export default class Select extends React.Component<any, any> {
 
@@ -9,7 +9,7 @@ export default class Select extends React.Component<any, any> {
   constructor(props) {
     super(props);
     // select keeps values chosen by user
-    this.state = {select: []};
+    this.state = { select: [] };
     // creation of option from selectItems
     this.createSelect(props.selectItems);
     this.onChange = this.onChange.bind(this);
@@ -25,49 +25,49 @@ export default class Select extends React.Component<any, any> {
           className="select-item"
         >
           {value}
-        </div>)
+        </div>),
       )
-    )
+    );
 
     this.selectItems = items.map((item, index) => (
         <optgroup key={index} label={item.group}>
           {createGroup(item.value, item.group)}
         </optgroup>
-      )
-    )
+      ),
+    );
   }
 
   public updateFilter(values) {
     const filters = [];
-    values.map(({value, label}) => {
+    values.map(({ value, label }) => {
       let exists = false;
-      let group = value.split(label)[0];
-      filters.map(filtr => {
+      const group = value.split(label)[0];
+      filters.map((filtr) => {
         if (filtr.group === group) {
-          filtr.value.push(label)
-          exists = true
+          filtr.value.push(label);
+          exists = true;
         }
-      })
+      });
       if (!exists) {
         filters.push({
-          group: group,
-          value: [label]
-        })
+          group,
+          value: [label],
+        });
       }
-    })
+    });
     this.props.filter(filters);
   }
 
   public onChange(values, name) {
-    this.setState({select: values});
+    this.setState({ select: values });
     this.updateFilter(values);
   }
 
   public selectionRenderer(val) {
     // rerender values displayed in the input
     return val.length
-      ? <div className="selected">{val.map(({_, label}) => label).join(', ')}</div>
-      :  <div className="selected empty">Dirtbike</div>
+      ? <div className="selected">{val.map(({ _, label }) => label).join(', ')}</div>
+      :  <div className="selected empty">Dirtbike</div>;
   }
 
   render() {
@@ -86,6 +86,7 @@ export default class Select extends React.Component<any, any> {
             {this.selectItems}
           </SuperSelect>
         </div>
-      </div>);
+      </div>
+    );
   }
 }
