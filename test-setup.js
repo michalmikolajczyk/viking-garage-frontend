@@ -15,6 +15,11 @@ global.window.requestAnimationFrame = callback => {
   global.window.setTimeout(callback, 1000 / 60);
 };
 
+global.window.localStorage = global.localStorage = {
+  getItem: () => {},
+  removeItem: () => {},
+}
+
 global.navigator = {
   userAgent: 'node.js'
-};
+}

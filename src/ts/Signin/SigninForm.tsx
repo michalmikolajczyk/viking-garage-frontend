@@ -27,16 +27,14 @@ export default class SiginForm extends React.Component<any, any> {
   submit(user) {
     this.setState({canSubmit: false})
     signin(user)
-    .then(res => {
-      if (res['err']) {
-        this.setState({openDialog: true})
-      } else {
-        browserHistory.push(`/confirm/${user.email}`)
-      }
-    })
-    .catch(err => {
-      this.setState({networkErr: true})
-    })
+      .then(res => {
+        if (res['err']) {
+          this.setState({openDialog: true})
+        } else {
+          browserHistory.push(`/confirm/${user.email}`)
+        }
+      })
+      .catch(err => this.setState({networkErr: true}))
   }
 
   render() {
@@ -57,7 +55,7 @@ export default class SiginForm extends React.Component<any, any> {
         />
         <FormsyText
           name="email"
-          value="vikig.garage.app+1@gmail.com"
+          placeholder="user@host.domain"
           required={true}
           fullWidth={true}
           floatingLabelText="E-mail"
