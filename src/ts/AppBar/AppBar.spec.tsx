@@ -10,8 +10,7 @@ const expect = chai.expect;
 chai.use(sinonChai);
 
 describe('<AppBarVG />', () => {
-
-  it('calls componentDidMount', () => {
+  it('check if component is mounted', () => {
     const wrapper = mount(<AppBarVG />);
     expect(wrapper.find('AppBar')).to.have.length(1);
   });
@@ -41,5 +40,4 @@ describe('<AppBarVG />', () => {
     expect(wrapper.find('.app-bar-line')).to.have.length(1);
     expect(wrapper.find('.filter')).to.have.length(1);
   });
-
 });
