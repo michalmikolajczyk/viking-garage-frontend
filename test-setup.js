@@ -10,6 +10,7 @@ Object.keys(document.defaultView).forEach((property) => {
   }
 });
 
+global.window.fetch = require('whatwg-fetch');
 
 global.window.requestAnimationFrame = callback => {
   global.window.setTimeout(callback, 1000 / 60);
@@ -33,3 +34,7 @@ global.navigator = {
 }
 
 global.config = require('./config')
+
+// for material-ui event handler
+var injectTapEventPlugin = require('react-tap-event-plugin');
+injectTapEventPlugin();
