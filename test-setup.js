@@ -20,6 +20,16 @@ global.window.localStorage = global.localStorage = {
   removeItem: () => {},
 }
 
+global.window.scrollY = 0;
+global.window.scrollX = 0;
+
+global.window.scrollTo = (x, y) => {
+  global.window.scrollX = x;
+  global.window.scrollY = y;
+}
+
 global.navigator = {
   userAgent: 'node.js'
 }
+
+global.config = require('./config')
