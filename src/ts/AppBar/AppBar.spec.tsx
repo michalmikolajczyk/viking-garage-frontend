@@ -24,18 +24,22 @@ describe('<AppBarVG />', () => {
     expect(wrapper.find({ href: '/login'})).to.have.length(1);
   });
 
-  it('check if scrollY > 0 show up line', () => {
+  it('check if scrollY > 0 show up bottom line & search', () => {
     const wrapper = mount(<AppBarVG />);
     expect(wrapper.state()['visible']).to.be.false;
     expect(wrapper.find('.app-bar-line')).to.have.length(0);
+    expect(wrapper.find('.filter')).to.have.length(0);
+
     window.scrollTo(0, 100);
     const instance = wrapper.instance();
     const handleScroll = sinon.spy(instance, 'handleScroll');
     instance['handleScroll']();
     wrapper.update();
+
     expect(handleScroll).to.have.been.called;
     expect(wrapper.state()['visible']).to.be.true;
     expect(wrapper.find('.app-bar-line')).to.have.length(1);
+    expect(wrapper.find('.filter')).to.have.length(1);
   });
 
 });
