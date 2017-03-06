@@ -1,17 +1,17 @@
-import * as React from 'react'
-import { Link } from 'react-router'
-import Container from '../Container'
-import { resend } from './api'
-import debug from 'debug'
-let log = debug('app:Confirm')
+import * as React from 'react';
+import { Link } from 'react-router';
+import Container from '../Container';
+import { resend } from './api';
+import debug from 'debug';
+const log = debug('app:Confirm');
 
 export default function Confirm(props) {
 
   function resendEmail() {
-    let email = props.params.email
-    resend({email})
-    .then(res => log(`Email resend successfully ${res}`))
-    .catch(err => log(`Email resend error ${err}`))
+    const email = props.params.email;
+    resend({ email })
+      .then(res => log(`Email resend successfully ${res}`))
+      .catch(err => log(`Email resend error ${err}`));
   }
 
   return (
@@ -42,5 +42,5 @@ export default function Confirm(props) {
         </div>
       </div>
     </Container>
-  )
+  );
 }

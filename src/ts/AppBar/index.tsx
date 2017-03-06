@@ -1,18 +1,18 @@
-import * as React from 'react'
-import { Link } from 'react-router'
-import { AppBar } from 'material-ui'
-import Menu from '../Menu'
-import Search from '../Search/Location'
-import debug from 'debug'
-var log = debug('app:AppBar')
+import * as React from 'react';
+import { Link } from 'react-router';
+import { AppBar } from 'material-ui';
+import Menu from '../Menu';
+import Search from '../Search/Location';
+import debug from 'debug';
+var log = debug('app:AppBar');
 
 // Scroll logic based on https://gist.github.com/Warry/4254579
 export default class AppBarVG extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
-    this.state = {visible: false};
-    this.handleScroll = this.handleScroll.bind(this)
+    this.state = { visible: false };
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   shouldComponentUpdate() {
@@ -30,11 +30,11 @@ export default class AppBarVG extends React.Component<any, any> {
   handleScroll() {
     if (typeof window !== 'undefined') {
       if (this.state.visible && window.scrollY === 0) {
-        this.setState({visible: false});
+        this.setState({ visible: false });
         this.forceUpdate();
       } else {
         if (!this.state.visible && window.scrollY > 0) {
-          this.setState({visible: true});
+          this.setState({ visible: true });
           this.forceUpdate();
         }
       }
@@ -43,14 +43,14 @@ export default class AppBarVG extends React.Component<any, any> {
     }
   }
 
-  public search(filter) { log('AppBar search change', filter) }
+  public search(filter) { log('AppBar search change', filter); }
 
   render() {
-    const line = this.state.visible && <div className="app-bar-line"></div>
-    const search = this.state.visible && <Search icon="search" filter={this.search} />
+    const line = this.state.visible && <div className="app-bar-line"></div>;
+    const search = this.state.visible && <Search icon="search" filter={this.search} />;
     const icon = this.state.visible
       ? <Link className="title border" to="/">&#5809;</Link>
-      : <Link className="title" to="/">&#5809;</Link>
+      : <Link className="title" to="/">&#5809;</Link>;
 
     return (
       <AppBar

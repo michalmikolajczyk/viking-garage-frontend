@@ -1,4 +1,4 @@
-let url = 'http://localhost:4000'
+const url = 'http://localhost:4000';
 
 const API = {
   change: `${url}/user/change`,
@@ -10,6 +10,6 @@ const API = {
   reset: `${url}/user/reset`,
   signin: `${url}/user/signin`,
   verify: `${url}/user/verify`,
-}
+};
 
-export default API
+export default API;

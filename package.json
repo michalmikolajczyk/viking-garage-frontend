@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "node server.js",
-    "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx"
+    "test": "npm run lint && mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx",
+    "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,8 @@
     "style-loader": "^0.13.1",
     "ts-loader": "^2.0.0",
     "ts-node": "^2.0.0",
+    "tslint": "^4.5.1",
+    "tslint-config-airbnb": "^1.0.0",
     "typescript": "^2.1.0",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2",

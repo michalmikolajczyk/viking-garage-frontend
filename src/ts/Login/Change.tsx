@@ -1,40 +1,38 @@
-import * as React from 'react'
-import { Form } from 'formsy-react'
-import { FormsyText } from 'formsy-material-ui/lib'
-import Container from '../Container'
-import NetworkError from '../Dialogs/NetworkError'
-import ChangeError from './ChangeError'
-import ChangeSuccess from './ChangeSuccess'
-import { change } from './api'
-import debug from 'debug'
-let log = debug('app:Change')
+import * as React from 'react';
+import { Form } from 'formsy-react';
+import { FormsyText } from 'formsy-material-ui/lib';
+import Container from '../Container';
+import NetworkError from '../Dialogs/NetworkError';
+import ChangeError from './ChangeError';
+import ChangeSuccess from './ChangeSuccess';
+import { change } from './api';
+import debug from 'debug';
+const log = debug('app:Change');
 
 export default class Change extends React.Component<any, any> {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       canSubmit: false,
       networkErr: false,
       changeError: false,
       changeSuccess: false,
-    }
-    this.submit = this.submit.bind(this)
+    };
+    this.submit = this.submit.bind(this);
   }
 
   submit(passwords) {
-    let token = this.props.params.token
-    change({token, ...passwords})
-    .then(res => {
-      if (res['err']) {
-        this.setState({changeError: true})
-      } else {
-        this.setState({changeSuccess: true})
-      }
-    })
-    .catch(err => {
-      this.setState({networkErr: true})
-    })
+    const token = this.props.params.token;
+    change({ token, ...passwords })
+      .then((res) => {
+        if (res['err']) {
+          this.setState({ changeError: true });
+        } else {
+          this.setState({ changeSuccess: true });
+        }
+      })
+      .catch(err => this.setState({ networkErr: true }));
   }
 
   render() {
@@ -47,8 +45,8 @@ export default class Change extends React.Component<any, any> {
           </div>
           <div className="inputs">
             <Form
-              onValid={() => this.setState({canSubmit: true})}
-              onInvalid={() => this.setState({canSubmit: false})}
+              onValid={() => this.setState({ canSubmit: true })}
+              onInvalid={() => this.setState({ canSubmit: false })}
               onSubmit={this.submit}
             >
               <div className="reset">
@@ -81,20 +79,20 @@ export default class Change extends React.Component<any, any> {
               </button>
               <ChangeSuccess
                 open={this.state.changeSuccess}
-                close={() => this.setState({changeSuccess: false})}
+                close={() => this.setState({ changeSuccess: false })}
               />
               <ChangeError
                 open={this.state.changeError}
-                close={() => this.setState({changeError: false})}
+                close={() => this.setState({ changeError: false })}
               />
               <NetworkError
                 open={this.state.networkErr}
-                close={() => this.setState({networkErr: false})}
+                close={() => this.setState({ networkErr: false })}
               />
             </Form>
           </div>
         </div>
       </Container>
-    )
+    );
   }
 }

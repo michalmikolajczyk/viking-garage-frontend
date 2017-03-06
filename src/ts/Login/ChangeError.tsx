@@ -1,15 +1,14 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
   Dialog,
   FlatButton,
-} from 'material-ui'
+} from 'material-ui';
 
 export default function ChangeError(props) {
-
   const {
     open,
     close,
-  } = props
+  } = props;
 
   const actions = [
     <div className="float-left">
@@ -25,16 +24,16 @@ export default function ChangeError(props) {
       keyboardFocused={true}
       onTouchTap={close}
     />,
-  ]
+  ];
 
   return (
     <Dialog
       open={open}
-      contentStyle={{maxWidth: 650}}
+      contentStyle={{ maxWidth: 650 }}
       title="Confirmation Link Invalid"
       actions={actions}
     >
       The confirmation link was invalid. Please try again to <a href="/reset" className="link">reset your password</a>, or contact us at <a href="mailto:support@vikinggarage.com" className="link">support@vikinggarage.com</a>.
     </Dialog>
-  )
+  );
 }

@@ -1,18 +1,18 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
   browserHistory,
   Route,
   Router,
-} from 'react-router'
-import Offers from '../Offers'
-import Detail from '../Detail'
-import NotFound from '../NotFound'
-import Login from '../Login'
-import Change from '../Login/Change'
-import Check from '../Login/Check'
-import Reset from '../Login/Reset'
-import Signin from '../Signin'
-import Confirm from '../Signin/Confirm'
+} from 'react-router';
+import Offers from '../Offers';
+import Detail from '../Detail';
+import NotFound from '../NotFound';
+import Login from '../Login';
+import Change from '../Login/Change';
+import Check from '../Login/Check';
+import Reset from '../Login/Reset';
+import Signin from '../Signin';
+import Confirm from '../Signin/Confirm';
 
 export default function AppRouter(props) {
   return (
@@ -32,5 +32,5 @@ export default function AppRouter(props) {
       <Route path="/faq" component={NotFound} />
       <Route path="*" component={NotFound} />
     </Router>
-  )
+  );
 }

@@ -1,15 +1,15 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
   Dialog,
   FlatButton,
-} from 'material-ui'
+} from 'material-ui';
 
 export default function LoginDialog(props) {
 
   const {
     open,
     close,
-  } = props
+  } = props;
 
   const actions = [
     <div className="float-left">
@@ -30,16 +30,16 @@ export default function LoginDialog(props) {
       keyboardFocused={true}
       onTouchTap={close}
     />,
-  ]
+  ];
 
   return (
     <Dialog
       open={open}
-      contentStyle={{maxWidth: 650}}
+      contentStyle={{ maxWidth: 650 }}
       title="Invalid e-mail or password"
       actions={actions}
     >
       The e-mail &amp; password combination did not work. Please confirm the details and try again, or follow one of the options below:
     </Dialog>
-  )
+  );
 }

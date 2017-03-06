@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { Link } from 'react-router'
-import Container from '../Container'
-import SigninForm from './SigninForm'
+import * as React from 'react';
+import { Link } from 'react-router';
+import Container from '../Container';
+import SigninForm from './SigninForm';
 
 export default function Signin(props) {
   return (
@@ -19,5 +19,5 @@ export default function Signin(props) {
         </div>
       </div>
     </Container>
-  )
+  );
 }

@@ -8,7 +8,6 @@ declare const config: any;
 declare const google: any;
 
 export default class Location extends React.Component<any, any> {
-
   public service: any;
   public filter: any;
 
@@ -32,15 +31,15 @@ export default class Location extends React.Component<any, any> {
     }
     if (typeof window !== 'undefined') {
       if (document.getElementById('google-maps-script')) {
-        const call = window['initMap']
+        const call = window['initMap'];
         window['initMap'] = () => {
-          call()
-          this.initMap()
-        }
+          call();
+          this.initMap();
+        };
       } else {
         const API_KEY = config.GOOGLE_MAP_API;
         window['initMap'] = this.initMap;
-        let script = document.createElement('script');
+        const script = document.createElement('script');
         script.id = 'google-maps-script';
         script.type = 'text/javascript';
         script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap`;
@@ -51,14 +50,14 @@ export default class Location extends React.Component<any, any> {
 
   public initMap() {
     this.service = new google.maps.places.AutocompleteService();
-    this.setState({load: true});
+    this.setState({ load: true });
   }
 
   public displayData(predictions, status) {
-    const data = status != google.maps.places.PlacesServiceStatus.OK
+    const data = status !== google.maps.places.PlacesServiceStatus.OK
       ? ['Not found']
       : predictions.map(p => p.description);
-    this.setState({data});
+    this.setState({ data });
   }
 
   public onNewRequest(chosenRequest: string, index: number) {
@@ -67,9 +66,9 @@ export default class Location extends React.Component<any, any> {
 
   public onUpdateInput(text: string) {
     if (this.state.load && text !== '') {
-      this.service.getQueryPredictions({input: text}, this.displayData)
+      this.service.getQueryPredictions({ input: text }, this.displayData);
     } else {
-      this.setState({data: []});
+      this.setState({ data: [] });
     }
   }
 

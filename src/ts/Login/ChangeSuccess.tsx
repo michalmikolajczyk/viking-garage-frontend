@@ -1,15 +1,14 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
   Dialog,
   FlatButton,
-} from 'material-ui'
+} from 'material-ui';
 
 export default function ChangeSuccess(props) {
-
   const {
     open,
     close,
-  } = props
+  } = props;
 
   const actions = [
     <div className="float-left">
@@ -25,16 +24,16 @@ export default function ChangeSuccess(props) {
       primary={true}
       keyboardFocused={true}
     />,
-  ]
+  ];
 
   return (
     <Dialog
       open={open}
-      contentStyle={{maxWidth: 650}}
+      contentStyle={{ maxWidth: 650 }}
       title="Password changed successfully"
       actions={actions}
     >
       Success! Your password was changed.
     </Dialog>
-  )
+  );
 }
