@@ -23,10 +23,9 @@ describe('<Router />', () => {
       '*',
     ];
     const wrapper = shallow(<Router />);
-    console.log(wrapper.debug());
     wrapper.find('Route').map((route) => {
       const path = route.props()['path'];
       expect(paths).to.contain(path);
-    })
+    });
   });
 });

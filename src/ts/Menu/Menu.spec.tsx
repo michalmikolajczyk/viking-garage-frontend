@@ -18,7 +18,7 @@ describe('<Menu />', () => {
 
   it('check if user logged in display user menu', () => {
     const stub = sinon.stub(window.localStorage, 'getItem')
-      .returns({name: 'User', email: 'user@example.com'})
+      .returns({ name: 'User', email: 'user@example.com' });
     const wrapper = mountWithTheme(<Menu />);
     expect(stub.calledOnce).to.be.true;
     expect(wrapper.find('[href="/signin"]')).to.have.length(0);
