@@ -2,9 +2,8 @@ import 'mocha';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { expect } from 'chai';
-import { mount, shallow } from 'enzyme';
-import Container from './index';
-import AppBarVG from '../AppBar';
+import { default as Container } from './index';
+import AppBar from '../AppBar';
 import Header from '../Header';
 import Footer from '../Footer';
 import { mountWithTheme } from '../helpers/test-theme';
@@ -12,7 +11,7 @@ import { mountWithTheme } from '../helpers/test-theme';
 describe('<Container />', () => {
   it('check if all subcomponents are rendered', () => {
     const wrapper = mountWithTheme(<Container />);
-    expect(wrapper.find(AppBarVG)).to.have.length(1);
+    expect(wrapper.find(AppBar)).to.have.length(1);
     expect(wrapper.find(Header)).to.have.length(1);
     expect(wrapper.find(Footer)).to.have.length(1);
   });
