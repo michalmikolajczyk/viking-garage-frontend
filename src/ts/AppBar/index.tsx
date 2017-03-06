@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Link } from 'react-router';
 import { AppBar } from 'material-ui';
 import Menu from '../Menu';
-import Search from '../Search/Location';
+import { default as Search } from '../Search/Location';
 import debug from 'debug';
-var log = debug('app:AppBar');
+const log = debug('app:AppBar');
 
 // Scroll logic based on https://gist.github.com/Warry/4254579
 export default class AppBarVG extends React.Component<any, any> {

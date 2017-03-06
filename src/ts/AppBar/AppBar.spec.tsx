@@ -2,7 +2,7 @@ import 'mocha';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as chai from 'chai';
-import AppBarVG from './index';
+import { default as AppBarVG } from './index';
 import * as sinon from 'sinon';
 import * as sinonChai from 'sinon-chai';
 import { mountWithTheme } from '../helpers/test-theme';
@@ -19,8 +19,8 @@ describe('<AppBarVG />', () => {
     const wrapper = mountWithTheme(<AppBarVG />);
     expect(wrapper.find('AppBar')).to.have.length(1);
     expect(wrapper.find('.title')).to.have.length(1);
-    expect(wrapper.find({ href: '/signin'})).to.have.length(1);
-    expect(wrapper.find({ href: '/login'})).to.have.length(1);
+    expect(wrapper.find({ href: '/signin' })).to.have.length(1);
+    expect(wrapper.find({ href: '/login' })).to.have.length(1);
   });
 
   it('check if scrollY > 0 show up bottom line & search', () => {
