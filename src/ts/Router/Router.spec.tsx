@@ -1,0 +1,32 @@
+import 'mocha';
+import * as React from 'react';
+import { expect } from 'chai';
+import { default as Router } from './index';
+import { shallow } from 'enzyme';
+
+describe('<Router />', () => {
+  it('check for all paths', () => {
+    const paths = [
+      '/',
+      '/detail',
+      '/login',
+      '/reset',
+      '/confirm/:email',
+      '/change/:token',
+      '/signin',
+      '/check',
+      '/verify/:token',
+      '/bike-owners',
+      '/guides-coaches',
+      '/mechanics',
+      '/faq',
+      '*',
+    ];
+    const wrapper = shallow(<Router />);
+    console.log(wrapper.debug());
+    wrapper.find('Route').map((route) => {
+      const path = route.props()['path'];
+      expect(paths).to.contain(path);
+    })
+  });
+});
