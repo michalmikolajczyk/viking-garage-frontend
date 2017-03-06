@@ -2,14 +2,12 @@ import * as React from 'react';
 import { Link } from 'react-router';
 import { AppBar } from 'material-ui';
 import Menu from '../Menu';
-import { default as Search } from '../Search/Location';
-import muiThemeVG from '../muiThemeVG';
+import Search from '../Search/Location';
 import debug from 'debug';
-const log = debug('app:AppBar');
+var log = debug('app:AppBar');
 
 // Scroll logic based on https://gist.github.com/Warry/4254579
 export default class AppBarVG extends React.Component<any, any> {
-  static childContextTypes: any;
 
   constructor(props) {
     super(props);
@@ -27,10 +25,6 @@ export default class AppBarVG extends React.Component<any, any> {
 
   componentWillUnmount() {
     this.handleScroll = () => null;
-  }
-
-  getChildContext() {
-    return { muiTheme: muiThemeVG };
   }
 
   handleScroll() {
@@ -71,7 +65,3 @@ export default class AppBarVG extends React.Component<any, any> {
       </AppBar>);
   }
 }
-
-AppBarVG.childContextTypes = {
-  muiTheme: React.PropTypes.object.isRequired,
-};
