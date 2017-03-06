@@ -1,5 +1,5 @@
-import * as React from 'react'
-import Container from '../Container'
+import * as React from 'react';
+import Container from '../Container';
 
 export default function Check() {
   return (
@@ -26,5 +26,5 @@ export default function Check() {
         </div>
       </div>
     </Container>
-  )
+  );
 }

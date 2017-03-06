@@ -30,7 +30,6 @@ const traitsProps = [
 ];
 
 export default function Detail() {
-
   const props = {
     image: 'http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Honda-CRF-450R-Motocross-Bike-PNG-Image.png',
     title: 'KTM250SX 2017',
@@ -49,7 +48,7 @@ export default function Detail() {
       <div className="value">
         {props[item.key] + item.units}
       </div>
-    </div>))
+    </div>));
 
   return (
     <Container>

@@ -8,8 +8,7 @@ const iconStyle = {
   paddingRight: 7,
 };
 
-export default function Footer (props) {
-
+export default function Footer(props) {
   return (
     <div className="footer">
       <ul className="contact">

@@ -1,37 +1,35 @@
-import * as React from 'react'
-import { browserHistory } from 'react-router'
-import { Form } from 'formsy-react'
-import { FormsyText } from 'formsy-material-ui/lib'
-import Container from '../Container'
-import NetworkError from '../Dialogs/NetworkError'
-import { reset } from './api'
-import debug from 'debug'
-let log = debug('app:Reset')
+import * as React from 'react';
+import { browserHistory } from 'react-router';
+import { Form } from 'formsy-react';
+import { FormsyText } from 'formsy-material-ui/lib';
+import Container from '../Container';
+import NetworkError from '../Dialogs/NetworkError';
+import { reset } from './api';
+import debug from 'debug';
+const log = debug('app:Reset');
 
 export default class Reset extends React.Component<any, any> {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       canSubmit: false,
       networkErr: false,
-    }
-    this.submit = this.submit.bind(this)
+    };
+    this.submit = this.submit.bind(this);
   }
 
   submit(email) {
-    this.setState({canSubmit: false})
+    this.setState({ canSubmit: false });
     reset(email)
-    .then(res => {
-      if (res['err']) {
-        this.setState({openDialog: true})
-      } else {
-        browserHistory.push('/check')
-      }
-    })
-    .catch(err => {
-      this.setState({networkErr: true})
-    })
+      .then((res) => {
+        if (res['err']) {
+          this.setState({ openDialog: true });
+        } else {
+          browserHistory.push('/check');
+        }
+      })
+      .catch(err => this.setState({ networkErr: true }));
   }
 
   render() {
@@ -46,8 +44,8 @@ export default class Reset extends React.Component<any, any> {
           </div>
           <div className="inputs">
             <Form
-              onValid={() => this.setState({canSubmit: true})}
-              onInvalid={() => this.setState({canSubmit: false})}
+              onValid={() => this.setState({ canSubmit: true })}
+              onInvalid={() => this.setState({ canSubmit: false })}
               onSubmit={this.submit}
             >
               <div className="reset">
@@ -69,12 +67,12 @@ export default class Reset extends React.Component<any, any> {
               </button>
               <NetworkError
                 open={this.state.networkErr}
-                close={() => this.setState({networkErr: false})}
+                close={() => this.setState({ networkErr: false })}
               />
             </Form>
           </div>
         </div>
       </Container>
-    )
+    );
   }
 }

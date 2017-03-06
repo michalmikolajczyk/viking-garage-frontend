@@ -1,16 +1,16 @@
-import * as React from 'react'
-import { browserHistory } from 'react-router'
-import { Form } from 'formsy-react'
+import * as React from 'react';
+import { browserHistory } from 'react-router';
+import { Form } from 'formsy-react';
 import {
   FormsyCheckbox,
   FormsyDate,
   FormsyText,
-} from 'formsy-material-ui/lib'
-import SigninDialog from './SigninDialog'
-import NetworkError from '../Dialogs/NetworkError'
-import { signin } from './api'
-import debug from 'debug'
-let log = debug('app:Signin')
+} from 'formsy-material-ui/lib';
+import SigninDialog from './SigninDialog';
+import NetworkError from '../Dialogs/NetworkError';
+import { signin } from './api';
+import debug from 'debug';
+const log = debug('app:Signin');
 
 export default class SiginForm extends React.Component<any, any> {
 
@@ -20,28 +20,28 @@ export default class SiginForm extends React.Component<any, any> {
       canSubmit: false,
       openDialog: false,
       networkErr: false,
-    }
-    this.submit = this.submit.bind(this)
+    };
+    this.submit = this.submit.bind(this);
   }
 
   submit(user) {
-    this.setState({canSubmit: false})
+    this.setState({ canSubmit: false });
     signin(user)
-      .then(res => {
+      .then((res) => {
         if (res['err']) {
-          this.setState({openDialog: true})
+          this.setState({ openDialog: true });
         } else {
-          browserHistory.push(`/confirm/${user.email}`)
+          browserHistory.push(`/confirm/${user.email}`);
         }
       })
-      .catch(err => this.setState({networkErr: true}))
+      .catch(err => this.setState({ networkErr: true }));
   }
 
   render() {
     return (
       <Form
-        onValid={() => this.setState({canSubmit: true})}
-        onInvalid={() => this.setState({canSubmit: false})}
+        onValid={() => this.setState({ canSubmit: true })}
+        onInvalid={() => this.setState({ canSubmit: false })}
         onSubmit={this.submit}
       >
         <FormsyText
@@ -55,7 +55,7 @@ export default class SiginForm extends React.Component<any, any> {
         />
         <FormsyText
           name="email"
-          placeholder="user@host.domain"
+          value="user@host.domain"
           required={true}
           fullWidth={true}
           floatingLabelText="E-mail"
@@ -106,13 +106,13 @@ export default class SiginForm extends React.Component<any, any> {
         </button>
         <SigninDialog
           open={this.state.openDialog}
-          close={() => this.setState({openDialog: false})}
+          close={() => this.setState({ openDialog: false })}
         />
         <NetworkError
           open={this.state.networkErr}
-          close={() => this.setState({networkErr: false})}
+          close={() => this.setState({ networkErr: false })}
         />
       </Form>
-    )
+    );
   }
 }

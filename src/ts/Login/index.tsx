@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { Link } from 'react-router'
-import Container from '../Container'
-import LoginForm from './LoginForm'
+import * as React from 'react';
+import { Link } from 'react-router';
+import Container from '../Container';
+import LoginForm from './LoginForm';
 
-export default function Login (props) {
+export default function Login(props) {
   return (
     <Container className="cont">
       <div className="form">
@@ -25,5 +25,5 @@ export default function Login (props) {
         </div>
       </div>
     </Container>
-  )
+  );
 }
