@@ -8,7 +8,7 @@ import * as items from './mockup';
 export default function Detail(props) {
   const offer = items['ktm'];
   return (
-    <Container>
+    <Container close={true}>
       <div className="detail cont">
         <div className="image">
           <img src={offer.images.main} />
