@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import {
+  DatePicker,
   SelectField,
   MenuItem,
 } from 'material-ui';
@@ -14,8 +15,12 @@ export default class DetailForm extends React.Component<any, any> {
     const offer = items['ktm'];
     const price = Object.keys(offer.price.unit)[0]
     const priceState = offer.price.unit[price] + price;
+    const now = new Date();
     this.state = {
       price: priceState,
+      startDate: now,
+      endDate: new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000),
+      equipment: 1,
     };
     this.endDateChange = this.endDateChange.bind(this);
     this.startDateChange = this.startDateChange.bind(this);
@@ -23,17 +28,17 @@ export default class DetailForm extends React.Component<any, any> {
     this.equipmentChange = this.equipmentChange.bind(this);
   }
 
-  startDateChange(date) {
+  startDateChange(ev, date) {
     log('start date changed', date);
     this.setState({ startDate: date })
   }
 
-  endDateChange(date) {
+  endDateChange(ev, date) {
     log('start date changed', date);
     this.setState({ endDate: date })
   }
 
-  equipmentChange(equipment) {
+  equipmentChange(ev, index, equipment) {
     log('equipment changed', equipment);
     this.setState({ equipment });
   }
@@ -58,12 +63,38 @@ export default class DetailForm extends React.Component<any, any> {
 
     return (
       <div>
-         <SelectField
-            value={this.state.price}
-            onChange={this.priceChange}
-          >
-          { selectPrice }
-          </SelectField>
+        <SelectField
+          value={this.state.price}
+          onChange={this.priceChange}
+          fullWidth={true}
+        >
+        { selectPrice }
+        </SelectField>
+        <DatePicker
+          className="filter"
+          autoOk={true}
+          value={this.state.startDate}
+          onChange={this.startDateChange}
+          hintText="Today"
+          fullWidth={true}
+        />
+        <DatePicker
+          className="filter"
+          autoOk={true}
+          value={this.state.endDate}
+          onChange={this.endDateChange}
+          hintText="19/01/2017"
+          fullWidth={true}
+        />
+        <SelectField
+          value={this.state.equipment}
+          onChange={this.equipmentChange}
+          fullWidth={true}
+        >
+          <MenuItem key={1} value={1} primaryText="Equipment: Basic" />
+          <MenuItem key={2} value={2} primaryText="Equipment: Semi" />
+          <MenuItem key={3} value={3} primaryText="Equipment: Full" />
+        </SelectField>
       </div>
     );
   }

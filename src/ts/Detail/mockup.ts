@@ -28,7 +28,7 @@ const ktm = {
     ],
   },
   images: {
-    main: 'http://www.totalmotorcycle.com/motorcycles/2012models/2012-KTM-125SXd.jpg',
+    main: 'http://pictures.topspeed.com/IMG/crop/201201/2012-ktm-125-sx-9_800x0w.jpg',
   },
   price: {
     unit: {
