@@ -19,7 +19,7 @@ export default function OffersList(props) {
       </button>
     );
 
-  const mappedItems = data.map(item => <Offer data={item} key={item.key} />);
+  const mappedItems = data.map(item => <Offer data={item} key={item.url} />);
 
   return (
     <div className="offers-wrap">

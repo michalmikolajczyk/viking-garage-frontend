@@ -6,13 +6,13 @@ const log = debug('app:Detail');
 import * as items from './mockup';
 
 export default function Detail(props) {
-  const offer = items['ktm'];
+  const type = props.params.offer.split('-')[0];
+  const offer = items[type];
   return (
     <Container close={true}>
       <div className="cont detail">
         <div className="description">
-          <div className="image">
-            <img src={offer.images.main} />
+          <div className="image" style={{backgroundImage: `url(${offer.images.main})`}}>
           </div>
           <div className="title">
             {offer.title}
@@ -36,7 +36,7 @@ export default function Detail(props) {
           <div className="title">
             {offer.title}
           </div>
-          <DetailForm />
+          <DetailForm offer={offer} />
         </div>
       </div>
     </Container>

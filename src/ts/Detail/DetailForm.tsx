@@ -6,7 +6,6 @@ import {
   SelectField,
   MenuItem,
 } from 'material-ui';
-import * as items from './mockup';
 import debug from 'debug';
 const log = debug('app:DetailForm');
 
@@ -15,7 +14,7 @@ export default class DetailForm extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
-    const offer = items['ktm'];
+    const offer = props.offer;
     this.offer = offer;
     const price = offer.price.unit[Object.keys(offer.price.unit)[0]]
     const now = new Date();
@@ -66,7 +65,7 @@ export default class DetailForm extends React.Component<any, any> {
   render() {
     const {
       price,
-    } = items['ktm'];
+    } = this.offer;
 
     const selectPrice = _.map(price.unit, (num, key) => (
       <MenuItem
