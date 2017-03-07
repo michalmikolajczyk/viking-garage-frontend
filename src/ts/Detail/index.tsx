@@ -1,6 +1,12 @@
 import * as React from 'react';
+import {
+  FontIcon,
+  Paper,
+} from 'material-ui';
+import * as _ from 'lodash';
 import DetailForm from './DetailForm';
 import Container from '../Container';
+import Comments from './Comments';
 import debug from 'debug';
 const log = debug('app:Detail');
 import * as items from './mockup';
@@ -27,10 +33,11 @@ export default function Detail(props) {
                 {`${offer.location.address.city}, ${offer.location.address.country}`}
               </div>
             </div>
-            <div className="text">
-              {offer.description}
-            </div>
           </div>
+          <div className="text">
+            {offer.description}
+          </div>
+          <Comments />
         </div>
         <div className="form-detail">
           <div className="title">

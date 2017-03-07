@@ -105,12 +105,87 @@
       font-size: 24px;
       letter-spacing: 0.5px;
     }
-    .text {
-      padding-top: 17px;
-      font-size: 21px;
-      letter-spacing: 2.2px;
-      line-height: 30px;
-      font-weight: 300;
+  }
+  .text {
+    padding: 17px 10px 30px 30px;
+    font-size: 21px;
+    letter-spacing: 2.2px;
+    line-height: 30px;
+    font-weight: 300;
+  }
+}
+.comments {
+  padding: 30px 30px 100px;
+  .comments-cont {
+    padding: 22px 30px;
+    .references {
+      letter-spacing: 1px;
     }
+    .ratings {
+      margin-top: 45px;
+    }
+    .row {
+      display: flex;
+      margin-bottom: 17px;
+      .rate {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        padding-right: 25px;
+        .type {
+          font-style: italic;
+          letter-spacing: -0.3px;
+          padding-right: 20px;
+        }
+        .stars {
+          .fa {
+            font-size: 14px !important;
+            padding: 4px;
+          }
+        }
+      }
+    }
+    .comment {
+      margin-top: 57px;
+      .author {
+        display: flex;
+        font-size: 15px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        .picture {
+          width: 35px;
+          height: 35px;
+          background-image: url('https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg');
+          background-size: cover;
+          background-position: center center;
+        }
+        .fullname {
+          padding: 9px 0px 0 19px;
+        }
+        .location {
+          padding: 9px 0px 0 19px;
+        }
+      }
+      .text {
+        padding: 14px 0;
+        font-size: 13px;
+        font-style: italic;
+        letter-spacing: 1.4px;
+        line-height: 30px;
+        font-weight: 300;
+      }
+    }
+  }
+  .view-all {
+    border-top: 1px solid black;
+    margin-top: 8px;
+    height: 54px;
+    font-size: 13px;
+    text-decoration: underline;
+    text-align: center;
+    padding-top: 21px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-sizing: border-box;
   }
 }
