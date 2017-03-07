@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as _ from 'lodash';
 import {
   DatePicker,
+  FontIcon,
   SelectField,
   MenuItem,
 } from 'material-ui';
@@ -63,38 +64,58 @@ export default class DetailForm extends React.Component<any, any> {
 
     return (
       <div>
-        <SelectField
-          value={this.state.price}
-          onChange={this.priceChange}
-          fullWidth={true}
-        >
-        { selectPrice }
-        </SelectField>
-        <DatePicker
-          className="filter"
-          autoOk={true}
-          value={this.state.startDate}
-          onChange={this.startDateChange}
-          hintText="Today"
-          fullWidth={true}
-        />
-        <DatePicker
-          className="filter"
-          autoOk={true}
-          value={this.state.endDate}
-          onChange={this.endDateChange}
-          hintText="19/01/2017"
-          fullWidth={true}
-        />
-        <SelectField
-          value={this.state.equipment}
-          onChange={this.equipmentChange}
-          fullWidth={true}
-        >
-          <MenuItem key={1} value={1} primaryText="Equipment: Basic" />
-          <MenuItem key={2} value={2} primaryText="Equipment: Semi" />
-          <MenuItem key={3} value={3} primaryText="Equipment: Full" />
-        </SelectField>
+        <div className="field">
+          <FontIcon className="fa fa-money" />
+          <SelectField
+            value={this.state.price}
+            onChange={this.priceChange}
+            fullWidth={true}
+          >
+          { selectPrice }
+          </SelectField>
+        </div>
+        <div className="field">
+          <FontIcon className="material-icons">today</FontIcon>
+          <DatePicker
+            className="date-picker"
+            autoOk={true}
+            value={this.state.startDate}
+            onChange={this.startDateChange}
+            hintText="Today"
+            fullWidth={true}
+          />
+        </div>
+        <div className="field">
+          <FontIcon className="material-icons">date_range</FontIcon>
+          <DatePicker
+            className="date-picker"
+            autoOk={true}
+            value={this.state.endDate}
+            onChange={this.endDateChange}
+            hintText="19/01/2017"
+            fullWidth={true}
+          />
+        </div>
+        <div className="field">
+          <FontIcon className="fa fa-angle-down" />
+          <SelectField
+            value={this.state.equipment}
+            onChange={this.equipmentChange}
+            fullWidth={true}
+          >
+            <MenuItem key={1} value={1} primaryText="Equipment: Basic" />
+            <MenuItem key={2} value={2} primaryText="Equipment: Semi" />
+            <MenuItem key={3} value={3} primaryText="Equipment: Full" />
+          </SelectField>
+        </div>
+        <button className="ride-btn">
+          <span className="raido">
+            &#5809;
+          </span>
+          <span>
+            IDE
+          </span>
+        </button>
       </div>
     );
   }

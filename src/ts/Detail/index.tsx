@@ -13,19 +13,11 @@ export default function Detail(props) {
         <div className="image">
           <img src={offer.images.main} />
         </div>
-        <div className="params">
+        <div className="form">
           <div className="title">
             {offer.title}
           </div>
           <DetailForm />
-          <button className="ride-btn">
-            <span className="raido">
-              &#5809;
-            </span>
-            <span>
-              IDE
-            </span>
-          </button>
         </div>
       </div>
     </Container>
