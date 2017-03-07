@@ -11,17 +11,21 @@ import debug from 'debug';
 const log = debug('app:DetailForm');
 
 export default class DetailForm extends React.Component<any, any> {
+  private offer;
+
   constructor(props) {
     super(props);
     const offer = items['ktm'];
-    const price = Object.keys(offer.price.unit)[0]
-    const priceState = offer.price.unit[price] + price;
+    this.offer = offer;
+    const price = offer.price.unit[Object.keys(offer.price.unit)[0]]
     const now = new Date();
+    log(price);
     this.state = {
-      price: priceState,
+      price,
       startDate: now,
       endDate: new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000),
       equipment: 1,
+      total: parseInt(price) * 3,
     };
     this.endDateChange = this.endDateChange.bind(this);
     this.startDateChange = this.startDateChange.bind(this);
@@ -29,14 +33,23 @@ export default class DetailForm extends React.Component<any, any> {
     this.equipmentChange = this.equipmentChange.bind(this);
   }
 
+  recalculate() {
+    const start = new Date(this.state.startDate);
+    const end = new Date(this.state.endDate);
+    const total = parseInt(this.state.price) * Math.floor((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24))
+    this.setState({ total });
+  }
+
   startDateChange(ev, date) {
     log('start date changed', date);
-    this.setState({ startDate: date })
+    this.setState({ startDate: date });
+    this.recalculate();
   }
 
   endDateChange(ev, date) {
     log('start date changed', date);
     this.setState({ endDate: date })
+    this.recalculate();
   }
 
   equipmentChange(ev, index, equipment) {
@@ -47,6 +60,7 @@ export default class DetailForm extends React.Component<any, any> {
   priceChange(ev, index, value) {
     log('price changed', value);
     this.setState({ price: value });
+    this.recalculate();
   }
 
   render() {
@@ -56,8 +70,8 @@ export default class DetailForm extends React.Component<any, any> {
 
     const selectPrice = _.map(price.unit, (num, key) => (
       <MenuItem
-        key={num + key}
-        value={num + key}
+        key={num}
+        value={num}
         primaryText={`Base price: ${num} ${price.value} / ${key}`}
       >
       </MenuItem>));
@@ -107,6 +121,9 @@ export default class DetailForm extends React.Component<any, any> {
             <MenuItem key={2} value={2} primaryText="Equipment: Semi" />
             <MenuItem key={3} value={3} primaryText="Equipment: Full" />
           </SelectField>
+        </div>
+        <div className="price">
+          {`TOTAL: ${this.state.total} ${this.offer.price.value}`}
         </div>
         <button className="ride-btn">
           <span className="raido">
