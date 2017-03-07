@@ -1,19 +1,21 @@
 .detail {
   width: 100%;
   min-width: 300px;
-  padding: 112px 0;
+  padding: 112px 0 0 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   .image {
-    padding-right: 137px;
+    padding-right: 100px;
+    height: 420px;
     img {
       margin: auto;
       width: 100%;
       height: auto;
+      max-height: 420px;
     }
   }
-  .form {
+  .form-detail {
     text-align: left;
     flex: 0 0 301px;
     padding-right: 64px;
@@ -71,6 +73,38 @@
         font-size: 46px;
         line-height: 69px;
       }
+    }
+  }
+}
+.description {
+  .title {
+    font-size: 32px;
+    margin-top: -57px;
+    margin-left: 30px;
+    font-weight: 700;
+    letter-spacing: 4px;
+  }
+  .owner {
+    padding: 34px 30px;
+    .picture {
+      display: inline-block;
+      width: 71px;
+      height: 71px;
+      background-size: cover;
+    }
+    .owner-details {
+      display: inline-block;
+      padding: 10px;
+      vertical-align: top;
+      font-size: 24px;
+      letter-spacing: 0.5px;
+    }
+    .text {
+      padding-top: 17px;
+      font-size: 21px;
+      letter-spacing: 2.2px;
+      line-height: 30px;
+      font-weight: 300;
     }
   }
 }

@@ -1,12 +1,13 @@
 const ktm = {
   title: 'KTM SX 125 2012',
   type: 'Cross',
+  description: 'A brand new MX1 class two-stroke. Fantastic steering, light, and brings enough power to compete with 450cc four-stroke motocross bikes.',
   location: {
     address: {
       district: 'mazowieckie',
       city: 'Warsaw',
-      Area: 'Srodmiescie',
-      Country: 'Poland',
+      area: 'Srodmiescie',
+      country: 'Poland',
     },
     cord: {
       x: '',
@@ -19,8 +20,8 @@ const ktm = {
     votes: 120,
   },
   owner: {
-    name: 'Michal Mikolajczyk',
-    picture: '',
+    fullname: 'Michal Mikolajczyk',
+    picture: 'https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg',
     badges: [
       'recommended',
       'trusted',
