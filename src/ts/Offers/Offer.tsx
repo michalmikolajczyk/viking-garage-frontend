@@ -20,7 +20,7 @@ export default function Offer(props) {
 
   return (
     <div className="card">
-      <div style={{backgroundImage: `url(${img})`}} className="image"/>
+      <div style={{ backgroundImage: `url(${img})` }} className="image"/>
       <div className="head">
         <div className="descript">
           <div className="title">

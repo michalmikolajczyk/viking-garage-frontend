@@ -16,7 +16,7 @@ export default class DetailForm extends React.Component<any, any> {
     super(props);
     const offer = props.offer;
     this.offer = offer;
-    const price = offer.price.unit[Object.keys(offer.price.unit)[0]]
+    const price = offer.price.unit[Object.keys(offer.price.unit)[0]];
     const now = new Date();
     log(price);
     this.state = {
@@ -24,7 +24,7 @@ export default class DetailForm extends React.Component<any, any> {
       startDate: now,
       endDate: new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000),
       equipment: 1,
-      total: parseInt(price) * 3,
+      total: parseInt(price, 10) * 3,
     };
     this.endDateChange = this.endDateChange.bind(this);
     this.startDateChange = this.startDateChange.bind(this);
@@ -35,7 +35,7 @@ export default class DetailForm extends React.Component<any, any> {
   recalculate() {
     const start = new Date(this.state.startDate);
     const end = new Date(this.state.endDate);
-    const total = parseInt(this.state.price) * Math.floor((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24))
+    const total = parseInt(this.state.price, 10) * Math.floor((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
     this.setState({ total });
   }
 
@@ -47,7 +47,7 @@ export default class DetailForm extends React.Component<any, any> {
 
   endDateChange(ev, date) {
     log('start date changed', date);
-    this.setState({ endDate: date })
+    this.setState({ endDate: date });
     this.recalculate();
   }
 

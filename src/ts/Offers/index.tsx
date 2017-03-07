@@ -52,7 +52,7 @@ export default class Offers extends React.Component<any, any> {
 
   public loadMore() {
     this.setState({ loading: true });
-    setTimeout(() => this.setState({ loading: false}), 1500);
+    setTimeout(() => this.setState({ loading: false }), 1500);
   }
 
   public locationFilter(filter) { log('change filter location', filter); }
