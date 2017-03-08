@@ -32,7 +32,7 @@ export default function Detail(props) {
             </div>
           </div>
           <div className="text">{offer.description}</div>
-          <DetailTable offer={props} />
+          <DetailTable offer={offer} />
           <Comments />
         </div>
         <div className="form-detail">

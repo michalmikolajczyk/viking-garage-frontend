@@ -5,43 +5,43 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui';
+import * as _ from 'lodash';
 
 export default function DetailTable(props) {
+  const traits = _.get(props, 'offer.traits');
   const {
-    traits,
-  } = props;
-  // const {
-  //   engineType,
-  //   capacity,
-  //   maxPower,
-  //   torque,
-  //   seatHeight
-  // } = traits;
+    engineType,
+    capacity,
+    maxPower,
+    torque,
+    seatHeight
+  } = traits;
   return (
     <div className="table">
       <Table selectable={false}>
         <TableBody displayRowCheckbox={false}>
           <TableRow>
             <TableRowColumn>Engine Type</TableRowColumn>
-            <TableRowColumn>2-stroke</TableRowColumn>
+            <TableRowColumn>{engineType}</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>Capacity</TableRowColumn>
-            <TableRowColumn>249cc</TableRowColumn>
+            <TableRowColumn>{capacity}</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>Max Power</TableRowColumn>
-            <TableRowColumn>45HP</TableRowColumn>
+            <TableRowColumn>{maxPower}</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>Torque</TableRowColumn>
-            <TableRowColumn>28Nm</TableRowColumn>
+            <TableRowColumn>{torque}</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>Seat Height</TableRowColumn>
-            <TableRowColumn>960mm</TableRowColumn>
+            <TableRowColumn>{seatHeight}</TableRowColumn>
           </TableRow>
         </TableBody>
       </Table>
-    </div>)
+    </div>
+  );
 }
