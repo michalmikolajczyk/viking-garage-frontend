@@ -5,6 +5,7 @@ import {
   DatePicker,
   FontIcon,
   SelectField,
+  TextField,
   MenuItem,
 } from 'material-ui';
 import debug from 'debug';
@@ -23,7 +24,7 @@ export default class DetailForm extends React.Component<any, any> {
       startDate: moment().toDate(),
       endDate: moment().add(3, 'days').toDate(),
       equipment: 1,
-      total: parseInt(price, 10) * 3,
+      total: 55 * 3,
     };
     this.endDateChange = this.endDateChange.bind(this);
     this.startDateChange = this.startDateChange.bind(this);
@@ -34,7 +35,7 @@ export default class DetailForm extends React.Component<any, any> {
   recalculate() {
     const start = moment(this.state.startDate);
     const end = moment(this.state.endDate);
-    const total = this.state.price * end.diff(start, 'days');
+    const total = Math.abs(55 * end.diff(start, 'days'));
     this.setState({ total });
   }
 
@@ -78,11 +79,11 @@ export default class DetailForm extends React.Component<any, any> {
       <div>
         <div className="field">
           <FontIcon className="fa fa-money" />
-          <SelectField
-            value={this.state.price}
-            onChange={this.priceChange}
+          <TextField
+            value="Base price: 55$ / day"
+            onChange={() => undefined}
             fullWidth={true}
-          >{selectPrice}</SelectField>
+          />
         </div>
         <div className="field">
           <FontIcon className="material-icons">today</FontIcon>
