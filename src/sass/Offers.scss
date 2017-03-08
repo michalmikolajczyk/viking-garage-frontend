@@ -4,7 +4,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 49px 0 135px;
+  padding: 49px 0 0;
+  // padding: 49px 0 135px;
 }
 
 .card {
@@ -43,38 +44,6 @@
       }
       .foot {
         font-size: 13px
-      }
-    }
-  }
-}
-
-.offer-btn {
-  width: 84px;
-  height: 100%;
-  display: flex;
-  margin-right: 30px;
-  justify-content: center;
-  align-items: center;
-  .offer-btn-link {
-    width: 55px;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid rgba(255, 255, 255, 0.55);
-    border-radius: 50%;
-    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-    .material-icons {
-      color: rgba(255, 255, 255, 0.55) !important;
-      font-size: 34px !important;
-    }
-    &:hover {
-      width: 74px;
-      height: 74px;
-      border: 5px solid white;
-      .material-icons {
-        color: white !important;
-        font-size: 55px !important;
       }
     }
   }
