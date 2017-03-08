@@ -80,6 +80,7 @@ export default class DetailForm extends React.Component<any, any> {
         <div className="field">
           <FontIcon className="fa fa-money" />
           <TextField
+            id="base-price"
             value="Base price: 55$ / day"
             onChange={() => undefined}
             fullWidth={true}

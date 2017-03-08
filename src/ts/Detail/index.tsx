@@ -7,6 +7,7 @@ import * as _ from 'lodash';
 import DetailForm from './DetailForm';
 import Container from '../Container';
 import Comments from './Comments';
+import DetailTable from './DetailTable';
 import debug from 'debug';
 const log = debug('app:Detail');
 import * as items from './mockup';
@@ -31,6 +32,7 @@ export default function Detail(props) {
             </div>
           </div>
           <div className="text">{offer.description}</div>
+          <DetailTable offer={props} />
           <Comments />
         </div>
         <div className="form-detail">
