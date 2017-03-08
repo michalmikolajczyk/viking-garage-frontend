@@ -5,10 +5,11 @@ import Footer from '../Footer';
 import Header from '../Header';
 
 export default function Container(props) {
+  const header = !props.close && <Header />;
   return (
      <div>
       <AppBarVG />
-      <Header />
+      { header }
       {props.children}
       <Footer />
     </div>

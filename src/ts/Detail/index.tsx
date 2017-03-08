@@ -1,74 +1,41 @@
 import * as React from 'react';
+import {
+  FontIcon,
+  Paper,
+} from 'material-ui';
+import * as _ from 'lodash';
+import DetailForm from './DetailForm';
 import Container from '../Container';
+import Comments from './Comments';
+import debug from 'debug';
+const log = debug('app:Detail');
+import * as items from './mockup';
 
-const traitsProps = [
-  {
-    label: 'Engine Type',
-    units: '',
-    key: 'engine',
-  },
-  {
-    label: 'Capacity',
-    units: 'cc',
-    key: 'capacity',
-  },
-  {
-    label: 'Max Power',
-    units: 'HP',
-    key: 'maxPower',
-  },
-  {
-    label: 'Torque',
-    units: 'Nm',
-    key: 'torque',
-  },
-  {
-    label: 'Seat Height',
-    units: 'mm',
-    key: 'seatHeight',
-  },
-];
-
-export default function Detail() {
-  const props = {
-    image: 'http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Honda-CRF-450R-Motocross-Bike-PNG-Image.png',
-    title: 'KTM250SX 2017',
-    engine: '2-stroke',
-    capacity: '249',
-    maxPower: '45',
-    torque: '28',
-    seatHeight: '960',
-  };
-
-  const traits = traitsProps.map(item => (
-    <div className="trait" key={item.key}>
-      <div className="name">
-        {item.label}:
-      </div>
-      <div className="value">
-        {props[item.key] + item.units}
-      </div>
-    </div>));
-
+export default function Detail(props) {
+  const type = props.params.offer.split('-')[0];
+  const offer = items[type];
   return (
-    <Container>
-      <div className="detail cont">
-        <div className="image">
-          <img src={props.image} />
-        </div>
-        <div className="params">
-          <div className="title">
-            {props.title}
+    <Container close={true}>
+      <div className="cont detail">
+        <div className="description">
+          <div className="image" style={{ backgroundImage: `url(${offer.images.main})` }}>
           </div>
-          {traits}
-          <button className="ride-btn">
-            <span className="raido">
-              &#5809;
-            </span>
-            <span>
-              IDE
-            </span>
-          </button>
+          <div className="title">{offer.title}</div>
+          <div className="owner">
+            <div className="picture" style={{ backgroundImage: `url(${offer.owner.picture})` }} />
+            <div className="owner-details">
+              <div className="fullname">{offer.owner.fullname}</div>
+              <div className="location">
+                {`${offer.location.address.city}, ${offer.location.address.country}`}
+              </div>
+            </div>
+          </div>
+          <div className="text">{offer.description}</div>
+          <Comments />
+        </div>
+        <div className="form-detail">
+          <div className="title">{offer.title}</div>
+          <DetailForm offer={offer} />
         </div>
       </div>
     </Container>

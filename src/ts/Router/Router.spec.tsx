@@ -8,7 +8,7 @@ describe('<Router />', () => {
   it('check for all paths', () => {
     const paths = [
       '/',
-      '/detail',
+      '/offer/:offer',
       '/login',
       '/reset',
       '/confirm/:email',

@@ -1,45 +1,66 @@
 .detail {
   width: 100%;
   min-width: 300px;
-  padding: 112px 0;
+  padding: 112px 0 0 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   .image {
-    padding-right: 137px;
+    margin-right: 100px;
+    height: 420px;
+    background-size: cover;
+    background-position: center center;
     img {
       margin: auto;
       width: 100%;
       height: auto;
+      max-height: 420px;
     }
   }
-  .params {
+  .form-detail {
+    text-align: left;
     flex: 0 0 301px;
-    padding-right: 61px;
+    padding-right: 64px;
+    min-width: 0;
     .title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       width: 100%;
       text-transform: uppercase;
       font-size: 28px;
       letter-spacing: 2px;
-      margin-bottom: 62px;
+      font-weight: 600;
+      margin: 54px 0 39px;
     }
-    .trait {
+    .field {
+      flex: 1 1 100%;
+      height: 50px;
       display: flex;
-      font-size: 21px;
-      letter-spacing: 2px;
-      margin-bottom: 13px;
-      .name {
-        flex: 1 auto;
-        width: 50%;
-        font-weight: bolder;
-      }
-      .value {
-        flex: 1 auto;
-        width: 50%;
-        text-align: right;
-        letter-spacing: 3px;
-        padding-right: 8px;
-      }
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .fa, .material-icons {
+      flex: 0 0 35px;
+      line-height: 46px;
+      font-size: 18px !important;
+      padding-left: 2px;
+    }
+    .date-picker {
+      flex: 1 1 100%;
+    }
+    hr {
+      width: calc(100% + 35px) !important;
+      left: -35px !important;
+      border-bottom-color: black !important;
+    }
+    svg {
+      display: none !important;
+    }
+    .price {
+      font-weight: 700;
+      padding-left: 35px;
+      padding-top: 46px;
     }
     .ride-btn {
       display: flex;
@@ -48,8 +69,8 @@
       align-items: center;
       width: 100%;
       height: 66px;
-      margin-top: 90px;
-      border: 1px solid #6B6B6B;
+      margin-top: 43px;
+      border: 2px solid #6B6B6B;
       font-size: 24px;
       letter-spacing: 5px;
       background: transparent;
@@ -59,5 +80,112 @@
         line-height: 69px;
       }
     }
+  }
+}
+.description {
+  .title {
+    font-size: 32px;
+    margin-top: 57px;
+    margin-left: 30px;
+    font-weight: 700;
+    letter-spacing: 4px;
+  }
+  .owner {
+    padding: 34px 30px;
+    .picture {
+      display: inline-block;
+      width: 71px;
+      height: 71px;
+      background-size: cover;
+    }
+    .owner-details {
+      display: inline-block;
+      padding: 10px;
+      vertical-align: top;
+      font-size: 24px;
+      letter-spacing: 0.5px;
+    }
+  }
+  .text {
+    padding: 17px 10px 30px 30px;
+    font-size: 21px;
+    letter-spacing: 2.2px;
+    line-height: 30px;
+    font-weight: 300;
+  }
+}
+.comments {
+  padding: 30px 30px 100px;
+  .comments-cont {
+    padding: 22px 30px;
+    .references {
+      letter-spacing: 1px;
+    }
+    .ratings {
+      margin-top: 45px;
+    }
+    .row {
+      display: flex;
+      margin-bottom: 17px;
+      .rate {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        padding-right: 25px;
+        .type {
+          font-style: italic;
+          letter-spacing: -0.3px;
+          padding-right: 20px;
+        }
+        .stars {
+          .fa {
+            font-size: 14px !important;
+            padding: 4px;
+          }
+        }
+      }
+    }
+    .comment {
+      margin-top: 57px;
+      .author {
+        display: flex;
+        font-size: 15px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        .picture {
+          width: 35px;
+          height: 35px;
+          background-image: url('https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg');
+          background-size: cover;
+          background-position: center center;
+        }
+        .fullname {
+          padding: 9px 0px 0 19px;
+        }
+        .location {
+          padding: 9px 0px 0 19px;
+        }
+      }
+      .text {
+        padding: 14px 0;
+        font-size: 13px;
+        font-style: italic;
+        letter-spacing: 1.4px;
+        line-height: 30px;
+        font-weight: 300;
+      }
+    }
+  }
+  .view-all {
+    border-top: 1px solid black;
+    margin-top: 8px;
+    height: 54px;
+    font-size: 13px;
+    text-decoration: underline;
+    text-align: center;
+    padding-top: 21px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-sizing: border-box;
   }
 }
