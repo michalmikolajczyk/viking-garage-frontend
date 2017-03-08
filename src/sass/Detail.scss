@@ -8,14 +8,9 @@
   .image {
     margin-right: 100px;
     height: 420px;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
-    img {
-      margin: auto;
-      width: 100%;
-      height: auto;
-      max-height: 420px;
-    }
+    background-repeat: no-repeat;
   }
   .form-detail {
     text-align: left;

@@ -19,8 +19,7 @@ export default function Detail(props) {
     <Container close={true}>
       <div className="cont detail">
         <div className="description">
-          <div className="image" style={{ backgroundImage: `url(${offer.images.main})` }}>
-          </div>
+          <div className="image" style={{ backgroundImage: `url(${offer.images.main})` }}></div>
           <div className="title">{offer.title}</div>
           <div className="owner">
             <div className="picture" style={{ backgroundImage: `url(${offer.owner.picture})` }} />

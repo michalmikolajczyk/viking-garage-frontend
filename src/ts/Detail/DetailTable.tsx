@@ -14,7 +14,7 @@ export default function DetailTable(props) {
     capacity,
     maxPower,
     torque,
-    seatHeight
+    seatHeight,
   } = traits;
   return (
     <div className="table">
