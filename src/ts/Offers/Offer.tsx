@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import { Link } from 'react-router';
 import { FontIcon } from 'material-ui';
 
@@ -8,7 +9,7 @@ export default function Offer(props) {
     title,
     approx,
   } = props.data;
-  const img = props.data.images.main;
+  const img = _.get(props, 'data.images.main');
   const price = `${props.data.price.unit.day} $ / day`;
 
   const actionIconButton = url => (
@@ -23,12 +24,8 @@ export default function Offer(props) {
       <div style={{ backgroundImage: `url(${img})` }} className="image"/>
       <div className="head">
         <div className="descript">
-          <div className="title">
-            {title}
-          </div>
-          <div className="foot">
-            {`${price} ${approx}`}
-          </div>
+          <div className="title">{title}</div>
+          <div className="foot">{`${price} ${approx}`}</div>
         </div>
         {actionIconButton(url)}
       </div>

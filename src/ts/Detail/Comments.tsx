@@ -6,7 +6,7 @@ import {
 import * as _ from 'lodash';
 
 export default function Comments(props) {
-  const stars = () => _.times(5, i => <FontIcon key={i} className="fa fa-star"/>);
+  const stars = _.times(5, i => <FontIcon key={i} className="fa fa-star"/>);
   return (
     <div className="comments">
       <Paper style={{ width: '100%' }} zDepth={2} rounded={false}>
@@ -18,21 +18,21 @@ export default function Comments(props) {
             <div className="row">
               <div className="rate">
                 <div className="type">Bike performance</div>
-                <div className="stars">{stars()}</div>
+                <div className="stars">{stars}</div>
               </div>
               <div className="rate">
                 <div className="type">Communication</div>
-                <div className="stars">{stars()}</div>
+                <div className="stars">{stars}</div>
               </div>
             </div>
             <div className="row">
               <div className="rate">
                 <div className="type">Mechanical condition</div>
-                <div className="stars">{stars()}</div>
+                <div className="stars">{stars}</div>
               </div>
               <div className="rate">
                 <div className="type">Rating</div>
-                <div className="stars">{stars()}</div>
+                <div className="stars">{stars}</div>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@ export default function Comments(props) {
           </div>
         </div>
         <div className="view-all">
-          View all references
+          <a href="">View all references</a>
         </div>
       </Paper>
     </div>);

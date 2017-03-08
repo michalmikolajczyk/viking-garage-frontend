@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 import {
   DatePicker,
   FontIcon,
@@ -14,15 +15,13 @@ export default class DetailForm extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
-    const offer = props.offer;
+    const { offer } = props;
     this.offer = offer;
     const price = offer.price.unit[Object.keys(offer.price.unit)[0]];
-    const now = new Date();
-    log(price);
     this.state = {
       price,
-      startDate: now,
-      endDate: new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000),
+      startDate: moment().toDate(),
+      endDate: moment().add(3, 'days').toDate(),
       equipment: 1,
       total: parseInt(price, 10) * 3,
     };
@@ -33,9 +32,9 @@ export default class DetailForm extends React.Component<any, any> {
   }
 
   recalculate() {
-    const start = new Date(this.state.startDate);
-    const end = new Date(this.state.endDate);
-    const total = parseInt(this.state.price, 10) * Math.floor((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+    const start = moment(this.state.startDate);
+    const end = moment(this.state.endDate);
+    const total = this.state.price * end.diff(start, 'days');
     this.setState({ total });
   }
 
@@ -83,9 +82,7 @@ export default class DetailForm extends React.Component<any, any> {
             value={this.state.price}
             onChange={this.priceChange}
             fullWidth={true}
-          >
-          { selectPrice }
-          </SelectField>
+          >{selectPrice}</SelectField>
         </div>
         <div className="field">
           <FontIcon className="material-icons">today</FontIcon>
@@ -121,16 +118,10 @@ export default class DetailForm extends React.Component<any, any> {
             <MenuItem key={3} value={3} primaryText="Equipment: Full" />
           </SelectField>
         </div>
-        <div className="price">
-          {`TOTAL: ${this.state.total} ${this.offer.price.value}`}
-        </div>
+        <div className="price">{`TOTAL: ${this.state.total} ${this.offer.price.value}`}</div>
         <button className="ride-btn">
-          <span className="raido">
-            &#5809;
-          </span>
-          <span>
-            IDE
-          </span>
+          <span className="raido">&#5809;</span>
+          <span>IDE</span>
         </button>
       </div>
     );

@@ -5,7 +5,7 @@ import Footer from '../Footer';
 import Header from '../Header';
 
 export default function Container(props) {
-  const header = props.close ? null : <Header />;
+  const header = !props.close && <Header />;
   return (
      <div>
       <AppBarVG />
