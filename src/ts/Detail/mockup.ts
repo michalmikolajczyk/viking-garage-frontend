@@ -31,7 +31,7 @@ const ktm = {
     ],
   },
   images: {
-    main: 'http://pictures.topspeed.com/IMG/crop/201201/2012-ktm-125-sx-9_800x0w.jpg',
+    main: 'http://p.vitalmx.com/photos/users/64/photos/83572/s1600_125_SX_90Grad.jpg',
   },
   price: {
     unit: {
@@ -81,7 +81,7 @@ const husaberg = {
     ],
   },
   images: {
-    main: 'http://moto.zombdrive.com/images/husaberg-fe-390-2.jpg',
+    main: 'http://www.motorcycle-usa.com/photogallerys/2010-Husaberg-FE390.jpg',
   },
   price: {
     unit: {
@@ -131,7 +131,7 @@ const freeride = {
     ],
   },
   images: {
-    main: 'https://foto.scigacz.pl/cache/imgs/_w720/gallery/mod_static/KTM-Freeride-250R_18956_1.jpg',
+    main: 'http://cdn3.volusion.com/ffhcd.qryec/v/vspfiles/photos/2017KTMFREERIDE250R-2.jpg',
   },
   price: {
     unit: {
