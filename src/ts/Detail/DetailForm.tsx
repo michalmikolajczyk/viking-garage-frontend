@@ -35,7 +35,7 @@ export default class DetailForm extends React.Component<any, any> {
   recalculate() {
     const start = moment(this.state.startDate);
     const end = moment(this.state.endDate);
-    const total = Math.abs(55 * end.diff(start, 'days'));
+    const total = 55 * Math.abs(end.diff(start, 'days'));
     this.setState({ total });
   }
 
@@ -113,6 +113,7 @@ export default class DetailForm extends React.Component<any, any> {
         <div className="field">
           <FontIcon className="fa fa-angle-down" />
           <SelectField
+            id="equipment"
             value={this.state.equipment}
             onChange={this.equipmentChange}
             fullWidth={true}
