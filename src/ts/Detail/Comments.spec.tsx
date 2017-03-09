@@ -1,7 +1,7 @@
 import 'mocha';
 import * as React from 'react';
 import { expect } from 'chai';
-import { default as Comments } from './Comments';
+import Comments from './Comments';
 import { shallow } from 'enzyme';
 
 describe('<Comments />', () => {
