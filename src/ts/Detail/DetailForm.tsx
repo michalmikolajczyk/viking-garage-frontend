@@ -64,6 +64,7 @@ export default class DetailForm extends React.Component<any, any> {
 
   render() {
     const {
+      title,
       price,
     } = this.offer;
 
@@ -76,7 +77,8 @@ export default class DetailForm extends React.Component<any, any> {
       </MenuItem>));
 
     return (
-      <div>
+      <div className="detail-form">
+        <div className="title">{title}</div>
         <div className="field">
           <FontIcon className="fa fa-money" />
           <TextField
