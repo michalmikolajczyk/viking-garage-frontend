@@ -43,7 +43,7 @@ export default class AppBarVG extends React.Component<any, any> {
     }
   }
 
-  public search(filter) { log('AppBar search change', filter); }
+  search(filter) { log('AppBar search change', filter); }
 
   render() {
     const line = this.state.visible && <div className="app-bar-line"></div>;
@@ -58,7 +58,7 @@ export default class AppBarVG extends React.Component<any, any> {
         zDepth={0} // switch off box-shadow
         title={search}
         showMenuIconButton={true}
-        iconElementLeft={icon}
+        iconElementLeft={<Link className={'title' + (this.state.visible ? ' border' : '')} to="/">&#5809;</Link>}
         iconElementRight={<Menu update={() => this.forceUpdate()} />}
       >
         {line}
