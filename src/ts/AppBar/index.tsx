@@ -48,9 +48,6 @@ export default class AppBarVG extends React.Component<any, any> {
   render() {
     const line = this.state.visible && <div className="app-bar-line"></div>;
     const search = this.state.visible && <Search icon="search" filter={this.search} />;
-    const icon = this.state.visible
-      ? <Link className="title border" to="/">&#5809;</Link>
-      : <Link className="title" to="/">&#5809;</Link>;
 
     return (
       <AppBar

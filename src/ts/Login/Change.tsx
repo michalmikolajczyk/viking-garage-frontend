@@ -26,11 +26,8 @@ export default class Change extends React.Component<any, any> {
     const token = this.props.params.token;
     change({ token, ...passwords })
       .then((res) => {
-        if (res['err']) {
-          this.setState({ changeError: true });
-        } else {
-          this.setState({ changeSuccess: true });
-        }
+        if (res['err']) return this.setState({ changeError: true });
+        this.setState({ changeSuccess: true });
       })
       .catch(err => this.setState({ networkErr: true }));
   }

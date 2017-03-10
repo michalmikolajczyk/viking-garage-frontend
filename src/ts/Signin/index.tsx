@@ -9,7 +9,7 @@ export default function Signin(props) {
       <div className="form">
         <h1 className="title">Create a new account</h1>
         <div className="title-sub">
-          Already have an account?&#160;
+          Already have an account?&nbsp;
           <Link to="login" className="title-btn">
             Click here to log in!
           </Link>
