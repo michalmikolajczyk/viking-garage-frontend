@@ -13,6 +13,7 @@ import Check from '../Login/Check';
 import Reset from '../Login/Reset';
 import Signin from '../Signin';
 import Confirm from '../Signin/Confirm';
+import Verify from '../Signin/Verify';
 
 export default function AppRouter(props) {
   return (
@@ -25,7 +26,7 @@ export default function AppRouter(props) {
       <Route path="/change/:token" component={Change} />
       <Route path="/signin" component={Signin} />
       <Route path="/check" component={Check} />
-      <Route path="/verify/:token" component={Offers} />
+      <Route path="/verify/:token" component={Verify} />
       <Route path="/bike-owners" component={NotFound} />
       <Route path="/guides-coaches" component={NotFound} />
       <Route path="/mechanics" component={NotFound} />

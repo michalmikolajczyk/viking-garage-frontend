@@ -28,11 +28,8 @@ export default class SiginForm extends React.Component<any, any> {
     this.setState({ canSubmit: false });
     signin(user)
       .then((res) => {
-        if (res['err']) {
-          this.setState({ openDialog: true });
-        } else {
-          browserHistory.push(`/confirm/${user.email}`);
-        }
+        if (res['err']) return this.setState({ openDialog: true });
+        browserHistory.push(`/confirm/${user.email}`);
       })
       .catch(err => this.setState({ networkErr: true }));
   }

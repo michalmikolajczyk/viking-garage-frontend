@@ -27,15 +27,12 @@ export default class LoginForm extends React.Component<any, any> {
     this.setState({ canSubmit: false });
     login(user)
       .then((res) => {
-        if (res['err']) {
-          this.setState({ openDialog: true });
-        } else {
-          const token = res['token'];
-          const user = res['user'];
-          localStorage.setItem('jwt', token);
-          localStorage.setItem('user', JSON.stringify(user));
-          browserHistory.push('/');
-        }
+        if (res['err']) return this.setState({ openDialog: true });
+        const token = res['token'];
+        const user = res['user'];
+        localStorage.setItem('jwt', token);
+        localStorage.setItem('user', JSON.stringify(user));
+        browserHistory.push('/');
       })
       .catch(err => this.setState({ networkErr: true }));
   }
