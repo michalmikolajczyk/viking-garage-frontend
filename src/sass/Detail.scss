@@ -83,11 +83,13 @@
     margin-left: 30px;
   }
   .owner {
+    display: flex;
+    align-items: center;
     padding: 34px 30px;
     .picture {
       display: inline-block;
-      width: 71px;
-      height: 71px;
+      width: 55px;
+      height: 55px;
       background-size: cover;
     }
     .owner-details {
@@ -105,9 +107,16 @@
 }
 .table {
   padding: 20px 30px;
-  td {
-    font-size: 18px !important;
-    font-weight: 300;
+  tr {
+    height: 40px !important;
+    td {
+      height: 38px !important;
+      font-size: 16px !important;
+      font-weight: 300 !important;
+      &:nth-child(2n) {
+        text-align: right !important;
+      }
+    }
   }
 }
 .comments {
@@ -115,7 +124,7 @@
   .comments-cont {
     padding: 22px 30px;
     .references {
-      letter-spacing: 1px;
+      @extend .t3;
     }
     .ratings {
       margin-top: 45px;
@@ -127,16 +136,16 @@
         display: flex;
         flex: 1;
         justify-content: space-between;
+        align-items: center;
         padding-right: 25px;
         .type {
-          font-style: italic;
-          letter-spacing: -0.3px;
+          @extend .t5;
           padding-right: 20px;
         }
         .stars {
-          .fa {
-            font-size: 14px !important;
-            padding: 4px;
+          .material-icons {
+            font-size: 18px !important;
+            padding: 2px;
           }
         }
       }
@@ -144,10 +153,8 @@
     .comment {
       margin-top: 57px;
       .author {
+        @extend .t5;
         display: flex;
-        font-size: 15px;
-        font-weight: 200;
-        letter-spacing: 1px;
         .picture {
           width: 35px;
           height: 35px;
@@ -163,24 +170,21 @@
         }
       }
       .text {
-        padding: 14px 0;
-        font-size: 13px;
+        @extend .t5;
         font-style: italic;
-        letter-spacing: 1.4px;
+        padding: 14px 0;
         line-height: 30px;
-        font-weight: 300;
       }
     }
   }
   .view-all {
+    @extend .t6;
     border-top: 1px solid black;
     margin-top: 8px;
     height: 54px;
-    font-size: 13px;
     text-decoration: underline;
     text-align: center;
     padding-top: 21px;
-    letter-spacing: 0.5px;
     cursor: pointer;
     box-sizing: border-box;
   }

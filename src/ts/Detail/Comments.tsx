@@ -6,7 +6,7 @@ import {
 import * as _ from 'lodash';
 
 export default function Comments(props) {
-  const stars = _.times(5, i => <FontIcon key={i} className="fa fa-star"/>);
+  const stars = _.times(5, i => <FontIcon key={i} className="material-icons">star</FontIcon>);
   return (
     <div className="comments">
       <Paper style={{ width: '100%' }} zDepth={2} rounded={false}>

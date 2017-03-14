@@ -21,24 +21,42 @@ export default function DetailTable(props) {
       <Table selectable={false}>
         <TableBody displayRowCheckbox={false}>
           <TableRow>
+            <TableRowColumn>Road legal</TableRowColumn>
+            <TableRowColumn>No</TableRowColumn>
             <TableRowColumn>Engine Type</TableRowColumn>
             <TableRowColumn>{engineType}</TableRowColumn>
           </TableRow>
           <TableRow>
+            <TableRowColumn>License type</TableRowColumn>
+            <TableRowColumn>NA</TableRowColumn>
             <TableRowColumn>Capacity</TableRowColumn>
             <TableRowColumn>{capacity}</TableRowColumn>
           </TableRow>
           <TableRow>
-            <TableRowColumn>Max Power</TableRowColumn>
+            <TableRowColumn>Min. rental period</TableRowColumn>
+            <TableRowColumn>2 days</TableRowColumn>
+            <TableRowColumn>Max. Power</TableRowColumn>
             <TableRowColumn>{maxPower}</TableRowColumn>
           </TableRow>
           <TableRow>
-            <TableRowColumn>Torque</TableRowColumn>
-            <TableRowColumn>{torque}</TableRowColumn>
+            <TableRowColumn>Weight</TableRowColumn>
+            <TableRowColumn>95 kg</TableRowColumn>
+            <TableRowColumn>Top Speed</TableRowColumn>
+            <TableRowColumn>100 km/h</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>Seat Height</TableRowColumn>
             <TableRowColumn>{seatHeight}</TableRowColumn>
+            <TableRowColumn>Torque</TableRowColumn>
+            <TableRowColumn>{torque}</TableRowColumn>
+          </TableRow>
+          <TableRow>
+            <TableRowColumn>Max. Riders</TableRowColumn>
+            <TableRowColumn>1</TableRowColumn>
+            <TableRowColumn>0 - 100</TableRowColumn>
+            <TableRowColumn>5 s</TableRowColumn>
+          </TableRow>
+          <TableRow>
           </TableRow>
         </TableBody>
       </Table>
