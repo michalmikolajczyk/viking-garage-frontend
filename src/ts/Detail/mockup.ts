@@ -3,7 +3,7 @@ const ktm = {
   title: 'KTM SX 125, 2012',
   approx: '3 km away',
   type: 'Cross',
-  description: 'A brand new MX1 class two-stroke. Fantastic steering, light, and brings enough power to compete with 450cc four-stroke motocross bikes.',
+  description: 'Those wanting to race in the Junior World Championship need look no further than the 125 SX. The free-revving and lively two-stroke engine has gained even more performance for the current season.',
   traits: {
     engineType: '2-stroke',
     capacity: '125cc',
