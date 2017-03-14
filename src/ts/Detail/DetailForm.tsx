@@ -113,7 +113,7 @@ export default class DetailForm extends React.Component<any, any> {
         <div className="field">
           <FontIcon className="fa fa-angle-down" />
           <SelectField
-            id="equipment"
+            className="equipment"
             value={this.state.equipment}
             onChange={this.equipmentChange}
             fullWidth={true}

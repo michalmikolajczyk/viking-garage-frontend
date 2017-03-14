@@ -13,7 +13,7 @@ describe('<DetailForm />', () => {
     const wrapper = mountWithTheme(<DetailForm offer={offer} />);
     expect(wrapper.find('#base-price')).to.have.length(1);
     expect(wrapper.find('.date-picker')).to.have.length(2);
-    expect(wrapper.find('#equipment')).to.have.length(1);
+    expect(wrapper.find('.equipment')).to.have.length(1);
   });
 
   it('check for summary & submit button', () => {
