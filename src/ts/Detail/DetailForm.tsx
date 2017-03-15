@@ -12,7 +12,9 @@ import debug from 'debug';
 const log = debug('app:DetailForm');
 
 export default class DetailForm extends React.Component<any, any> {
-  private offer;
+  private offer: any;
+  private top: number;
+  private diff: number;
 
   constructor(props) {
     super(props);
@@ -25,11 +27,38 @@ export default class DetailForm extends React.Component<any, any> {
       endDate: moment().add(3, 'days').toDate(),
       equipment: 1,
       total: 55 * 3,
+      form: '',
     };
     this.endDateChange = this.endDateChange.bind(this);
     this.startDateChange = this.startDateChange.bind(this);
     this.priceChange = this.priceChange.bind(this);
     this.equipmentChange = this.equipmentChange.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    const side = document.querySelector('#detail-side').clientHeight;
+    const wrap = document.querySelector('#detail-wrap').clientHeight;
+    this.top = 54;
+    this.diff = wrap - side - 114;
+    this.handleScroll();
+  }
+
+  componentWillUnmount() {
+    this.handleScroll = () => null;
+  }
+
+  handleScroll() {
+    window.requestAnimationFrame(this.handleScroll);
+    if (window.scrollY <= this.top && this.state.form !== '') {
+      return this.setState({ form: '' });
+    }
+    if (window.scrollY > this.top && window.scrollY < this.diff && this.state.form !== 'fixed') {
+      return this.setState({ form: 'fixed' });
+    }
+    if (window.scrollY >= this.diff && this.state.form !== 'absolute') {
+      return this.setState({ form: 'absolute' });
+    }
   }
 
   recalculate() {
@@ -77,57 +106,61 @@ export default class DetailForm extends React.Component<any, any> {
       </MenuItem>));
 
     return (
-      <div className="detail-form">
-        <div className="title">{title}</div>
-        <div className="field">
-          <FontIcon className="fa fa-money" />
-          <TextField
-            id="base-price"
-            value="Base price: 55$ / day"
-            onChange={() => undefined}
-            fullWidth={true}
-          />
+      <div id="detail-wrap" className="detail-form">
+        <div id="detail-side" className={`${this.state.form}`}>
+        <div className="child">
+          <div className="title">{title}</div>
+          <div className="field">
+            <FontIcon className="fa fa-money" />
+            <TextField
+              id="base-price"
+              value="Base price: 55$ / day"
+              onChange={() => undefined}
+              fullWidth={true}
+            />
+          </div>
+          <div className="field">
+            <FontIcon className="material-icons">today</FontIcon>
+            <DatePicker
+              className="date-picker"
+              autoOk={true}
+              value={this.state.startDate}
+              onChange={this.startDateChange}
+              hintText="Today"
+              fullWidth={true}
+            />
+          </div>
+          <div className="field">
+            <FontIcon className="material-icons">date_range</FontIcon>
+            <DatePicker
+              className="date-picker"
+              autoOk={true}
+              value={this.state.endDate}
+              onChange={this.endDateChange}
+              hintText="19/01/2017"
+              fullWidth={true}
+            />
+          </div>
+          <div className="field">
+            <FontIcon className="fa fa-angle-down" />
+            <SelectField
+              className="equipment"
+              value={this.state.equipment}
+              onChange={this.equipmentChange}
+              fullWidth={true}
+            >
+              <MenuItem key={1} value={1} primaryText="Equipment: Basic" />
+              <MenuItem key={2} value={2} primaryText="Equipment: Semi" />
+              <MenuItem key={3} value={3} primaryText="Equipment: Full" />
+            </SelectField>
+          </div>
+          <div className="price">{`TOTAL: ${this.state.total} ${this.offer.price.value}`}</div>
+          <button className="ride-btn">
+            <span className="raido">&#5809;</span>
+            <span>IDE</span>
+          </button>
+          </div>
         </div>
-        <div className="field">
-          <FontIcon className="material-icons">today</FontIcon>
-          <DatePicker
-            className="date-picker"
-            autoOk={true}
-            value={this.state.startDate}
-            onChange={this.startDateChange}
-            hintText="Today"
-            fullWidth={true}
-          />
-        </div>
-        <div className="field">
-          <FontIcon className="material-icons">date_range</FontIcon>
-          <DatePicker
-            className="date-picker"
-            autoOk={true}
-            value={this.state.endDate}
-            onChange={this.endDateChange}
-            hintText="19/01/2017"
-            fullWidth={true}
-          />
-        </div>
-        <div className="field">
-          <FontIcon className="fa fa-angle-down" />
-          <SelectField
-            className="equipment"
-            value={this.state.equipment}
-            onChange={this.equipmentChange}
-            fullWidth={true}
-          >
-            <MenuItem key={1} value={1} primaryText="Equipment: Basic" />
-            <MenuItem key={2} value={2} primaryText="Equipment: Semi" />
-            <MenuItem key={3} value={3} primaryText="Equipment: Full" />
-          </SelectField>
-        </div>
-        <div className="price">{`TOTAL: ${this.state.total} ${this.offer.price.value}`}</div>
-        <button className="ride-btn">
-          <span className="raido">&#5809;</span>
-          <span>IDE</span>
-        </button>
       </div>
     );
   }
