@@ -1,7 +1,7 @@
 .accordion {
   .header {
     @extend .h6;
-    padding: 0;
+    padding: 16px 0 0 0;
     border-bottom: 1px solid rgb(224, 224, 224);
     button {
       width: 100%;
