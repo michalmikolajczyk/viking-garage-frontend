@@ -104,7 +104,7 @@ const ktm = {
     ['Licence Required', 'No'],
     ['Minimum Rental Period', '1 day'],
     ['Engine', '2-stroke'],
-    ['Capacity', '125cc'],
+    ['Capacity', '125 cc'],
     ['Max Power', '35 HP'],
     ['Torque', '28 Nm'],
     ['Weight', '120 kg'],
@@ -128,7 +128,7 @@ const ktm = {
     runes: 5,
     votes: 120,
   },
-  owner: {
+  offerer: {
     fullname: 'Michal Mikolajczyk',
     picture: 'https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg',
     badges: [
@@ -136,6 +136,12 @@ const ktm = {
       'trusted',
       'confirmed',
     ],
+    descript: 'My name is Mike and I like to ride motocross… but I will ride any bike, really. Ask me for local tracks and instructors – my friends and I ride and race every week. Our garage is in Warsaw Powisle.',
+    recommend: 9,
+    location: {
+      city: 'Warsaw',
+      country: 'Poland',
+    },
   },
   images: {
     main: 'http://p.vitalmx.com/photos/users/64/photos/83572/s1600_125_SX_90Grad.jpg',
@@ -169,7 +175,7 @@ const husaberg = {
     ['Licence Required', 'No'],
     ['Minimum Rental Period', '1 day'],
     ['Engine', '2-stroke'],
-    ['Capacity', '125cc'],
+    ['Capacity', '125 cc'],
     ['Max Power', '35 HP'],
     ['Torque', '28 Nm'],
     ['Weight', '120 kg'],
@@ -193,7 +199,7 @@ const husaberg = {
     runes: 5,
     votes: 120,
   },
-  owner: {
+  offerer: {
     fullname: 'Michal Mikolajczyk',
     picture: 'https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg',
     badges: [
@@ -201,6 +207,12 @@ const husaberg = {
       'trusted',
       'confirmed',
     ],
+    descript: 'My name is Mike and I like to ride motocross… but I will ride any bike, really. Ask me for local tracks and instructors – my friends and I ride and race every week. Our garage is in Warsaw Powisle.',
+    recommend: 9,
+    location: {
+      city: 'Warsaw',
+      country: 'Poland',
+    },
   },
   images: {
     main: 'http://www.motorcycle-usa.com/photogallerys/2010-Husaberg-FE390.jpg',
@@ -234,7 +246,7 @@ const freeride = {
     ['Licence Required', 'No'],
     ['Minimum Rental Period', '1 day'],
     ['Engine', '2-stroke'],
-    ['Capacity', '125cc'],
+    ['Capacity', '125 cc'],
     ['Max Power', '35 HP'],
     ['Torque', '28 Nm'],
     ['Weight', '120 kg'],
@@ -258,7 +270,7 @@ const freeride = {
     runes: 5,
     votes: 120,
   },
-  owner: {
+  offerer: {
     fullname: 'Jan Horubala',
     picture: 'https://scontent-amt2-1.cdninstagram.com/t51.2885-15/e35/16463985_256259144802357_4986204357729976320_n.jpg',
     badges: [
@@ -266,6 +278,12 @@ const freeride = {
       'trusted',
       'confirmed',
     ],
+    descript: 'My name is Mike and I like to ride motocross… but I will ride any bike, really. Ask me for local tracks and instructors – my friends and I ride and race every week. Our garage is in Warsaw Powisle.',
+    recommend: 9,
+    location: {
+      city: 'Warsaw',
+      country: 'Poland',
+    },
   },
   images: {
     main: 'http://cdn3.volusion.com/ffhcd.qryec/v/vspfiles/photos/2017KTMFREERIDE250R-2.jpg',

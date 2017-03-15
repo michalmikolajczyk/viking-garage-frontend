@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-export default function DetailHeader(props) {
-  const { offer } = props;
+export default function Header({ offer }) {
+  const { offerer } = offer;
   return (
     <div>
       <div
@@ -14,14 +14,14 @@ export default function DetailHeader(props) {
       <div className="owner">
         <div
           className="picture"
-          style={{ backgroundImage: `url(${offer.owner.picture})` }}
+          style={{ backgroundImage: `url(${offerer.picture})` }}
         />
         <div className="owner-details">
           <div className="fullname">
-            {offer.owner.fullname}
+            {offerer.fullname}
           </div>
           <div className="location">
-            {`${offer.location.address.city}, ${offer.location.address.country}`}
+            {`${offerer.location.city}, ${offerer.location.country}`}
           </div>
         </div>
       </div>

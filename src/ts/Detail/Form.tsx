@@ -11,7 +11,7 @@ import {
 import debug from 'debug';
 const log = debug('app:DetailForm');
 
-export default class DetailForm extends React.Component<any, any> {
+export default class Form extends React.Component<any, any> {
   private offer: any;
 
   constructor(props) {

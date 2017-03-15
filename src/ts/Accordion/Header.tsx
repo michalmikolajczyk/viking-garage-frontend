@@ -9,9 +9,9 @@ export default function AccordionHeader(props) {
   } = props;
 
   return (
-    <div className="header">
+    <div className="acc-header">
       <FlatButton
-        icon={icon}
+        icon={icon || <div className="material-icons" />}
         onTouchTap={call}
         disableTouchRipple={true}
       >

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Container from '../Container';
-import DetailForm from './DetailForm';
-import DetailOffer from './DetailOffer';
+import Form from './Form';
+import Offer from './Offer';
 import debug from 'debug';
 const log = debug('app:Detail');
 import * as items from './mockup';
@@ -12,8 +12,8 @@ export default function Detail(props) {
   return (
     <Container close={true}>
       <div className="detail">
-        <DetailOffer offer={offer} />
-        <DetailForm offer={offer} />
+        <Offer offer={offer} />
+        <Form offer={offer} />
       </div>
     </Container>
   );

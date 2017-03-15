@@ -1,18 +1,17 @@
 import * as React from 'react';
 import Accordion from '../Accordion';
 import Comments from './Comments';
-import DetailHeader from './DetailHeader';
-import DetailList from './DetailList';
+import Header from './Header';
+import List from './List';
 
-export default function DetailOffer(props) {
-  const { offer } = props;
+export default function DetailOffer({ offer }) {
   const { general } = offer;
   return (
     <div className="detail-offer">
-      <DetailHeader offer={offer} />
+      <Header offer={offer} />
       <Accordion open={true} items={general} />
       <Comments />
-      <DetailList offer={offer} />
+      <List offer={offer} />
     </div>
   );
 }

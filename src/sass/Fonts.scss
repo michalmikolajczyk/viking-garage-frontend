@@ -74,22 +74,28 @@ $medium: 600;
   letter-spacing: 1px;
 }
 
-// login/signin actions
 .t4 {
+  font-size: 16px;
+  font-weight: $light;
+  letter-spacing: 1px;
+}
+
+// login/signin actions
+.t5 {
   font-size: 15px;
   font-weight: $light;
   letter-spacing: normal;
 }
 
 // social links
-.t5 {
+.t6 {
   font-size: 14px;
   font-weight: $light;
   letter-spacing: 1px;
 }
 
 // error messages
-.t6 {
+.t7 {
   font-size: 12px;
   font-weight: normal;
   letter-spacing: normal;
