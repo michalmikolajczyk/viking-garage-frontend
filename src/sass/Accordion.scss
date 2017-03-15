@@ -15,16 +15,24 @@
       flex: 0 1 30px;
     }
   }
-  tr {
-    height: 0px !important;
-    td {
-      height: 38px !important;
-      padding-left: 30px !important;
-      padding-right: 30px !important;
-      font-size: 16px !important;
-      font-weight: 300 !important;
-      &:nth-child(2n) {
-        text-align: right !important;
+  .tr {
+    display: flex;
+    height: 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    .td {
+      @extend .t3;
+      font-weight: $light;
+      display: flex;
+      flex: 1;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 30px 2.5px;
+      .col {
+        flex: 1 1 auto;
+        &:nth-child(2) {
+          flex: 0 1 auto;
+        }
       }
     }
   }
