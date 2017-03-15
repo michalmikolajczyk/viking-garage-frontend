@@ -90,16 +90,15 @@
 
 .detail-offer {
   flex: 1;
-  padding: 112px 0 0 0;
+  padding: 112px 30px 60px;
   .title {
     @extend .h3;
     margin-top: 57px;
-    margin-left: 30px;
   }
   .owner {
     display: flex;
     align-items: center;
-    padding: 34px 30px;
+    padding-top: 34px;
     .picture {
       display: inline-block;
       width: 55px;
@@ -115,26 +114,13 @@
   }
   .text {
     @extend .t2;
-    padding: 17px 10px 30px 30px;
+    padding: 17px 0 30px;
     line-height: 30px;
   }
 }
-.table {
-  padding: 20px 30px;
-  tr {
-    height: 40px !important;
-    td {
-      height: 38px !important;
-      font-size: 16px !important;
-      font-weight: 300 !important;
-      &:nth-child(2n) {
-        text-align: right !important;
-      }
-    }
-  }
-}
+
 .comments {
-  padding: 30px 30px 100px;
+  padding: 30px 0;
   .comments-cont {
     padding: 22px 30px;
     .references {

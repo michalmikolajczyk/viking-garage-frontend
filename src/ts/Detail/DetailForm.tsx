@@ -13,8 +13,6 @@ const log = debug('app:DetailForm');
 
 export default class DetailForm extends React.Component<any, any> {
   private offer: any;
-  private top: number;
-  private diff: number;
 
   constructor(props) {
     super(props);
@@ -37,10 +35,6 @@ export default class DetailForm extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    const side = document.querySelector('#detail-side').clientHeight;
-    const wrap = document.querySelector('#detail-wrap').clientHeight;
-    this.top = 54;
-    this.diff = wrap - side - 114;
     this.handleScroll();
   }
 
@@ -50,13 +44,17 @@ export default class DetailForm extends React.Component<any, any> {
 
   handleScroll() {
     window.requestAnimationFrame(this.handleScroll);
-    if (window.scrollY <= this.top && this.state.form !== '') {
+    const side = document.querySelector('#detail-side').clientHeight;
+    const wrap = document.querySelector('#detail-wrap').clientHeight;
+    const diff = wrap - side - 114;
+    const top = 54;
+    if (window.scrollY <= top && this.state.form !== '') {
       return this.setState({ form: '' });
     }
-    if (window.scrollY > this.top && window.scrollY < this.diff && this.state.form !== 'fixed') {
+    if (window.scrollY > top && window.scrollY < diff && this.state.form !== 'fixed') {
       return this.setState({ form: 'fixed' });
     }
-    if (window.scrollY >= this.diff && this.state.form !== 'absolute') {
+    if (window.scrollY >= diff && this.state.form !== 'absolute') {
       return this.setState({ form: 'absolute' });
     }
   }
