@@ -1,6 +1,8 @@
 # viking-garage-frontend
 VIKING GARAGE app
 
+[![Build Status](https://travis-ci.org/michalmikolajczyk/viking-garage-frontend.svg?branch=master)](https://travis-ci.org/michalmikolajczyk/viking-garage-frontend)
+
 ### Setup
 ```
 git clone git@github.com:michalmikolajczyk/viking-garage-frontend.git
