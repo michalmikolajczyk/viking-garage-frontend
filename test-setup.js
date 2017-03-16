@@ -29,6 +29,10 @@ global.window.scrollTo = (x, y) => {
   global.window.scrollY = y;
 }
 
+global.document.querySelector = () => ({
+  clientHeight: 0,
+})
+
 global.navigator = {
   userAgent: 'node.js'
 }

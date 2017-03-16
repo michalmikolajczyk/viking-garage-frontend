@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import Accordion from '../Accordion';
-import Header from '../Accordion/Header';
 import Offerer from './Offerer';
 
 export default function DetailList({ offer }) {

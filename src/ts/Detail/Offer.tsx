@@ -4,7 +4,7 @@ import Comments from './Comments';
 import Header from './Header';
 import List from './List';
 
-export default function DetailOffer({ offer }) {
+export default function Offer({ offer }) {
   const { general } = offer;
   return (
     <div className="detail-offer">
