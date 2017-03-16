@@ -2,4 +2,4 @@ language: node_js
 node_js:
   - "node"
 before_install:
-  - cp config.js.example config.js
+  - scripts/setup.sh
