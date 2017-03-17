@@ -2,9 +2,9 @@
 export default {
   references: 55,
   rating: {
-    general: 5,
-    condition: 5,
-    performance: 5,
+    general: 0,
+    condition: 2.5,
+    performance: 4.5,
     communication: 5,
   },
   comments: [
