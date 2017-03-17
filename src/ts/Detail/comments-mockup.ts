@@ -14,7 +14,7 @@ export default {
         picture: 'https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg',
         location: 'Warsaw, Poland',
       },
-      text: "Aba. By that I mean a comment which is actually quite in-depth, but I can't really\n articulate it well just yet, because I am only two years old.",
+      text: "Aba. By that I mean a comment which is actually quite in-depth, but I can't really articulate it well just yet, because I am only two years old.",
     },
     {
       author: {
@@ -22,7 +22,7 @@ export default {
         picture: 'https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg',
         location: 'Warsaw, Poland',
       },
-      text: "The motorcycle looks and rides as described. Mint condition, raw power.\n I can also recommend the owner, he is my dad.",
+      text: "The motorcycle looks and rides as described. Mint condition, raw power. I can also recommend the owner, he is my dad.",
     }
   ]
 }

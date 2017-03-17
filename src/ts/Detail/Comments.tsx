@@ -72,9 +72,9 @@ export default class Comments extends React.Component<any, any> {
   }
 
   comment() {
-    return this.state.comments.map(({ author, text }) => {
+    return this.state.comments.map(({ author, text }, index) => {
       return (
-        <div className="comment">
+        <div className="comment" key={index}>
           <div className="author">
             <div className="picture" style={{ background: `url(${author.picture})` }} />
             <div className="fullname">{author.name}</div>
@@ -88,11 +88,11 @@ export default class Comments extends React.Component<any, any> {
   stars(rate) {
     return _.times(5, i => {
       if (rate < i + 0.5) {
-        return <FontIcon key={i} className="material-icons">star_border</FontIcon>
+        return <FontIcon key={i} className="material-icons">star_border</FontIcon>;
       } else if (rate < i + 1) {
-        return <FontIcon key={i} className="material-icons">star_half</FontIcon>
+        return <FontIcon key={i} className="material-icons">star_half</FontIcon>;
       } else {
-        return <FontIcon key={i} className="material-icons">star</FontIcon>
+        return <FontIcon key={i} className="material-icons">star</FontIcon>;
       }
     });
   }
