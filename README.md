@@ -9,12 +9,12 @@ git clone git@github.com:michalmikolajczyk/viking-garage-frontend.git
 cd viking-garage-frontend
 ```
 
-## Docker setup
+## Local Docker setup
 1. Make sure you have docker installed and running on your local machine.
-2. `scripts/docker-setup/sh`
+2. `scripts/docker-setup-local.sh`
 3. Access the app via your (i.e. the host's) localhost, port 3000
 
-## Local, non-docker Setup
+## Local setup w/o Docker
 ```
 scripts/setup.sh
 ```
