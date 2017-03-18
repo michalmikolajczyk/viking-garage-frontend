@@ -4,5 +4,7 @@ services:
 language: node_js
 node_js:
   - "node"
+install:
+  - echo "moving on to the script in Dockerfile"
 script:
   - scripts/docker-setup-travis.sh

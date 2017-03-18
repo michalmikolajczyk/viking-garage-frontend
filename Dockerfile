@@ -3,7 +3,7 @@ FROM node
 # RUN npm install webpack -g
 WORKDIR /tmp
 COPY package.json /tmp/
-RUN npm config set registry http://registry.npmjs.org/ && npm install
+RUN npm config -s set registry http://registry.npmjs.org/ && npm install
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app/
