@@ -9,7 +9,6 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app/
 RUN cp -a /tmp/node_modules /usr/src/app/
 RUN cp config.js.example config.js
-ARG TRAVIS
-RUN if [ "x$TRAVIS" != "x" ]; then npm test; fi
-RUN if [ "x$TRAVIS" != "x" ]; then exit 0; fi
+RUN [ "x$CI" != "x" ] && npm test
+RUN [ "x$CI" != "x" ] && exit 0
 CMD [ "npm", "start" ]
