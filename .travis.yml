@@ -4,9 +4,13 @@ services:
 language: node_js
 node_js:
   - "node"
+before_install:
+  - echo "ENV TRAVIS ${TRAVIS}" >> Dockerfile
+  - echo "ENV DOCKER_USERNAME ${DOCKER_USERNAME}" >> Dockerfile
+  - echo "ENV DOCKER_PASSWORD ${DOCKER_PASSWORD}" >> Dockerfile
 install:
-  - echo "moving on to the script in Dockerfile"
+  - docker build -t vikinggarage/viking-garage-frontend:latest ./
 script:
-  - scripts/docker-setup-travis.sh
+  - docker run -p 127.0.0.1:80:3000 --name viking-garage-frontend vikinggarage/viking-garage-frontend:latest
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"

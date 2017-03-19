@@ -15,6 +15,6 @@ RUN cp config.js.example config.js
 # RUN adduser -D myuser
 # USER myuser
 ARG TRAVIS
-RUN if [ -z ${TRAVIS+x} ]; then echo "no tests"; else npm test; fi
-RUN if [ -z ${TRAVIS+x} ]; then echo "not the script you were looking for"; else exit 0; fi
+RUN if [ "x$TRAVIS" == "x" ]; then echo "no tests"; else npm test; fi
+RUN if [ "x$TRAVIS" != "x" ]; exit 0; fi
 CMD [ "npm", "start" ]
