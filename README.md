@@ -38,7 +38,6 @@ var config = {
 }
 ```
 
-
 ## Debug
 To enable logs from the App, set in a `localStorage`:
 ```
