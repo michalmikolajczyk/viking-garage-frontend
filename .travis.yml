@@ -7,6 +7,6 @@ node_js:
 install:
   - docker build -t vikinggarage/viking-garage-frontend:latest ./
 script:
-  - docker run -e "CI=travis" -p 127.0.0.1:80:3000 --name viking-garage-frontend vikinggarage/viking-garage-frontend:latest
+  - docker run -p 127.0.0.1:80:3000 --name viking-garage-frontend vikinggarage/viking-garage-frontend:latest npm test
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
