@@ -8,3 +8,5 @@ install:
   - echo "moving on to the script in Dockerfile"
 script:
   - scripts/docker-setup-travis.sh
+after_success:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
