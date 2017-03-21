@@ -1,12 +1,15 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 
-export default function Header({ offer }) {
-  const { offerer } = offer;
+export default function HeaderVG({ offer }) {
+  const image = _.get(offer, 'images.main');
+  const offerer = _.get(offer, 'offerer');
+
   return (
     <div>
       <div
         className="image"
-        style={{ backgroundImage: `url(${offer.images.main})` }}
+        style={{ backgroundImage: `url(${image})` }}
       />
       <div className="title">
         {offer.title}

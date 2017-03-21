@@ -1,17 +1,17 @@
 import * as React from 'react';
 import Accordion from '../Accordion';
 import Comments from './Comments';
-import Header from './Header';
+import HeaderVG from './HeaderVG';
 import List from './List';
 
 export default function Offer({ offer }) {
-  const { general } = offer;
   return (
     <div className="detail-offer">
-      <Header offer={offer} />
-      <Accordion open={true} items={general} />
-      <Comments />
-      <List offer={offer} />
+      <HeaderVG offer={offer} />
     </div>
   );
 }
+
+      // <Accordion open={true} items={general} />
+      // <Comments />
+      // <List offer={offer} />

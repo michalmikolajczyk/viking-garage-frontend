@@ -77,6 +77,9 @@ const offer = {
   type: 'motocross',
   instance: 3,
   description: 'Those wanting to race in the Junior World Championship need look no further than the 125 SX. The free-revving and lively two-stroke engine has gained even more performance for the current season.',
+  images: {
+    main: 'http://p.vitalmx.com/photos/users/64/photos/83572/s1600_125_SX_90Grad.jpg',
+  },
   offerer: {
     id: 1,
     picture: 'https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg',
