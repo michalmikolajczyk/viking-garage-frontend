@@ -1,14 +1,22 @@
 const details = {
-  motorcycle: {
+  detail: {
+// general
+    roadLegal: false,
     engine: '2-stroke',
+    licenseType: 'NA',
     capacity: 125,
+    minRentalPeriod: 1,
     maxPower: 35,
+    weight: 120,
+    topSpeed: 110,
+    seatHeight: 992,
     torque: 28,
+    maxRiders: 1,
+    acceleration: 5,
+
     cylinderCount: 1,
     bore: 55,
     stroke: 65,
-    weight: 120,
-    topSpeed: 110,
     transmission: '6 gears, MT',
     compressionRatio: 'xxx',
     suspension: 'Sanchez',
@@ -18,7 +26,6 @@ const details = {
     wheelSizes: '21" F, 19" R',
     tires: 'Excel',
     brakes: 'Brembo',
-    seatHeight: 992,
     fuelCapacity: 7.5,
     ignitionType: 'Kickstarr',
     kickstand: false,

@@ -33,7 +33,7 @@ export default class Accordion extends React.Component<any, any> {
     return (
       <div className="accordion">
         {header}
-        {this.state.open ? this.table : null}
+        {this.state.open && this.table}
       </div>
     );
   }
