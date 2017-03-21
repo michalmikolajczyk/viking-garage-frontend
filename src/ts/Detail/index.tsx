@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Container from '../Container';
-import Form from './Form';
+import FormVG from './FormVG';
 import Offer from './Offer';
 import debug from 'debug';
 const log = debug('app:Detail');
@@ -11,8 +11,8 @@ export default function Detail(props) {
     <Container close={true}>
       <div className="detail">
         <Offer offer={offer} />
+        <FormVG offer={offer} />
       </div>
     </Container>
   );
 }
-        // <Form offer={offer} />

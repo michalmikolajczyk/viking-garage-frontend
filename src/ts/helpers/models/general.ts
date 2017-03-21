@@ -18,7 +18,7 @@ export default [
   {
     key: 'minRentalPeriod',
     label: 'Min. Rental Period',
-    units: 'day(s)',
+    units: 'days',
   },
   {
     key: 'maxPower',
@@ -33,7 +33,7 @@ export default [
   {
     key: 'topSpeed',
     label: 'Top Speed',
-    units: 'km / h',
+    units: 'km/h',
   },
   {
     key: 'seatHeight',

@@ -5,9 +5,13 @@ export default function parser(type: string, items: Object): any {
   return _.map(models[type], model => {
     let value;
     if (typeof items[model.key] === 'boolean') {
-      value = items[model.key] ? 'YES' : 'NO';
+      value = items[model.key] ? 'Yes' : 'No';
     } else {
-      value = `${items[model.key]}` + (model.units ? ` ${model.units}` : '');
+      if (model.units === 'days') {
+        value = items[model.key] == 1 ? `${items[model.key]} day` : `${items[model.key]} days`;
+      } else {
+        value = `${items[model.key]}` + (model.units ? ` ${model.units}` : '');
+      }
     }
     return {
       value,

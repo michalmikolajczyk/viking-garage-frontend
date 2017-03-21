@@ -11,14 +11,14 @@ import {
 import debug from 'debug';
 const log = debug('app:DetailForm');
 
-export default class Form extends React.Component<any, any> {
+export default class FormVG extends React.Component<any, any> {
   private offer: any;
 
   constructor(props) {
     super(props);
     const { offer } = props;
     this.offer = offer;
-    const price = offer.price.unit[Object.keys(offer.price.unit)[0]];
+    const price = offer.price.day;
     this.state = {
       price,
       startDate: moment().toDate(),
@@ -152,7 +152,7 @@ export default class Form extends React.Component<any, any> {
               <MenuItem key={3} value={3} primaryText="Equipment: Full" />
             </SelectField>
           </div>
-          <div className="price">{`TOTAL: ${this.state.total} ${this.offer.price.value}`}</div>
+          <div className="price">{`TOTAL: ${this.state.total} USD`}</div>
           <button className="ride-btn">
             <span className="raido">&#5809;</span>
             <span>IDE</span>
