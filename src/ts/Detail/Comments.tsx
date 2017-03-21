@@ -4,7 +4,7 @@ import {
   Paper,
 } from 'material-ui';
 import * as _ from 'lodash';
-import comments from './comments-mockup';
+import { default as comments } from './comments-mockup';
 
 export default class Comments extends React.Component<any, any> {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class Comments extends React.Component<any, any> {
       loading: true,
       fetching: false,
       comments: [],
-    }
+    };
     this.comment = this.comment.bind(this);
     this.rating = this.rating.bind(this);
     this.fetch = this.fetch.bind(this);
@@ -25,47 +25,43 @@ export default class Comments extends React.Component<any, any> {
 
   fetch() {
     this.setState({ fetching: true });
-    setTimeout(() => {
-      this.setState({
-        loading: false,
-        fetching: false,
-        rating: comments.rating,
-        references: comments.references,
-        comments: [
-          ...this.state.comments,
-          ...comments.comments,
-        ],
-      });
-    }, 2000);
+    setTimeout(
+      () => {
+        this.setState({
+          loading: false,
+          fetching: false,
+          rating: comments.rating,
+          references: comments.references,
+          comments: [
+            ...this.state.comments,
+            ...comments.comments,
+          ],
+        });
+      },
+      2000);
   }
 
   render() {
-    if (this.state.loading) {
-      return (
-        <div className="comments">
-          <Paper style={{ width: '100%' }} zDepth={2} rounded={false}>
-            <div className="comments-cont">
-              <div style={{textAlign: 'center'}}>LOADING COMMENTS...</div>
-            </div>
-          </Paper>
-        </div>
-      );
-    }
-
-    const rating = this.rating();
-    const comments = this.comment();
     const more = this.state.fetching ? <div>Loading comments</div> : <div onClick={this.fetch}>View all references</div>;
-    return (
-      <div className="comments">
-        <Paper style={{ width: '100%' }} zDepth={2} rounded={false}>
+    const body = this.state.loading
+      ? <div>LOADING COMMENTS...</div>
+      : (
+        <div>
           <div className="comments-cont">
             <div className="references">{this.state.references} References</div>
-            {rating}
-            {comments}
+            {this.rating()}
+            {this.comment()}
           </div>
           <div className="view-all">
             {more}
           </div>
+        </div>
+      );
+
+    return (
+      <div className="comments">
+        <Paper style={{ width: '100%' }} zDepth={2} rounded={false}>
+          {body}
         </Paper>
       </div>
     );
@@ -82,11 +78,11 @@ export default class Comments extends React.Component<any, any> {
           </div>
           <div className="text">{text}</div>
         </div>);
-      })
+      });
   }
 
   stars(rate) {
-    return _.times(5, i => {
+    return _.times(5, (i) => {
       if (rate < i + 0.5) {
         return <FontIcon key={i} className="material-icons">star_border</FontIcon>;
       } else if (rate < i + 1) {
