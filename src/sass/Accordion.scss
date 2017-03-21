@@ -8,15 +8,19 @@
       height: 40px;
       box-sizing: border-box;
       border-bottom: 1px solid rgb(224, 224, 224);
+      max-width: 50%;
       .col {
         @extend .t3;
         font-weight: $light;
-        display: flex;
         flex: 1 1 auto;
-        align-items: flex-end;
-        padding: 0 30px 2.5px;
+        margin: 18px 30px 0 30px;
+        box-sizing: border-box;
+        white-space: nowrap;
         &:nth-child(2) {
           flex: 0 1 auto;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
     }

@@ -3,7 +3,7 @@ import Container from '../Container';
 import Search from '../Search';
 import OffersList from './OffersList';
 import debug from 'debug';
-import * as items from '../Detail/mockup';
+import { offers } from '../Detail/mockup';
 import * as _ from 'lodash';
 const log = debug('app:Offers');
 
@@ -11,7 +11,7 @@ export default class Offers extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      data: _.map(items, i => i),
+      data: _.map(offers, i => i),
       loading: true,
     };
     this.loadMore = this.loadMore.bind(this);

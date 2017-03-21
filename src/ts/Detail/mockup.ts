@@ -14,60 +14,59 @@ const details = {
     maxRiders: 1,
     acceleration: 5,
 
+// motorcycle
     cylinderCount: 1,
-    bore: 55,
-    stroke: 65,
-    transmission: '6 gears, MT',
-    compressionRatio: 'xxx',
-    suspension: 'Sanchez',
-    frame: 'Alloy',
-    wheelbase: 1597,
-    rakeTrail: 'wtf',
     wheelSizes: '21" F, 19" R',
+    boreStroke: 55,
     tires: 'Excel',
+    transmission: '6 gears, MT',
     brakes: 'Brembo',
+    compressionRatio: 'xxx',
     fuelCapacity: 7.5,
+    suspension: 'Sanchez',
     ignitionType: 'Kickstarr',
+    frame: 'Alloy',
     kickstand: false,
-    lights: 'none',
+    wheelbase: 1597,
+    lights: false,
+    rakeTrail: 'wtf',
     storageSpace: false,
+
+// mechanic
     generalState: 'Very Good',
     motoHours: 25,
-    riderExperience: 'Begginer',
+    modifications: false,
+    flaws: false,
+    riderExperienceSuggested: 'Begginer',
     minimumDriverAge: 16,
     maintenanceRequired: 'There is a broken right handle, but it is ok to drive anyway',
     maintenanceHistory: 'New air filters and brake pads',
   },
   other: {
-    helmet: {
-      make: 'HJC Helmets',
-      model: 'RPHA MAX Evo',
-      certificates: 'Pinlock',
-      age: 2017,
-      state: 'New',
-      type: 'Full Protection',
-      picture: 'url-to-helmet-picture',
-    },
+// protection
+    helmet: true,
     gloves: true,
     boots: true,
     jacket: true,
-    vest: true,
     chestProtector: true,
-    buzzer: true,
     pants: true,
     knees: true,
     elbows: true,
     goggles: true,
     neckBrace: true,
-    travelBoxes: true,
+
+// accessories
+    travelBoxesBags: true,
     lock: true,
     camera: true,
-    basicTools: 'included',
+    basicTools: true,
     firstAidKit: true,
+
+// services
     parkingGarage: false,
     recommendedMechanic: false,
-    transportTheMorocycle: false,
-    transportToFromMotorcycle: false,
+    transportTheMotocycle: false,
+    transportToFromMotocycle: false,
     photographer: false,
     mechanicalChangesOptions: false,
     guide: false,
@@ -75,6 +74,17 @@ const details = {
     group: false,
     club: false,
     nearbyCircuitTrail: false,
+  },
+
+// helmet
+  helmet: {
+    make: 'HJC Helmets',
+    model: 'RPHA MAX Evo',
+    certificates: 'Pinlock',
+    age: 2017,
+    state: 'New',
+    type: 'Full Protection',
+    picture: 'url-to-helmet-picture',
   },
 };
 
@@ -104,8 +114,19 @@ const offer = {
     day: 55,
     part: 100,
   },
-}
+};
+
+const offers = [
+  {
+    url: 'offer',
+    title: 'KTM SX 125, 2012',
+    approx: '5 km',
+    image: 'http://p.vitalmx.com/photos/users/64/photos/83572/s1600_125_SX_90Grad.jpg',
+    price: '55',
+  }
+];
 
 export {
-  offer
+  offer,
+  offers,
 };

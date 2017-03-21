@@ -14,6 +14,7 @@ export default [
   {
     key: 'capacity',
     label: 'Capacity',
+    units: 'cc',
   },
   {
     key: 'minRentalPeriod',

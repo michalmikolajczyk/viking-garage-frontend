@@ -9,6 +9,6 @@ describe('<Detail />', () => {
     const wrapper = shallow(<Detail params={{ offer: 'husaberg-fe-390-poland-warsaw' }} />);
     expect(wrapper.find('Container')).to.have.length(1);
     expect(wrapper.find('Offer')).to.have.length(1);
-    expect(wrapper.find('Form')).to.have.length(1);
+    expect(wrapper.find('FormVG')).to.have.length(1);
   });
 });
