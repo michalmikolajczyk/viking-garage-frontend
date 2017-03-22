@@ -1,0 +1,10 @@
+{
+  "name": "viking-garage-frontend",
+  "scripts": {
+    "postdeploy": "scripts/setup.sh"
+  },
+  "env": {},
+  "formation": {},
+  "addons": [],
+  "buildpacks": []
+}
