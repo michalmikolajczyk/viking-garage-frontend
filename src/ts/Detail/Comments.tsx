@@ -4,66 +4,126 @@ import {
   Paper,
 } from 'material-ui';
 import * as _ from 'lodash';
+import { default as comments } from './comments-mockup';
 
-export default function Comments(props) {
-  const stars = _.times(5, i => <FontIcon key={i} className="fa fa-star"/>);
-  return (
-    <div className="comments">
-      <Paper style={{ width: '100%' }} zDepth={2} rounded={false}>
-        <div className="comments-cont">
-          <div className="references">
-            55 References
+export default class Comments extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      offset: 0,
+      limit: 2,
+      loading: true,
+      fetching: false,
+      comments: [],
+    };
+    this.comment = this.comment.bind(this);
+    this.rating = this.rating.bind(this);
+    this.fetch = this.fetch.bind(this);
+  }
+
+  componentDidMount() { this.fetch(); }
+
+  fetch() {
+    this.setState({ fetching: true });
+    setTimeout(
+      () => {
+        this.setState({
+          loading: false,
+          fetching: false,
+          rating: comments.rating,
+          references: comments.references,
+          comments: [
+            ...this.state.comments,
+            ...comments.comments,
+          ],
+        });
+      },
+      2000);
+  }
+
+  render() {
+    const more = this.state.fetching ? <div>Loading comments</div> : <div onClick={this.fetch}>View all references</div>;
+    const body = this.state.loading
+      ? <div>LOADING COMMENTS...</div>
+      : (
+        <div>
+          <div className="comments-cont">
+            <div className="references">{this.state.references} References</div>
+            {this.rating()}
+            {this.comment()}
           </div>
-          <div className="ratings">
-            <div className="row">
-              <div className="rate">
-                <div className="type">Bike performance</div>
-                <div className="stars">{stars}</div>
-              </div>
-              <div className="rate">
-                <div className="type">Communication</div>
-                <div className="stars">{stars}</div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="rate">
-                <div className="type">Mechanical condition</div>
-                <div className="stars">{stars}</div>
-              </div>
-              <div className="rate">
-                <div className="type">Rating</div>
-                <div className="stars">{stars}</div>
-              </div>
-            </div>
-          </div>
-          <div className="comment">
-            <div className="author">
-              <div className="picture"></div>
-              <div className="fullname">Gustaw Mikolajczyk</div>
-              <div className="location">Warsaw, Poland</div>
-            </div>
-            <div className="text">
-              The motorcycle looks and rides as described. Mint condition, raw power.
-              <br/>
-              I can also recommend the owner, he is my dad.
-            </div>
-          </div>
-          <div className="comment">
-            <div className="author">
-              <div className="picture"></div>
-              <div className="fullname">Henryk Mikolajczyk</div>
-              <div className="location">Warsaw, Poland</div>
-            </div>
-            <div className="text">
-              Aba. By that I mean a comment which is actually quite in-depth, but I can't really
-              <br/>
-              articulate it well just yet, because I am only two years old.
-            </div>
+          <div className="view-all">
+            {more}
           </div>
         </div>
-        <div className="view-all">
-          <a href="">View all references</a>
+      );
+
+    return (
+      <div className="comments">
+        <Paper style={{ width: '100%' }} zDepth={2} rounded={false}>
+          {body}
+        </Paper>
+      </div>
+    );
+  }
+
+  comment() {
+    return this.state.comments.map(({ author, text }, index) => {
+      return (
+        <div className="comment" key={index}>
+          <div className="author">
+            <div className="picture" style={{ background: `url(${author.picture})` }} />
+            <div className="fullname">{author.name}</div>
+            <div className="location">{author.location}</div>
+          </div>
+          <div className="text">{text}</div>
+        </div>);
+      });
+  }
+
+  stars(rate) {
+    return _.times(5, (i) => {
+      if (rate < i + 0.5) {
+        return <FontIcon key={i} className="material-icons">star_border</FontIcon>;
+      } else if (rate < i + 1) {
+        return <FontIcon key={i} className="material-icons">star_half</FontIcon>;
+      } else {
+        return <FontIcon key={i} className="material-icons">star</FontIcon>;
+      }
+    });
+  }
+
+  rating() {
+    const {
+      general,
+      condition,
+      performance,
+      communication,
+    } = this.state.rating;
+
+    return (
+      <div className="ratings">
+        <div className="row">
+          <div className="rate">
+            <div className="type">Bike performance</div>
+            <div className="stars">{this.stars(performance)}</div>
+          </div>
+          <div className="rate">
+            <div className="type">Communication</div>
+            <div className="stars">{this.stars(communication)}</div>
+          </div>
         </div>
-      </Paper>
-    </div>);
+        <div className="row">
+          <div className="rate">
+            <div className="type">Mechanical condition</div>
+            <div className="stars">{this.stars(condition)}</div>
+          </div>
+          <div className="rate">
+            <div className="type">Rating</div>
+            <div className="stars">{this.stars(general)}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
