@@ -63,6 +63,7 @@
     "debug": "^2.6.1",
     "formsy-material-ui": "^0.5.5",
     "formsy-react": "^0.18.1",
+    "geolib": "^2.0.22",
     "material-ui": "^0.16.7",
     "material-ui-superselectfield": "^1.0.0",
     "moment": "^2.17.1",

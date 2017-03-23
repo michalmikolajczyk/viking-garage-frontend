@@ -6,8 +6,9 @@ import Offer from './Offer';
 export default function OffersList(props) {
   const {
     data,
-    loadMore,
     loading,
+    loadMore,
+    position,
   } = props;
   const loader = loading ? (
       <CircularProgress size={60} thickness={7} color="white" />
@@ -17,7 +18,7 @@ export default function OffersList(props) {
       </button>
     );
   const loadItem = (<div className="load">{loader}</div>);
-  const mappedItems = data.map(item => <Offer data={item} key={item.url} />);
+  const mappedItems = data.map(item => <Offer data={item} key={item.url} position={position}/>);
 
   return (
     <div className="offers-wrap">

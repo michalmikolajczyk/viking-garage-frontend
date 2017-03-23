@@ -109,20 +109,31 @@ const offer = {
     descript: 'My name is Mike and I like to ride motocross… but I will ride any bike, really. Ask me for local tracks and instructors – my friends and I ride and race every week. Our garage is in Warsaw Powisle.',
     recommend: 9,
   },
-  price: {
-    hour: 20,
-    day: 55,
-    part: 100,
+  price: 55,
+  coord: {
+    type: 'Point',
+    coordinates: [
+      52.237684,
+      21.030086,
+    ],
   },
 };
 
 const offers = [
   {
-    url: 'offer',
+    id: 1,
+    url: 'ktm-sx125-2012-warsaw-poland',
     title: 'KTM SX 125, 2012',
     approx: '5 km',
     image: 'http://p.vitalmx.com/photos/users/64/photos/83572/s1600_125_SX_90Grad.jpg',
-    price: '55',
+    price: 55,
+    coord: {
+      type: 'Point',
+      coordinates: [
+        52.237684,
+        21.030086,
+      ],
+    },
   }
 ];
 
