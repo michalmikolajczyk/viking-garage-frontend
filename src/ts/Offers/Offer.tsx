@@ -6,7 +6,7 @@ export default function Offer(props) {
   const {
     url,
     title,
-    approx,
+    coord,
     image,
     price,
   } = props.data;
@@ -17,7 +17,7 @@ export default function Offer(props) {
         <div className="head">
           <div className="descript">
             <div className="title">{title}</div>
-            <div className="foot">{`${price}$ / day, ${approx}`}</div>
+            <div className="foot">{`${price} $/day, ${coord.coordinates}`}</div>
           </div>
         </div>
       </div>
