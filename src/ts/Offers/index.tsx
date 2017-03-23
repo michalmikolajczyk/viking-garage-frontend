@@ -5,6 +5,7 @@ import Search from '../Search';
 import OffersList from './OffersList';
 import * as api from './api';
 import debug from 'debug';
+import * as _ from 'lodash';
 const log = debug('app:Offers');
 import { offers } from '../Detail/mockup';
 
