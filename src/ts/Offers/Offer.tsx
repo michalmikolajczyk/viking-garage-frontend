@@ -23,7 +23,7 @@ export default function Offer({ data, position }) {
         <div className="head">
           <div className="descript">
             <div className="title">{title}</div>
-            <div className="foot">{`${price} $/day, ${coord.coordinates}`}</div>
+            <div className="foot">{`${price} $/day ${distance} km away`}</div>
           </div>
         </div>
       </div>
