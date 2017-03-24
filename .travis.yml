@@ -11,9 +11,9 @@ script:
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker tag viking-garage-frontend vikinggarage/viking-garage-frontend;
-      docker push vikinggarage/viking-garage-frontend;
+      docker tag vikinggarage/viking-garage-frontend:master;
+      docker push vikinggarage/viking-garage-frontend:master;
     else
-      docker tag viking-garage-frontend vikinggarage/viking-garage-frontend-dev;
-      docker push vikinggarage/viking-garage-frontend-dev;
+      docker tag vikinggarage/viking-garage-frontend:latest;
+      docker push vikinggarage/viking-garage-frontend:latest;
     fi
