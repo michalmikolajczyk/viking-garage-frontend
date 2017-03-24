@@ -1,19 +1,17 @@
 import * as React from 'react';
 import Container from '../Container';
-import DetailForm from './DetailForm';
-import DetailOffer from './DetailOffer';
+import FormVG from './FormVG';
+import Offer from './Offer';
 import debug from 'debug';
 const log = debug('app:Detail');
-import * as items from './mockup';
+import { offer } from './mockup';
 
 export default function Detail(props) {
-  const type = props.params.offer.split('-')[0];
-  const offer = items[type];
   return (
     <Container close={true}>
       <div className="detail">
-        <DetailOffer offer={offer} />
-        <DetailForm offer={offer} />
+        <Offer offer={offer} />
+        <FormVG offer={offer} />
       </div>
     </Container>
   );

@@ -2,12 +2,10 @@
   padding: 139px 0 85px 0;
   display: flex;
   .title {
+    @extend .h1;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    font-size: 69px;
-    font-weight: 400;
-    letter-spacing: 13px;
     margin: 0;
     .title-in {
       letter-spacing: 3.9px;
@@ -25,13 +23,11 @@
     left: 0;
   }
   .text {
+    @extend .h4;
     display: flex;
     flex-direction: column;
     flex-grow: 4;
     padding: 12px 85px 0 0;
-    font-size: 31px;
-    letter-spacing: 2px;
-    font-weight: 300;
     text-align: center;
     line-height: 48px;
     .text-in {

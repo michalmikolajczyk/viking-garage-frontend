@@ -1,12 +1,15 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 
-export default function DetailHeader(props) {
-  const { offer } = props;
+export default function HeaderVG({ offer }) {
+  const image = _.get(offer, 'images.main');
+  const offerer = _.get(offer, 'offerer');
+
   return (
     <div>
       <div
         className="image"
-        style={{ backgroundImage: `url(${offer.images.main})` }}
+        style={{ backgroundImage: `url(${image})` }}
       />
       <div className="title">
         {offer.title}
@@ -14,14 +17,14 @@ export default function DetailHeader(props) {
       <div className="owner">
         <div
           className="picture"
-          style={{ backgroundImage: `url(${offer.owner.picture})` }}
+          style={{ backgroundImage: `url(${offerer.picture})` }}
         />
         <div className="owner-details">
           <div className="fullname">
-            {offer.owner.fullname}
+            {offerer.fullname}
           </div>
           <div className="location">
-            {`${offer.location.address.city}, ${offer.location.address.country}`}
+            {`${offerer.location.city}, ${offerer.location.country}`}
           </div>
         </div>
       </div>

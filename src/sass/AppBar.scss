@@ -1,8 +1,6 @@
 .app-bar {
   position: fixed !important;
   transform: translate3d(0,0,0) !important;
-  -moz-transform: translate3d(0,0,0) !important;
-  -webkit-transform: translate3d(0,0,0) !important;
   .title {
     width: 80px;
     height: 64px;
@@ -39,7 +37,5 @@
     height: 1px;
     background: #B5B5B5;
     transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -webkit-transform: translate3d(0,0,0);
   }
 }

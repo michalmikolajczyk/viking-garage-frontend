@@ -1,14 +1,13 @@
 import 'mocha';
 import * as React from 'react';
 import { expect } from 'chai';
-import DetailHeader from './DetailHeader';
+import HeaderVG from './HeaderVG';
 import { shallow } from 'enzyme';
-import * as offers from './mockup';
-const offer = offers.ktm;
+import { offer } from './mockup';
 
-describe('<DetailHeader />', () => {
+describe('<HeaderVG />', () => {
   it('check for inner components: image, owner, etc.', () => {
-    const wrapper = shallow(<DetailHeader offer={offer} />);
+    const wrapper = shallow(<HeaderVG offer={offer} />);
     expect(wrapper.find('.image')).to.have.length(1);
     expect(wrapper.find('.text')).to.have.length(1);
     expect(wrapper.find('.owner')).to.have.length(1);

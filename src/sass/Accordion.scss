@@ -1,0 +1,86 @@
+.accordion {
+  .table {
+    display: flex;
+    flex-wrap: wrap;
+    .row {
+      display: flex;
+      flex: 1 1 50%;
+      height: 40px;
+      box-sizing: border-box;
+      border-bottom: 1px solid rgb(224, 224, 224);
+      max-width: 50%;
+      .col {
+        @extend .t3;
+        font-weight: $light;
+        flex: 1 1 auto;
+        margin: 18px 30px 0 30px;
+        box-sizing: border-box;
+        white-space: nowrap;
+        &:nth-child(2) {
+          flex: 0 1 auto;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
+.acc-header {
+  @extend .h6;
+  padding: 16px 0 0 0;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  button {
+    width: 100%;
+    background: transparent !important;
+    display: flex !important;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .material-icons {
+    flex: 0 1 30px;
+  }
+}
+
+.offerer {
+  padding: 40px 0 0 30px;
+  display: flex;
+  .picture {
+    flex: 0 0 auto;
+    width: 90px;
+    height: 90px;
+    margin-right: 60px;
+    background-size: cover;
+  }
+  .offerer-info {
+    .offerer-main {
+      height: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      @extend .t2;
+    }
+    .descript {
+      padding: 30px 0 35px;
+    }
+    .descript, .recommend {
+      @extend .t4;
+      line-height: 31px;
+    }
+    .message {
+      @extend .t3;
+      width: 222px;
+      height: 44px;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #6B6B6B;
+      background: transparent;
+      border-radius: 3px;
+    }
+  }
+}

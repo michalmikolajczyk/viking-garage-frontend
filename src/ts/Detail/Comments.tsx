@@ -17,8 +17,7 @@ export default class Comments extends React.Component<any, any> {
       comments: [],
     };
     this.comment = this.comment.bind(this);
-    this.rating = this.rating.bind(this);
-    this.fetch = this.fetch.bind(this);
+    this.rating = this.rating.bind(this);    this.fetch = this.fetch.bind(this);
   }
 
   componentDidMount() { this.fetch(); }

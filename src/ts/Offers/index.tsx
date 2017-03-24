@@ -1,29 +1,60 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import Container from '../Container';
 import Search from '../Search';
 import OffersList from './OffersList';
+import * as api from './api';
 import debug from 'debug';
-import * as items from '../Detail/mockup';
-import * as _ from 'lodash';
 const log = debug('app:Offers');
+import { offers } from '../Detail/mockup';
 
 export default class Offers extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      data: _.map(items, i => i),
+      data: [],
       loading: true,
+      position: null,
     };
     this.loadMore = this.loadMore.bind(this);
   }
 
   componentDidMount() {
     this.loadMore();
+    this.setPosition();
   }
 
   loadMore() {
     this.setState({ loading: true });
-    setTimeout(() => this.setState({ loading: false }), 1500);
+    api.get()
+      .then(res => {
+        if (res['err']) throw res['msg'];
+        this.setState({
+          data: res,
+          loading: false,
+        });
+      })
+      .catch(err => {
+        log(`Get request error ${err}`);
+        this.setState({
+          data: _.map(offers, i => i),
+          loading: false,
+        })
+      })
+  }
+
+  setPosition() {
+    if (navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => this.setState({ position: {
+            latitude: pos.coords.latitude.toFixed(6),
+            longitude: pos.coords.longitude.toFixed(6),
+          }
+        }),
+        () => log('Position could not be determined'),
+        { enableHighAccuracy: false },
+      );
+    }
   }
 
   locationFilter(filter) { log('change filter location', filter); }
@@ -45,6 +76,7 @@ export default class Offers extends React.Component<any, any> {
           data={this.state.data}
           loading={this.state.loading}
           loadMore={this.loadMore}
+          position={this.state.position}
         />
       </Container>
     );

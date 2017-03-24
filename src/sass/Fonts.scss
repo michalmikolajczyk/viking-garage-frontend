@@ -1,0 +1,111 @@
+/**
+ * HEADERS
+ */
+
+// sketch font-weight
+$light: 300;
+$regular: 400;
+$medium: 600;
+
+// header title
+.h1 {
+  font-size: 69px;
+  font-weight: $medium;
+  letter-spacing: 13px;
+}
+
+// login/signin titles
+.h2 {
+  font-size: 55px;
+  font-weight: $light;
+  letter-spacing: normal;
+}
+
+// offer details bigger title
+.h3 {
+  font-size: 34px;
+  font-weight: $medium;
+  letter-spacing: 2.43px;
+}
+
+// header text
+.h4 {
+  font-size: 31px;
+  font-weight: $light;
+  letter-spacing: 2px;
+}
+
+// offer details form title
+.h5 {
+  font-size: 28px;
+  font-weight: $medium;
+  letter-spacing: 2px;
+}
+
+// login/signin footer
+.h6 {
+  font-size: 21px;
+  font-weight: $light;
+  letter-spacing: normal;
+}
+
+/**
+ * TEXT
+ */
+
+
+.t1 {
+  font-size: 24px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+// bigger offer detail and table header
+.t2 {
+  font-size: 21px;
+  font-weight: $light;
+  letter-spacing: 1px;
+}
+
+// inputs, normal text etc.
+.t3 {
+  font-size: 16px;
+  font-weight: $regular;
+  letter-spacing: 1px;
+}
+
+.t4 {
+  font-size: 16px;
+  font-weight: $light;
+  letter-spacing: 1px;
+}
+
+// login/signin actions
+.t5 {
+  font-size: 15px;
+  font-weight: $light;
+  letter-spacing: normal;
+}
+
+// social links
+.t6 {
+  font-size: 14px;
+  font-weight: $light;
+  letter-spacing: 1px;
+}
+
+// error messages
+.t7 {
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+.nowrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
