@@ -8,10 +8,8 @@ export default function Header(props) {
         <div className="title-in">
           GA
           <span className="replace">
-            &#160;&#160;
-            <span className="raido">
-              &#5809;
-            </span>
+            &nbsp;&nbsp;
+            <span className="raido" />
           </span>
           AGE
         </div>
