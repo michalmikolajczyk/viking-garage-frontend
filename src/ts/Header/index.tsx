@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Raido from '../Raido';
 
 export default function Header(props) {
   return (
@@ -8,8 +9,8 @@ export default function Header(props) {
         <div className="title-in">
           GA
           <span className="replace">
-            &nbsp;&nbsp;
-            <span className="raido" />
+            &#160;&#160;
+            <Raido />
           </span>
           AGE
         </div>

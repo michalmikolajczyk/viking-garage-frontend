@@ -13,15 +13,13 @@
   }
   .replace {
     position: relative;
-  }
-  .raido {
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 0;
-    bottom: 0;
-    background-size: 29px;
-    background-repeat: no-repeat;
+    .raido {
+      width: 28px;
+      height: 70px;
+      position: absolute;
+      left: 4px;
+      top: 4px;
+    }
   }
   .text {
     @extend .h4;
