@@ -189,3 +189,16 @@
     box-sizing: border-box;
   }
 }
+
+.loading {
+  min-height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 33px;
+  -webkit-animation: colorchange 1s infinite ease-in;
+}
+
+@-webkit-keyframes colorchange {
+  0% {@extend .raido}
+  100% {@extend .raido-black}
+}
