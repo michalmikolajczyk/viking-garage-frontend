@@ -15,12 +15,13 @@
     position: relative;
   }
   .raido {
-    font-family: 'Junicode';
-    color: #AD000D;
     position: absolute;
-    font-size: 97px;
-    top: -34px;
-    left: 0;
+    top: 4px;
+    left: 4px;
+    right: 0;
+    bottom: 0;
+    background-size: 29px;
+    background-repeat: no-repeat;
   }
   .text {
     @extend .h4;

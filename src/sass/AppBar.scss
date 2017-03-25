@@ -6,11 +6,8 @@
     height: 64px;
     display: block;
     margin: -8px 0 0 -8px !important;
-    padding: 0px 0 0 38px;
-    box-sizing: border-box;
-    font-family: Junicode !important;
-    font-size: 43px !important;
-    color: #AD000D !important;
+    background-repeat: no-repeat;
+    background-position: 40px 15px;
     &.border {
       border-right: solid 1px #B5B5B5 !important;
     }
