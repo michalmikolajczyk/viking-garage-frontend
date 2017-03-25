@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router';
 import { AppBar } from 'material-ui';
+import Raido from '../Raido';
 import Menu from '../Menu';
 import { default as Search } from '../Search/Location';
 import debug from 'debug';
@@ -55,7 +56,7 @@ export default class AppBarVG extends React.Component<any, any> {
         zDepth={0} // switch off box-shadow
         title={search}
         showMenuIconButton={true}
-        iconElementLeft={<Link className={'raido title' + (this.state.visible ? ' border' : '')} to="/"></Link>}
+        iconElementLeft={<Link className={'title' + (this.state.visible ? ' border' : '')} to="/"><Raido /></Link>}
         iconElementRight={<Menu update={() => this.forceUpdate()} />}
       >
         {line}

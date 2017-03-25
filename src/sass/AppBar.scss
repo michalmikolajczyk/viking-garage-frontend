@@ -5,9 +5,9 @@
     width: 80px;
     height: 64px;
     display: block;
+    box-sizing: border-box;
     margin: -8px 0 0 -8px !important;
-    background-repeat: no-repeat;
-    background-position: 40px 15px;
+    padding: 15px 0 0 40px;
     &.border {
       border-right: solid 1px #B5B5B5 !important;
     }
