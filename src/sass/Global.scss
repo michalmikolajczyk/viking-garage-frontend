@@ -39,7 +39,9 @@ ul {
 .cont {
   position: relative;
   max-width: 1120px;
-  width: 1120px;
+  min-height: 500px;
+  padding-top: 64px;
+  width: 100%;
   margin: auto;
   box-sizing: border-box;
 }
