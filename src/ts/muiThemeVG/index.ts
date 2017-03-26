@@ -11,6 +11,9 @@ const muiThemeVG = getMuiTheme({
     color: 'white',
     textColor: 'black',
   },
+  menuItem: {
+    selectedTextColor: '#BB0003',
+  }
 });
 
 export default muiThemeVG

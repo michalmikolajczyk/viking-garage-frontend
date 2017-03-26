@@ -1,0 +1,14 @@
+.create {
+  .title {
+    font-size: 34px !important;
+    display: flex;
+    align-items: flex-end;
+    .text {
+      // margin-right: -10px;
+    }
+    .material-icons {
+      z-index: -1;
+      margin-left: -52px;
+    }
+  }
+}

@@ -24,7 +24,7 @@
     "@types/chai": "^3.4.34",
     "@types/enzyme": "^2.7.4",
     "@types/jsdom": "^2.0.29",
-    "@types/material-ui": "^0.16.49",
+    "@types/material-ui": "^0.16.59",
     "@types/mocha": "^2.2.39",
     "@types/react": "15.0.4",
     "@types/react-addons-test-utils": "^0.14.17",
