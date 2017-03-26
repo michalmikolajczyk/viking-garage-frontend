@@ -8,11 +8,11 @@ export default [
     label: 'Recommended Mechanic',
   },
   {
-    key: 'transportTheMotocycle',
-    label: 'Transport The Motocycle',
+    key: 'transportTheMorocycle',
+    label: 'Transport The Motorcycle',
   },
   {
-    key: 'transportToFromMotocycle',
+    key: 'transportToFromMotorcycle',
     label: 'Transport To/From',
   },
   {

@@ -1,6 +1,6 @@
 export default [
   {
-    key: 'travelBoxesBags',
+    key: 'travelBoxes',
     label: 'Travel Boxes/Bags',
   },
   {

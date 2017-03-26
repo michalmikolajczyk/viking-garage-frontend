@@ -11,12 +11,12 @@ export default class Accordion extends React.Component<any, any> {
     super(props);
     const {
       open,
-      items,
+      offer,
       header,
     } = props;
     this.state = { open };
     this.header = header;
-    this.table = <Table items={items} />;
+    this.table = <Table offer={offer} />;
     this.toggle = this.toggle.bind(this);
   }
 

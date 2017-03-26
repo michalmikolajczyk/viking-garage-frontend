@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as _ from 'lodash';
 import Container from '../Container';
 import Search from '../Search';
+import Raido from '../Raido';
 import OffersList from './OffersList';
 import * as api from './api';
 import debug from 'debug';
@@ -51,8 +52,7 @@ export default class Offers extends React.Component<any, any> {
             longitude: pos.coords.longitude.toFixed(6),
           }
         }),
-        () => log('Position could not be determined'),
-        { enableHighAccuracy: false },
+        () => log('Position could not be determined')
       );
     }
   }
@@ -64,6 +64,15 @@ export default class Offers extends React.Component<any, any> {
   dateFilter(filter) { log('change filter date', filter); }
 
   render() {
+   const body = this.state.loading
+    ? (<div className="loading"><Raido /></div>)
+    : (<OffersList
+        data={this.state.data}
+        loading={this.state.loading}
+        loadMore={this.loadMore}
+        position={this.state.position}
+      />);
+
     return (
       <Container>
         <Search
@@ -72,12 +81,7 @@ export default class Offers extends React.Component<any, any> {
           selectFilter={this.selectFilter}
           dateFilter={this.dateFilter}
         />
-        <OffersList
-          data={this.state.data}
-          loading={this.state.loading}
-          loadMore={this.loadMore}
-          position={this.state.position}
-        />
+        {body}
       </Container>
     );
   }

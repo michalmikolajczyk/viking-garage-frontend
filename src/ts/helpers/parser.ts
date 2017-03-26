@@ -1,8 +1,8 @@
 import * as _ from 'lodash';
 import * as models from './models';
 
-export default function parser(type: string, items: Object): any {
-  return _.map(models[type], model => {
+export default function parser(schema: string, items: Object): any {
+  return _.map(models[schema], model => {
     let value;
     if (typeof items[model.key] === 'boolean') {
       value = items[model.key] ? 'Yes' : 'No';
