@@ -8,6 +8,7 @@ import {
   TextField,
   MenuItem,
 } from 'material-ui';
+import Raido from '../Raido';
 import debug from 'debug';
 const log = debug('app:DetailForm');
 
@@ -154,7 +155,7 @@ export default class FormVG extends React.Component<any, any> {
           </div>
           <div className="price">{`TOTAL: ${this.state.total} USD`}</div>
           <button className="ride-btn">
-            <span className="raido">&#5809;</span>
+            <Raido />
             <span>IDE</span>
           </button>
           </div>

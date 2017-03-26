@@ -17,9 +17,9 @@ import Verify from '../Signin/Verify';
 
 export default function AppRouter(props) {
   return (
-    <Router history={browserHistory}>
+    <Router history={browserHistory} onUpdate={() => window.scrollTo(0, 0)}>
       <Route path="/" component={Offers} />
-      <Route path="/offer/:offer" component={Detail} />
+      <Route path="/offer/:id(/:url)" component={Detail} />
       <Route path="/login" component={Login} />
       <Route path="/reset" component={Reset} />
       <Route path="/confirm/:email" component={Confirm} />
