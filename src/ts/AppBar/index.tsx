@@ -9,6 +9,7 @@ const log = debug('app:AppBar');
 
 // Scroll logic based on https://gist.github.com/Warry/4254579
 export default class AppBarVG extends React.Component<any, any> {
+  private requestId: number;
 
   constructor(props) {
     super(props);
@@ -16,31 +17,25 @@ export default class AppBarVG extends React.Component<any, any> {
     this.handleScroll = this.handleScroll.bind(this);
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
   componentDidMount() {
     this.handleScroll();
   }
 
   componentWillUnmount() {
-    this.handleScroll = () => null;
+    window.cancelAnimationFrame(this.requestId);
   }
 
   handleScroll() {
     if (typeof window !== 'undefined') {
       if (this.state.visible && window.scrollY === 0) {
         this.setState({ visible: false });
-        this.forceUpdate();
       } else {
         if (!this.state.visible && window.scrollY > 0) {
           this.setState({ visible: true });
-          this.forceUpdate();
         }
       }
       // there is a polyfill in js/polyfills.js
-      window.requestAnimationFrame(this.handleScroll);
+      this.requestId = window.requestAnimationFrame(this.handleScroll);
     }
   }
 

@@ -14,6 +14,7 @@ const log = debug('app:DetailForm');
 
 export default class FormVG extends React.Component<any, any> {
   private offer: any;
+  private requestId: number;
 
   constructor(props) {
     super(props);
@@ -40,11 +41,11 @@ export default class FormVG extends React.Component<any, any> {
   }
 
   componentWillUnmount() {
-    this.handleScroll = () => null;
+    window.cancelAnimationFrame(this.requestId);
   }
 
   handleScroll() {
-    window.requestAnimationFrame(this.handleScroll);
+    this.requestId = window.requestAnimationFrame(this.handleScroll);
     const side = document.querySelector('#detail-side').clientHeight;
     const wrap = document.querySelector('#detail-wrap').clientHeight;
     const diff = wrap - side - 114;
