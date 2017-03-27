@@ -35,11 +35,9 @@ export default class Create extends React.Component<any, any> {
 
 
           <Paper className="section">
-            <div className="header">Details</div>
+            <div className="header">Motorcycle specification</div>
             <Inputs offer={motorcycle} />
           </Paper>
-
-
 
             <DropImage />
             <Permissions />
