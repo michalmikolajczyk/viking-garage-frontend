@@ -15,11 +15,20 @@
   .section {
     display: flex;
     flex-direction: column;
-    padding: 20px 30px;
-    min-height: 200px;
+    padding: 0px 30px 20px 30px;
+    margin-bottom: 40px;
     .header {
       @extend .h7;
-      padding: 0;
+      padding: 20px 0 0 0;
+    }
+    .body {
+      @extend .t4;
+      padding: 15px 0;
+      color: rgba(0, 0, 0, 0.54);
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
