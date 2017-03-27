@@ -22,35 +22,49 @@ export default class Create extends React.Component<any, any> {
   render() {
     return (
       <Container close={true}>
-        <div className="create cont">
-          <Select selected={this.state.selected} onChange={this.onSelect} />
-          <Paper className="section">
-            <TextField
-              floatingLabelText="Offer Title"
-              fullWidth={true}
-            />
-            <TextField
-              floatingLabelText="Description (max. 555 characters)"
-              multiLine={true}
-              rows={3}
-              fullWidth={true}
-              rowsMax={3}
-            />
-          </Paper>
-          <DropImage />
-          <Paper className="section">
-            <div className="header">Permissions</div>
-            <div className="body">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisinuli.
-            </div>
-            <div className="buttons">
-              <FlatButton label="More info" />
-              <div>
-                <FlatButton label="Decline" />
+        <div className="create">
+          <div className="main-view">
+            <Select selected={this.state.selected} onChange={this.onSelect} />
+            <Paper className="section">
+              <TextField
+                floatingLabelText="Offer Title"
+                fullWidth={true}
+              />
+              <TextField
+                floatingLabelText="Description (max. 555 characters)"
+                multiLine={true}
+                rows={3}
+                fullWidth={true}
+                rowsMax={3}
+              />
+            </Paper>
+            <DropImage />
+            <Paper className="section">
+              <div className="header">Permissions</div>
+              <div className="body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisinuli.
+              </div>
+              <div className="buttons">
+                <FlatButton label="More info" />
+                <div>
+                  <FlatButton label="Decline" />
+                  <FlatButton label="Accept" />
+                </div>
+              </div>
+            </Paper>
+          </div>
+          <div className="side-view">
+            <Paper className="section">
+              <div className="header">Permissions</div>
+              <div className="body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisinuli.
+              </div>
+              <div className="buttons">
+                <div />
                 <FlatButton label="Accept" />
               </div>
-            </div>
-          </Paper>
+            </Paper>
+          </div>
         </div>
       </Container>
     );
