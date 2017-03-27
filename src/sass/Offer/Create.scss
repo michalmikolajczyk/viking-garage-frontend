@@ -1,4 +1,22 @@
 .create {
+  @extend .cont;
+  width: 100%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: row;
+  .main-view {
+    flex: 1;
+    border-left: 30px solid transparent;
+  }
+  .side-view {
+    flex: 0 0 300px;
+    border-left: 40px solid transparent;
+    border-right: 60px solid transparent;
+    margin-top: 98px;
+    .section {
+      background-color: #F5F5F5 !important;
+    }
+  }
   .title {
     font-size: 34px !important;
     display: flex;
