@@ -28,31 +28,34 @@ export default class Offers extends React.Component<any, any> {
   loadMore() {
     this.setState({ loading: true });
     api.get()
-      .then(res => {
+      .then((res) => {
         if (res['err']) throw res['msg'];
         this.setState({
           data: res,
           loading: false,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         log(`Get request error ${err}`);
         this.setState({
           data: _.map(offers, i => i),
           loading: false,
-        })
-      })
+        });
+      });
   }
 
   setPosition() {
     if (navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
       navigator.geolocation.getCurrentPosition(
-        (pos) => this.setState({ position: {
-            latitude: pos.coords.latitude.toFixed(6),
-            longitude: pos.coords.longitude.toFixed(6),
-          }
-        }),
-        () => log('Position could not be determined')
+        (pos) => {
+          this.setState({
+            position: {
+              latitude: pos.coords.latitude.toFixed(6),
+              longitude: pos.coords.longitude.toFixed(6),
+            },
+          });
+        },
+        () => log('Position could not be determined'),
       );
     }
   }

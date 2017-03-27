@@ -7,14 +7,13 @@ import Offer from './Offer';
 import * as api from './api';
 import debug from 'debug';
 const log = debug('app:Detail');
-
 import * as mockup from './mockup';
 
 export default class Detail extends React.Component<any, any> {
   constructor(props) {
     super(props);
     const id = props.params.id;
-    if (isNaN(id)) browserHistory.push('/notfound')
+    if (isNaN(id)) browserHistory.push('/notfound');
     this.state = {
       id,
       offer: null,
