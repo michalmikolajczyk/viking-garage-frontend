@@ -1,3 +1,5 @@
+@import './DropImage';
+
 .create {
   @extend .cont;
   width: 100%;
@@ -44,47 +46,25 @@
       padding: 15px 0;
       color: rgba(0, 0, 0, 0.54);
     }
+    .table {
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 15px;
+      .row {
+        display: flex;
+        flex: 1 1 50%;
+        height: 54px;
+        max-width: 50%;
+        .col {
+          @extend .t3;
+          font-weight: $light;
+          flex: 1 1 auto;
+        }
+      }
+    }
     .buttons {
       display: flex;
       justify-content: space-between;
-    }
-  }
-}
-
-.image-upload {
-  .drop-area {
-    @extend .t6;
-    height: 150px;
-    cursor: pointer;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #D2DBE3 !important;
-    .fa {
-      color: #D2DBE3 !important;
-      font-size: 69px !important;
-      transition: none !important;
-      padding-bottom: 10px;
-    }
-    &.over, &:hover {
-      color: black !important;
-      .fa {
-        color: black !important;
-      }
-    }
-  }
-  .gallery {
-    display: flex;
-    .image {
-      width: 100px;
-      height: 100px;
-      background-size: cover;
-      background-position: center center;
-      margin-right: 10px;
-      border: 1px solid #D2DBE3;
-      border-radius: 5px;
     }
   }
 }
