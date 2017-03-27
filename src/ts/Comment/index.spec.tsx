@@ -1,7 +1,7 @@
 import 'mocha';
 import * as React from 'react';
 import { expect } from 'chai';
-import { default ad Comments } from './';
+import { default as Comments } from './';
 import { mountWithTheme } from '../helpers/test-theme';
 
 describe('<Comments />', () => {
