@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { browserHistory } from 'react-router';
 import Container from '../Container';
-import Raido from '../Raido';
+import NetworkError from '../Dialogs/NetworkError';
 import FormVG from './FormVG';
 import Offer from './Offer';
 import * as api from './api';
@@ -16,8 +16,8 @@ export default class Detail extends React.Component<any, any> {
     if (isNaN(id)) browserHistory.push('/notfound');
     this.state = {
       id,
-      offer: null,
-      loading: true,
+      offer: mockup.offer,
+      networkErr: false,
     };
   }
 
@@ -25,31 +25,27 @@ export default class Detail extends React.Component<any, any> {
     api.get(this.state.id)
       .then((res) => {
         if (res['err']) throw res['msg'];
-        this.setState({
-          loading: false,
-          offer: res,
-        });
+        this.setState({ offer: res });
       })
       .catch((err) => {
         log(`API get error ${err}`);
-        this.setState({
-          loading: false,
-          offer: mockup.offer,
-        });
+        this.setState({ networkErr: true });
       });
   }
 
-  render() {
-    const body = this.state.loading
-      ? (<div className="loading"><Raido /></div>)
-      : (<div className="detail">
-          <Offer offer={this.state.offer} />
-          <FormVG offer={this.state.offer} />
-        </div>);
+  close = () => this.setState({ networkErr: false })
 
+  render() {
     return (
       <Container close={true}>
-        {body}
+        <div className="detail">
+          <Offer offer={this.state.offer} />
+          <FormVG offer={this.state.offer} />
+        </div>
+        <NetworkError
+          open={this.state.networkErr}
+          close={this.close}
+        />
       </Container>
     );
   }
