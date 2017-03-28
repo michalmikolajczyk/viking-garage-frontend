@@ -3,19 +3,14 @@ import { FontIcon } from 'material-ui';
 import { default as SuperSelect } from 'material-ui-superselectfield';
 
 export default class Select extends React.Component<any, any> {
-
-  public selectItems = [];
+  private dataSource = [];
 
   constructor(props) {
     super(props);
     // select keeps values chosen by user
-    this.state = { select: [] };
-    // creation of option from selectItems
-    this.createSelect(props.selectItems);
+    this.state = { value: [] };
     this.onChange = this.onChange.bind(this);
-  }
 
-  public createSelect(items) {
     const createGroup = (values, group) => (
       values.map((value, index) => (
         <div
@@ -29,7 +24,7 @@ export default class Select extends React.Component<any, any> {
       )
     );
 
-    this.selectItems = items.map((item, index) => (
+    this.dataSource = getDataSource().map((item, index) => (
         <optgroup key={index} label={item.group}>
           {createGroup(item.value, item.group)}
         </optgroup>
@@ -37,33 +32,12 @@ export default class Select extends React.Component<any, any> {
     );
   }
 
-  public updateFilter(values) {
-    const filters = [];
-    values.map(({ value, label }) => {
-      let exists = false;
-      const group = value.split(label)[0];
-      filters.map((filtr) => {
-        if (filtr.group === group) {
-          filtr.value.push(label);
-          exists = true;
-        }
-      });
-      if (!exists) {
-        filters.push({
-          group,
-          value: [label],
-        });
-      }
-    });
-    this.props.filter(filters);
+  onChange(value, name) {
+    this.setState({ value });
+    this.props.filter(value)
   }
 
-  public onChange(values, name) {
-    this.setState({ select: values });
-    this.updateFilter(values);
-  }
-
-  public selectionRenderer(val) {
+  selectionRenderer(val) {
     // rerender values displayed in the input
     return val.length
       ? <div className="selected">{val.map(({ _, label }) => label).join(', ')}</div>
@@ -71,22 +45,92 @@ export default class Select extends React.Component<any, any> {
   }
 
   render() {
+    const { value } = this.state;
     return (
       <div className="select">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
         <div className="filter">
           <SuperSelect
             multiple={true}
-            value={this.state.select}
+            value={value}
             onChange={this.onChange}
             hintText="Select some values"
-            selectionsRenderer={this.selectionRenderer}
+            selectionRenderer={this.selectionRenderer}
             fullWidth={true}
           >
-            {this.selectItems}
+            {this.dataSource}
           </SuperSelect>
         </div>
       </div>
     );
   }
+}
+
+function getDataSource() {
+  return [
+    {
+      group: 'Motorcycle',
+      value: [
+        'Off-road',
+        'Street',
+        'Dual-sport',
+        'Scooter',
+        'Electric',
+        'Small (children)',
+      ],
+    },
+    {
+      group: 'Mechanic',
+      value: [
+        'Off-road & dual-sport',
+        'Street',
+        'Electric',
+        'Scooter',
+      ],
+    },
+    {
+      group: 'Coach / Instructor',
+      value: [
+        'Off-road',
+        'Street',
+      ],
+    },
+    {
+      group: 'Guide',
+      value: [
+        'Off-road',
+        'Street',
+      ],
+    },
+    {
+      group: 'Equipment',
+      value: [
+        'Off-road',
+        'Street',
+      ],
+    },
+    {
+      group: 'Parts',
+      value: [
+        'Dirtbikes',
+        'Streetbikes',
+      ],
+    },
+    {
+      group: 'Circuits',
+      value: [
+        'Motocross',
+        'Enduro',
+        'Race tracks',
+      ],
+    },
+    {
+      group: 'Other',
+      value: [
+        'Shops',
+        'Events',
+        'Clubs',
+      ],
+    },
+  ]
 }
