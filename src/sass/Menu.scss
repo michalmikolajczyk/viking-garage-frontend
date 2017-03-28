@@ -1,12 +1,18 @@
 .menu {
   display: flex;
   font-weight: 300;
+  margin-top: -8px;
+  height: 64px;
+  .menu-item {
+    padding-top: 8px !important;
+    height: 64px;
+  }
   .user {
     display: flex;
     padding-left: 50px;
   }
   .user-profile {
-    margin: 10px 16px 0 150px;
+    margin: 18px 16px 0 150px;
     .user-image {
       width: 30px;
       height: 30px;
