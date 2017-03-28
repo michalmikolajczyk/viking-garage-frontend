@@ -5,22 +5,40 @@ import {
   FontIcon,
 } from 'material-ui';
 
-export default function Range({ filter }) {
-  return (
-  <div className="range">
-    <FontIcon className="material-icons">my_location</FontIcon>
-    <div className="filter">
-      <SelectField
-        floatingLabelText="Range"
-        onChange={(event, index, value) => { filter(value) }}
-        fullWidth={true}
-      >
-        <MenuItem value={1} primaryText="Never" />
-        <MenuItem value={2} primaryText="Every Night" />
-        <MenuItem value={3} primaryText="Weeknights" />
-        <MenuItem value={4} primaryText="Weekends" />
-        <MenuItem value={5} primaryText="Weekly" />
-      </SelectField>
-    </div>
-  </div>);
+const ranges = [2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657];
+
+export default class Range extends React.Component<any, any> {
+  filter: any
+  items: any
+
+  constructor(props) {
+    super(props);
+    const { filter } = props;
+    this.state = { range: 8 };
+    this.filter = filter;
+    this.onChange = this.onChange.bind(this);
+    this.items = ranges.map(r =>  <MenuItem value={r} primaryText={`${r} km`} key={r} />)
+  }
+
+  onChange(range) {
+    this.setState({ range })
+    this.filter(range);
+  }
+
+  render() {
+    return (
+      <div className="range">
+        <FontIcon className="material-icons">my_location</FontIcon>
+        <div className="filter">
+          <SelectField
+            value={this.state.range}
+            onChange={(event, index, value) => { this.onChange(value) }}
+            fullWidth={true}
+            maxHeight={200}
+          >
+            {this.items}
+          </SelectField>
+        </div>
+      </div>);
+  }
 }
