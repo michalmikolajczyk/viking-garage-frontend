@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  .location, .select {
+  align-items: flex-end;
+  .location, .select, .range {
     flex: 2 1 100%;
     display: flex;
     flex-direction: row;
@@ -27,6 +28,7 @@
     flex: 0 0 30px;
     line-height: 46px;
     font-size: 24px !important;
+    align-self: flex-end;
   }
   hr {
     width: calc(100% + 30px) !important;
@@ -70,7 +72,10 @@
     border-left: none;
   }
 }
-// .select-item {
-//   margin: -3px -5px -5px;
-//   color: black;
-// }
+.range {
+  .filter {
+    svg {
+      display: none;
+    }
+  }
+}
