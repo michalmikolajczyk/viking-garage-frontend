@@ -57,6 +57,7 @@ export default class Select extends React.Component<any, any> {
             hintText="Select some values"
             selectionsRenderer={this.selectionRenderer}
             fullWidth={true}
+            menuGroupStyle={{textTransform: 'capitalize',   fontSize: 14, fontWeight: 300 }}
           >
             {this.dataSource}
           </SuperSelect>
