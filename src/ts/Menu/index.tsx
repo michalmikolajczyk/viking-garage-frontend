@@ -32,7 +32,7 @@ export default function MenuVG(props) {
       desktop={true}
     >
       <MenuItem primaryText="Profile" href="/profile" />
-      <MenuItem primaryText="Add offer" href="/add-offer" />
+      <MenuItem primaryText="Add offer" href="/offer/create" />
       <MenuItem primaryText="Deals" href="/deals" />
       <MenuItem primaryText="Messages" href="/messages" />
       <MenuItem primaryText="Account" href="/account" />

@@ -21,7 +21,6 @@ const select = {
 }
 
 const inputGenerator = (type, key, label) => {
-  console.log(key);
   switch (type) {
 
     case 'number':

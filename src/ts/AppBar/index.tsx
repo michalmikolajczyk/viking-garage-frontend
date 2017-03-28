@@ -26,17 +26,15 @@ export default class AppBarVG extends React.Component<any, any> {
   }
 
   handleScroll() {
-    if (typeof window !== 'undefined') {
-      if (this.state.visible && window.scrollY === 0) {
-        this.setState({ visible: false });
-      } else {
-        if (!this.state.visible && window.scrollY > 0) {
-          this.setState({ visible: true });
-        }
+    if (this.state.visible && window.scrollY === 0) {
+      this.setState({ visible: false });
+    } else {
+      if (!this.state.visible && window.scrollY > 0) {
+        this.setState({ visible: true });
       }
-      // there is a polyfill in js/polyfills.js
-      this.requestId = window.requestAnimationFrame(this.handleScroll);
     }
+    // there is a polyfill in js/polyfills.js
+    this.requestId = window.requestAnimationFrame(this.handleScroll);
   }
 
   search(filter) { log('AppBar search change', filter); }
