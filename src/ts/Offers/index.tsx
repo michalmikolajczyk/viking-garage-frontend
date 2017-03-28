@@ -79,7 +79,6 @@ export default class Offers extends React.Component<any, any> {
     return (
       <Container>
         <Search
-          selectItems={getSelectItems()}
           locationFilter={this.locationFilter}
           selectFilter={this.selectFilter}
           dateFilter={this.dateFilter}
@@ -89,70 +88,3 @@ export default class Offers extends React.Component<any, any> {
     );
   }
 }
-
-const getSelectItems = () => ([
-  {
-    group: 'Motorcycle',
-    value: [
-      'Off-road',
-      'Street',
-      'Dual-sport',
-      'Scooter',
-      'Electric',
-      'Small (children)',
-    ],
-  },
-  {
-    group: 'Mechanic',
-    value: [
-      'Off-road & dual-sport',
-      'Street',
-      'Electric',
-      'Scooter',
-    ],
-  },
-  {
-    group: 'Coach / Instructor',
-    value: [
-      'Off-road',
-      'Street',
-    ],
-  },
-  {
-    group: 'Guide',
-    value: [
-      'Off-road',
-      'Street',
-    ],
-  },
-  {
-    group: 'Equipment',
-    value: [
-      'Off-road',
-      'Street',
-    ],
-  },
-  {
-    group: 'Parts',
-    value: [
-      'Dirtbikes',
-      'Streetbikes',
-    ],
-  },
-  {
-    group: 'Circuits',
-    value: [
-      'Motocross',
-      'Enduro',
-      'Race tracks',
-    ],
-  },
-  {
-    group: 'Other',
-    value: [
-      'Shops',
-      'Events',
-      'Clubs',
-    ],
-  },
-]);

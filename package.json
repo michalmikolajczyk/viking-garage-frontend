@@ -65,7 +65,7 @@
     "formsy-react": "^0.18.1",
     "geolib": "^2.0.22",
     "material-ui": "^0.16.7",
-    "material-ui-superselectfield": "^1.0.0",
+    "material-ui-superselectfield": "^1.5.3",
     "moment": "^2.17.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
