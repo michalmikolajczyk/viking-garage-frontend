@@ -3,7 +3,6 @@ import * as _ from 'lodash';
 import {
   MenuItem,
 } from 'material-ui';
-import { Form } from 'formsy-react';
 import {
   FormsyCheckbox,
   FormsySelect,
@@ -92,7 +91,7 @@ const tableGenerator = table => _.map(table, (item, index) => {
 
 export default function Inputs({ offer }) {
   return (
-    <Form className="table">
+    <div className="table">
       {tableGenerator(offer)}
-    </Form>);
+    </div>);
 }
