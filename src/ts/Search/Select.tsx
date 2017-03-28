@@ -16,7 +16,7 @@ export default class Select extends React.Component<any, any> {
         <div
           key={index}
           label={value}
-          value={group + value}
+          value={`${group}#${value}`}
           className="select-item"
         >
           {value}
@@ -55,12 +55,13 @@ export default class Select extends React.Component<any, any> {
             value={value}
             onChange={this.onChange}
             hintText="Select some values"
-            selectionRenderer={this.selectionRenderer}
+            selectionsRenderer={this.selectionRenderer}
             fullWidth={true}
           >
             {this.dataSource}
           </SuperSelect>
         </div>
+        <hr />
       </div>
     );
   }

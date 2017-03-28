@@ -43,6 +43,9 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    hr {
+      display: none;
+    }
   }
   .selected {
     line-height: 48px;
@@ -60,14 +63,14 @@
   // styled copied from material-ui TextFileds for hr
   hr {
     position: absolute;
-    bottom: 8px;
+    bottom: 0;
     border-top: none rgb(224, 224, 224);
     border-right: none rgb(224, 224, 224);
     border-bottom: 1px solid rgb(224, 224, 224);
     border-left: none;
   }
 }
-.select-item {
-  margin: -3px -5px -5px;
-  color: black;
-}
+// .select-item {
+//   margin: -3px -5px -5px;
+//   color: black;
+// }
