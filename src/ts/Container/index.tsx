@@ -9,7 +9,7 @@ export default function Container(props) {
   return (
      <div>
       <AppBarVG />
-      { header }
+      {header}
       {props.children}
       <Footer />
     </div>
