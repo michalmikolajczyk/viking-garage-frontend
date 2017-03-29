@@ -14,8 +14,8 @@ export function mountWithTheme(node) {
   });
 }
 
-export function mountWithFormsy(node) {
-  return mount(node, {
+export function formsyContext() {
+  return {
     context: {
       muiTheme: getMuiTheme(),
       formsy: {
@@ -30,5 +30,5 @@ export function mountWithFormsy(node) {
       muiTheme: React.PropTypes.object.isRequired,
       formsy: React.PropTypes.object.isRequired,
     },
-  });
+  };
 }

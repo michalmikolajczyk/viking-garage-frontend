@@ -6,7 +6,6 @@ import * as sinonChai from 'sinon-chai';
 chai.use(sinonChai);
 const expect = chai.expect;
 import { shallow } from 'enzyme';
-import { mountWithTheme } from '../../helpers/test-theme';
 import { default as Create } from './';
 
 describe('Offer <Create />', () => {
