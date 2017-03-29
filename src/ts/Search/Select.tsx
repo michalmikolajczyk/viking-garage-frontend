@@ -3,6 +3,7 @@ import { FontIcon } from 'material-ui';
 import { default as SuperSelect } from 'material-ui-superselectfield';
 import debug from 'debug';
 const log = debug('app:Select');
+import i from '../i18n';
 
 const items = [
   {
@@ -115,7 +116,7 @@ export default class Select extends React.Component<any, any> {
             multiple={true}
             value={value}
             onChange={this.handleSelection}
-            hintText="Select some values"
+            hintText={i('Select some values')}
             fullWidth={true}
           >
             {this.dataSource}
