@@ -5,6 +5,7 @@ import {
   IconMenu,
   MenuItem,
 } from 'material-ui';
+import i from '../i18n';
 
 export default function MenuVG(props) {
   function logout() {
@@ -31,28 +32,28 @@ export default function MenuVG(props) {
       anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
       desktop={true}
     >
-      <MenuItem primaryText="Profile" href="/profile" />
-      <MenuItem primaryText="Add offer" href="/offer/create" />
-      <MenuItem primaryText="Deals" href="/deals" />
-      <MenuItem primaryText="Messages" href="/messages" />
-      <MenuItem primaryText="Account" href="/account" />
+      <MenuItem primaryText={i('Profile')} href="/profile" />
+      <MenuItem primaryText={i('Add offer')} href="/add-offer" />
+      <MenuItem primaryText={i('Deals')} href="/deals" />
+      <MenuItem primaryText={i('Messages')} href="/messages" />
+      <MenuItem primaryText={i('Account')} href="/account" />
       <Divider />
-      <MenuItem primaryText="Log out" onClick={logout} />
+      <MenuItem primaryText={i('Log out')} onClick={logout} />
     </IconMenu>
   ) : (
     <div className="user">
-      <MenuItem href="/signin" primaryText="Sign in" className="menu-item" />
-      <MenuItem href="/login" primaryText="Log in" className="menu-item" />
+      <MenuItem href="/signin" primaryText={i('Sign in')} />
+      <MenuItem href="/login" primaryText={i('Log in')} />
     </div>
   );
 
 
   return (
     <div className="menu">
-      <MenuItem href="/bike-owners" primaryText="Bike Owners" className="menu-item" />
-      <MenuItem href="/guides-coaches" primaryText="Guides &amp; Coaches" className="menu-item" />
-      <MenuItem href="/mechanics" primaryText="Mechanics" className="menu-item" />
-      <MenuItem href="/faq" primaryText="FAQ" className="menu-item" />
+      <MenuItem href="/bike-owners" primaryText={i('Bike Owners')} />
+      <MenuItem href="/guides-coaches" primaryText={i('Guides & Coaches')} />
+      <MenuItem href="/mechanics" primaryText={i('Mechanics')} />
+      <MenuItem href="/faq" primaryText={i('FAQ')} />
       {userSection}
     </div>
   );
