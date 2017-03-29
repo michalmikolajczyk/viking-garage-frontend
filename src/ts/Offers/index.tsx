@@ -5,6 +5,7 @@ import Search from '../Search';
 import OffersList from './OffersList';
 import * as api from './api';
 import debug from 'debug';
+import i from '../i18n';
 const log = debug('app:Offers');
 import { offers } from '../Detail/mockup';
 
@@ -85,55 +86,55 @@ export default class Offers extends React.Component<any, any> {
 
 const getSelectItems = () => ([
   {
-    group: 'Motorcycle',
+    group: i('Motorcycle'),
     value: [
       'Off-road',
       'Street',
       'Dual-sport',
-      'Scooter',
-      'Electric',
-      'Small (children)',
+      i('Scooter'),
+      i('Electric'),
+      i('Small (children)'),
     ],
   },
   {
-    group: 'Mechanic',
+    group: i('Mechanic'),
     value: [
       'Off-road & dual-sport',
       'Street',
-      'Electric',
-      'Scooter',
+      i('Electric'),
+      i('Scooter'),
     ],
   },
   {
-    group: 'Coach / Instructor',
+    group: i('Coach / Instructor'),
     value: [
       'Off-road',
       'Street',
     ],
   },
   {
-    group: 'Guide',
+    group: i('Guide'),
     value: [
       'Off-road',
       'Street',
     ],
   },
   {
-    group: 'Equipment',
+    group: i('Equipment'),
     value: [
       'Off-road',
       'Street',
     ],
   },
   {
-    group: 'Parts',
+    group: i('Parts'),
     value: [
       'Dirtbikes',
       'Streetbikes',
     ],
   },
   {
-    group: 'Circuits',
+    group: i('Circuits'),
     value: [
       'Motocross',
       'Enduro',
@@ -141,11 +142,11 @@ const getSelectItems = () => ([
     ],
   },
   {
-    group: 'Other',
+    group: i('Other'),
     value: [
-      'Shops',
-      'Events',
-      'Clubs',
+      i('Shops'),
+      i('Events'),
+      i('Clubs'),
     ],
   },
 ]);

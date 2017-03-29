@@ -165,5 +165,134 @@ export default {
   'Send message': 'Wyślij wiadomość',
   'Offerer details': 'Dane użytkownika',
 
-//
+/**
+ * Dialogs
+ */
+// Network Error
+  // 'Cancel': '',
+  'Network Error': 'Błąd połączenia',
+  'Ups! It seems that we have some problems with network, try again later.': 'Ups! Wygląda na to, że mamy problemy z siecią, spróbuj ponownie później.',
+
+/**
+ * helpers/models
+ */
+// accessories
+  'Travel Boxes/Bags': 'Skrzynki Podróżne/Torby',
+  'Lock': 'Zamek',
+  'Camera': 'Kamera',
+  'Basic Tools': 'Podstawowe Narzędzia',
+  'First Aid Kit': 'Apteczka',
+
+// general
+  'Road Legal': '',
+  'Engine': '',
+  'License Type': '',
+  'Capacity': '',
+  'Min. Rental Period': '',
+  'Max. Power': '',
+  'Weight': '',
+  'Top Speed': '',
+  'Seat Height': '',
+  'Torque': '',
+  'Max. Riders': '',
+  '0 - 100': '',
+
+// helmet
+  'Make': '',
+  'Model': '',
+  'Certificates': '',
+  'Age': '',
+  'State': '',
+  'Type': '',
+  'Picture': '',
+
+// mechanical
+  'General State': '',
+  'Motohours': '',
+  'Modifications': '',
+  'Flaws': '',
+  'Rider Experience': '',
+  'Minimum Driver Age': '',
+  'Maintenance Required': '',
+  'Maintenance History': '',
+
+// motorcycle
+  'Cylinder Count': '',
+  'Wheel Sizes': '',
+  'Bore / Stroke': '',
+  'Tires': '',
+  'Transmission': '',
+  'Brakes': '',
+  'Compression Ratio': '',
+  'Fuel Capacity': '',
+  'Suspension': '',
+  'Ignition Type': '',
+  'Frame': '',
+  'Kickstand': '',
+  'Wheelbase': '',
+  'Lights': '',
+  'Rake / Trail': '',
+  'Storage Space': '',
+
+// protection
+  'Helmet': '',
+  'Gloves': '',
+  'Boots': '',
+  'Jacket': '',
+  'Vest/Chest Protector/Buzzer': '',
+  'Pants': '',
+  'Knees': '',
+  'Elbows': '',
+  'Goggles': '',
+  'Neck Brace': '',
+
+// services
+  'Parking/Garage': '',
+  'Recommended Mechanic': '',
+  'Transport The Motocycle': '',
+  'Transport To/From': '',
+  'Photographer': '',
+  'Mechanical Changes Options': '',
+  'Guide': 'Przewodnicy',
+  'Coach': '',
+  'Group': '',
+  'Club': '',
+  'Nearby Circuit/Trail': '',
+
+// parser
+  'Yes': 'Tak',
+  'No': 'Nie',
+
+/**
+ * Not Found
+ */
+ '404... page not found!': '404... nie znaleziono strony!',
+
+/**
+ * Offers
+ */
+// index
+
+  'Motorcycle': 'Motocykle',
+  'Mechanic': 'Mechanicy',
+  'Coach / Instructor': 'Trenerzy / Instruktorzy',
+  // 'Guide': '',
+  // 'Equipment': '',
+  'Parts': 'Części',
+  'Circuits': 'Tory',
+  'Other': 'Inne',
+
+  'Scooter': 'Skutery',
+  'Electric': 'Elektryczne',
+  'Small (children)': 'Małe (dla dzieci)',
+  'Shops': 'Sklepy',
+  'Events': 'Wydarzenia',
+  'Clubs': 'Kluby',
+
+// Offer
+  'distance': 'odległość',
+  // 'day': '',
+
 }
+
+

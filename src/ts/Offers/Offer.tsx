@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as geolib from 'geolib';
 import { Link } from 'react-router';
+import i from '../i18n';
 
 export default function Offer({ data, position }) {
   const {
@@ -23,7 +24,7 @@ export default function Offer({ data, position }) {
         <div className="head">
           <div className="descript">
             <div className="title">{title}</div>
-            <div className="foot">{`${price} $/day ${distance} km away`}</div>
+            <div className="foot">{`${price} $/${i('day')}, ${i('distance')}: ${distance} km`}</div>
           </div>
         </div>
       </div>
