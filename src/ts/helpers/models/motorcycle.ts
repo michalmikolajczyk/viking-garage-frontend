@@ -33,6 +33,7 @@ export default [
   {
     key: 'fuelCapacity',
     label: 'Fuel Capacity',
+    type: 'number',
     units: 'l',
   },
   {
@@ -69,6 +70,6 @@ export default [
   {
     key: 'storageSpace',
     label: 'Storage Space',
-    type: 'toggle',
+    type: 'checkbox',
   },
 ]

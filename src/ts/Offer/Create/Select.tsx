@@ -6,15 +6,11 @@ import {
 } from 'material-ui';
 
 const menuItems = [
-  'accessories',
-  'helmet',
+  'coach',
   'motorcycle',
-  'protection',
-  'services',
 ].map((s, i) => <MenuItem key={i} value={i} primaryText={s} />)
 
 export default function Select({ selected, onChange }) {
-
     return (
       <div className="title">
         <span className="text">Add new offer:</span>

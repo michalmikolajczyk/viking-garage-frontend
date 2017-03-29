@@ -15,13 +15,16 @@ import debug from 'debug';
 const log = debug('app:Offer/Create')
 
 import Inputs from './Inputs';
+import accessories from '../../helpers/models/accessories';
+import helmet from '../../helpers/models/helmet';
 import motorcycle from '../../helpers/models/motorcycle';
+import services from '../../helpers/models/services';
 
 export default class Create extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      selected: 2,
+      selected: 1,
       canSubmit: false,
     };
     this.onSelect = this.onSelect.bind(this);
@@ -51,13 +54,19 @@ export default class Create extends React.Component<any, any> {
               <Select selected={this.state.selected} onChange={this.onSelect} />
               <General />
 
-
-            <Paper className="section">
-              <div className="header">Motorcycle specification</div>
-              <Inputs offer={motorcycle} />
-            </Paper>
+              <Paper className="section">
+                <div className="header">Motorcycle specification</div>
+                <Inputs offer={motorcycle} />
+              </Paper>
 
               <DropImage />
+
+              <Paper className="section">
+                <Inputs offer={helmet} type="Helmet" />
+                <Inputs offer={services} type="Services" />
+                <Inputs offer={accessories} type="Accessories" />
+              </Paper>
+
               <Permissions />
             </div>
             <div className="side-view">

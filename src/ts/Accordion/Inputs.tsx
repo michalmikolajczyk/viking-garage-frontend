@@ -13,9 +13,8 @@ import {
 // TODO: fetch select's from API, mockup for now
 const select = {
   ignitionType: [
-    'None',
     'Electric',
-    'KickStarr',
+    'Kick start',
   ],
 }
 
@@ -26,12 +25,11 @@ const inputGenerator = (type, key, label) => {
       return (
         <div className="col">
           <FormsyText
-            name={key}
-            floatingLabelText={label}
-            fullWidth={true}
             validations="isNumeric"
+            floatingLabelText={label}
+            name={key}
+            fullWidth={true}
             required={true}
-            validationError="Should be a number!"
           />
         </div>);
 
@@ -46,6 +44,15 @@ const inputGenerator = (type, key, label) => {
           >
             {select[key].map((s, i) => <MenuItem key={i} value={i} primaryText={s} />)}
           </FormsySelect>
+        </div>);
+
+    case 'toggle':
+      return (
+        <div className="col toggle">
+          <FormsyToggle
+            name={key}
+            label={label}
+          />
         </div>);
 
     case 'checkbox':
@@ -81,42 +88,9 @@ const tableGenerator = table => _.map(table, (item, index) => {
     </div>);
 });
 
-export default class Inputs extends React.Component<any, any> {
-  private table;
-  private header = null;
-
-  constructor(props) {
-    super(props);
-    const { offer, type } = props;
-    this.state = { open: !type };
-    this.table = tableGenerator(offer);
-    if (type) {
-      this.header = this.headerGenerator(type)
-    }
-  }
-
-  onChange = () => this.setState({ open: !this.state.open })
-
-  headerGenerator(type) {
-    return(
-      <div className="header">
-        <FormsyCheckbox
-          name={type}
-          label={type}
-          labelPosition="left"
-          onChange={this.onChange}
-        />
-      </div>
-    )
-  }
-
-  render() {
-    return (
-      <div>
-        {this.header}
-        <div className={'table' + (this.state.open ? '' : ' invisible')}>
-          {this.table}
-        </div>
-      </div>);
-  }
+export default function Inputs({ offer }) {
+  return (
+    <div className="table">
+      {tableGenerator(offer)}
+    </div>);
 }
