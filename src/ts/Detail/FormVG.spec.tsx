@@ -18,7 +18,7 @@ describe('<FormVG />', () => {
   it('check for summary & submit button', () => {
     const wrapper = mountWithTheme(<FormVG offer={offer} />);
     expect(wrapper.find('.price')).to.have.length(1);
-    expect(wrapper.find('.price').text()).to.contain('TOTAL');
+    expect(wrapper.find('.price').text().toUpperCase()).to.contain('TOTAL');
     expect(wrapper.find('.ride-btn')).to.have.length(1);
   });
 
