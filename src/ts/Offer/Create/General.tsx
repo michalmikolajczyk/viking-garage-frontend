@@ -21,7 +21,6 @@ export default function General(props) {
         required={true}
         validationError="Shouldn't be empty!"
       />
-
       <FormsyText
         name="price"
         floatingLabelText="Price for one day (in USD)"
@@ -30,26 +29,22 @@ export default function General(props) {
         required={true}
         validationError="Should be a number!"
       />
-
       <FormsyText
-        name="price"
+        name="maxRental"
         floatingLabelText="Maximum rental time (in days)"
         fullWidth={true}
         validations="isNumeric"
         required={true}
         validationError="Should be a number!"
       />
-
       <FormsyText
-        name="price"
+        name="minRental"
         floatingLabelText="Mimimum rental time (in days)"
         fullWidth={true}
         validations="isNumeric"
         required={true}
         validationError="Should be a number!"
       />
-
-
       <FormsyText
         name="brief"
         floatingLabelText="Description (max. 555 characters)"

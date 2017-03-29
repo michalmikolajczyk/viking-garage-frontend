@@ -41,7 +41,7 @@ const motorcycle = {
     compressionRatio: 'xxx',
     fuelCapacity: 7.5,
     suspension: 'Sanchez',
-    ignitionType: 'Kickstarr',
+    ignitionType: 'Kick start',
     frame: 'Alloy',
     kickstand: false,
     wheelbase: 1597,
