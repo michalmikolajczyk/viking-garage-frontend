@@ -1,4 +1,6 @@
 import * as React from 'react';
+import * as moment from 'moment';
+import i from '../i18n';
 import Header from '../Accordion/Header';
 
 export default function Offerer({ offer }) {
@@ -14,7 +16,7 @@ export default function Offerer({ offer }) {
   } = offerer;
   return (
     <div>
-      <Header head="Offerer details" />
+      <Header head={i('Offerer details')} />
       <div className="offerer">
         <div
           className="picture"
@@ -24,11 +26,11 @@ export default function Offerer({ offer }) {
           <div className="offerer-main">
             <div>{name}</div>
             <div>{`${city}, ${country}`}</div>
-            <div>With VG since 31 Dec 1986</div>
+            <div>{`${i('With VG since')} ${moment(offerer.since).format('DD MMM YYYY')}`}</div>
           </div>
-          <div className="descript">{brief}</div>
-          <div className="recommend">Recommendations: {points}</div>
-          <button className="message">Send message</button>
+          <div className="descript">{offerer.descript}</div>
+          <div className="recommend">{`${i('Recommendations')}: ${offerer.recommend}`}</div>
+          <button className="message">{i('Send message')}</button>
         </div>
       </div>
     </div>);

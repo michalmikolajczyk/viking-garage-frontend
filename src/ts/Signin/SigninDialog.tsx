@@ -3,6 +3,7 @@ import {
   Dialog,
   FlatButton,
 } from 'material-ui';
+import i from '../i18n';
 
 export default function SigninDialog(props) {
   const {
@@ -14,12 +15,12 @@ export default function SigninDialog(props) {
     <div className="float-left">
       <FlatButton
         href="/login"
-        label="Login"
+        label={i('Log in')}
         primary={true}
       />
     </div>,
     <FlatButton
-      label="Cancel"
+      label={i('Cancel')}
       primary={true}
       keyboardFocused={true}
       onTouchTap={close}
@@ -30,11 +31,18 @@ export default function SigninDialog(props) {
     <Dialog
       open={open}
       contentStyle={{ maxWidth: 650 }}
-      title="Invalid e-mail"
+      title={i('Invalid e-mail')}
       actions={actions}
     >
-      That e-mail address is already registered.&#160;
-      Please <a href="/login" className="link">log in</a> or use another e-mail address.
+      {i('That e-mail address is already registered.')}
+      &#160;
+      {i('Please')}
+      &#160;
+      <a href="/login" className="link">
+        {i('log in')}
+      </a>
+      &#160;
+      {i('or use another e-mail address.')}
     </Dialog>
   );
 }
