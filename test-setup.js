@@ -35,7 +35,8 @@ global.document.querySelector = () => ({
 })
 
 global.navigator = {
-  userAgent: 'node.js'
+  userAgent: 'node.js',
+  language: 'en-US',
 }
 
 global.config = require('./config')
