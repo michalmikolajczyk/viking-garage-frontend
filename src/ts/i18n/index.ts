@@ -6,8 +6,8 @@ const TRANSLATIONS = {
 };
 
 export default function translate(s) {
-  return pl[s];
-  // const trans = TRANSLATIONS[langCode];
-  // if (trans && s in trans) return trans[s];
-  // return s;
+  // return pl[s] || 'NO TRANSLATION!!!';
+  const trans = TRANSLATIONS[langCode];
+  if (trans && s in trans) return trans[s];
+  return s;
 };

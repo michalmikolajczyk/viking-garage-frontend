@@ -2,6 +2,7 @@ import * as React from 'react';
 import { browserHistory } from 'react-router';
 import { Form } from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
+import i from '../i18n';
 import Container from '../Container';
 import NetworkError from '../Dialogs/NetworkError';
 import { reset } from './api';
@@ -33,11 +34,11 @@ export default class Reset extends React.Component<any, any> {
     return (
       <Container className="cont">
         <div className="form">
-          <h1 className="title">Reset your password</h1>
+          <h1 className="title">{i('Reset your password')}</h1>
           <div className="title-sub">
-            Please provide your e-mail address.
+            {i('Please provide your e-mail address.')}
             <br />
-            We will send you a message with further instructions.
+            {i('We will send you a message with further instructions.')}
           </div>
           <div className="inputs">
             <Form
@@ -52,15 +53,15 @@ export default class Reset extends React.Component<any, any> {
                   required={true}
                   fullWidth={true}
                   validations="isEmail"
-                  floatingLabelText="E-mail"
-                  validationError="Wrong e-mail address!"
+                  floatingLabelText={i('E-mail')}
+                  validationError={i('Wrong e-mail address!')}
                 />
               </div>
               <button
                 className="submit"
                 disabled={!this.state.canSubmit}
               >
-                RESET PASSWORD
+                {i('Reset password')}
               </button>
               <NetworkError
                 open={this.state.networkErr}

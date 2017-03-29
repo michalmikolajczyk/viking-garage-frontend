@@ -3,6 +3,7 @@ import {
   Dialog,
   FlatButton,
 } from 'material-ui';
+import i from '../i18n';
 
 export default function LoginDialog(props) {
 
@@ -15,17 +16,17 @@ export default function LoginDialog(props) {
     <div className="float-left">
       <FlatButton
         href="/reset"
-        label="Reset password"
+        label={i('Reset password')}
         primary={true}
       />
       <FlatButton
         href="signin"
-        label="Create new account"
+        label={i('Create new account')}
         primary={true}
       />
     </div>,
     <FlatButton
-      label="Cancel"
+      label={i('Cancel')}
       primary={true}
       keyboardFocused={true}
       onTouchTap={close}
@@ -36,10 +37,10 @@ export default function LoginDialog(props) {
     <Dialog
       open={open}
       contentStyle={{ maxWidth: 650 }}
-      title="Invalid e-mail or password"
+      title={i('Invalid e-mail or password')}
       actions={actions}
     >
-      The e-mail &amp; password combination did not work. Please confirm the details and try again, or follow one of the options below:
+      {i('The e-mail & password combination did not work. Please confirm the details and try again, or follow one of the options below:')}
     </Dialog>
   );
 }

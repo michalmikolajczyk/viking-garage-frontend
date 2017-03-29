@@ -5,6 +5,7 @@ import {
   FormsyCheckbox,
   FormsyText,
 } from 'formsy-material-ui/lib';
+import i from '../i18n';
 import LoginDialog from './LoginDialog';
 import NetworkError from '../Dialogs/NetworkError';
 import { login } from './api';
@@ -50,8 +51,8 @@ export default class LoginForm extends React.Component<any, any> {
           required={true}
           fullWidth={true}
           validations="isEmail"
-          floatingLabelText="E-mail"
-          validationError="Wrong e-mail address!"
+          floatingLabelText={i('E-mail')}
+          validationError={i('Wrong e-mail address!')}
         />
         <FormsyText
           name="password"
@@ -60,21 +61,21 @@ export default class LoginForm extends React.Component<any, any> {
           required={true}
           fullWidth={true}
           validations="minLength:6"
-          floatingLabelText="Password"
-          validationError="Password too short! Minimum 6 chars"
+          floatingLabelText={i('Password')}
+          validationError={i('Password too short! Minimum 6 chars')}
         />
         <div className="checkbox">
           <FormsyCheckbox
             value={true}
             name="remember"
-            label="Remember me"
+            label={i('Remember me')}
           />
         </div>
         <button
           className="submit"
           disabled={!this.state.canSubmit}
         >
-          LOG IN
+          {i('Log in')}
         </button>
         <LoginDialog
           open={this.state.openDialog}
