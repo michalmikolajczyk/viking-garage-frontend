@@ -23,32 +23,16 @@ import services from '../../helpers/models/services';
 export default class Create extends React.Component<any, any> {
   constructor(props) {
     super(props);
-    this.state = {
-      selected: 1,
-      canSubmit: false,
-    };
+    this.state = { selected: 1 };
     this.onSelect = this.onSelect.bind(this);
   }
 
-  onSelect(event, index, selected) {
-    this.setState({ selected });
-  }
-
-  onValid = () => this.setState({ canSubmit: true })
-  onInvalid = () => this.setState({ canSubmit: false })
-
-  submit(offer) {
-    log('Submit offer', offer);
-  }
+  onSelect = (event, index, selected) => this.setState({ selected })
 
   render() {
     return (
       <Container close={true}>
-        <Form
-          onValid={this.onValid}
-          onInvalid={this.onInvalid}
-          onSubmit={this.submit}
-        >
+        <Form>
           <div className="create">
             <div className="main-view">
               <Select selected={this.state.selected} onChange={this.onSelect} />

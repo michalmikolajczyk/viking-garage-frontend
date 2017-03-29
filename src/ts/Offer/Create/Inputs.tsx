@@ -13,9 +13,13 @@ import {
 // TODO: fetch select's from API, mockup for now
 const select = {
   ignitionType: [
-    'None',
     'Electric',
-    'KickStarr',
+    'Kick start',
+  ],
+  lights: [
+    'None Lights',
+    'Front Lights Only',
+    'Full Lights',
   ],
 }
 
@@ -37,7 +41,7 @@ const inputGenerator = (type, key, label) => {
 
     case 'select':
       return (
-      <div className="col">
+      <div className="col select-col">
           <FormsySelect
             floatingLabelText={label}
             name={key}

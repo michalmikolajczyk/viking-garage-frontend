@@ -61,7 +61,7 @@ export default [
   {
     key: 'lights',
     label: 'Lights',
-    type: 'checkbox',
+    type: 'select',
   },
   {
     key: 'rakeTrail',
