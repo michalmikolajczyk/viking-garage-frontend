@@ -19,7 +19,7 @@ export default class SiginForm extends React.Component<any, any> {
     super(props);
     this.state = {
       canSubmit: false,
-      openDialog: true,
+      openDialog: false,
       networkErr: false,
     };
     this.submit = this.submit.bind(this);

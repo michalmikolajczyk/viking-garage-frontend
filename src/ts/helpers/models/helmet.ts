@@ -1,30 +1,32 @@
+import i from '../../i18n';
+
 export default [
   {
-    key: 'makeName',
-    label: 'Make',
+    key: 'make',
+    label: i('Make'),
   },
   {
-    key: 'modelhelmetName',
-    label: 'Model',
+    key: 'model',
+    label: i('Model'),
   },
   {
     key: 'certificates',
-    label: 'Certificates',
+    label: i('Certificates'),
   },
   {
     key: 'age',
-    label: 'Age',
+    label: i('Age'),
   },
   {
     key: 'state',
-    label: 'State',
+    label: i('State'),
   },
   {
     key: 'type',
-    label: 'Type',
+    label: i('Type'),
   },
   {
     key: 'picture',
-    label: 'Picture',
+    label: i('Picture'),
   },
 ]

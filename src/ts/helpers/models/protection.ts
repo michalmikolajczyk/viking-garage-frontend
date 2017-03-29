@@ -1,51 +1,53 @@
+import i from '../../i18n';
+
 export default [
   {
-    label: 'Helmet',
+    label: i('Helmet'),
     key: 'helmet',
     type: 'checkbox',
   },
   {
-    label: 'Gloves',
+    label: i('Gloves'),
     key: 'gloves',
     type: 'checkbox',
   },
   {
-    label: 'Boots',
+    label: i('Boots'),
     key: 'boots',
     type: 'checkbox',
   },
   {
-    label: 'Jacket',
+    label: i('Jacket'),
     key: 'jacket',
     type: 'checkbox',
   },
   {
-    label: 'Vest/Chest Protector',
+    label: i('Vest/Chest Protector'),
     key: 'chestProtector',
     type: 'checkbox',
   },
   {
-    label: 'Pants',
+    label: i('Pants'),
     key: 'pants',
     type: 'checkbox',
   },
   {
-    label: 'Knees',
+    label: i('Knees'),
     key: 'knees',
     type: 'checkbox',
   },
   {
-    label: 'Elbows',
+    label: i('Elbows'),
     key: 'elbows',
     type: 'checkbox',
   },
   {
-    label: 'Goggles',
+    label: i('Goggles'),
     key: 'goggles',
     type: 'checkbox',
   },
   {
-    label: 'Neck Brace',
+    label: i('Neck Brace'),
     key: 'neckBrace',
     type: 'checkbox',
   },

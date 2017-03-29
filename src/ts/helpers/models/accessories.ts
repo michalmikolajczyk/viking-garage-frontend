@@ -1,27 +1,24 @@
+import i from '../../i18n';
+
 export default [
   {
-    key: 'travelBoxes',
-    label: 'Travel Boxes/Bags',
-    type: 'checkbox',
+    key: 'travelBoxesBags',
+    label: i('Travel Boxes/Bags'),
   },
   {
     key: 'lock',
-    label: 'Lock',
-    type: 'checkbox',
+    label: i('Lock'),
   },
   {
     key: 'camera',
-    label: 'Camera',
-    type: 'checkbox',
+    label: i('Camera'),
   },
   {
     key: 'basicTools',
-    label: 'Basic Tools',
-    type: 'checkbox',
+    label: i('Basic Tools'),
   },
   {
     key: 'firstAidKit',
-    label: 'First Aid Kit',
-    type: 'checkbox',
+    label: i('First Aid Kit'),
   },
 ]
