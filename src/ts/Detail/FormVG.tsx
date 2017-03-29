@@ -10,6 +10,7 @@ import {
 } from 'material-ui';
 import debug from 'debug';
 const log = debug('app:DetailForm');
+import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
   private offer: any;
@@ -99,7 +100,7 @@ export default class FormVG extends React.Component<any, any> {
       <MenuItem
         key={num}
         value={num}
-        primaryText={`Base price: ${num} ${price.value} / ${key}`}
+        primaryText={`${i('Base price')}: ${num} ${price.value} / ${key}`}
       >
       </MenuItem>));
 
@@ -112,7 +113,7 @@ export default class FormVG extends React.Component<any, any> {
             <FontIcon className="fa fa-money" />
             <TextField
               id="base-price"
-              value="Base price: 55$ / day"
+              value={`${i('Base price')}: 55 $ / ${i('day')}`}
               onChange={() => undefined}
               fullWidth={true}
             />
@@ -124,7 +125,6 @@ export default class FormVG extends React.Component<any, any> {
               autoOk={true}
               value={this.state.startDate}
               onChange={this.startDateChange}
-              hintText="Today"
               fullWidth={true}
             />
           </div>
@@ -135,7 +135,6 @@ export default class FormVG extends React.Component<any, any> {
               autoOk={true}
               value={this.state.endDate}
               onChange={this.endDateChange}
-              hintText="19/01/2017"
               fullWidth={true}
             />
           </div>
@@ -147,12 +146,11 @@ export default class FormVG extends React.Component<any, any> {
               onChange={this.equipmentChange}
               fullWidth={true}
             >
-              <MenuItem key={1} value={1} primaryText="Equipment: Basic" />
-              <MenuItem key={2} value={2} primaryText="Equipment: Semi" />
-              <MenuItem key={3} value={3} primaryText="Equipment: Full" />
+              <MenuItem key={1} value={1} primaryText={`${i('Equipment')}: ${i('Basic')}`} />
+              <MenuItem key={2} value={2} primaryText={`${i('Equipment')}: ${i('Full')}`} />
             </SelectField>
           </div>
-          <div className="price">{`TOTAL: ${this.state.total} USD`}</div>
+          <div className="price">{`${i('Total')}: ${this.state.total} $`}</div>
           <button className="ride-btn">
             <span className="raido">&#5809;</span>
             <span>IDE</span>

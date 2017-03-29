@@ -101,7 +101,7 @@ const offer = {
     id: 1,
     picture: 'https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg',
     fullname: 'Michal Mikolajczyk',
-    since: '31 Dec 1986',
+    since: '1986-12-31 00:00:00+01',
     location: {
       city: 'Warsaw',
       country: 'Poland',

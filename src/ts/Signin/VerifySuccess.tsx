@@ -3,6 +3,7 @@ import {
   Dialog,
   FlatButton,
 } from 'material-ui';
+import i from '../i18n';
 
 export default function VerifySuccess(props) {
   const {
@@ -12,7 +13,7 @@ export default function VerifySuccess(props) {
 
   const actions = [
     <FlatButton
-      label="Close"
+      label={i('Close')}
       primary={true}
       onTouchTap={close}
       keyboardFocused={true}
@@ -23,10 +24,10 @@ export default function VerifySuccess(props) {
     <Dialog
       open={open}
       contentStyle={{ maxWidth: 650 }}
-      title="New account verified"
+      title={i('New account verified')}
       actions={actions}
     >
-      Success! Your new account was verified.
+    {i('Success! Your new account was verified.')}
     </Dialog>
   );
 }

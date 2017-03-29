@@ -19,7 +19,7 @@ export default function AppRouter(props) {
   return (
     <Router history={browserHistory}>
       <Route path="/" component={Offers} />
-      <Route path="/offer/:offer" component={Detail} />
+      <Route path="/offer/:id(/:url)" component={Detail} />
       <Route path="/login" component={Login} />
       <Route path="/reset" component={Reset} />
       <Route path="/confirm/:email" component={Confirm} />

@@ -6,6 +6,7 @@ import {
   FormsyDate,
   FormsyText,
 } from 'formsy-material-ui/lib';
+import i from '../i18n';
 import SigninDialog from './SigninDialog';
 import NetworkError from '../Dialogs/NetworkError';
 import { signin } from './api';
@@ -18,7 +19,7 @@ export default class SiginForm extends React.Component<any, any> {
     super(props);
     this.state = {
       canSubmit: false,
-      openDialog: false,
+      openDialog: true,
       networkErr: false,
     };
     this.submit = this.submit.bind(this);
@@ -46,22 +47,22 @@ export default class SiginForm extends React.Component<any, any> {
           value="Viking Garage"
           required={true}
           fullWidth={true}
-          floatingLabelText="Full Name"
+          floatingLabelText={i('Full Name')}
           validations="minLength:3"
-          validationError="Full name too short! Minimum 3 chars"
+          validationError={i('Full name too short! Minimum 3 chars')}
         />
         <FormsyText
           name="email"
           value="user@host.domain"
           required={true}
           fullWidth={true}
-          floatingLabelText="E-mail"
+          floatingLabelText={i('E-mail')}
           validations="isEmail"
-          validationError="Wrong e-mail address!"
+          validationError={i('Wrong e-mail address!')}
         />
         <FormsyDate
           name="birthday"
-          floatingLabelText="Date of birth"
+          floatingLabelText={i('Date of birth')}
           required={true}
           fullWidth={true}
         />
@@ -71,9 +72,9 @@ export default class SiginForm extends React.Component<any, any> {
           value="secret"
           required={true}
           fullWidth={true}
-          floatingLabelText="Password"
+          floatingLabelText={i('Password')}
           validations="minLength:6"
-          validationError="Password too short! Minimum 6 chars"
+          validationError={i('Password too short! Minimum 6 chars')}
         />
         <FormsyText
           name="password2"
@@ -81,25 +82,25 @@ export default class SiginForm extends React.Component<any, any> {
           value="secret"
           required={true}
           fullWidth={true}
-          floatingLabelText="Repeat Password"
+          floatingLabelText={i('Repeat Password')}
           validations="equalsField:password1"
-          validationError="The passwords must be the same!"
+          validationError={i('The passwords must be the same')}
         />
         <div className="checkbox">
           <FormsyCheckbox
             value={true}
             required={true}
             name="agree"
-            label="I agree to the Terms of Service"
+            label={i('I agree to the Terms of Service')}
             validations="isTrue"
-            validationError="You should agree with Terms of Service!"
+            validationError={i('You should agree with Terms of Service')}
           />
         </div>
         <button
           className="submit"
           disabled={!this.state.canSubmit}
         >
-          SIGN IN
+          {i('Sign in')}
         </button>
         <SigninDialog
           open={this.state.openDialog}
