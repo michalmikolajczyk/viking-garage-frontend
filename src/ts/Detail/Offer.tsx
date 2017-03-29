@@ -13,8 +13,8 @@ export default function Offer({ offer }) {
   return (
     <div className="detail-offer">
       <HeaderVG offer={offer} />
-      <Comments />
       <Accordion items={items} open={true} />
+      <Comments />
       <ListVG offer={offer} />
     </div>
   );

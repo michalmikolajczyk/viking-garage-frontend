@@ -1,35 +1,37 @@
+import i from '../../i18n';
+
 export default [
   {
     key: 'generalState',
-    label: 'General State',
+    label: i('General State'),
   },
   {
     key: 'motoHours',
-    label: 'Motohours',
+    label: i('Motohours'),
     units: 'MH',
   },
   {
     key: 'modifications',
-    label: 'Modifications',
+    label: i('Modifications'),
   },
   {
     key: 'flaws',
-    label: 'Flaws',
+    label: i('Flaws'),
   },
   {
     key: 'riderExperienceSuggested',
-    label: 'Rider Experience',
+    label: i('Rider Experience'),
   },
   {
     key: 'minimumDriverAge',
-    label: 'Minimum Driver Age',
+    label: i('Minimum Driver Age'),
   },
   {
     key: 'maintenanceRequired',
-    label: 'Maintenance Required',
+    label: i('Maintenance Required'),
   },
   {
     key: 'maintenanceHistory',
-    label: 'Maintenance History',
+    label: i('Maintenance History'),
   },
 ]

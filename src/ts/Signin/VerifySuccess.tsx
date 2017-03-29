@@ -27,7 +27,7 @@ export default function VerifySuccess(props) {
       title={i('New account verified')}
       actions={actions}
     >
-    {i('Success! Your new account was verified.')}
+      {i('Success! Your new account was verified.')}
     </Dialog>
   );
 }
