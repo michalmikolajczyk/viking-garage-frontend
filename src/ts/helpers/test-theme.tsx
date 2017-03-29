@@ -14,3 +14,21 @@ export function mountWithTheme(node) {
   });
 }
 
+export function mountWithFormsy(node) {
+  return mount(node, {
+    context: {
+      muiTheme: getMuiTheme(),
+      formsy: {
+        attachToForm() { },
+        detachFromForm() { },
+        validate() { },
+        isFormDisabled() { },
+        isValidValue() { }
+      }
+    },
+    childContextTypes: {
+      muiTheme: React.PropTypes.object.isRequired,
+      formsy: React.PropTypes.object.isRequired,
+    },
+  });
+}
