@@ -293,6 +293,15 @@ export default {
   'distance': 'odległość',
   // 'day': '',
 
+/**
+ * Search
+ */
+// Location
+  'Search': 'Szukaj',
+// Select
+  'Select some values': 'Wybierz wartość',
+
+
 }
 
 

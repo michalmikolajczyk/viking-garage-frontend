@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FontIcon } from 'material-ui';
 import { default as SuperSelect } from 'material-ui-superselectfield';
+import i from '../i18n';
 
 export default class Select extends React.Component<any, any> {
 
@@ -79,7 +80,7 @@ export default class Select extends React.Component<any, any> {
             multiple={true}
             value={this.state.select}
             onChange={this.onChange}
-            hintText="Select some values"
+            hintText={i('Select some values')}
             selectionsRenderer={this.selectionRenderer}
             fullWidth={true}
           >
