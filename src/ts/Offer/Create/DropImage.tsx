@@ -13,7 +13,8 @@ export default class DropImage extends React.Component<any, any> {
   }
 
   onDrop(images, event) {
-    this.setState({ images: images.slice(0, 5) });
+    const gallery = images.slice(0, 5);
+    this.setState({ images: gallery });
   }
 
   render() {
