@@ -12,7 +12,7 @@ import Sideview from './Sideview';
 import Permissions from './Permissions';
 import { Form } from 'formsy-react';
 import debug from 'debug';
-const log = debug('app:Offer/Create')
+const log = debug('app:Offer/Create');
 
 import Inputs from './Inputs';
 import accessories from '../../helpers/models/accessories';
@@ -27,7 +27,7 @@ export default class Create extends React.Component<any, any> {
     this.onSelect = this.onSelect.bind(this);
   }
 
-  onSelect = (event, index, selected) => this.setState({ selected })
+  onSelect = (event, index, selected) => this.setState({ selected });
 
   render() {
     return (

@@ -8,7 +8,7 @@ import {
 const menuItems = [
   'coach',
   'motorcycle',
-].map((s, i) => <MenuItem key={i} value={i} primaryText={s} />)
+].map((s, i) => <MenuItem key={i} value={i} primaryText={s} />);
 
 export default function Select({ selected, onChange }) {
     return (

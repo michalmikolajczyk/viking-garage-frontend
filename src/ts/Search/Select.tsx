@@ -90,12 +90,11 @@ export default class Select extends React.Component<any, any> {
     const arrayOfItems = items.map((item, index) => {
       return [
         (<div
-          style={{background: 'red'}}
           key={index * 100}
           value={index * 100}
           label={item.group}>{item.group}
         </div>),
-        ...item.value.map((name, index) => <div key={index} value={index} label={name}>{name}</div>)
+        ...item.value.map((name, index) => <div key={index} value={index} label={name}>{name}</div>),
       ];
     });
     this.dataSource = [].concat.apply([], arrayOfItems);
@@ -103,7 +102,7 @@ export default class Select extends React.Component<any, any> {
 
   handleSelection(value, name) {
     log('handle selection', value);
-    this.setState({ value })
+    this.setState({ value });
   }
 
   render() {

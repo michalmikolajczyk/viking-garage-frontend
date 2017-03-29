@@ -23,8 +23,8 @@ export function formsyContext() {
         detachFromForm() { },
         validate() { },
         isFormDisabled() { },
-        isValidValue() { }
-      }
+        isValidValue() { },
+      },
     },
     childContextTypes: {
       muiTheme: React.PropTypes.object.isRequired,

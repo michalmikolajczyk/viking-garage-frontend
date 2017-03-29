@@ -21,7 +21,7 @@ const select = {
     'Front Lights Only',
     'Full Lights',
   ],
-}
+};
 
 const inputGenerator = (type, key, label) => {
   switch (type) {
@@ -74,7 +74,7 @@ const inputGenerator = (type, key, label) => {
           />
         </div>);
   }
-}
+};
 
 const tableGenerator = table => _.map(table, (item, index) => {
   const label = item.label + (item.units ? ` (${item.units})` : '');
@@ -95,11 +95,11 @@ export default class Inputs extends React.Component<any, any> {
     this.state = { open: !type };
     this.table = tableGenerator(offer);
     if (type) {
-      this.header = this.headerGenerator(type)
+      this.header = this.headerGenerator(type);
     }
   }
 
-  onChange = () => this.setState({ open: !this.state.open })
+  onChange = () => this.setState({ open: !this.state.open });
 
   headerGenerator(type) {
     return(
@@ -111,7 +111,7 @@ export default class Inputs extends React.Component<any, any> {
           onChange={this.onChange}
         />
       </div>
-    )
+    );
   }
 
   render() {

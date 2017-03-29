@@ -7,7 +7,7 @@
     "build": "npm run lint && webpack --config webpack.config.js",
     "start": "node server.js",
     "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx src/ts/**/**/*.spec.tsx",
-    "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx"
+    "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx"
   },
   "repository": {
     "type": "git",

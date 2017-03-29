@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   FontIcon,
   Paper,
-} from 'material-ui'
+} from 'material-ui';
 import * as Dropzone from 'react-dropzone';
 
 export default class DropImage extends React.Component<any, any> {

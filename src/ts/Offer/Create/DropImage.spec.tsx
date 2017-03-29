@@ -11,10 +11,10 @@ import DropImage from './DropImage';
 
 const image = {
   preview: 'url-to-image.png',
-  type: 'image/png'
+  type: 'image/png',
 };
 const images = [image];
-const manyImages = _.range(5).map(() => image)
+const manyImages = _.range(5).map(() => image);
 
 describe('Offer/Create: <DropImage />', () => {
   it('check for inner components', () => {

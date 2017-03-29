@@ -33,7 +33,7 @@ export default class Detail extends React.Component<any, any> {
       });
   }
 
-  close = () => this.setState({ networkErr: false })
+  close = () => this.setState({ networkErr: false });
 
   render() {
     return (
