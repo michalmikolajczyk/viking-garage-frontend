@@ -2,6 +2,7 @@ export default [
   {
     key: 'cylinderCount',
     label: 'Cylinder Count',
+    type: 'number',
   },
   {
     key: 'wheelSizes',
@@ -32,6 +33,7 @@ export default [
   {
     key: 'fuelCapacity',
     label: 'Fuel Capacity',
+    type: 'number',
     units: 'l',
   },
   {
@@ -41,6 +43,7 @@ export default [
   {
     key: 'ignitionType',
     label: 'Ignition Type',
+    type: 'select',
   },
   {
     key: 'frame',
@@ -58,6 +61,7 @@ export default [
   {
     key: 'lights',
     label: 'Lights',
+    type: 'select',
   },
   {
     key: 'rakeTrail',
@@ -66,5 +70,6 @@ export default [
   {
     key: 'storageSpace',
     label: 'Storage Space',
+    type: 'checkbox',
   },
 ]

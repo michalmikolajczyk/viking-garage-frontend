@@ -8,11 +8,13 @@ import {
   TextField,
   MenuItem,
 } from 'material-ui';
+import Raido from '../Raido';
 import debug from 'debug';
 const log = debug('app:DetailForm');
 
 export default class FormVG extends React.Component<any, any> {
   private offer: any;
+  private requestId: number;
 
   constructor(props) {
     super(props);
@@ -39,11 +41,11 @@ export default class FormVG extends React.Component<any, any> {
   }
 
   componentWillUnmount() {
-    this.handleScroll = () => null;
+    window.cancelAnimationFrame(this.requestId);
   }
 
   handleScroll() {
-    window.requestAnimationFrame(this.handleScroll);
+    this.requestId = window.requestAnimationFrame(this.handleScroll);
     const side = document.querySelector('#detail-side').clientHeight;
     const wrap = document.querySelector('#detail-wrap').clientHeight;
     const diff = wrap - side - 114;
@@ -154,7 +156,7 @@ export default class FormVG extends React.Component<any, any> {
           </div>
           <div className="price">{`TOTAL: ${this.state.total} USD`}</div>
           <button className="ride-btn">
-            <span className="raido">&#5809;</span>
+            <Raido />
             <span>IDE</span>
           </button>
           </div>

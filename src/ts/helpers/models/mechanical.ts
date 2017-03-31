@@ -17,7 +17,7 @@ export default [
     label: 'Flaws',
   },
   {
-    key: 'riderExperienceSuggested',
+    key: 'riderExperience',
     label: 'Rider Experience',
   },
   {

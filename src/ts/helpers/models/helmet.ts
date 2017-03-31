@@ -1,10 +1,10 @@
 export default [
   {
-    key: 'make',
+    key: 'makeName',
     label: 'Make',
   },
   {
-    key: 'model',
+    key: 'modelhelmetName',
     label: 'Model',
   },
   {

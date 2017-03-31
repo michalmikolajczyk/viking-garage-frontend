@@ -14,7 +14,7 @@ export default function Offer({ data, position }) {
   let distance = '';
   if (position) {
     const coordinates = { latitude: coord.coordinates[0], longitude: coord.coordinates[1] };
-    distance = (geolib.getDistance(position, coordinates)/1000).toFixed(2)
+    distance = (geolib.getDistance(position, coordinates) / 1000).toFixed(2);
   }
   return (
     <Link to={`offer/${id}/${url}`} className="offer-btn-link">

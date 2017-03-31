@@ -1,89 +1,124 @@
 import * as React from 'react';
 import { FontIcon } from 'material-ui';
 import { default as SuperSelect } from 'material-ui-superselectfield';
+import debug from 'debug';
+const log = debug('app:Select');
+
+const items = [
+  {
+    group: 'Motorcycle',
+    value: [
+      'Off-road',
+      'Street',
+      'Dual-sport',
+      'Scooter',
+      'Electric',
+      'Small (children)',
+    ],
+  },
+  {
+    group: 'Mechanic',
+    value: [
+      'Off-road & dual-sport',
+      'Street',
+      'Electric',
+      'Scooter',
+    ],
+  },
+  {
+    group: 'Coach/Instructor',
+    value: [
+      'Off-road',
+      'Street',
+    ],
+  },
+  {
+    group: 'Guide',
+    value: [
+      'Off-road',
+      'Street',
+    ],
+  },
+  {
+    group: 'Equipment',
+    value: [
+      'Off-road',
+      'Street',
+    ],
+  },
+  {
+    group: 'Parts',
+    value: [
+      'Dirtbikes',
+      'Streetbikes',
+    ],
+  },
+  {
+    group: 'Circuits',
+    value: [
+      'Motocross',
+      'Enduro',
+      'Race tracks',
+    ],
+  },
+  {
+    group: 'Other',
+    value: [
+      'Shops',
+      'Events',
+      'Clubs',
+    ],
+  },
+];
 
 export default class Select extends React.Component<any, any> {
-
-  public selectItems = [];
+  private selectItems = [];
 
   constructor(props) {
     super(props);
     // select keeps values chosen by user
-    this.state = { select: [] };
-    // creation of option from selectItems
-    this.createSelect(props.selectItems);
-    this.onChange = this.onChange.bind(this);
+    this.state = {
+      select: [],
+      value: [],
+    };
+    this.dataSourceNodes();
+    this.handleSelection = this.handleSelection.bind(this);
   }
 
-  public createSelect(items) {
-    const createGroup = (values, group) => (
-      values.map((value, index) => (
-        <div
-          key={index}
-          label={value}
-          value={group + value}
-          className="select-item"
-        >
-          {value}
+  private dataSource: any;
+  dataSourceNodes() {
+    const arrayOfItems = items.map((item, index) => {
+      return [
+        (<div
+          key={index * 100}
+          value={index * 100}
+          label={item.group}>{item.group}
         </div>),
-      )
-    );
-
-    this.selectItems = items.map((item, index) => (
-        <optgroup key={index} label={item.group}>
-          {createGroup(item.value, item.group)}
-        </optgroup>
-      ),
-    );
-  }
-
-  public updateFilter(values) {
-    const filters = [];
-    values.map(({ value, label }) => {
-      let exists = false;
-      const group = value.split(label)[0];
-      filters.map((filtr) => {
-        if (filtr.group === group) {
-          filtr.value.push(label);
-          exists = true;
-        }
-      });
-      if (!exists) {
-        filters.push({
-          group,
-          value: [label],
-        });
-      }
+        ...item.value.map((name, index) => <div key={index} value={index} label={name}>{name}</div>),
+      ];
     });
-    this.props.filter(filters);
+    this.dataSource = [].concat.apply([], arrayOfItems);
   }
 
-  public onChange(values, name) {
-    this.setState({ select: values });
-    this.updateFilter(values);
-  }
-
-  public selectionRenderer(val) {
-    // rerender values displayed in the input
-    return val.length
-      ? <div className="selected">{val.map(({ _, label }) => label).join(', ')}</div>
-      :  <div className="selected empty">Dirtbike</div>;
+  handleSelection(value, name) {
+    log('handle selection', value);
+    this.setState({ value });
   }
 
   render() {
+    const { value } = this.state;
     return (
       <div className="select">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
         <div className="filter">
           <SuperSelect
             multiple={true}
-            value={this.state.select}
-            onChange={this.onChange}
+            value={value}
+            onChange={this.handleSelection}
             hintText="Select some values"
-            selectionsRenderer={this.selectionRenderer}
             fullWidth={true}
           >
-            {this.selectItems}
+            {this.dataSource}
           </SuperSelect>
         </div>
       </div>

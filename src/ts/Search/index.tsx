@@ -7,7 +7,6 @@ import Location from './Location';
 export default function Signin(props) {
 
   const {
-    selectItems,
     locationFilter,
     selectFilter,
     dateFilter,
@@ -20,7 +19,6 @@ export default function Signin(props) {
         filter={locationFilter} />
       <Select
         filter={selectFilter}
-        selectItems={selectItems}
       />
       <Date filter={dateFilter} />
     </div>

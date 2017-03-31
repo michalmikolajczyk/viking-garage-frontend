@@ -45,6 +45,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    svg {
+      display: none !important;
+    }
   }
   .fa, .material-icons {
     flex: 0 0 35px;
@@ -59,9 +62,6 @@
     width: calc(100% + 35px) !important;
     left: -35px !important;
     border-bottom: 1px solid black !important;
-  }
-  svg {
-    display: none !important;
   }
   .price {
     font-weight: $medium;
@@ -82,8 +82,7 @@
     background: transparent;
     border-radius: 3px;
     .raido {
-      font-size: 46px;
-      line-height: 69px;
+      padding-right: 5px;
     }
   }
 }
@@ -187,5 +186,46 @@
     padding-top: 21px;
     cursor: pointer;
     box-sizing: border-box;
+  }
+}
+
+@keyframes colorchange {
+  0% {
+    stroke: #BB0003 !important;
+  }
+  50% {
+    stroke: #FF2427 !important;
+    opacity: 0.5;
+  }
+  100% {
+    stroke: #BB0003 !important;
+  }
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    stroke: #BB0003 !important;
+  }
+  50% {
+    stroke: #FF2427 !important;
+    opacity: 0.5;
+  }
+  100% {
+    stroke: #BB0003 !important;
+  }
+}
+
+.loading {
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .raido {
+    width: 40px;
+    height: 100px;
+    #Stroke-1 {
+      animation: colorchange 1s infinite ease-in-out;
+       -webkit-animation: colorchange 1s infinite ease-in-out;
+    }
   }
 }

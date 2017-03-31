@@ -13,14 +13,13 @@
   }
   .replace {
     position: relative;
-  }
-  .raido {
-    font-family: 'Junicode';
-    color: #AD000D;
-    position: absolute;
-    font-size: 97px;
-    top: -34px;
-    left: 0;
+    .raido {
+      width: 28px;
+      height: 70px;
+      position: absolute;
+      left: 4px;
+      top: 4px;
+    }
   }
   .text {
     @extend .h4;

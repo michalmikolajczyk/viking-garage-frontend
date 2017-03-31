@@ -10,7 +10,7 @@ $medium: 600;
 // header title
 .h1 {
   font-size: 69px;
-  font-weight: $medium;
+  font-weight: $regular;
   letter-spacing: 13px;
 }
 
@@ -46,6 +46,12 @@ $medium: 600;
 .h6 {
   font-size: 21px;
   font-weight: $light;
+  letter-spacing: normal;
+}
+
+.h7 {
+  font-size: 20px;
+  font-weight: $regular;
   letter-spacing: normal;
 }
 

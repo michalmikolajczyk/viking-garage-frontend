@@ -32,7 +32,7 @@ export default function MenuVG(props) {
       desktop={true}
     >
       <MenuItem primaryText="Profile" href="/profile" />
-      <MenuItem primaryText="Add offer" href="/add-offer" />
+      <MenuItem primaryText="Add offer" href="/offer/create" />
       <MenuItem primaryText="Deals" href="/deals" />
       <MenuItem primaryText="Messages" href="/messages" />
       <MenuItem primaryText="Account" href="/account" />
@@ -41,18 +41,18 @@ export default function MenuVG(props) {
     </IconMenu>
   ) : (
     <div className="user">
-      <MenuItem href="/signin" primaryText="Sign in" />
-      <MenuItem href="/login" primaryText="Log in" />
+      <MenuItem href="/signin" primaryText="Sign in" className="menu-item" />
+      <MenuItem href="/login" primaryText="Log in" className="menu-item" />
     </div>
   );
 
 
   return (
     <div className="menu">
-      <MenuItem href="/bike-owners" primaryText="Bike Owners" />
-      <MenuItem href="/guides-coaches" primaryText="Guides &amp; Coaches" />
-      <MenuItem href="/mechanics" primaryText="Mechanics" />
-      <MenuItem href="/faq" primaryText="FAQ" />
+      <MenuItem href="/bike-owners" primaryText="Bike Owners" className="menu-item" />
+      <MenuItem href="/guides-coaches" primaryText="Guides &amp; Coaches" className="menu-item" />
+      <MenuItem href="/mechanics" primaryText="Mechanics" className="menu-item" />
+      <MenuItem href="/faq" primaryText="FAQ" className="menu-item" />
       {userSection}
     </div>
   );
