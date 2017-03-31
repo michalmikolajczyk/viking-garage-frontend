@@ -34,6 +34,7 @@
       font-size: 23px;
       border: 1px solid black;
       border-radius: 3px;
+      text-transform: uppercase;
       &:disabled {
         color: #979797;
         border: 1px solid #C8C8C8;
@@ -45,5 +46,8 @@
     text-align: left;
     font-weight: 300;
     padding: 30px 10px 0;
+    &.create-new {
+      text-transform: uppercase;
+    }
   }
 }

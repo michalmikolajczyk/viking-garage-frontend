@@ -3,6 +3,7 @@ import {
   Dialog,
   FlatButton,
 } from 'material-ui';
+import i from '../i18n';
 
 export default function ChangeError(props) {
   const {
@@ -14,12 +15,12 @@ export default function ChangeError(props) {
     <div className="float-left">
       <FlatButton
         href="/reset"
-        label="Reset password again"
+        label={i('Reset password again')}
         primary={true}
       />
     </div>,
     <FlatButton
-      label="Cancel"
+      label={i('Cancel')}
       primary={true}
       keyboardFocused={true}
       onTouchTap={close}
@@ -30,10 +31,18 @@ export default function ChangeError(props) {
     <Dialog
       open={open}
       contentStyle={{ maxWidth: 650 }}
-      title="Confirmation Link Invalid"
+      title={i('Confirmation Link Invalid')}
       actions={actions}
     >
-      The confirmation link was invalid. Please try again to <a href="/reset" className="link">reset your password</a>, or contact us at <a href="mailto:support@vikinggarage.com" className="link">support@vikinggarage.com</a>.
+      {i('The confirmation link was invalid. Please try again to')}
+      &#160;
+      <a href="/reset" className="link">
+        {i('reset your password')}
+      </a>
+      {', '}
+      {i('or contact us at')}
+      &#160;
+      <a href="mailto:support@vikinggarage.com" className="link">support@vikinggarage.com</a>.
     </Dialog>
   );
 }

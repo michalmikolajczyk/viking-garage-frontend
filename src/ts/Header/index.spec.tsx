@@ -1,7 +1,7 @@
 import 'mocha';
 import * as React from 'react';
 import { expect } from 'chai';
-import { default as Header } from './index';
+import { default as Header } from './';
 import { mountWithTheme } from '../helpers/test-theme';
 
 describe('<Header />', () => {

@@ -6,6 +6,7 @@ import NetworkError from '../Dialogs/NetworkError';
 import ChangeError from './ChangeError';
 import ChangeSuccess from './ChangeSuccess';
 import { change } from './api';
+import i from '../i18n';
 import debug from 'debug';
 const log = debug('app:Change');
 
@@ -53,9 +54,9 @@ export default class Change extends React.Component<any, any> {
                   value="secret"
                   required={true}
                   fullWidth={true}
-                  floatingLabelText="New Password"
+                  floatingLabelText={i('New Password')}
                   validations="minLength:6"
-                  validationError="Password too short! Minimum 6 chars"
+                  validationError={i('Password too short! Minimum 6 chars')}
                 />
                 <FormsyText
                   name="password2"
@@ -63,9 +64,9 @@ export default class Change extends React.Component<any, any> {
                   value="secret"
                   required={true}
                   fullWidth={true}
-                  floatingLabelText="Repeat Password"
+                  floatingLabelText={i('Repeat Password')}
                   validations="equalsField:password1"
-                  validationError="The passwords must be the same!"
+                  validationError={i('The passwords must be the same!')}
                 />
               </div>
               <button

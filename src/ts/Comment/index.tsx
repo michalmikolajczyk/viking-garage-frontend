@@ -4,6 +4,7 @@ import {
   Paper,
 } from 'material-ui';
 import * as _ from 'lodash';
+import i from '../i18n';
 import { default as comments } from './comments-mockup';
 
 export default class Comments extends React.Component<any, any> {
@@ -41,13 +42,13 @@ export default class Comments extends React.Component<any, any> {
   }
 
   render() {
-    const more = this.state.fetching ? <div>Loading comments</div> : <div onClick={this.fetch}>View all references</div>;
+    const more = this.state.fetching ? <div>{i('Loading comments')}</div> : <div onClick={this.fetch}>{i('View all references')}</div>;
     const body = this.state.loading
-      ? <div>LOADING COMMENTS...</div>
+      ? <div>{i('Loading comments')}...</div>
       : (
         <div>
           <div className="comments-cont">
-            <div className="references">{this.state.references} References</div>
+            <div className="references">{this.state.references} {i('References')}</div>
             {this.rating()}
             {this.comment()}
           </div>
@@ -104,21 +105,21 @@ export default class Comments extends React.Component<any, any> {
       <div className="ratings">
         <div className="row">
           <div className="rate">
-            <div className="type">Bike performance</div>
+            <div className="type">{i('Bike performance')}</div>
             <div className="stars">{this.stars(performance)}</div>
           </div>
           <div className="rate">
-            <div className="type">Communication</div>
+            <div className="type">{i('Communication')}</div>
             <div className="stars">{this.stars(communication)}</div>
           </div>
         </div>
         <div className="row">
           <div className="rate">
-            <div className="type">Mechanical condition</div>
+            <div className="type">{i('Mechanical condition')}</div>
             <div className="stars">{this.stars(condition)}</div>
           </div>
           <div className="rate">
-            <div className="type">Rating</div>
+            <div className="type">{i('Rating')}</div>
             <div className="stars">{this.stars(general)}</div>
           </div>
         </div>

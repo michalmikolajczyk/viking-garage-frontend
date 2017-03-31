@@ -1,39 +1,40 @@
 import * as React from 'react';
 import * as _ from 'lodash';
+import i from '../i18n';
 import Accordion from '../Accordion';
 import Offerer from './Offerer';
 import parser from '../helpers/parser';
 
 const tabs = [
   {
-    title: 'Motorcycle additional specs',
-    schema: 'motorcycle',
-    where: 'motorcycles',
+    title: i('Motorcycle additional specs'),
+    type: 'motorcycle',
+    where: 'detail',
   },
   {
-    title: 'Mechanical state',
-    schema: 'mechanical',
-    where: 'motorcycles',
+    title: i('Mechanical state'),
+    type: 'mechanical',
+    where: 'detail',
   },
   {
-    title: 'Available protection',
-    schema: 'protection',
-    where: 'protections',
+    title: i('Available protection'),
+    type: 'protection',
+    where: 'other',
   },
   {
-    title: 'Accessories',
-    schema: 'accessories',
-    where: 'accessories',
+    title: i('Accessories'),
+    type: 'accessories',
+    where: 'other',
   },
   {
-    title: 'Helmet specs',
-    schema: 'helmet',
-    where: 'helmets',
+    title: i('Helmet specs'),
+    type: 'helmet',
+    where: 'helmet',
   },
   {
-    title: 'Optional services',
-    schema: 'services',
-    where: 'services',
+    title: i('Optional services'),
+    type: 'services',
+    where: 'other',
   },
 ];
 

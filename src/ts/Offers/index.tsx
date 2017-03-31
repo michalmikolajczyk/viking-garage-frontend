@@ -6,6 +6,7 @@ import Raido from '../Raido';
 import OffersList from './OffersList';
 import * as api from './api';
 import debug from 'debug';
+import i from '../i18n';
 const log = debug('app:Offers');
 import { offers } from '../Detail/mockup';
 
