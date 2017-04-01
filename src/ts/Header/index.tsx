@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Raido from '../Raido';
+import i from '../i18n';
 
 export default function Header(props) {
   return (
@@ -9,19 +11,17 @@ export default function Header(props) {
           GA
           <span className="replace">
             &#160;&#160;
-            <span className="raido">
-              &#5809;
-            </span>
+            <Raido />
           </span>
           AGE
         </div>
       </div>
       <div className="text">
-        rent motorcycles and gear
+        {i('rent motorcycles and gear')}
         <br />
-        find mechanics, coaches, trails
+        {i('find mechanics, coaches, trails')}
         <div className="text-in">
-          everywhere in the world
+          {i('everywhere in the world')}
         </div>
       </div>
     </div>

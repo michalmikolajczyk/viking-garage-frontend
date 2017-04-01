@@ -1,46 +1,48 @@
+import i from '../../i18n';
+
 export default [
   {
     key: 'parkingGarage',
-    label: 'Parking/Garage',
+    label: i('Parking/Garage'),
   },
   {
     key: 'recommendedMechanic',
-    label: 'Recommended Mechanic',
+    label: i('Recommended Mechanic'),
   },
   {
-    key: 'transportTheMotocycle',
-    label: 'Transport The Motocycle',
+    key: 'transportTheMotorcycle',
+    label: i('Transport The Motorcycle'),
   },
   {
-    key: 'transportToFromMotocycle',
-    label: 'Transport To/From',
+    key: 'transportToFromMotorcycle',
+    label: i('Transport To/From'),
   },
   {
     key: 'photographer',
-    label: 'Photographer',
+    label: i('Photographer'),
   },
   {
     key: 'mechanicalChangesOptions',
-    label: 'Mechanical Changes Options',
+    label: i('Mechanical Changes Options'),
   },
   {
     key: 'guide',
-    label: 'Guide',
+    label: i('Guide'),
   },
   {
     key: 'coach',
-    label: 'Coach',
+    label: i('Coach'),
   },
   {
     key: 'group',
-    label: 'Group',
+    label: i('Group'),
   },
   {
     key: 'club',
-    label: 'Club',
+    label: i('Club'),
   },
   {
     key: 'nearbyCircuitTrail',
-    label: 'Nearby Circuit/Trail',
+    label: i('Nearby Circuit/Trail'),
   },
 ];

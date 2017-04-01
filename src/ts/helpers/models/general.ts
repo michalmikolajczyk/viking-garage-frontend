@@ -1,58 +1,60 @@
+import i from '../../i18n';
+
 export default [
   {
     key: 'roadLegal',
-    label: 'Road Legal',
+    label: i('Road Legal'),
   },
   {
     key: 'engine',
-    label: 'Engine',
+    label: i('Engine'),
   },
   {
     key: 'licenseType',
-    label: 'License Type',
+    label: i('License Type'),
   },
   {
     key: 'capacity',
-    label: 'Capacity',
+    label: i('Capacity'),
     units: 'cc',
   },
   {
     key: 'minRentalPeriod',
-    label: 'Min. Rental Period',
+    label: i('Min. Rental Period'),
     units: 'days',
   },
   {
     key: 'maxPower',
-    label: 'Max. Power',
+    label: i('Max. Power'),
     units: 'HP',
   },
   {
     key: 'weight',
-    label: 'Weight',
+    label: i('Weight'),
     units: 'kg',
   },
   {
     key: 'topSpeed',
-    label: 'Top Speed',
+    label: i('Top Speed'),
     units: 'km/h',
   },
   {
     key: 'seatHeight',
-    label: 'Seat Height',
+    label: i('Seat Height'),
     units: 'mm',
   },
   {
     key: 'torque',
-    label: 'Torque',
+    label: i('Torque'),
     units: 'Nm',
   },
   {
     key: 'maxRiders',
-    label: 'Max. Riders',
+    label: i('Max. Riders'),
   },
   {
     key: 'acceleration',
-    label: '0 - 100',
+    label: i('0 - 100'),
     units: 's',
   },
 ]

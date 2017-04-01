@@ -3,6 +3,7 @@ import {
   AutoComplete,
   FontIcon,
 } from 'material-ui';
+import i from '../i18n';
 
 declare const config: any;
 declare const google: any;
@@ -78,7 +79,7 @@ export default class Location extends React.Component<any, any> {
         <FontIcon className="material-icons">{this.props.icon}</FontIcon>
         <div className="filter">
           <AutoComplete
-            hintText="Search"
+            hintText={i('Search')}
             maxSearchResults={5}
             openOnFocus={true}
             filter={AutoComplete.noFilter}

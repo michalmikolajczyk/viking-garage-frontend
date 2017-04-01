@@ -1,22 +1,24 @@
+import i from '../../i18n';
+
 export default [
   {
     key: 'travelBoxesBags',
-    label: 'Travel Boxes/Bags',
+    label: i('Travel Boxes/Bags'),
   },
   {
     key: 'lock',
-    label: 'Lock',
+    label: i('Lock'),
   },
   {
     key: 'camera',
-    label: 'Camera',
+    label: i('Camera'),
   },
   {
     key: 'basicTools',
-    label: 'Basic Tools',
+    label: i('Basic Tools'),
   },
   {
     key: 'firstAidKit',
-    label: 'First Aid Kit',
+    label: i('First Aid Kit'),
   },
 ]

@@ -1,70 +1,77 @@
+import i from '../../i18n';
+
 export default [
   {
     key: 'cylinderCount',
-    label: 'Cylinder Count',
+    label: i('Cylinder Count'),
+    type: 'number',
   },
   {
     key: 'wheelSizes',
-    label: 'Wheel Sizes',
+    label: i('Wheel Sizes'),
   },
   {
     key: 'boreStroke',
-    label: 'Bore / Stroke',
+    label: i('Bore/Stroke'),
     units: 'mm'
   },
   {
     key: 'tires',
-    label: 'Tires',
+    label: i('Tires'),
   },
   {
     key: 'transmission',
-    label: 'Transmission',
+    label: i('Transmission'),
   },
   {
     key: 'brakes',
-    label: 'Brakes',
+    label: i('Brakes'),
     units: 'HP',
   },
   {
     key: 'compressionRatio',
-    label: 'Compression Ratio',
+    label: i('Compression Ratio'),
   },
   {
     key: 'fuelCapacity',
-    label: 'Fuel Capacity',
+    label: i('Fuel Capacity'),
+    type: 'number',
     units: 'l',
   },
   {
     key: 'suspension',
-    label: 'Suspension',
+    label: i('Suspension'),
   },
   {
     key: 'ignitionType',
-    label: 'Ignition Type',
+    label: i('Ignition Type'),
+    type: 'select',
   },
   {
     key: 'frame',
-    label: 'Frame',
+    label: i('Frame'),
   },
   {
     key: 'kickstand',
-    label: 'Kickstand',
+    label: i('Kickstand'),
   },
   {
     key: 'wheelbase',
-    label: 'Wheelbase',
+    label: i('Wheelbase'),
     units: 'mm',
   },
   {
     key: 'lights',
-    label: 'Lights',
+    label: i('Lights'),
+    type: 'select',
   },
   {
     key: 'rakeTrail',
-    label: 'Rake / Trail',
+    label: i('Rake/Trail'),
   },
   {
     key: 'storageSpace',
-    label: 'Storage Space',
+    label: i('Storage Space'),
+    type: 'checkbox',
   },
 ]

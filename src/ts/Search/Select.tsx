@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { FontIcon } from 'material-ui';
 import { default as SuperSelect } from 'material-ui-superselectfield';
+import debug from 'debug';
+const log = debug('app:Select');
+import i from '../i18n';
 
 export default class Select extends React.Component<any, any> {
   private dataSource = [];
-
   constructor(props) {
     super(props);
     // select keeps values chosen by user
@@ -37,13 +39,6 @@ export default class Select extends React.Component<any, any> {
     this.props.filter(value)
   }
 
-  selectionRenderer(val) {
-    // rerender values displayed in the input
-    return val.length
-      ? <div className="selected">{val.map(({ _, label }) => label).join(', ')}</div>
-      :  <div className="selected empty">Dirtbike</div>;
-  }
-
   render() {
     const { value } = this.state;
     return (
@@ -54,8 +49,9 @@ export default class Select extends React.Component<any, any> {
             multiple={true}
             value={value}
             onChange={this.onChange}
-            hintText="Select some values"
-            selectionsRenderer={this.selectionRenderer}
+            hintText={i('Select some values')}
+            onChange={this.handleSelection}
+            hintText={i('Select some values')}
             fullWidth={true}
             menuGroupStyle={{textTransform: 'capitalize', fontSize: 14, fontWeight: 300 }}
           >

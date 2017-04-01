@@ -2,9 +2,12 @@ import * as React from 'react';
 import * as _ from 'lodash';
 
 export default function HeaderVG({ offer }) {
-  const image = _.get(offer, 'images.main');
-  const offerer = _.get(offer, 'offerer');
-
+  const {
+    title,
+    brief,
+    image,
+    offerer,
+  } = offer;
   return (
     <div>
       <div
@@ -12,24 +15,24 @@ export default function HeaderVG({ offer }) {
         style={{ backgroundImage: `url(${image})` }}
       />
       <div className="title">
-        {offer.title}
+        {title}
       </div>
       <div className="owner">
         <div
           className="picture"
-          style={{ backgroundImage: `url(${offerer.picture})` }}
+          style={{ backgroundImage: `url(${offerer.image})` }}
         />
         <div className="owner-details">
           <div className="fullname">
-            {offerer.fullname}
+            {offerer.name}
           </div>
           <div className="location">
-            {`${offerer.location.city}, ${offerer.location.country}`}
+            {`${offerer.city}, ${offerer.country}`}
           </div>
         </div>
       </div>
       <div className="text">
-        {offer.description}
+        {brief}
       </div>
     </div>
   );

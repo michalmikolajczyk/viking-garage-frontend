@@ -15,6 +15,7 @@ global.window.fetch = require('whatwg-fetch');
 global.window.requestAnimationFrame = callback => {
   global.window.setTimeout(callback, 1000 / 60);
 };
+global.window.cancelAnimationFrame = requestID => {};
 
 global.window.localStorage = global.localStorage = {
   getItem: () => {},
@@ -34,7 +35,8 @@ global.document.querySelector = () => ({
 })
 
 global.navigator = {
-  userAgent: 'node.js'
+  userAgent: 'node.js',
+  language: 'en-US',
 }
 
 global.config = require('./config')

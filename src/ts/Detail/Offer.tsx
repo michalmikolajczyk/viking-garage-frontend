@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Accordion from '../Accordion';
-import Comments from './Comments';
+import Comment from '../Comment';
 import HeaderVG from './HeaderVG';
 import ListVG from './ListVG';
 import parser from '../helpers/parser';
@@ -8,13 +8,13 @@ import debug from 'debug';
 const log = debug('app:Offer');
 
 export default function Offer({ offer }) {
-  const { detail } = offer;
-  const items = parser('general', detail);
+  const { motorcycles } = offer;
+  const general = parser('general', motorcycles[0]);
   return (
     <div className="detail-offer">
       <HeaderVG offer={offer} />
-      <Comments />
-      <Accordion items={items} open={true} />
+      <Accordion offer={general} open={true} />
+      <Comment />
       <ListVG offer={offer} />
     </div>
   );

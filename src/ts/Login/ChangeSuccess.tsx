@@ -3,6 +3,7 @@ import {
   Dialog,
   FlatButton,
 } from 'material-ui';
+import i from '../i18n';
 
 export default function ChangeSuccess(props) {
   const {
@@ -15,12 +16,12 @@ export default function ChangeSuccess(props) {
       <FlatButton
         primary={true}
         onTouchTap={close}
-        label="Close"
+        label={i('Close')}
       />
     </div>,
     <FlatButton
       href="/login"
-      label="Login"
+      label={i('Log in')}
       primary={true}
       keyboardFocused={true}
     />,
@@ -30,10 +31,10 @@ export default function ChangeSuccess(props) {
     <Dialog
       open={open}
       contentStyle={{ maxWidth: 650 }}
-      title="Password changed successfully"
+      title={i('Password changed successfully')}
       actions={actions}
     >
-      Success! Your password was changed.
+      {i('Success! Your password was changed.')}
     </Dialog>
   );
 }
