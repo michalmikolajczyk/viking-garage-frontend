@@ -65,8 +65,6 @@ export default class Offers extends React.Component<any, any> {
 
   selectFilter(filter) { log('change filter select', filter); }
 
-  rangeFilter(filter) { log('change filter range', filter); }
-
   dateFilter(filter) { log('change filter date', filter); }
 
   render() {
@@ -84,7 +82,6 @@ export default class Offers extends React.Component<any, any> {
         <Search
           locationFilter={this.locationFilter}
           selectFilter={this.selectFilter}
-          rangeFilter={this.rangeFilter}
           dateFilter={this.dateFilter}
         />
         {body}

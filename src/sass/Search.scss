@@ -3,17 +3,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  .location, .select, .range {
+  .location, .select {
     flex: 2 1 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-  }
-  .select, .range {
-    // hide default icon
-    svg {
-      display: none !important
-    }
   }
   .date {
     flex: 1 1 100%;
@@ -49,9 +43,6 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    hr {
-      display: none;
-    }
   }
   .selected {
     line-height: 48px;
@@ -62,17 +53,21 @@
       color: rgba(0, 0, 0, 0.298039);
     }
   }
+  // hide default icon
+  svg {
+    display: none !important
+  }
   // styled copied from material-ui TextFileds for hr
   hr {
     position: absolute;
-    bottom: 12px;
+    bottom: 8px;
     border-top: none rgb(224, 224, 224);
     border-right: none rgb(224, 224, 224);
     border-bottom: 1px solid rgb(224, 224, 224);
     border-left: none;
   }
 }
-// .select-item {
-//   margin: -3px -5px -5px;
-//   color: black;
-// }
+.select-item {
+  margin: -3px -5px -5px;
+  color: black;
+}
