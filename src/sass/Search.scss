@@ -41,25 +41,13 @@
 }
 
 .select {
-  position: relative;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  position: relative;
   .filter {
     overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
     hr {
       display: none;
-    }
-  }
-  .selected {
-    line-height: 48px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    &.empty {
-      color: rgba(0, 0, 0, 0.298039);
     }
   }
   // styled copied from material-ui TextFileds for hr
@@ -72,7 +60,3 @@
     border-left: none;
   }
 }
-// .select-item {
-//   margin: -3px -5px -5px;
-//   color: black;
-// }

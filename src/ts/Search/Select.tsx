@@ -48,9 +48,8 @@ export default class Select extends React.Component<any, any> {
           <SuperSelect
             multiple={true}
             value={value}
+            style={{ paddingTop: 14 }}
             onChange={this.onChange}
-            hintText={i('Select some values')}
-            onChange={this.handleSelection}
             hintText={i('Select some values')}
             fullWidth={true}
             menuGroupStyle={{textTransform: 'capitalize', fontSize: 14, fontWeight: 300 }}
