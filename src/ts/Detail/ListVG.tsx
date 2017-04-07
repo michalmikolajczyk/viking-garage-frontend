@@ -8,40 +8,40 @@ import parser from '../helpers/parser';
 const tabs = [
   {
     title: i('Motorcycle additional specs'),
-    type: 'motorcycle',
-    where: 'detail',
+    schema: 'motorcycle',
+    where: 'motorcycles',
   },
   {
     title: i('Mechanical state'),
-    type: 'mechanical',
-    where: 'detail',
+    schema: 'mechanical',
+    where: 'motorcycles',
   },
   {
     title: i('Available protection'),
-    type: 'protection',
-    where: 'other',
+    schema: 'protection',
+    where: 'protections',
   },
   {
     title: i('Accessories'),
-    type: 'accessories',
-    where: 'other',
+    schema: 'accessories',
+    where: 'accessories',
   },
   {
     title: i('Helmet specs'),
-    type: 'helmet',
-    where: 'helmet',
+    schema: 'helmet',
+    where: 'helmets',
   },
   {
     title: i('Optional services'),
-    type: 'services',
-    where: 'other',
+    schema: 'services',
+    where: 'services',
   },
 ];
 
 export default function ListVG({ offer }) {
   const accordions = _.map(tabs, (tab, index) => {
     const items = _.get(offer, tab.where);
-    if (items === null || items[0] === undefined) return null;
+    if (items === undefined || items[0] === undefined) return null;
     return (
       <Accordion
         key={index}
