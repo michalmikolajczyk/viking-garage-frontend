@@ -15,7 +15,7 @@ export default function Offer({ data, position }) {
   let distance = '';
   if (position) {
     const coordinates = { latitude: coord.coordinates[0], longitude: coord.coordinates[1] };
-    distance = (geolib.getDistance(position, coordinates) / 1000).toFixed(2);
+    distance = Math.round(geolib.getDistance(position, coordinates) / 1000).toString();
     distance = `, ${i('distance')}: ${distance} km`;
   }
   return (

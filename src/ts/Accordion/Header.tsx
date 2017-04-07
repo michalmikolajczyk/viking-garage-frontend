@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FlatButton } from 'material-ui';
 
-export default function AccordionHeader(props) {
+export default function Header(props) {
   const {
     call,
     icon,

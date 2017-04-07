@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import Sideview from './Sideview';
 import { shallow } from 'enzyme';
 
-describe('Offer / Create: <Sideview />', () => {
+describe('Offer/Create: <Sideview />', () => {
   it('check for inner components', () => {
     const wrapper = shallow(<Sideview />);
     expect(wrapper.find('.section')).to.have.length(1);

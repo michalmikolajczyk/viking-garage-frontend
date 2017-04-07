@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import Permissions from './Permissions';
 import { shallow } from 'enzyme';
 
-describe('Offer / Create: <Permissions />', () => {
+describe('Offer/Create: <Permissions />', () => {
   it('check for inner components', () => {
     const wrapper = shallow(<Permissions />);
     expect(wrapper.find('.header').text()).to.be.equal('Permissions');
