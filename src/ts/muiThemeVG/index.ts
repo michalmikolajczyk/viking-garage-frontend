@@ -6,19 +6,19 @@ const raidoRed2 = '#FF2427';
 const muiThemeVG = getMuiTheme({
   fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
   palette: {
-    primary1Color: 'black',
-    primary2Color: 'black',
+    primary1Color: '#000000',
+    primary2Color: '#000000',
   },
   appBar: {
-    color: 'white',
-    textColor: 'black',
+    color: '#ffffff',
+    textColor: '#000000',
   },
   menuItem: {
     selectedTextColor: raidoRed1,
   },
   toggle: {
     // trackOnColor: raidoRed1,
-    thumbOnColor: 'black',
+    thumbOnColor: '#000000',
   },
 });
 
