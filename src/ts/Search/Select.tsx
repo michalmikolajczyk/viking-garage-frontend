@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { FontIcon } from 'material-ui';
-import { default as SuperSelect } from 'material-ui-superselectfield';
+import {
+  FontIcon,
+  SelectField,
+  MenuItem,
+} from 'material-ui';
 import debug from 'debug';
 const log = debug('app:Select');
 import i from '../i18n';
@@ -45,17 +48,14 @@ export default class Select extends React.Component<any, any> {
       <div className="select">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
         <div className="filter">
-          <SuperSelect
+          <SelectField
             multiple={true}
-            value={value}
-            style={{ paddingTop: 14 }}
+            hintText="Select a name"
+            value={this.state.values}
             onChange={this.onChange}
-            hintText={i('Select some values')}
-            fullWidth={true}
-            menuGroupStyle={{textTransform: 'capitalize', fontSize: 14, fontWeight: 300 }}
           >
             {this.dataSource}
-          </SuperSelect>
+          </SelectField>
         </div>
         <hr />
       </div>
