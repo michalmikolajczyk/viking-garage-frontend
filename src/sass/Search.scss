@@ -40,23 +40,8 @@
   }
 }
 
-.select {
-  overflow: hidden;
-  position: relative;
-  .filter {
-    overflow: hidden;
-    white-space: nowrap;
-    hr {
-      display: none;
-    }
-  }
-  // styled copied from material-ui TextFileds for hr
-  hr {
-    position: absolute;
-    bottom: 12px;
-    border-top: none rgb(224, 224, 224);
-    border-right: none rgb(224, 224, 224);
-    border-bottom: 1px solid rgb(224, 224, 224);
-    border-left: none;
-  }
+.menu-toggle {
+  text-transform: uppercase !important;
+  padding: 8px 0 6px !important;
+  font-weight: 900 !important;
 }

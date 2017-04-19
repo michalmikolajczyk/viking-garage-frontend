@@ -1,60 +1,71 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import {
   FontIcon,
   SelectField,
   MenuItem,
+  Toggle,
 } from 'material-ui';
 import debug from 'debug';
 const log = debug('app:Select');
 import i from '../i18n';
 
 export default class Select extends React.Component<any, any> {
-  private dataSource = [];
-  constructor(props) {
-    super(props);
-    // select keeps values chosen by user
-    this.state = { value: [] };
-    this.onChange = this.onChange.bind(this);
-
-    const createGroup = (values, group) => (
-      values.map((value, index) => (
-        <div
-          key={index}
-          label={value}
-          value={`${group}#${value}`}
-          className="select-item"
-        >
-          {value}
-        </div>),
-      )
-    );
-
-    this.dataSource = getDataSource().map((item, index) => (
-        <optgroup key={index} label={item.group}>
-          {createGroup(item.value, item.group)}
-        </optgroup>
-      ),
-    );
+  state = {
+    group: [],
+    value: [],
   }
 
-  onChange(value, name) {
-    this.setState({ value });
-    this.props.filter(value)
+  selectionRenderer = (values) => {
+    switch (values.length) {
+      case 0:
+        return '';
+      default:
+        return `${values.length} names selected`;
+    }
+  }
+
+  menuItems = () => _.keys(items).map((key, index) => (
+    [
+      <MenuItem
+        key={key}
+        value={key}
+      >
+        <Toggle
+          className="menu-toggle"
+          label={key}
+        />
+      </MenuItem>,
+      ...items[key].map(subkey => (
+        <MenuItem
+          key={`${key}#${subkey}`}
+          insetChildren={true}
+          checked={false}
+          value={subkey}
+          primaryText={subkey}
+        />
+      )),
+    ]
+  ))
+
+  onChange = (event, index, values) => {
+    this.setState({ values });
+    this.props.filter(values)
   }
 
   render() {
-    const { value } = this.state;
     return (
       <div className="select">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
         <div className="filter">
           <SelectField
             multiple={true}
-            hintText="Select a name"
-            value={this.state.values}
+            hintText="Select type"
+            value={[]}
             onChange={this.onChange}
+            selectionRenderer={this.selectionRenderer}
           >
-            {this.dataSource}
+            {this.menuItems()}
           </SelectField>
         </div>
         <hr />
@@ -63,71 +74,45 @@ export default class Select extends React.Component<any, any> {
   }
 }
 
-function getDataSource() {
-  return [
-    {
-      group: 'Motorcycle',
-      value: [
-        'Off-road',
-        'Street',
-        'Dual-sport',
-        'Scooter',
-        'Electric',
-        'Small (children)',
-      ],
-    },
-    {
-      group: 'Mechanic',
-      value: [
-        'Off-road & dual-sport',
-        'Street',
-        'Electric',
-        'Scooter',
-      ],
-    },
-    {
-      group: 'Coach / Instructor',
-      value: [
-        'Off-road',
-        'Street',
-      ],
-    },
-    {
-      group: 'Guide',
-      value: [
-        'Off-road',
-        'Street',
-      ],
-    },
-    {
-      group: 'Equipment',
-      value: [
-        'Off-road',
-        'Street',
-      ],
-    },
-    {
-      group: 'Parts',
-      value: [
-        'Dirtbikes',
-        'Streetbikes',
-      ],
-    },
-    {
-      group: 'Circuits',
-      value: [
-        'Motocross',
-        'Enduro',
-        'Race tracks',
-      ],
-    },
-    {
-      group: 'Other',
-      value: [
-        'Shops',
-        'Events',
-        'Clubs',
-      ],
-    },
-  ]
-}
+const items = {
+  'Motorcycle': [
+    'Off-road',
+    'Street',
+    'Dual-sport',
+    'Scooter',
+    'Electric',
+    'Small (children)',
+  ],
+  'Mechanic': [
+    'Off-road & dual-sport',
+    'Street',
+    'Electric',
+    'Scooter',
+  ],
+  'Coach / Instructor': [
+    'Off-road',
+    'Street',
+  ],
+  'Guide': [
+    'Off-road',
+    'Street',
+  ],
+  'Equipment': [
+    'Off-road',
+    'Street',
+  ],
+  'Parts': [
+    'Dirtbikes',
+    'Streetbikes',
+  ],
+  'Circuits': [
+    'Motocross',
+    'Enduro',
+    'Race tracks',
+  ],
+  'Other': [
+    'Shops',
+    'Events',
+    'Clubs',
+  ],
+};
