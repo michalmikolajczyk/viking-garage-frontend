@@ -12,7 +12,7 @@ import i from '../i18n';
 
 export default class Select extends React.Component<any, any> {
   state = {
-    values: [],
+    values: new Set(),
   };
 
   selectionRenderer = (values) => {
@@ -31,7 +31,7 @@ export default class Select extends React.Component<any, any> {
         <MenuItem
           key={item}
           insetChildren={true}
-          checked={this.state.values.indexOf(item) > -1}
+          checked={this.state.values.has(item)}
           value={item}
           primaryText={item.split('#')[1]}
         />)
@@ -44,51 +44,52 @@ export default class Select extends React.Component<any, any> {
           <Toggle
             label={item}
             className="menu-toggle"
-            toggled={this.state.values.indexOf(item) > -1}
+            toggled={this.state.values.has(item)}
           />
         </MenuItem>
       )
     }
   })
 
+  isGroup(str: String): boolean {
+    return str.indexOf('#') === -1;
+  }
+
   onChange = (event, index, values) => {
     // Toggle inside MenuItem invoke onChange twice - once with event object
     if (!_.isArray(values)) return;
-
-    let diff = _.difference(this.state.values, values)[0];
-    if (diff) {
-      if (diff.indexOf('#') === -1) {
+    if (this.state.values.size > values.length) {
+      const diff = [...this.state.values].filter(i => values.indexOf(i) === -1)[0];
+      if (this.isGroup(diff)) {
+        // remove all items from group
         return this.setState({
-          values: values.filter(v => v.indexOf(diff) === -1)
+          values: new Set(values.filter(v => v.indexOf(diff) === -1))
         });
       } else {
+        // remove item & uncheck group toggle
         let group = diff.split('#')[0];
         return this.setState({
-          values: values.filter(v => v !== group)
+          values: new Set(values.filter(v => v !== group))
         });
       }
-    }
-    diff = _.difference(values, this.state.values)[0];
-    if (diff) {
-      if (diff.indexOf('#') === -1) {
-        this.setState({
-          values: [
-            ...values,
-            ...items.filter(i => i.indexOf(`${diff}#`) > -1),
-          ]
+    } else {
+      const diff = values.filter(i => !this.state.values.has(i))[0];
+      if (this.isGroup(diff)) {
+        // add to values all items from group
+        const val = values.concat(items.filter(i => i.indexOf(`${diff}#`) > -1))
+        return this.setState({
+          values: new Set(val)
         })
       } else {
-        let group = diff.split('#')[0];
-        let subset = items.filter(i => i.indexOf(`${group}#`) > -1)
+        // add item to values & check if should add group toggle (if all items from group is checked)
+        const groupLabel = diff.split('#')[0];
+        const allFromGroup = items.filter(i => i.indexOf(`${groupLabel}#`) > -1)
+        const group = _.difference(allFromGroup, values).length === 0 ? [groupLabel] : []
         return this.setState({
-          values: [
-            ...values,
-            ...(_.difference(subset, values).length === 0 ? [group] : []),
-          ]
+          values: new Set([...values, ...group])
         })
       }
     }
-    return this.setState({ values });
   }
 
   render() {
@@ -99,7 +100,7 @@ export default class Select extends React.Component<any, any> {
           <SelectField
             multiple={true}
             hintText="Select type"
-            value={this.state.values}
+            value={[...this.state.values]}
             onChange={this.onChange}
             selectionRenderer={this.selectionRenderer}
           >
