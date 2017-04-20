@@ -16,13 +16,16 @@ export default class Select extends React.Component<any, any> {
   };
 
   selectionRenderer = (values) => {
-    return [...values].sort().reduce((acc, curr, index, arr) => {
-      if (curr.indexOf('#') === -1) {
-        return [curr, [...acc[1], `${curr.toUpperCase()}, `]]
-      } else {
-        return [acc[0], [...acc[1], `${curr.split('#')[1]}, `]]
-      }
-    }, [undefined, []])[1]
+    return [...values].sort().reduce(
+      (acc, curr, index, arr) => {
+        if (curr.indexOf('#') === -1) {
+          return [curr, [...acc[1], `${curr.toUpperCase()}, `]];
+        } else {
+          return [acc[0], [...acc[1], `${curr.split('#')[1]}, `]];
+        }
+      },
+      [undefined, []],
+    )[1];
   }
 
   menuItems = () => items.map((item) => {
@@ -34,7 +37,7 @@ export default class Select extends React.Component<any, any> {
           checked={this.state.values.has(item)}
           value={item}
           primaryText={item.split('#')[1]}
-        />)
+        />);
     } else {
       return (
         <MenuItem
@@ -47,7 +50,7 @@ export default class Select extends React.Component<any, any> {
             toggled={this.state.values.has(item)}
           />
         </MenuItem>
-      )
+      );
     }
   })
 
@@ -59,35 +62,37 @@ export default class Select extends React.Component<any, any> {
     // Toggle inside MenuItem invoke onChange twice - once with event object
     if (!_.isArray(values)) return;
     if (this.state.values.size > values.length) {
+      // user unchecked (removed) option
       const diff = [...this.state.values].filter(i => values.indexOf(i) === -1)[0];
       if (this.isGroup(diff)) {
-        // remove all items from group
+        // unchecked group: remove all items from this group
         return this.setState({
-          values: new Set(values.filter(v => v.indexOf(diff) === -1))
+          values: new Set(values.filter(v => v.indexOf(diff) === -1)),
         });
       } else {
-        // remove item & uncheck group toggle
-        let group = diff.split('#')[0];
+        // unchecked label: remove item & uncheck group toggle
+        const group = diff.split('#')[0];
         return this.setState({
-          values: new Set(values.filter(v => v !== group))
+          values: new Set(values.filter(v => v !== group)),
         });
       }
     } else {
+      // user checked (added) new option
       const diff = values.filter(i => !this.state.values.has(i))[0];
       if (this.isGroup(diff)) {
-        // add to values all items from group
-        const val = values.concat(items.filter(i => i.indexOf(`${diff}#`) > -1))
+        // checked group: add all items from group
+        const val = values.concat(items.filter(i => i.indexOf(`${diff}#`) > -1));
         return this.setState({
-          values: new Set(val)
-        })
+          values: new Set(val),
+        });
       } else {
-        // add item to values & check if should add group toggle (if all items from group is checked)
+        // checked label: add item & check if should add group toggle (if all items from group is checked)
         const groupLabel = diff.split('#')[0];
-        const allFromGroup = items.filter(i => i.indexOf(`${groupLabel}#`) > -1)
-        const group = _.difference(allFromGroup, values).length === 0 ? [groupLabel] : []
+        const allFromGroup = items.filter(i => i.indexOf(`${groupLabel}#`) > -1);
+        const group = _.difference(allFromGroup, values).length === 0 ? [groupLabel] : [];
         return this.setState({
-          values: new Set([...values, ...group])
-        })
+          values: new Set([...values, ...group]),
+        });
       }
     }
   }
@@ -113,7 +118,7 @@ export default class Select extends React.Component<any, any> {
 }
 
 const rawItems = {
-  'Motorcycle': [
+  Motorcycle: [
     'Off-road',
     'Street',
     'Dual-sport',
@@ -121,7 +126,7 @@ const rawItems = {
     'Electric',
     'Small (children)',
   ],
-  'Mechanic': [
+  Mechanic: [
     'Off-road & dual-sport',
     'Street',
     'Electric',
@@ -131,24 +136,24 @@ const rawItems = {
     'Off-road',
     'Street',
   ],
-  'Guide': [
+  Guide: [
     'Off-road',
     'Street',
   ],
-  'Equipment': [
+  Equipment: [
     'Off-road',
     'Street',
   ],
-  'Parts': [
+  Parts: [
     'Dirtbikes',
     'Streetbikes',
   ],
-  'Circuits': [
+  Circuits: [
     'Motocross',
     'Enduro',
     'Race tracks',
   ],
-  'Other': [
+  Other: [
     'Shops',
     'Events',
     'Clubs',
@@ -158,4 +163,4 @@ const rawItems = {
 const items = _.flatten(_.keys(rawItems).map((item) => [
   item,
   ...rawItems[item].map(i => `${item}#${i}`),
-]))
+]));
