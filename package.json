@@ -24,7 +24,7 @@
     "@types/chai": "^3.4.34",
     "@types/enzyme": "^2.7.4",
     "@types/jsdom": "^2.0.29",
-    "@types/material-ui": "git://github.com/dobogo/DefinitelyTyped.git#fix-material-ui-selectfield",
+    "@types/material-ui": "^0.17.2",
     "@types/mocha": "^2.2.39",
     "@types/react": "^15.0.22",
     "@types/react-addons-test-utils": "^0.14.17",
