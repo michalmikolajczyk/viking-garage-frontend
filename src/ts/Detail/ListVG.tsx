@@ -41,7 +41,7 @@ const tabs = [
 export default function ListVG({ offer }) {
   const accordions = _.map(tabs, (tab, index) => {
     const items = _.get(offer, tab.where);
-    if (items === undefined || items[0] === undefined) return null;
+    if (!items || !items[0]) return null;
     return (
       <Accordion
         key={index}
