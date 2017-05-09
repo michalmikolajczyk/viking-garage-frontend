@@ -19,6 +19,7 @@ global.window.cancelAnimationFrame = requestID => {};
 
 global.window.localStorage = global.localStorage = {
   getItem: () => {},
+  setItem: () => {},
   removeItem: () => {},
 }
 
