@@ -1,7 +1,7 @@
 import API from '../API';
 
 export function signin(data) {
-  return fetch(API.signin, {
+  return window['fetch'](API.signin, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ export function signin(data) {
 }
 
 export function resend(data) {
-  return fetch(API.resend, {
+  return window['fetch'](API.resend, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export function resend(data) {
 }
 
 export function verify(data) {
-  return fetch(API.verify, {
+  return window['fetch'](API.verify, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
