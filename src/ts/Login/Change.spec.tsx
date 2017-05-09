@@ -41,7 +41,7 @@ describe('Login: <Change />', () => {
       password1: userPassword,
       password2: userPassword,
     });
-    sinon.restore(api.change);
+    stub.restore();
   });
 
   it('check if submit action works properly', () => {
@@ -56,7 +56,7 @@ describe('Login: <Change />', () => {
     expect(instance.state.changeSuccess).to.be.true;
     expect(instance.state.changeError).to.be.false;
     expect(instance.state.networkErr).to.be.false;
-    sinon.restore(api.change);
+    stub['restore']();
   });
 
   it('check if submit action show backend error', () => {
@@ -71,7 +71,7 @@ describe('Login: <Change />', () => {
     expect(instance.state.changeSuccess).to.be.false;
     expect(instance.state.changeError).to.be.true;
     expect(instance.state.networkErr).to.be.false;
-    sinon.restore(api.change);
+    stub['restore']();
   });
 
   it('check if submit action show unexpected network error', () => {
@@ -86,5 +86,6 @@ describe('Login: <Change />', () => {
     expect(instance.state.changeSuccess).to.be.false;
     expect(instance.state.changeError).to.be.false;
     expect(instance.state.networkErr).to.be.true;
+    stub['restore']();
   });
 });

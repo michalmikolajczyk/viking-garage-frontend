@@ -26,9 +26,15 @@ const response = {
 describe('Login: <LoginForm />', () => {
   let wrapper;
   let instance;
+  let push;
   beforeEach(() => {
     wrapper = shallow(<LoginForm />, formsyContext());
     instance = wrapper.instance();    
+    push = sinon.stub(browserHistory, 'push', () => {});
+  });
+
+  afterEach(() => {
+    push.restore();
   });
 
   it('check for inner components', () => {
@@ -43,17 +49,16 @@ describe('Login: <LoginForm />', () => {
   });
 
   it('check if submit action get user info properly', () => {
-    const stub = sinon.stub(api, 'login', (params) => {
+    const login = sinon.stub(api, 'login', (params) => {
       expect(params).to.be.deep.equal(user)
       return Promise.resolve('ok');
     });
     instance['submit'](user);
-    stub.restore();
+    login.restore();
   });
 
   it('check if submit action works properly', () => {
     const login = sinon.stub(api, 'login')['returnsPromise']();
-    const push = sinon.stub(browserHistory, 'push');
     const storage = sinon.stub(localStorage, 'setItem');
 
     instance['submit'](user);
@@ -63,8 +68,8 @@ describe('Login: <LoginForm />', () => {
     expect(push).to.have.been.calledWith('/');
 
     expect(storage).to.have.been.calledTwice;
-    sinon.restore(api.login);
-    sinon.restore(localStorage.setItem);
+    login['restore']();
+    storage.restore();
   });
 
   it('check if response with JWT is saved in localStorage', () => {
@@ -81,37 +86,39 @@ describe('Login: <LoginForm />', () => {
     instance['submit'](user);
     login.resolves(response);
     expect(storage).to.have.been.calledTwice;
-    sinon.restore(api.login);
+    login['restore']();
+    storage.restore();
   });
 
   it('check if submit action show backend error', () => {
-    const stub = sinon.stub(api, 'login')['returnsPromise']();
+    const login = sinon.stub(api, 'login')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.false;
 
     instance['submit']();
-    stub.resolves({ err: 'no internet connection'});
+    login.resolves({ err: 'no internet connection'});
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.openDialog).to.be.true;
     expect(instance.state.networkErr).to.be.false;
-    sinon.restore(api.login);
+    login['restore']();
   });
 
   it('check if submit action show unexpected network error', () => {
-    const stub = sinon.stub(api, 'login')['returnsPromise']();
+    const login = sinon.stub(api, 'login')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.false;
 
     instance['submit']();
-    stub.rejects('something gone wrong');
+    login.rejects('something gone wrong');
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.true;
+    login['restore']();
   });
 });

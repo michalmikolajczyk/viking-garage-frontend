@@ -8,7 +8,7 @@ import * as sinonChai from 'sinon-chai';
 chai.use(sinonChai);
 const expect = chai.expect;
 import { formsyContext } from '../helpers/test-theme';
-import { browserHistory } from 'react-router';
+import * as router from 'react-router';
 import * as api from './api';
 import Reset from './Reset';
 
@@ -19,9 +19,15 @@ const email = {
 describe('Login: <Reset />', () => {
   let wrapper;
   let instance;
+  let push;
   beforeEach(() => {
     wrapper = shallow(<Reset />, formsyContext());
     instance = wrapper.instance();    
+    push = sinon.stub(router.browserHistory, 'push', () => {});
+  });
+
+  afterEach(() => {
+    push.restore();
   });
 
   it('check for inner components', () => {
@@ -41,7 +47,6 @@ describe('Login: <Reset />', () => {
 
   it('check if submit action works properly', () => {
     const reset = sinon.stub(api, 'reset')['returnsPromise']();
-    const push = sinon.stub(browserHistory, 'push');
 
     instance['submit']();
     reset.resolves('ok');
@@ -49,7 +54,7 @@ describe('Login: <Reset />', () => {
     expect(push).to.have.been.calledOnce;
     expect(push).to.have.been.calledWith('/check');
 
-    sinon.restore(api.reset);
+    reset['restore']();
   });
 
   it('check if submit action show unexpected network error', () => {
@@ -63,5 +68,7 @@ describe('Login: <Reset />', () => {
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.networkErr).to.be.true;
+
+    stub['restore']();
   });
 });
