@@ -37,11 +37,7 @@ export default function Confirm(props) {
           <a
             href="mailto:support@vikinggarage.com"
             className="title-btn"
-          >
-            support@vikinggarage.com
-          </a>
-        </div>
-        <div className="inputs">
+          >support@vikinggarage.com</a>
         </div>
       </div>
     </Container>
