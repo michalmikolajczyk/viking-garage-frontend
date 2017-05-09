@@ -15,8 +15,14 @@ const paramToken = 'uuid-token';
 const userPassword = 'secret';
 
 describe('Login: <Change />', () => {
+  let wrapper;
+  let instance; 
+  beforeEach(() => {
+    wrapper = shallow(<Change params={{ token: paramToken }} />, formsyContext());
+    instance = wrapper.instance();
+  });
+
   it('check for inner components', () => {
-    const wrapper = shallow(<Change params={{ token: paramToken }} />, formsyContext());
     expect(wrapper.find('.form')).to.have.length(1);
     expect(wrapper.find('FormsyText')).to.have.length(2);
     expect(wrapper.find('[name="password1"]')).to.have.length(1);
@@ -25,8 +31,6 @@ describe('Login: <Change />', () => {
   });
 
   it('check if submit action get user info properly', () => {
-    const wrapper = shallow(<Change params={{ token: paramToken }} />, formsyContext());
-    const instance = wrapper.instance();
     const stub = sinon.stub(api, 'change', ({ token, password1, password2 }) => {
       expect(token).to.be.equal(paramToken);
       expect(password1).to.be.equal(userPassword);
@@ -37,13 +41,10 @@ describe('Login: <Change />', () => {
       password1: userPassword,
       password2: userPassword,
     });
-    stub.restore();
+    sinon.restore(api.change);
   });
 
   it('check if submit action works properly', () => {
-    const wrapper = shallow(<Change params={{ token: paramToken }} />, formsyContext());
-    const instance = wrapper.instance();
-
     const stub = sinon.stub(api, 'change')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
@@ -59,9 +60,6 @@ describe('Login: <Change />', () => {
   });
 
   it('check if submit action show backend error', () => {
-    const wrapper = shallow(<Change params={{ token: paramToken }} />, formsyContext());
-    const instance = wrapper.instance();
-
     const stub = sinon.stub(api, 'change')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
@@ -77,9 +75,6 @@ describe('Login: <Change />', () => {
   });
 
   it('check if submit action show unexpected network error', () => {
-    const wrapper = shallow(<Change params={{ token: paramToken }} />, formsyContext());
-    const instance = wrapper.instance();
-
     const stub = sinon.stub(api, 'change')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
