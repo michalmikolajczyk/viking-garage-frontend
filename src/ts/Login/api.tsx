@@ -1,7 +1,7 @@
 import API from '../API';
 
 export function login(data) {
-  return fetch(API.login, {
+  return window['fetch'](API.login, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -10,7 +10,7 @@ export function login(data) {
 }
 
 export function reset(data) {
-  return fetch(API.reset, {
+  return window['fetch'](API.reset, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -19,7 +19,7 @@ export function reset(data) {
 }
 
 export function change(data) {
-  return fetch(API.change, {
+  return window['fetch'](API.change, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -28,7 +28,7 @@ export function change(data) {
 }
 
 export function check(token) {
-  return fetch(API.check, {
+  return window['fetch'](API.check, {
     headers: { Authorization: `JWT ${token}` },
   })
   .then(res => res.json());
