@@ -44,7 +44,6 @@ export default class SiginForm extends React.Component<any, any> {
       >
         <FormsyText
           name="name"
-          value="Viking Garage"
           required={true}
           fullWidth={true}
           floatingLabelText={i('Full Name')}
@@ -53,7 +52,6 @@ export default class SiginForm extends React.Component<any, any> {
         />
         <FormsyText
           name="email"
-          value="user@host.domain"
           required={true}
           fullWidth={true}
           floatingLabelText={i('E-mail')}
@@ -69,7 +67,6 @@ export default class SiginForm extends React.Component<any, any> {
         <FormsyText
           name="password1"
           type="password"
-          value="secret"
           required={true}
           fullWidth={true}
           floatingLabelText={i('Password')}
@@ -79,7 +76,6 @@ export default class SiginForm extends React.Component<any, any> {
         <FormsyText
           name="password2"
           type="password"
-          value="secret"
           required={true}
           fullWidth={true}
           floatingLabelText={i('Repeat Password')}
