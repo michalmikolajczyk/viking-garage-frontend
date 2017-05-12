@@ -51,7 +51,6 @@ export default class Change extends React.Component<any, any> {
                 <FormsyText
                   name="password1"
                   type="password"
-                  value="secret"
                   required={true}
                   fullWidth={true}
                   floatingLabelText={i('New Password')}
@@ -61,7 +60,6 @@ export default class Change extends React.Component<any, any> {
                 <FormsyText
                   name="password2"
                   type="password"
-                  value="secret"
                   required={true}
                   fullWidth={true}
                   floatingLabelText={i('Repeat Password')}
