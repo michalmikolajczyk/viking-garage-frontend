@@ -40,7 +40,9 @@ global.navigator = {
   language: 'en-US',
 }
 
-global.config = require('./config')
+function AutocompleteService() {};
+
+global.google = { maps: { places: { AutocompleteService } } };
 
 // for material-ui event handler
 var injectTapEventPlugin = require('react-tap-event-plugin');
