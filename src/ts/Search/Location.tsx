@@ -9,8 +9,8 @@ declare const config: any;
 declare const google: any;
 
 export default class Location extends React.Component<any, any> {
-  public service: any;
-  public filter: any;
+  service: any;
+  filter: any;
 
   constructor(props) {
     super(props);
@@ -19,10 +19,6 @@ export default class Location extends React.Component<any, any> {
       load: false,
     };
     this.filter = props.filter;
-    this.initMap = this.initMap.bind(this);
-    this.displayData = this.displayData.bind(this);
-    this.onNewRequest = this.onNewRequest.bind(this);
-    this.onUpdateInput = this.onUpdateInput.bind(this);
   }
 
   componentDidMount() {
@@ -49,23 +45,23 @@ export default class Location extends React.Component<any, any> {
     }
   }
 
-  public initMap() {
+  initMap = () => {
     this.service = new google.maps.places.AutocompleteService();
     this.setState({ load: true });
   }
 
-  public displayData(predictions, status) {
+  displayData = (predictions, status) => {
     const data = status !== google.maps.places.PlacesServiceStatus.OK
       ? ['Not found']
       : predictions.map(p => p.description);
     this.setState({ data });
   }
 
-  public onNewRequest(chosenRequest: string, index: number) {
+  onNewRequest = (chosenRequest: string, index: number) => {
     this.filter(chosenRequest);
   }
 
-  public onUpdateInput(text: string) {
+  onUpdateInput = (text: string) => {
     if (this.state.load && text !== '') {
       this.service.getQueryPredictions({ input: text }, this.displayData);
     } else {
