@@ -49,7 +49,7 @@ export default class FormVG extends React.Component<any, any> {
     this.requestId = window.requestAnimationFrame(this.handleScroll);
     const side = document.querySelector('#detail-side').clientHeight;
     const wrap = document.querySelector('#detail-wrap').clientHeight;
-    const diff = wrap - side - 114;
+    const diff = wrap - side;
     const top = 54;
     if (window.scrollY <= top && this.state.form !== '') {
       return this.setState({ form: '' });

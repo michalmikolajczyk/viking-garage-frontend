@@ -1,134 +1,169 @@
 import * as React from 'react';
-import { FontIcon } from 'material-ui';
-import { default as SuperSelect } from 'material-ui-superselectfield';
+import * as _ from 'lodash';
+import {
+  FontIcon,
+  SelectField,
+  MenuItem,
+  Toggle,
+} from 'material-ui';
 import debug from 'debug';
 const log = debug('app:Select');
 import i from '../i18n';
 
 export default class Select extends React.Component<any, any> {
-  private dataSource = [];
   constructor(props) {
     super(props);
-    // select keeps values chosen by user
-    this.state = { value: [] };
-    this.onChange = this.onChange.bind(this);
-
-    const createGroup = (values, group) => (
-      values.map((value, index) => (
-        <div
-          key={index}
-          label={value}
-          value={`${group}#${value}`}
-          className="select-item"
-        >
-          {value}
-        </div>),
-      )
-    );
-
-    this.dataSource = getDataSource().map((item, index) => (
-        <optgroup key={index} label={item.group}>
-          {createGroup(item.value, item.group)}
-        </optgroup>
-      ),
-    );
+    this.state = {
+      values: new Set(),
+    };
   }
 
-  onChange(value, name) {
-    this.setState({ value });
-    this.props.filter(value)
+  selectionRenderer = (values) => {
+    return [...values].sort().reduce(
+      (acc, curr, index, arr) => {
+        if (curr.indexOf('#') === -1) {
+          return [curr, [...acc[1], `${curr.toUpperCase()}, `]];
+        } else {
+          return [acc[0], [...acc[1], `${curr.split('#')[1]}, `]];
+        }
+      },
+      [undefined, []],
+    )[1];
+  }
+
+  menuItems = () => items.map((item) => {
+    if (item.indexOf('#') > -1) {
+      return (
+        <MenuItem
+          key={item}
+          insetChildren={true}
+          checked={this.state.values.has(item)}
+          value={item}
+          primaryText={item.split('#')[1]}
+        />);
+    } else {
+      return (
+        <MenuItem
+          key={item}
+          value={item}
+        >
+          <Toggle
+            label={item}
+            className="menu-toggle"
+            toggled={this.state.values.has(item)}
+          />
+        </MenuItem>
+      );
+    }
+  })
+
+  isGroup(str: String): boolean {
+    return str.indexOf('#') === -1;
+  }
+
+  onChange = (event, index, values) => {
+    // Toggle inside MenuItem invoke onChange twice - once with event object
+    if (!_.isArray(values)) return;
+    if (this.state.values.size > values.length) {
+      // user unchecked (removed) option
+      const diff = [...this.state.values].filter(i => values.indexOf(i) === -1)[0];
+      if (this.isGroup(diff)) {
+        // unchecked group: remove all items from this group
+        return this.setState({
+          values: new Set(values.filter(v => v.indexOf(diff) === -1)),
+        });
+      } else {
+        // unchecked label: remove item & uncheck group toggle
+        const group = diff.split('#')[0];
+        return this.setState({
+          values: new Set(values.filter(v => v !== group)),
+        });
+      }
+    } else {
+      // user checked (added) new option
+      const diff = values.filter(i => !this.state.values.has(i))[0];
+      if (this.isGroup(diff)) {
+        // checked group: add all items from group
+        const val = values.concat(items.filter(i => i.indexOf(`${diff}#`) > -1));
+        return this.setState({
+          values: new Set(val),
+        });
+      } else {
+        // checked label: add item & check if should add group toggle (if all items from group is checked)
+        const groupLabel = diff.split('#')[0];
+        const allFromGroup = items.filter(i => i.indexOf(`${groupLabel}#`) > -1);
+        const group = _.difference(allFromGroup, values).length === 0 ? [groupLabel] : [];
+        return this.setState({
+          values: new Set([...values, ...group]),
+        });
+      }
+    }
   }
 
   render() {
-    const { value } = this.state;
     return (
       <div className="select">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
         <div className="filter">
-          <SuperSelect
+          <SelectField
             multiple={true}
-            value={value}
+            hintText="Select type"
+            value={[...this.state.values]}
             onChange={this.onChange}
-            hintText={i('Select some values')}
-            onChange={this.handleSelection}
-            hintText={i('Select some values')}
-            fullWidth={true}
-            menuGroupStyle={{textTransform: 'capitalize', fontSize: 14, fontWeight: 300 }}
+            selectionRenderer={this.selectionRenderer}
           >
-            {this.dataSource}
-          </SuperSelect>
+            {this.menuItems()}
+          </SelectField>
         </div>
-        <hr />
       </div>
     );
   }
 }
 
-function getDataSource() {
-  return [
-    {
-      group: 'Motorcycle',
-      value: [
-        'Off-road',
-        'Street',
-        'Dual-sport',
-        'Scooter',
-        'Electric',
-        'Small (children)',
-      ],
-    },
-    {
-      group: 'Mechanic',
-      value: [
-        'Off-road & dual-sport',
-        'Street',
-        'Electric',
-        'Scooter',
-      ],
-    },
-    {
-      group: 'Coach / Instructor',
-      value: [
-        'Off-road',
-        'Street',
-      ],
-    },
-    {
-      group: 'Guide',
-      value: [
-        'Off-road',
-        'Street',
-      ],
-    },
-    {
-      group: 'Equipment',
-      value: [
-        'Off-road',
-        'Street',
-      ],
-    },
-    {
-      group: 'Parts',
-      value: [
-        'Dirtbikes',
-        'Streetbikes',
-      ],
-    },
-    {
-      group: 'Circuits',
-      value: [
-        'Motocross',
-        'Enduro',
-        'Race tracks',
-      ],
-    },
-    {
-      group: 'Other',
-      value: [
-        'Shops',
-        'Events',
-        'Clubs',
-      ],
-    },
-  ]
-}
+const rawItems = {
+  Motorcycle: [
+    'Off-road',
+    'Street',
+    'Dual-sport',
+    'Scooter',
+    'Electric',
+    'Small (children)',
+  ],
+  Mechanic: [
+    'Off-road & dual-sport',
+    'Street',
+    'Electric',
+    'Scooter',
+  ],
+  'Coach / Instructor': [
+    'Off-road',
+    'Street',
+  ],
+  Guide: [
+    'Off-road',
+    'Street',
+  ],
+  Equipment: [
+    'Off-road',
+    'Street',
+  ],
+  Parts: [
+    'Dirtbikes',
+    'Streetbikes',
+  ],
+  Circuits: [
+    'Motocross',
+    'Enduro',
+    'Race tracks',
+  ],
+  Other: [
+    'Shops',
+    'Events',
+    'Clubs',
+  ],
+};
+
+const items = _.flatten(_.keys(rawItems).map((item) => [
+  item,
+  ...rawItems[item].map(i => `${item}#${i}`),
+]));

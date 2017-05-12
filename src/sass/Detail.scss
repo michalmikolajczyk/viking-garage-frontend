@@ -2,6 +2,7 @@
   @extend .cont;
   width: 100%;
   min-width: 300px;
+  padding-top: 112px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -17,7 +18,7 @@
 .detail-form {
   text-align: left;
   flex: 0 0 300px;
-  padding: 112px 64px 0 0;
+  padding: 0 64px 0 0;
   min-width: 0;
   #detail-side {
     padding-top: 54px;
@@ -90,7 +91,7 @@
 
 .detail-offer {
   flex: 1;
-  padding: 112px 30px 60px;
+  padding: 0 30px 60px;
   .title {
     @extend .h3;
     margin-top: 57px;

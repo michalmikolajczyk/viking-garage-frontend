@@ -14,6 +14,17 @@ export function mountWithTheme(node) {
   });
 }
 
+export function muiContext() {
+  return {
+    context: {
+      muiTheme: getMuiTheme(),
+    },
+    childContextTypes: {
+      muiTheme: React.PropTypes.object.isRequired,
+    },
+  }
+}
+
 export function formsyContext() {
   return {
     context: {

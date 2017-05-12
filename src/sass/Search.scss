@@ -40,39 +40,8 @@
   }
 }
 
-.select {
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  .filter {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    hr {
-      display: none;
-    }
-  }
-  .selected {
-    line-height: 48px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    &.empty {
-      color: rgba(0, 0, 0, 0.298039);
-    }
-  }
-  // styled copied from material-ui TextFileds for hr
-  hr {
-    position: absolute;
-    bottom: 12px;
-    border-top: none rgb(224, 224, 224);
-    border-right: none rgb(224, 224, 224);
-    border-bottom: 1px solid rgb(224, 224, 224);
-    border-left: none;
-  }
+.menu-toggle {
+  text-transform: uppercase !important;
+  padding: 8px 0 6px !important;
+  font-weight: 900 !important;
 }
-// .select-item {
-//   margin: -3px -5px -5px;
-//   color: black;
-// }

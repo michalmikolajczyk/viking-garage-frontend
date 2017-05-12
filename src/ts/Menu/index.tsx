@@ -42,18 +42,18 @@ export default function MenuVG(props) {
     </IconMenu>
   ) : (
     <div className="user">
-      <MenuItem href="/signin" primaryText={i('Sign in')} />
-      <MenuItem href="/login" primaryText={i('Log in')} />
+      <MenuItem href="/signin" className="menu-item" primaryText={i('Sign in')} />
+      <MenuItem href="/login" className="menu-item" primaryText={i('Log in')} />
     </div>
   );
 
 
   return (
     <div className="menu">
-      <MenuItem href="/bike-owners" primaryText={i('Bike Owners')} />
-      <MenuItem href="/guides-coaches" primaryText={i('Guides & Coaches')} />
-      <MenuItem href="/mechanics" primaryText={i('Mechanics')} />
-      <MenuItem href="/faq" primaryText={i('FAQ')} />
+      <MenuItem href="/bike-owners" className="menu-item" primaryText={i('Bike Owners')} />
+      <MenuItem href="/guides-coaches" className="menu-item" primaryText={i('Guides & Coaches')} />
+      <MenuItem href="/mechanics" className="menu-item" primaryText={i('Mechanics')} />
+      <MenuItem href="/faq" className="menu-item" primaryText={i('FAQ')} />
       {userSection}
     </div>
   );

@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import General from './General';
 import { shallow } from 'enzyme';
 
-describe('Offer / Create: <General />', () => {
+describe('Offer/Create: <General />', () => {
   it('check for inner components', () => {
     const wrapper = shallow(<General />);
     expect(wrapper.find('[name="title"]')).to.have.length(1);

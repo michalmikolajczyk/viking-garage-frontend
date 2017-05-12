@@ -14,6 +14,7 @@ export default function Offerer({ offer }) {
     since,
     points,
   } = offerer;
+  const sinceStr = moment(since).format('DD MMM YYYY');
   return (
     <div>
       <Header head={i('Offerer details')} />
@@ -26,10 +27,10 @@ export default function Offerer({ offer }) {
           <div className="offerer-main">
             <div>{name}</div>
             <div>{`${city}, ${country}`}</div>
-            <div>{`${i('With VG since')} ${moment(offerer.since).format('DD MMM YYYY')}`}</div>
+            <div>{`${i('With VG since')} ${sinceStr}`}</div>
           </div>
-          <div className="descript">{offerer.descript}</div>
-          <div className="recommend">{`${i('Recommendations')}: ${offerer.recommend}`}</div>
+          <div className="descript">{brief}</div>
+          <div className="recommend">{`${i('Recommendations')}: ${points}`}</div>
           <button className="message">{i('Send message')}</button>
         </div>
       </div>

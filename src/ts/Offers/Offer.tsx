@@ -15,7 +15,8 @@ export default function Offer({ data, position }) {
   let distance = '';
   if (position) {
     const coordinates = { latitude: coord.coordinates[0], longitude: coord.coordinates[1] };
-    distance = (geolib.getDistance(position, coordinates) / 1000).toFixed(2);
+    distance = Math.round(geolib.getDistance(position, coordinates) / 1000).toString();
+    distance = `, ${i('distance')}: ${distance} km`;
   }
   return (
     <Link to={`offer/${id}/${url}`} className="offer-btn-link">
@@ -24,7 +25,7 @@ export default function Offer({ data, position }) {
         <div className="head">
           <div className="descript">
             <div className="title">{title}</div>
-            <div className="foot">{`${price} $/${i('day')}, ${i('distance')}: ${distance} km`}</div>
+            <div className="foot">{`${price} $/${i('day')}${distance}`}</div>
           </div>
         </div>
       </div>

@@ -76,8 +76,8 @@ const protection = {
 const service = {
   parkingGarage: false,
   recommendedMechanic: false,
-  transportTheMotocycle: false,
-  transportToFromMotocycle: false,
+  transportTheMotorcycle: false,
+  transportToFromMotorcycle: false,
   photographer: false,
   mechanicalChangesOptions: false,
   guide: false,
