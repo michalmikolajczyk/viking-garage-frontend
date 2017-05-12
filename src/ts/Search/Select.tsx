@@ -11,9 +11,12 @@ const log = debug('app:Select');
 import i from '../i18n';
 
 export default class Select extends React.Component<any, any> {
-  state = {
-    values: new Set(),
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      values: new Set(),
+    };
+  }
 
   selectionRenderer = (values) => {
     return [...values].sort().reduce(
