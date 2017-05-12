@@ -10,6 +10,12 @@ chai.use(sinonChai);
 const expect = chai.expect;
 import * as api from './api';
 import { default as Offers } from './';
+import { offers } from '../Detail/mockup';
+
+const coords = {
+  latitude: '52.185303',
+  longitude: '21.047533',
+};
 
 describe('Signin: <Offers />', () => {
   let wrapper;
@@ -21,99 +27,77 @@ describe('Signin: <Offers />', () => {
   });
 
   it('check for inner components', () => {
-    console.log(wrapper.debug());
     expect(wrapper.find('Container')).to.have.length(1);
     expect(wrapper.find('Search')).to.have.length(1);
   });
 
-  it('check if verification run on componentDidMount', (done) => {
-    sinon.spy(Offers.prototype, 'componentDidMount');
-
+  it('check if loads offers on componentDidMount', (done) => {
+    const spy = sinon.spy(Offers.prototype, 'componentDidMount');
     const get = sinon.stub(api, 'get', () => {
-      return Promise.resolve('data');
+      return Promise.resolve([]);
     });
 
     const wrapper = mountWithTheme(<Offers />);
     expect(get).to.be.calledOnce;
-    expect(Offers.prototype.componentDidMount).to.be.calledOnce;
+    expect(spy).to.be.calledOnce;
     get.restore();
+    spy.restore();
     // sometimes it takes very long (> 2 sec) to render all components with mount
     done();
   });
 
-  // it('check if verification action works properly', () => {
-  //   const verify = sinon.stub(api, 'verify')['returnsPromise']();
-  //   const storage = sinon.stub(localStorage, 'setItem');
-  //   instance.setState = sinon.spy(instance.setState)
+  it('check if sets coordinates on componentDidMount', () => {
+    const get = sinon.stub(api, 'get', () => Promise.resolve())
+    const wrapper = mountWithTheme(<Offers />);
+    expect(wrapper.state().position).to.be.deep.equal(coords)
+    get.restore();
+  });
 
-  //   expect(instance.setState).to.not.have.been.called;
-  //   expect(instance.state.networkErr).to.be.false;
-  //   expect(instance.state.verifyError).to.be.false;
-  //   expect(instance.state.verifySuccess).to.be.false;
+  it('check if loading data works properly', () => {
+    const get = sinon.stub(api, 'get')['returnsPromise']();
+    instance.setState = sinon.spy(instance.setState)
 
-  //   instance['verifyAccount']();
-  //   verify.resolves(response);
+    expect(instance.setState).to.not.have.been.called;
+    expect(instance.state.data).to.be.deep.equal([]);
+    expect(instance.state.loading).to.be.true;
 
-  //   expect(storage).to.have.been.calledTwice;
-  //   expect(instance.setState).to.have.been.calledOnce;
-  //   expect(instance.state.networkErr).to.be.false;
-  //   expect(instance.state.verifyError).to.be.false;
-  //   expect(instance.state.verifySuccess).to.be.true;
+    instance['loadMore']();
+    get.resolves(offers);
 
-  //   verify['restore']();
-  //   storage.restore();
-  // });
+    expect(instance.setState).to.have.been.calledTwice;
+    expect(instance.state.data).to.be.deep.equal(offers);
+    expect(instance.state.loading).to.be.false;
 
-  // it('check if response with JWT and user is saved in localStorage', () => {
-  //   const verify = sinon.stub(api, 'verify')['returnsPromise']();
-  //   const storage = sinon.stub(localStorage, 'setItem', (type, item) => {
-  //     if (type === 'jwt') {
-  //       expect(item).to.be.equal(response.token);
-  //     }
-  //     if (type === 'user') {
-  //       expect(item).to.be.equal(JSON.stringify(response.user))
-  //     }
-  //   });
+    get['restore']();
+  });
 
-  //   instance['verifyAccount']();
-  //   verify.resolves(response);
-  //   expect(storage).to.have.been.calledTwice;
-  //   verify['restore']();
-  //   storage.restore();
-  // });
+  it('check if loads data on backend error', () => {
+    const get = sinon.stub(api, 'get')['returnsPromise']();
+    instance.setState = sinon.spy(instance.setState);
+    expect(instance.state.data).to.be.deep.equal([]);
+    expect(instance.state.loading).to.be.true;
 
-  // it('check if account verification shows verification error', () => {
-  //   const verify = sinon.stub(api, 'verify')['returnsPromise']();
-  //   instance.setState = sinon.spy(instance.setState);
-  //   expect(instance.setState).to.not.have.been.called;
-  //   expect(instance.state.networkErr).to.be.false;
-  //   expect(instance.state.verifyError).to.be.false;
-  //   expect(instance.state.verifySuccess).to.be.false;
+    instance['loadMore']();
+    get.resolves({ err: 'no internet connection'});
 
-  //   instance['verifyAccount']();
-  //   verify.resolves({ err: 'no internet connection'});
+    expect(instance.setState).to.have.been.calledTwice;
+    expect(instance.state.data).to.be.deep.equal(offers);
+    expect(instance.state.loading).to.be.false;
+    get['restore']();
+  });
 
-  //   expect(instance.setState).to.have.been.calledOnce;
-  //   expect(instance.state.networkErr).to.be.false;
-  //   expect(instance.state.verifyError).to.be.true;
-  //   expect(instance.state.verifySuccess).to.be.false;
-  //   verify['restore']();
-  // });
+  it('check if loads data on unexpected network error', () => {
+    const get = sinon.stub(api, 'get')['returnsPromise']();
+    instance.setState = sinon.spy(instance.setState);
+    expect(instance.state.data).to.be.deep.equal([]);
+    expect(instance.state.loading).to.be.true;
 
-  // it('check if account verification shows unexpected network error', () => {
-  //   const verify = sinon.stub(api, 'verify')['returnsPromise']();
-  //   instance.setState = sinon.spy(instance.setState);
-  //   expect(instance.state.networkErr).to.be.false;
-  //   expect(instance.state.verifyError).to.be.false;
-  //   expect(instance.state.verifySuccess).to.be.false;
+    instance['loadMore']();
+    get.rejects('something gone wrong');
 
-  //   instance['verifyAccount']();
-  //   verify.rejects('something gone wrong');
-
-  //   expect(instance.setState).to.have.been.calledOnce;
-  //   expect(instance.state.networkErr).to.be.true;
-  //   expect(instance.state.verifyError).to.be.false;
-  //   expect(instance.state.verifySuccess).to.be.false;
-  //   verify['restore']();
-  // });
+    expect(instance.setState).to.have.been.calledTwice;
+    expect(instance.state.data).to.be.deep.equal(offers);
+    expect(instance.state.loading).to.be.false;
+    get['restore']();
+  });
 });
