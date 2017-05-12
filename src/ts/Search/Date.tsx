@@ -1,18 +1,16 @@
 import * as React from 'react';
+import * as moment from 'moment';
 import {
   DatePicker,
   FontIcon,
 } from 'material-ui';
 
 export default class DateVG extends React.Component<any, any> {
-
   constructor(props) {
     super(props);
-    const now = new Date();
     this.state = {
-      startDate: now,
-      // get a two weeks forward
-      endDate: new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000),
+      startDate: moment().toDate(),
+      endDate: moment().add(14, 'days').toDate(),
     };
   }
 
