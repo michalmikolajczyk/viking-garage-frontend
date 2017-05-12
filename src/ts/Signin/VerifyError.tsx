@@ -5,7 +5,7 @@ import {
 } from 'material-ui';
 import i from '../i18n';
 
-export default function ChangeError(props) {
+export default function VerifyError(props) {
   const {
     open,
     close,
