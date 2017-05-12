@@ -18,7 +18,6 @@ export default class Offers extends React.Component<any, any> {
       loading: true,
       position: null,
     };
-    this.loadMore = this.loadMore.bind(this);
   }
 
   componentDidMount() {
@@ -26,11 +25,16 @@ export default class Offers extends React.Component<any, any> {
     this.setPosition();
   }
 
-  loadMore() {
+  loadMore = () => {
     this.setState({ loading: true });
     api.get()
       .then((res) => {
-        if (res['err']) throw res['msg'];
+        if (res['err']) {
+          return this.setState({
+            data: _.map(offers, i => i),
+            loading: false,
+          });
+        }
         this.setState({
           data: res,
           loading: false,
@@ -45,7 +49,7 @@ export default class Offers extends React.Component<any, any> {
       });
   }
 
-  setPosition() {
+  setPosition = () => {
     if (navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
