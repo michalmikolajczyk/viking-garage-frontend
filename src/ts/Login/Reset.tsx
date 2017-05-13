@@ -4,23 +4,29 @@ import { Form } from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
 import i from '../i18n';
 import Container from '../Container';
+import ResetError from './ResetError';
 import NetworkError from '../Dialogs/NetworkError';
 import { reset } from './api';
-import debug from 'debug';
-const log = debug('app:Reset');
 
 export default class Reset extends React.Component<any, any> {
-
   constructor(props) {
     super(props);
     this.state = {
       canSubmit: false,
+      openDialog: false,
       networkErr: false,
     };
-    this.submit = this.submit.bind(this);
   }
 
-  submit(email) {
+  onValid = () => this.setState({ canSubmit: true });
+
+  onInValid = () => this.setState({ canSubmit: false });
+
+  closeResetDialog = () => this.setState({ openDialog: false });
+
+  closeNetworkDialog = () => this.setState({ networkErr: false });
+
+  submit = (email) => {
     this.setState({ canSubmit: false });
     reset(email)
       .then((res) => {
@@ -42,14 +48,13 @@ export default class Reset extends React.Component<any, any> {
           </div>
           <div className="inputs">
             <Form
-              onValid={() => this.setState({ canSubmit: true })}
-              onInvalid={() => this.setState({ canSubmit: false })}
+              onValid={this.onValid}
+              onInvalid={this.onInValid}
               onSubmit={this.submit}
             >
               <div className="reset">
                 <FormsyText
                   name="email"
-                  value="viking.garage.app@gmail.com"
                   required={true}
                   fullWidth={true}
                   validations="isEmail"
@@ -63,9 +68,13 @@ export default class Reset extends React.Component<any, any> {
               >
                 {i('Reset password')}
               </button>
+              <ResetError
+                open={this.state.openDialog}
+                close={this.closeResetDialog}
+              />
               <NetworkError
                 open={this.state.networkErr}
-                close={() => this.setState({ networkErr: false })}
+                close={this.closeNetworkDialog}
               />
             </Form>
           </div>
