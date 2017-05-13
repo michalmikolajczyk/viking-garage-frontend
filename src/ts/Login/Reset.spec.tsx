@@ -22,7 +22,7 @@ describe('Login: <Reset />', () => {
   let push;
   beforeEach(() => {
     wrapper = shallow(<Reset />, formsyContext());
-    instance = wrapper.instance();    
+    instance = wrapper.instance();
     push = sinon.stub(router.browserHistory, 'push', () => {});
   });
 
@@ -34,6 +34,8 @@ describe('Login: <Reset />', () => {
     expect(wrapper.find('FormsyText')).to.have.length(1);
     expect(wrapper.find('[name="email"]')).to.have.length(1);
     expect(wrapper.find('button.submit')).to.have.length(1);
+    expect(wrapper.find('ResetError')).to.have.length(1);
+    expect(wrapper.find('NetworkError')).to.have.length(1);
   });
 
   it('check if submit action get user info properly', () => {
@@ -57,7 +59,22 @@ describe('Login: <Reset />', () => {
     reset['restore']();
   });
 
-  it('check if submit action show unexpected network error', () => {
+  it('check if submit action shows wrong e-mail address dialog', () => {
+    const stub = sinon.stub(api, 'reset')['returnsPromise']();
+    instance.setState = sinon.spy(instance.setState);
+    expect(instance.setState).to.not.have.been.called;
+    expect(instance.state.openDialog).to.be.false;
+
+    instance['submit']();
+    stub.resolves({ err: 'wrong e-mail address' });
+
+    expect(instance.setState).to.have.been.calledTwice;
+    expect(instance.state.openDialog).to.be.true;
+
+    stub['restore']();
+  });
+
+  it('check if submit action shows unexpected network error', () => {
     const stub = sinon.stub(api, 'reset')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
