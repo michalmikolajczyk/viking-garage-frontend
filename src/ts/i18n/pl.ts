@@ -77,7 +77,8 @@ export default {
   // 'E-mail': '',
   // 'Wrong e-mail address!': '',
   // 'Reset password': '',
-
+  'Invalid e-mail address': 'Nieprawidłowy adres e-mail',
+  'Provided e-mail was invalid, please try again': 'Podany e-mail jest nieprawidłowy, proszę spróbuj ponownie',
 /**
  * Signin
  */
