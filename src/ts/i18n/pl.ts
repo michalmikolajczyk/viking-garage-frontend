@@ -85,11 +85,16 @@ export default {
 // Confirm
   'Please confirm your account': 'Potwierdź swoje konto',
   'We sent a message with a confirmation link, to the e-mail address you provided.': 'Wysłaliśmy wiadomość z linkiem potwierdzającym na podany adres e-mail.',
-  'Please check your inbox and click on the link, to continue.': 'Sprawdź swoją skrzynkę odbiorczą i kliknij link, aby kontynuować',
+  'Please check your inbox and click on the link, to continue.': 'Sprawdź swoją skrzynkę odbiorczą i kliknij link, aby kontynuować.',
   // 'If you did not receive an e-mail, please': '',
   'try again': 'spróbuj ponownie',
   'or': 'lub',
   // 'contact us at': '',
+
+// ConfirmSuccess
+  'E-mail resend successfully!': 'E-mail wysłano ponownie!',
+  'We resent a message with a confirmation link. If you did not receive an e-mail, please check your spam folder or contact us at':
+  'Wysłaliśmy wiadomość z linkiem potwierdzającym. Jeśli nie dostałeś e-maila, sprawdź folder ze spamem lub skontaktuj się z nami przez',
 
 // index
   'Create a new account': 'Stwórz nowe konto',
