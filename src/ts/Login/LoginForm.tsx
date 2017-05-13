@@ -9,22 +9,15 @@ import i from '../i18n';
 import LoginDialog from './LoginDialog';
 import NetworkError from '../Dialogs/NetworkError';
 import { login } from './api';
-import debug from 'debug';
-const log = debug('app:Login');
 
 export default class LoginForm extends React.Component<any, any> {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      canSubmit: false,
-      openDialog: false,
-      networkErr: false,
-    };
-    this.submit = this.submit.bind(this);
+  state = {
+    canSubmit: false,
+    openDialog: false,
+    networkErr: false,
   }
 
-  submit(user) {
+  submit = (user) => {
     this.setState({ canSubmit: false });
     login(user)
       .then((res) => {
@@ -37,6 +30,10 @@ export default class LoginForm extends React.Component<any, any> {
       })
       .catch(err => this.setState({ networkErr: true }));
   }
+
+  closeLoginDialog = () => this.setState({ openDialog: false })
+
+  closeNetworkErr = () => this.setState({ networkErr: false })
 
   render() {
     return (
@@ -79,11 +76,11 @@ export default class LoginForm extends React.Component<any, any> {
         </button>
         <LoginDialog
           open={this.state.openDialog}
-          close={() => this.setState({ openDialog: false })}
+          close={this.closeLoginDialog}
         />
         <NetworkError
           open={this.state.networkErr}
-          close={() => this.setState({ networkErr: false })}
+          close={this.closeNetworkErr}
         />
       </Form>
     );

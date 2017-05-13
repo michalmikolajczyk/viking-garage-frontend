@@ -12,13 +12,6 @@ export default class Confirm extends React.Component<any, any> {
     networkErr: false,
   };
 
-  closeConfirmDialog = () => {
-    this.setState({ openDialog: false });
-    browserHistory.push('/');
-  };
-
-  closeNetworkDialog = () => this.setState({ networkErr: false });
-
   submit = () => {
     const { email } = this.props.params;
     resend({ email })
@@ -28,6 +21,13 @@ export default class Confirm extends React.Component<any, any> {
       })
       .catch(err => this.setState({ networkErr: true }));
   }
+
+  closeConfirmDialog = () => {
+    this.setState({ openDialog: false });
+    browserHistory.push('/');
+  };
+
+  closeNetworkDialog = () => this.setState({ networkErr: false });
 
   render() {
     return (

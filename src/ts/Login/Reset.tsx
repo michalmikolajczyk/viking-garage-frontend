@@ -9,22 +9,11 @@ import NetworkError from '../Dialogs/NetworkError';
 import { reset } from './api';
 
 export default class Reset extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      canSubmit: false,
-      openDialog: false,
-      networkErr: false,
-    };
+  state = {
+    canSubmit: false,
+    openDialog: false,
+    networkErr: false,
   }
-
-  onValid = () => this.setState({ canSubmit: true });
-
-  onInValid = () => this.setState({ canSubmit: false });
-
-  closeResetDialog = () => this.setState({ openDialog: false });
-
-  closeNetworkDialog = () => this.setState({ networkErr: false });
 
   submit = (email) => {
     this.setState({ canSubmit: false });
@@ -35,6 +24,14 @@ export default class Reset extends React.Component<any, any> {
       })
       .catch(err => this.setState({ networkErr: true }));
   }
+
+  onValid = () => this.setState({ canSubmit: true });
+
+  onInValid = () => this.setState({ canSubmit: false });
+
+  closeResetDialog = () => this.setState({ openDialog: false });
+
+  closeNetworkDialog = () => this.setState({ networkErr: false });
 
   render() {
     return (
