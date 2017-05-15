@@ -5,7 +5,7 @@ import Select from './Select';
 import Location from './Location';
 import Range from './Range';
 
-export default function Signin(props) {
+export default function Search(props) {
 
   const {
     locationFilter,

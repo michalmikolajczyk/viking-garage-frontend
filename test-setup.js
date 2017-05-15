@@ -38,6 +38,16 @@ global.document.querySelector = () => ({
 global.navigator = {
   userAgent: 'node.js',
   language: 'en-US',
+  geolocation: {
+    getCurrentPosition: (call) => {
+      call({
+        coords: {
+          latitude: 52.185302899999996,
+          longitude: 21.0475334,
+        }
+      })
+    }
+  }
 }
 
 global.config = require('./config')
