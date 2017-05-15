@@ -9,5 +9,4 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app/
 RUN cp -a /tmp/node_modules /usr/src/app/
-RUN cp config.js.example config.js
 CMD [ "npm", "start" ]

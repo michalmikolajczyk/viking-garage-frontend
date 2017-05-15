@@ -4,70 +4,32 @@ import {
   FontIcon,
 } from 'material-ui';
 import i from '../i18n';
-
-declare const config: any;
 declare const google: any;
 
 export default class Location extends React.Component<any, any> {
-  public service: any;
-  public filter: any;
+  service: any;
+  filter: any;
 
   constructor(props) {
     super(props);
-    this.state = {
-      data: [],
-      load: false,
-    };
+    this.state = { data: [] };
     this.filter = props.filter;
-    this.initMap = this.initMap.bind(this);
-    this.displayData = this.displayData.bind(this);
-    this.onNewRequest = this.onNewRequest.bind(this);
-    this.onUpdateInput = this.onUpdateInput.bind(this);
-  }
-
-  componentDidMount() {
-    // in case of re-creating component we do not need another script
-    if (typeof google !== 'undefined') {
-      return this.initMap();
-    }
-    if (typeof window !== 'undefined') {
-      if (document.getElementById('google-maps-script')) {
-        const call = window['initMap'];
-        window['initMap'] = () => {
-          call();
-          this.initMap();
-        };
-      } else {
-        const API_KEY = config.GOOGLE_MAP_API;
-        window['initMap'] = this.initMap;
-        const script = document.createElement('script');
-        script.id = 'google-maps-script';
-        script.type = 'text/javascript';
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap`;
-        document.body.appendChild(script);
-      }
-    }
-  }
-
-  public initMap() {
     this.service = new google.maps.places.AutocompleteService();
-    this.setState({ load: true });
   }
 
-  public displayData(predictions, status) {
-    const data = status !== google.maps.places.PlacesServiceStatus.OK
-      ? ['Not found']
-      : predictions.map(p => p.description);
-    this.setState({ data });
-  }
-
-  public onNewRequest(chosenRequest: string, index: number) {
+  onNewRequest = (chosenRequest: string, index: number) => {
     this.filter(chosenRequest);
   }
 
-  public onUpdateInput(text: string) {
-    if (this.state.load && text !== '') {
-      this.service.getQueryPredictions({ input: text }, this.displayData);
+  onUpdateInput = (input: string) => {
+    if (input !== '') {
+      this.service.getQueryPredictions({ input }, (predictions, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          this.setState({ data: predictions.map(p => p.description) });
+        } else {
+          this.setState({ data: ['Not found'] });
+        }
+      });
     } else {
       this.setState({ data: [] });
     }

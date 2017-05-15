@@ -13,16 +13,14 @@ export default class Range extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
-    const { filter } = props;
-    this.state = { range: 8 };
-    this.filter = filter;
-    this.onChange = this.onChange.bind(this);
-    this.items = ranges.map(r =>  <MenuItem value={r} primaryText={`${r} km`} key={r} />)
+    this.state = { value: 8 };
+    this.filter = props.filter;
+    this.items = ranges.map(r =>  <MenuItem key={r}  value={r} primaryText={`${r} km`} />)
   }
 
-  onChange(range) {
-    this.setState({ range })
-    this.filter(range);
+  onChange = (event, index, value) => {
+    this.setState({ value })
+    this.filter(value);
   }
 
   render() {
@@ -31,8 +29,8 @@ export default class Range extends React.Component<any, any> {
         <FontIcon className="material-icons">my_location</FontIcon>
         <div className="filter">
           <SelectField
-            value={this.state.range}
-            onChange={(event, index, value) => { this.onChange(value) }}
+            value={this.state.value}
+            onChange={this.onChange}
             fullWidth={true}
             maxHeight={200}
           >
