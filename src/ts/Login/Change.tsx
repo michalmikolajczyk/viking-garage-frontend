@@ -2,29 +2,22 @@ import * as React from 'react';
 import { Form } from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
 import Container from '../Container';
-import NetworkError from '../Dialogs/NetworkError';
 import ChangeError from './ChangeError';
 import ChangeSuccess from './ChangeSuccess';
+import NetworkError from '../Dialogs/NetworkError';
 import { change } from './api';
 import i from '../i18n';
-import debug from 'debug';
-const log = debug('app:Change');
 
 export default class Change extends React.Component<any, any> {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      canSubmit: false,
-      networkErr: false,
-      changeError: false,
-      changeSuccess: false,
-    };
-    this.submit = this.submit.bind(this);
+  state = {
+    canSubmit: false,
+    networkErr: false,
+    changeError: false,
+    changeSuccess: false,
   }
 
-  submit(passwords) {
-    const token = this.props.params.token;
+  submit = (passwords) => {
+    const { token } = this.props.params;
     change({ token, ...passwords })
       .then((res) => {
         if (res['err']) return this.setState({ changeError: true });
@@ -32,6 +25,16 @@ export default class Change extends React.Component<any, any> {
       })
       .catch(err => this.setState({ networkErr: true }));
   }
+
+  onValid = () => this.setState({ canSubmit: true })
+
+  onInvalid = () => this.setState({ canSubmit: false })
+
+  closeChangeError = () => this.setState({ changeError: false })
+
+  closeChangeSuccess = () => this.setState({ changeSuccess: false })
+
+  closeNetworkError = () => this.setState({ networkErr: false })
 
   render() {
     return (
@@ -43,8 +46,8 @@ export default class Change extends React.Component<any, any> {
           </div>
           <div className="inputs">
             <Form
-              onValid={() => this.setState({ canSubmit: true })}
-              onInvalid={() => this.setState({ canSubmit: false })}
+              onValid={this.onValid}
+              onInvalid={this.onInvalid}
               onSubmit={this.submit}
             >
               <div className="reset">
@@ -73,17 +76,17 @@ export default class Change extends React.Component<any, any> {
               >
                 CHANGE PASSWORD
               </button>
-              <ChangeSuccess
-                open={this.state.changeSuccess}
-                close={() => this.setState({ changeSuccess: false })}
-              />
               <ChangeError
                 open={this.state.changeError}
-                close={() => this.setState({ changeError: false })}
+                close={this.closeChangeError}
+              />
+              <ChangeSuccess
+                open={this.state.changeSuccess}
+                close={this.closeChangeSuccess}
               />
               <NetworkError
                 open={this.state.networkErr}
-                close={() => this.setState({ networkErr: false })}
+                close={this.closeNetworkError}
               />
             </Form>
           </div>

@@ -14,18 +14,13 @@ import debug from 'debug';
 const log = debug('app:Signin');
 
 export default class SiginForm extends React.Component<any, any> {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      canSubmit: false,
-      openDialog: false,
-      networkErr: false,
-    };
-    this.submit = this.submit.bind(this);
+  state = {
+    canSubmit: false,
+    openDialog: false,
+    networkErr: false,
   }
 
-  submit(user) {
+  submit = (user) => {
     this.setState({ canSubmit: false });
     signin(user)
       .then((res) => {
@@ -34,6 +29,10 @@ export default class SiginForm extends React.Component<any, any> {
       })
       .catch(err => this.setState({ networkErr: true }));
   }
+
+  closeSigninDialog = () => this.setState({ openDialog: false })
+
+  closeNetworkErr = () => this.setState({ networkErr: false })
 
   render() {
     return (
@@ -100,11 +99,11 @@ export default class SiginForm extends React.Component<any, any> {
         </button>
         <SigninDialog
           open={this.state.openDialog}
-          close={() => this.setState({ openDialog: false })}
+          close={this.closeSigninDialog}
         />
         <NetworkError
           open={this.state.networkErr}
-          close={() => this.setState({ networkErr: false })}
+          close={this.closeNetworkErr}
         />
       </Form>
     );

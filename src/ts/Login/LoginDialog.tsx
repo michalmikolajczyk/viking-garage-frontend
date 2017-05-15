@@ -6,7 +6,6 @@ import {
 import i from '../i18n';
 
 export default function LoginDialog(props) {
-
   const {
     open,
     close,

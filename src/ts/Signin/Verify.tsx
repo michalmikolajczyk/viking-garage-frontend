@@ -7,13 +7,10 @@ import VerifySuccess from './VerifySuccess';
 import { verify } from './api';
 
 export default class Verify extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      networkErr: false,
-      verifyError: false,
-      verifySuccess: false,
-    };
+  state = {
+    networkErr: false,
+    verifyError: false,
+    verifySuccess: false,
   }
 
   componentDidMount() {
@@ -34,21 +31,30 @@ export default class Verify extends React.Component<any, any> {
       .catch(err => this.setState({ networkErr: true }));
   }
 
+  closeNetworkErr = () => this.setState({ networkErr: false })
+
+  closeVerifyError = () => this.setState({ verifyError: false })
+
+  closeVerifySuccess = () => {
+    this.setState({ verifySuccess: false });
+    browserHistory.push('/');
+  }
+
   render() {
     return (
       <div>
         <Offers />
         <VerifyError
           open={this.state.verifyError}
-          close={() => this.setState({ verifyError: false })}
+          close={this.closeVerifyError}
         />
         <VerifySuccess
           open={this.state.verifySuccess}
-          close={() => {this.setState({ verifySuccess: false }); browserHistory.push('/'); }}
+          close={this.closeVerifySuccess}
         />
         <NetworkError
           open={this.state.networkErr}
-          close={() => this.setState({ networkErr: false })}
+          close={this.closeNetworkErr}
         />
       </div>
     );
