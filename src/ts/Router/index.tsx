@@ -15,6 +15,7 @@ import Reset from '../Login/Reset';
 import Signin from '../Signin';
 import Confirm from '../Signin/Confirm';
 import Verify from '../Signin/Verify';
+import UserEdit from '../UserEdit';
 
 export default function AppRouter(props) {
   return (
@@ -33,6 +34,7 @@ export default function AppRouter(props) {
       <Route path="/guides-coaches" component={NotFound} />
       <Route path="/mechanics" component={NotFound} />
       <Route path="/faq" component={NotFound} />
+      <Route path="/user/edit" component={UserEdit} />
       <Route path="*" component={NotFound} />
     </Router>
   );
