@@ -1,0 +1,34 @@
+$user-menu-height: 32px;
+
+.user-menu {
+  height: $user-menu-height;
+  width: 100%;
+  padding-top: 64px;
+  padding-left: 106px;
+  background: black;
+  .user-menu-item {
+    @extend .t4;
+    padding: 0 33px;
+    display: inline-block;
+    text-align: center;
+    line-height: $user-menu-height;
+    color: white;
+    &:hover {
+      font-weight: $medium;
+    }
+    &:after {
+      display: block;
+      content: attr(title);
+      font-weight: bold;
+      height: 1px;
+      color: transparent;
+      overflow: hidden;
+      visibility: hidden;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+.user-edit {
+
+}
