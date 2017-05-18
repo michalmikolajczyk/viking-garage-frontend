@@ -19,6 +19,24 @@ export default {
   'FAQ': 'FAQ',
 
 /**
+ * Dialogs
+ */
+// Network Error
+  // 'Cancel': '',
+  'Network Error': 'Błąd Połączenia',
+  'Ups! It seems that we have some problems with network, try again later.':
+  'Ups! Wygląda na to, że mamy problemy z siecią, spróbuj ponownie później.',
+
+// Save Error
+  'Save Error': 'Błąd Zapisu',
+  'There were some problems with saving new data. Please check whether the data are correct and try again':
+  'Pojawił się błąd przy zapisie danych. Sprawdź proszę czy wprowadzone dane są poprawne i spróbuj ponownie',
+
+// Save Success
+  'Save Success': 'Zapisano Zmiany',
+  'Your new data was saved successfully!': 'Wprowadzone dane zostały zapisane!',
+
+/**
  * Login
  */
 // Change
@@ -115,7 +133,7 @@ export default {
   'Full name too short! Minimum 3 chars': 'Imię i nazwisko zbyt krótkie! Minimum 3 znaki',
   // 'E-mail': '',
   // 'Wrong e-mail address!': '',
-  'Date of birth': 'Data urodzenia',
+  'Date of birth': 'Data Urodzenia',
   // 'Password': '',
   // 'Password too short! Minimum 6 chars': '',
   // 'Repeat Password': '',
@@ -170,14 +188,6 @@ export default {
   'Recommendations': 'Rekomendacje',
   'Send message': 'Wyślij wiadomość',
   'Offerer details': 'Dane użytkownika',
-
-/**
- * Dialogs
- */
-// Network Error
-  // 'Cancel': '',
-  'Network Error': 'Błąd połączenia',
-  'Ups! It seems that we have some problems with network, try again later.': 'Ups! Wygląda na to, że mamy problemy z siecią, spróbuj ponownie później.',
 
 /**
  * helpers/models
@@ -299,6 +309,55 @@ export default {
 // Offer
   'distance': 'odległość',
   // 'day': '',
+
+/**
+ * Profile
+ */
+// index
+  'Save': 'Zapisz',
+
+// User Menu
+  // 'Profile': '',
+  'Inbox': 'Wiadomości',
+  'Your Rides': 'Twoje Jazdy',
+  'Your Offers': 'Twoje Oferty',
+  // 'Account': '',
+
+// User Optional
+  'Optional Information': 'Informacje Dodatkowe',
+  'Phone Number': 'Numer Telefonu',
+  'Wrong phone number!': 'Nieprawidłowy numer telefonu!',
+  'Emergency Contact': 'Kontakt Awaryjny',
+  // 'Wrong phone number!': ''
+  'City': 'Miasto',
+  'Wrong city name!': 'Nieprawidłowa nazwa miasta!',
+  'Country': 'Kraj',
+  'Wrong country name!': 'Nieprawidłowa nazwa kraju!',
+  'Describe Yourself': 'Opisz Siebie',
+
+// User Photo
+  'Profile Photo': 'Zdjęcie Profilowe',
+  'Drop an image over camera icon': 'Upuść zdjęcie na ikonę kamery',
+  'or click here to choose it!': 'lub kliknij tu, aby je wybrać!',
+  'Upload a picture that shows your face. It’s so much nicer to communicate with a person, whose face is visible :)':
+  'Dodaj zdjęcie które pokazuje Twoją twarz. Dużo milej jest komunikować się z osobą, której twarz jest widoczna :)',
+
+// User Required
+  'Required Information': 'Wymagane Informacje',
+  'First Name': 'Imię',
+  'First name too short! Minimum 3 chars': 'Imię za krótkie! Minimum 3 znaki',
+  'Last Name': 'Nazwisko',
+  'Last name too short! Minimum 3 chars': 'Nazwisko za krótkie! Minimum 3 znaki',
+  // 'Date of birth': '',
+  'E-mail Address': 'Adres E-mail',
+  // 'Wrong e-mail address!': '',
+
+// User Side
+  'Edit Profile': 'Edytuj Profil',
+  'Reviews': 'Komentarze',
+  'Your Stats': 'Twoje Statystyki',
+  'Summary': 'Podsumowanie',
+  'View Profile': 'Zobacz Profil',
 
 /**
  * Search

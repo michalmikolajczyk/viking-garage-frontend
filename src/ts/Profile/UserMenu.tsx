@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router';
+import i from '../i18n';
 
 export default function UserMenu(props) {
   return (
@@ -7,38 +8,38 @@ export default function UserMenu(props) {
       <Link
         className="user-menu-item"
         style={{fontWeight: 'bold'}}
-        title="Profile"
+        title={i('Profile')}
         to="/user/profile"
       >
-        Profile
+        {i('Profile')}
       </Link>
       <Link
         className="user-menu-item"
-        title="Inbox"
+        title={i('Inbox')}
         to="/user/inbox"
       >
-        Inbox
+        {i('Inbox')}
       </Link>
       <Link
         className="user-menu-item"
-        title="Your Rides"
+        title={i('Your Rides')}
         to="/user/rides"
       >
-        Your Rides
+        {i('Your Rides')}
       </Link>
       <Link
         className="user-menu-item"
-        title="Your Offers"
+        title={i('Your Offers')}
         to="/user/offers"
       >
-        Your Offers
+        {i('Your Offers')}
       </Link>
       <Link
         className="user-menu-item"
-        title="Account"
+        title={i('Account')}
         to="/user/account"
       >
-        Account
+        {i('Account')}
       </Link>
     </div>
   );

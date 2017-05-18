@@ -38,7 +38,7 @@ $user-menu-height: 32px;
     .user-side-item {
       @extend .t4;
       height: 36px;
-      width: 90px;
+      min-width: 90px;
       display: block;
       margin-bottom: 10px;
       line-height: 40px;

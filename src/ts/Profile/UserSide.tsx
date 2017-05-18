@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router';
+import i from '../i18n';
 
 export default function UserSide(props) {
   return (
@@ -9,31 +10,31 @@ export default function UserSide(props) {
         style={{ fontWeight: 'bold' }}
         to="/user/profile"
       >
-        Edit Profile
+        {i('Edit Profile')}
       </Link>
       <Link
         className="user-side-item"
         to="/user/reviews"
       >
-        Reviews
+        {i('Reviews')}
       </Link>
       <Link
         className="user-side-item"
         to="/user/stats"
       >
-        Your Stats
+        {i('Your Stats')}
       </Link>
       <Link
         className="user-side-item"
         to="/user/summary"
       >
-        Summary
+        {i('Summary')}
       </Link>
       <Link
         className="view-profile"
         to="/user/profile"
       >
-        View Profile
+        {i('View Profile')}
       </Link>
     </div>
   );

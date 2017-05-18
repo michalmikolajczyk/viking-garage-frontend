@@ -9,7 +9,7 @@ export default function UserOptional(props) {
   return (
     <Paper className="user-form">
       <div className="head">
-        Optional Information
+        {i('Optional Information')}
       </div>
       <div className="body">
         <FormsyText

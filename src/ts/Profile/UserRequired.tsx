@@ -12,7 +12,7 @@ export default function UserRequired(props) {
   return (
     <Paper className="user-form">
       <div className="head">
-        Required Information
+        {i('Required Information')}
       </div>
       <div className="body">
         <FormsyText
