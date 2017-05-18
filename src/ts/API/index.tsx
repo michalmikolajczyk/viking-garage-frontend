@@ -1,4 +1,5 @@
-const url = 'https://viking-garage-api-dev';
+const config = require('../../../config')
+const url = config.API_URL || 'http://localhost:4000';
 
 const API = {
 
