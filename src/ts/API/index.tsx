@@ -7,13 +7,15 @@ const API = {
   check: `${url}/user/check`,
   login: `${url}/user/login`,
   logout: `${url}/user/logout`,
-  me: `${url}/me`,
+  user: `${url}/user`,
 
 // signin
   resend: `${url}/user/resend`,
   reset: `${url}/user/reset`,
   signin: `${url}/user/signin`,
   verify: `${url}/user/verify`,
+
+
 // offer
   offer: `${url}/offer`,
 

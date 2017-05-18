@@ -15,6 +15,7 @@ export default function UserOptional(props) {
         <FormsyText
           name="phone"
           fullWidth={true}
+          disabled={disabled}
           floatingLabelText={i('Phone Number')}
           validations="isNumeric"
           validationError={i('Wrong phone number!')}
@@ -22,6 +23,7 @@ export default function UserOptional(props) {
         <FormsyText
           name="phone"
           fullWidth={true}
+          disabled={disabled}
           floatingLabelText={i('Emergency Contact')}
           validations="isNumeric"
           validationError={i('Wrong phone number!')}
@@ -29,6 +31,7 @@ export default function UserOptional(props) {
         <FormsyText
           name="city"
           fullWidth={true}
+          disabled={disabled}
           floatingLabelText={i('City')}
           validations="isAlpha"
           validationError={i('Wrong city name!')}
@@ -36,16 +39,18 @@ export default function UserOptional(props) {
         <FormsyText
           name="country"
           fullWidth={true}
+          disabled={disabled}
           floatingLabelText={i('Country')}
           validations="isAlpha"
           validationError={i('Wrong country name!')}
         />
         <FormsyText
           name="brief"
-          floatingLabelText="Describe Yourself"
+          fullWidth={true}
+          disabled={disabled}
+          floatingLabelText={i('Describe Yourself')}
           multiLine={true}
           rows={5}
-          fullWidth={true}
           rowsMax={5}
         />
      </div>

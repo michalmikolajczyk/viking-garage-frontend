@@ -5,7 +5,7 @@ import {
 } from 'material-ui';
 import i from '../i18n';
 
-export default function NetworkError(props) {
+export default function SaveSuccess(props) {
   const {
     open,
     close,
@@ -24,10 +24,10 @@ export default function NetworkError(props) {
     <Dialog
       open={open}
       contentStyle={{ maxWidth: 650 }}
-      title={i('Network Error')}
+      title={i('Save Success')}
       actions={actions}
     >
-      {i('Ups! It seems that we have some problems with network, try again later.')}
+      {i('Your new data was saved successfully!')}
     </Dialog>
   );
 }
