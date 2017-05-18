@@ -54,7 +54,7 @@ describe('Profile', () => {
     expect(wrapper.find('NetworkError')).to.have.length(1);
   });
 
-  it('check if gets user ino run on componentDidMount', () => {
+  it('check if gets user info run on componentDidMount', () => {
     sinon.spy(Profile.prototype, 'componentDidMount');
     const get = sinon.stub(api, 'get', () => Promise.resolve());
     expect(get).to.not.be.called;
@@ -141,7 +141,7 @@ describe('Profile', () => {
     instance['submit'](user);
     put.resolves();
 
-    expect(instance.setState).to.have.been.calledOnce;
+    expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.networkErr).to.be.false;
     expect(instance.state.saveError).to.be.false;
     expect(instance.state.saveSuccess).to.be.true;
@@ -161,7 +161,7 @@ describe('Profile', () => {
     instance['submit'](user);
     put.resolves({ err: 'something went wrong' });
 
-    expect(instance.setState).to.have.been.calledOnce;
+    expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.networkErr).to.be.false;
     expect(instance.state.saveError).to.be.true;
     expect(instance.state.saveSuccess).to.be.false;
@@ -181,7 +181,7 @@ describe('Profile', () => {
     instance['submit'](user);
     put.rejects('unexpected network error');
 
-    expect(instance.setState).to.have.been.calledOnce;
+    expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.networkErr).to.be.true;
     expect(instance.state.saveError).to.be.false;
     expect(instance.state.saveSuccess).to.be.false;

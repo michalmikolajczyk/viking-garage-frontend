@@ -6,6 +6,7 @@ export function get() {
     method: 'GET',
     headers: { Authorization: `JWT ${token}` },
   })
+  .then(res => res.json())
 }
 
 export function put(data) {
@@ -18,5 +19,6 @@ export function put(data) {
     },
     body: JSON.stringify(data),
   })
+  .then(res => res.json())
 }
 

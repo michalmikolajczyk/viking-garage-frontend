@@ -35,6 +35,6 @@ describe('Profile: <UserPhoto />', () => {
     expect(instance.state.image).to.be.null;
     instance['onDrop'](image);
     expect(instance.setState).to.have.been.calledOnce;
-    expect(instance.state.image).to.be.deep.equal(image);
+    expect(instance.state.image).to.be.deep.equal(image[0].preview);
   });
 });

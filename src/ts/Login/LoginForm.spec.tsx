@@ -19,8 +19,10 @@ const user = {
 }
 
 const response = {
-  user,
-  token: 'uuid-token',
+  data: {
+    user,
+    token: 'uuid-token',
+  }
 }
 
 describe('Login: <LoginForm />', () => {
@@ -29,7 +31,7 @@ describe('Login: <LoginForm />', () => {
   let push;
   beforeEach(() => {
     wrapper = shallow(<LoginForm />, formsyContext());
-    instance = wrapper.instance();    
+    instance = wrapper.instance();
     push = sinon.stub(browserHistory, 'push', () => {});
   });
 
@@ -44,7 +46,7 @@ describe('Login: <LoginForm />', () => {
 
     expect(wrapper.find('FormsyCheckbox')).to.have.length(1);
     expect(wrapper.find('[name="remember"]')).to.have.length(1);
-   
+
     expect(wrapper.find('button.submit')).to.have.length(1);
   });
 
@@ -76,10 +78,10 @@ describe('Login: <LoginForm />', () => {
     const login = sinon.stub(api, 'login')['returnsPromise']();
     const storage = sinon.stub(localStorage, 'setItem', (type, item) => {
       if (type === 'jwt') {
-        expect(item).to.be.equal(response.token);
+        expect(item).to.be.equal(response.data.token);
       }
       if (type === 'user') {
-        expect(item).to.be.equal(JSON.stringify(response.user))
+        expect(item).to.be.equal(JSON.stringify(response.data.user))
       }
     });
 

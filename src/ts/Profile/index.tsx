@@ -33,13 +33,9 @@ export default class UserEdit extends React.Component<any, any> {
 
   componentDidMount() {
     get()
-      .then(res => {
-        if (res.status === 401) return this.setState({ unauthorized: true });
-        res.json()
-          .then(res => {
-            if (res['err']) return this.setState({ networkErr: true });
-            this.setState({ user: res['data'] });
-          })
+      .then((res) => {
+        if (res && res['err']) return this.setState({ networkErr: true });
+        this.setState({ user: res['data'] });
       })
       .catch(err => this.setState({ networkErr: true }));
   }
@@ -47,9 +43,9 @@ export default class UserEdit extends React.Component<any, any> {
   submit = (user) => {
     this.setState({ canSubmit: false });
     put(user)
-      .then(res => {
-        if (res.status === 204) return this.setState({ saveSuccess: true });
-        this.setState({ saveError: true });
+      .then((res) => {
+        if (res && res['err']) return this.setState({ saveError: true });
+        this.setState({ saveSuccess: true });
       })
       .catch(err => this.setState({ networkErr: true }));
   }
