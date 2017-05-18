@@ -42,10 +42,18 @@ export default class SiginForm extends React.Component<any, any> {
         onSubmit={this.submit}
       >
         <FormsyText
-          name="name"
+          name="firstname"
           required={true}
           fullWidth={true}
-          floatingLabelText={i('Full Name')}
+          floatingLabelText={i('First Name')}
+          validations="minLength:3"
+          validationError={i('Full name too short! Minimum 3 chars')}
+        />
+        <FormsyText
+          name="lastname"
+          required={true}
+          fullWidth={true}
+          floatingLabelText={i('Last Name')}
           validations="minLength:3"
           validationError={i('Full name too short! Minimum 3 chars')}
         />

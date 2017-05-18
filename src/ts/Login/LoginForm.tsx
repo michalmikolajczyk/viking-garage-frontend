@@ -22,8 +22,9 @@ export default class LoginForm extends React.Component<any, any> {
     login(user)
       .then((res) => {
         if (res['err']) return this.setState({ openDialog: true });
-        const token = res['token'];
-        const user = res['user'];
+        const data = res['data'];
+        const token = data.token;
+        const user = data.user;
         localStorage.setItem('jwt', token);
         localStorage.setItem('user', JSON.stringify(user));
         browserHistory.push('/');
