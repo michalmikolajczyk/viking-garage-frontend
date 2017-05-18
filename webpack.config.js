@@ -4,6 +4,10 @@ var WebpackNotifierPlugin = require('webpack-notifier');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  devServer: {
+    compress: true,
+    disableHostCheck: true
+  },
   devtool: 'source-map',
   entry: [
     // Add the react hot loader entry point - in reality, you only want this in your dev Webpack config
