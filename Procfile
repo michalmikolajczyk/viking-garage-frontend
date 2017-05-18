@@ -1,1 +1,3 @@
-web: ./scripts/heroku.sh
+web:
+npm i
+npm start
