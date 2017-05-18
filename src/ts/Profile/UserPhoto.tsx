@@ -20,8 +20,8 @@ export default class ProfilePhoto extends React.Component<any, any> {
   }
 
   render() {
-    const background = this.state.image ? { backgroundImage: `url(${this.state.image[0].preview})` } : {};
-    const icon = this.state.image ? null : <FontIcon className="fa fa-camera" />;
+    const background = this.state.image && { backgroundImage: `url(${this.state.image[0].preview})` };
+    const icon = !this.state.image && <FontIcon className="fa fa-camera" />;
     return (
       <Paper className="user-form">
         <div className="head">
@@ -29,7 +29,7 @@ export default class ProfilePhoto extends React.Component<any, any> {
         </div>
         <div className="user-photo">
           <Dropzone
-            ref={(node) => {this.dropZone = node}}
+            ref={(node) => this.dropZone = node}
             className="drop-area"
             activeClassName="over"
             multiple={false}

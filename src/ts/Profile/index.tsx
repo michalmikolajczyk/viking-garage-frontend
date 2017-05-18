@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import i from '../i18n';
 import Container from '../Container';
 import UserMenu from './UserMenu';
+import UserSide from './UserSide';
 import UserPhoto from './UserPhoto';
 import UserRequrired from './UserRequired';
 import UserOptional from './UserOptional';
@@ -42,22 +43,25 @@ export default class UserEdit extends React.Component<any, any> {
     return (
       <Container close={true}>
         <UserMenu />
-        <div className="user-edit">
-          <UserPhoto />
-          <Form
-            onValid={this.onValid}
-            onInvalid={this.onInvalid}
-            onSubmit={this.submit}
-          >
-            <UserRequrired user={this.state.user} />
-            <UserOptional user={this.state.user} />
-            <button
-              className="submit"
-              disabled={!this.state.canSubmit}
+        <div className="user-wrap">
+          <UserSide />
+          <div className="user-edit">
+            <UserPhoto />
+            <Form
+              onValid={this.onValid}
+              onInvalid={this.onInvalid}
+              onSubmit={this.submit}
             >
-              {i('Save')}
-            </button>
-          </Form>
+              <UserRequrired user={this.state.user} />
+              <UserOptional user={this.state.user} />
+              <button
+                className="submit"
+                disabled={!this.state.canSubmit}
+              >
+                {i('Save')}
+              </button>
+            </Form>
+          </div>
         </div>
       </Container>
     );

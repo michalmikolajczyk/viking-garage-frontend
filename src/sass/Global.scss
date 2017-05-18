@@ -61,7 +61,9 @@ ul {
   border-radius: 3px;
   border: 1px solid #9B9B9B;
   line-height: 36px;
-  vertical-align: center;
+  text-align: center;
   text-transform: uppercase;
   cursor: pointer;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
