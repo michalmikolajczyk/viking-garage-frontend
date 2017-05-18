@@ -1,4 +1,4 @@
-const url = process.env.API_URL || 'http://localhost:4000';
+const url = location.hostname.match('localhost') ? 'http://localhost:4000' : 'https://viking-garage-api-dev.herokuapp.com';
 
 const API = {
 
