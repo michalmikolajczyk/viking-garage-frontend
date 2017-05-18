@@ -4,7 +4,7 @@
   "description": "VIKING GARAGE frontend",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run lint && webpack --config webpack.config.js",
+    "postinstall": "webpack --config webpack.config.js",
     "start": "node server.js",
     "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx src/ts/**/**/*.spec.tsx",
     "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx"
