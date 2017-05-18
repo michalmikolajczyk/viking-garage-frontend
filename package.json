@@ -4,10 +4,10 @@
   "description": "VIKING GARAGE frontend",
   "main": "index.js",
   "scripts": {
-    "postinstall": "webpack --config webpack.config.js",
-    "start": "node server.js",
+    "postinstall": "webpack --config webpack.prod.config.js --progress --colors",
     "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx src/ts/**/**/*.spec.tsx",
-    "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx"
+    "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx",
+    "start": "node ./app.js"
   },
   "engines": {
     "node": "7.10.0"
