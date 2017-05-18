@@ -4,6 +4,7 @@ import {
   FormsyDate,
   FormsyText,
 } from 'formsy-material-ui/lib';
+import * as moment from 'moment';
 import i from '../i18n';
 
 export default function UserRequired(props) {
@@ -40,7 +41,7 @@ export default function UserRequired(props) {
           disabled={disabled}
           required={true}
           fullWidth={true}
-          value={user && user.birthday}
+          value={user && moment(user.birthday).toDate()}
           floatingLabelText={i('Date of birth')}
         />
         <FormsyText

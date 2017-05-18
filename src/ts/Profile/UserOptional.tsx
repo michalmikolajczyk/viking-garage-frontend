@@ -16,6 +16,7 @@ export default function UserOptional(props) {
           name="phone"
           fullWidth={true}
           disabled={disabled}
+          value={user && user.phone}
           floatingLabelText={i('Phone Number')}
           validations="isNumeric"
           validationError={i('Wrong phone number!')}
@@ -24,6 +25,7 @@ export default function UserOptional(props) {
           name="emergency"
           fullWidth={true}
           disabled={disabled}
+          value={user && user.emergency}
           floatingLabelText={i('Emergency Contact')}
           validations="isNumeric"
           validationError={i('Wrong phone number!')}
@@ -32,6 +34,7 @@ export default function UserOptional(props) {
           name="city"
           fullWidth={true}
           disabled={disabled}
+          value={user && user.city}
           floatingLabelText={i('City')}
           validations="isAlpha"
           validationError={i('Wrong city name!')}
@@ -40,6 +43,7 @@ export default function UserOptional(props) {
           name="country"
           fullWidth={true}
           disabled={disabled}
+          value={user && user.country}
           floatingLabelText={i('Country')}
           validations="isAlpha"
           validationError={i('Wrong country name!')}
@@ -48,6 +52,7 @@ export default function UserOptional(props) {
           name="brief"
           fullWidth={true}
           disabled={disabled}
+          value={user && user.brief}
           floatingLabelText={i('Describe Yourself')}
           multiLine={true}
           rows={5}

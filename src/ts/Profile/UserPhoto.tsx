@@ -7,15 +7,21 @@ import * as Dropzone from 'react-dropzone';
 import i from '../i18n';
 
 export default class UserPhoto extends React.Component<any, any> {
-  state = { image: null };
+  state = { image: null }
   dropZone: any;
 
-  onDrop = (image, event) => this.setState({ image });
+  componentWillReceiveProps(props) {
+    if (props.user && props.user.image) {
+      this.setState({ image: props.user.image});
+    }
+  }
+
+  onDrop = (image, event) => this.setState({ image: image[0].preview });
 
   onClick = () => this.dropZone.open();
 
   render() {
-    const background = this.state.image && { backgroundImage: `url(${this.state.image[0].preview})` };
+    const background = this.state.image && { backgroundImage: `url(${this.state.image})` };
     const icon = !this.state.image && <FontIcon className="fa fa-camera" />;
     return (
       <Paper className="user-form">

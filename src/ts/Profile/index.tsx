@@ -19,6 +19,7 @@ import UserOptional from './UserOptional';
 import SaveError from '../Dialogs/SaveError';
 import SaveSuccess from '../Dialogs/SaveSuccess';
 import NetworkError from '../Dialogs/NetworkError';
+import Unauthorized from '../Dialogs/Unauthorized';
 
 export default class UserEdit extends React.Component<any, any> {
   state = {
@@ -27,22 +28,28 @@ export default class UserEdit extends React.Component<any, any> {
     saveError: false,
     saveSuccess: false,
     networkErr: false,
+    unauthorized: false,
   };
 
   componentDidMount() {
     get()
       .then(res => {
-        if (res['err']) return this.setState({ networkErr: true });
-        this.setState({ user: res['data'] });
+        if (res.status === 401) return this.setState({ unauthorized: true });
+        res.json()
+          .then(res => {
+            if (res['err']) return this.setState({ networkErr: true });
+            this.setState({ user: res['data'] });
+          })
       })
       .catch(err => this.setState({ networkErr: true }));
   }
 
   submit = (user) => {
+    this.setState({ canSubmit: false });
     put(user)
       .then(res => {
-        if (res && res['err']) return this.setState({ saveError: true });
-        this.setState({ saveSuccess: true });
+        if (res.status === 204) return this.setState({ saveSuccess: true });
+        this.setState({ saveError: true });
       })
       .catch(err => this.setState({ networkErr: true }));
   }
@@ -64,7 +71,7 @@ export default class UserEdit extends React.Component<any, any> {
         <div className="user-wrap">
           <UserSide />
           <div className="user-edit">
-            <UserPhoto />
+            <UserPhoto user={this.state.user}/>
             <Form
               onValid={this.onValid}
               onInvalid={this.onInvalid}
@@ -81,6 +88,9 @@ export default class UserEdit extends React.Component<any, any> {
             </Form>
           </div>
         </div>
+        <Unauthorized
+          open={this.state.unauthorized}
+        />
         <SaveError
           open={this.state.saveError}
           close={this.saveErrorClose}
