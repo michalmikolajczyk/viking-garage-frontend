@@ -21,7 +21,7 @@ export default function UserOptional(props) {
           validationError={i('Wrong phone number!')}
         />
         <FormsyText
-          name="phone"
+          name="emergency"
           fullWidth={true}
           disabled={disabled}
           floatingLabelText={i('Emergency Contact')}

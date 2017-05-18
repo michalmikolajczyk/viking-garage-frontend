@@ -21,7 +21,7 @@ describe('<Router />', () => {
       '/guides-coaches',
       '/mechanics',
       '/faq',
-      '/user/edit',
+      '/user/profile',
       '*',
     ];
     const wrapper = shallow(<Router />);
