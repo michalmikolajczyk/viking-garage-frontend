@@ -53,3 +53,15 @@ ul {
 .float-left {
   float: left;
 }
+
+.btn {
+  @extend .t3;
+  min-width: 150px;
+  min-height: 36px;
+  border-radius: 3px;
+  border: 1px solid #9B9B9B;
+  line-height: 36px;
+  vertical-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}

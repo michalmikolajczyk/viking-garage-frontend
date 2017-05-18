@@ -25,7 +25,7 @@ export default class ProfilePhoto extends React.Component<any, any> {
     return (
       <Paper className="user-form">
         <div className="head">
-          Profile Photo:
+          Profile Photo
         </div>
         <div className="user-photo">
           <Dropzone
@@ -44,10 +44,10 @@ export default class ProfilePhoto extends React.Component<any, any> {
           <div className="photo-items">
             <div className="image-btn" onClick={this.onClick}>
               <div>
-                Drop a file over camera
+                Drop an image over camera icon
               </div>
               <div>
-                or click here to choose a file
+                or click here to choose it!
               </div>
             </div>
             <div className="image-desc">

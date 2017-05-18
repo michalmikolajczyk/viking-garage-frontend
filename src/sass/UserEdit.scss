@@ -39,11 +39,14 @@ $user-menu-height: 32px;
       height: 46px;
       line-height: 46px;
       padding-left: 16px;
-      border-bottom: solid 1px #979797;
+      border-bottom: solid 1px #9B9B9B;
     }
     .body {
       padding: 16px;
     }
+  }
+  .submit {
+    @extend .btn;
   }
 }
 

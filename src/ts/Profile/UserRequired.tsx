@@ -1,13 +1,8 @@
 import * as React from 'react';
+import { Paper } from 'material-ui';
 import {
-  MenuItem,
-  Paper,
-} from 'material-ui';
-import {
-  FormsyCheckbox,
   FormsyDate,
   FormsyText,
-  FormsySelect,
 } from 'formsy-material-ui/lib';
 import i from '../i18n';
 
@@ -23,75 +18,40 @@ export default function UserRequired(props) {
         <FormsyText
           name="firstname"
           disabled={disabled}
+          value={user && user.firstname}
           required={true}
           fullWidth={true}
-          floatingLabelText={i('First Name')}
           validations="minLength:3"
+          floatingLabelText={i('First Name')}
           validationError={i('First name too short! Minimum 3 chars')}
         />
         <FormsyText
           name="lastname"
           disabled={disabled}
+          value={user && user.lastname}
           required={true}
           fullWidth={true}
-          floatingLabelText={i('Last Name')}
           validations="minLength:3"
+          floatingLabelText={i('Last Name')}
           validationError={i('Last name too short! Minimum 3 chars')}
         />
         <FormsyDate
           name="birthday"
+          disabled={disabled}
+          required={true}
+          fullWidth={true}
+          value={user && user.birthday}
           floatingLabelText={i('Date of birth')}
-          disabled={disabled}
-          required={true}
-          fullWidth={true}
         />
-        <FormsySelect
-          name="sex"
-          floatingLabelText={i('I am')}
-          fullWidth={true}
-          disabled={disabled}
-          required={true}
-        >
-          <MenuItem key="female" value="female" primaryText="Female" />
-          <MenuItem key="male" value="male" primaryText="Male" />
-        </FormsySelect>
         <FormsyText
           name="email"
           disabled={disabled}
+          value={user && user.email}
           required={true}
           fullWidth={true}
-          floatingLabelText={i('E-mail Address')}
           validations="isEmail"
+          floatingLabelText={i('E-mail Address')}
           validationError={i('Wrong e-mail address!')}
-        />
-        <FormsyText
-          name="phone"
-          fullWidth={true}
-          floatingLabelText={i('Phone Number')}
-          validations="isNumeric"
-          validationError={i('Wrong phone number!')}
-        />
-        <FormsyText
-          name="city"
-          fullWidth={true}
-          floatingLabelText={i('City')}
-          validations="isAlpha"
-          validationError={i('Wrong city name!')}
-        />
-        <FormsyText
-          name="country"
-          fullWidth={true}
-          floatingLabelText={i('Country')}
-          validations="isAlpha"
-          validationError={i('Wrong country name!')}
-        />
-        <FormsyText
-          name="brief"
-          floatingLabelText="Describe yourself"
-          multiLine={true}
-          rows={5}
-          fullWidth={true}
-          rowsMax={5}
         />
       </div>
     </Paper>

@@ -3,6 +3,7 @@ import {
   Paper,
 } from 'material-ui';
 import { Form } from 'formsy-react';
+import * as moment from 'moment';
 import i from '../i18n';
 import Container from '../Container';
 import UserMenu from './UserMenu';
@@ -14,6 +15,19 @@ export default class UserEdit extends React.Component<any, any> {
   state = {
     user: null,
     canSubmit: false,
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        user: {
+          firstname: 'Michal',
+          lastname: 'Mikolajczyk',
+          birthday: moment('1981-01-12 00:00:00+01').toDate(),
+          email: 'michal@vikinggarage.com',
+        }
+      })
+    }, 5000)
   }
 
   submit = (user) => {
