@@ -7,16 +7,12 @@ import * as Dropzone from 'react-dropzone';
 import i from '../i18n';
 
 export default class UserPhoto extends React.Component<any, any> {
-  state = { image: null }
+  state = { image: null };
   dropZone: any;
 
-  onDrop = (image, event) => {
-    this.setState({ image });
-  }
+  onDrop = (image, event) => this.setState({ image });
 
-  onClick = () => {
-    this.dropZone.open();
-  }
+  onClick = () => this.dropZone.open();
 
   render() {
     const background = this.state.image && { backgroundImage: `url(${this.state.image[0].preview})` };
