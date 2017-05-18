@@ -1,13 +1,16 @@
 {
   "name": "viking-garage-frontend",
-  "version": "0.0.1",
-  "description": "VIKING GARAGE app",
+  "version": "0.5.5",
+  "description": "VIKING GARAGE frontend",
   "main": "index.js",
   "scripts": {
     "build": "npm run lint && webpack --config webpack.config.js",
     "start": "node server.js",
     "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx src/ts/**/**/*.spec.tsx",
     "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx"
+  },
+  "engines": {
+    "node": "7.10.0"
   },
   "repository": {
     "type": "git",
