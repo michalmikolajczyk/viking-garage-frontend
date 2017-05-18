@@ -1,4 +1,3 @@
-const config = require('../../../config')
 const url = process.env.API_URL || 'http://localhost:4000';
 
 const API = {
