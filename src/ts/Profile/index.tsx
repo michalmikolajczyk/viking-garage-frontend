@@ -13,7 +13,7 @@ import Container from '../Container';
 import UserMenu from './UserMenu';
 import UserSide from './UserSide';
 import UserPhoto from './UserPhoto';
-import UserRequrired from './UserRequired';
+import UserRequired from './UserRequired';
 import UserOptional from './UserOptional';
 
 import SaveError from '../Dialogs/SaveError';
@@ -26,36 +26,36 @@ export default class UserEdit extends React.Component<any, any> {
     canSubmit: false,
     saveError: false,
     saveSuccess: false,
-    networkError: false,
-  }
+    networkErr: false,
+  };
 
   componentDidMount() {
     get()
       .then(res => {
-        if (res['err']) return this.setState({ networkError: true });
+        if (res['err']) return this.setState({ networkErr: true });
         this.setState({ user: res['data'] });
       })
-      .catch(err => this.setState({ networkError: true }))
+      .catch(err => this.setState({ networkErr: true }));
   }
 
   submit = (user) => {
     put(user)
       .then(res => {
-        if (res['err']) return this.setState({ saveError: true });
+        if (res && res['err']) return this.setState({ saveError: true });
         this.setState({ saveSuccess: true });
       })
-      .catch(err => this.setState({ networkError: true }))
+      .catch(err => this.setState({ networkErr: true }));
   }
 
-  onValid = () => this.setState({ canSubmit: true })
+  onValid = () => this.setState({ canSubmit: true });
 
-  onInvalid = () => this.setState({ canSubmit: false })
+  onInvalid = () => this.setState({ canSubmit: false });
 
   saveErrorClose = () => this.setState({ saveError: false });
 
   saveSuccessClose = () => this.setState({ saveSuccess: false });
 
-  networkErrClose = () => this.setState({ networkError: false });
+  networkErrClose = () => this.setState({ networkErr: false });
 
   render() {
     return (
@@ -70,7 +70,7 @@ export default class UserEdit extends React.Component<any, any> {
               onInvalid={this.onInvalid}
               onSubmit={this.submit}
             >
-              <UserRequrired user={this.state.user} />
+              <UserRequired user={this.state.user} />
               <UserOptional user={this.state.user} />
               <button
                 className="submit"
@@ -90,7 +90,7 @@ export default class UserEdit extends React.Component<any, any> {
           close={this.saveSuccessClose}
         />
         <NetworkError
-          open={this.state.networkError}
+          open={this.state.networkErr}
           close={this.networkErrClose}
         />
       </Container>
