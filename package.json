@@ -4,7 +4,8 @@
   "description": "VIKING GARAGE frontend",
   "main": "index.js",
   "scripts": {
-    "postinstall": "webpack --config webpack.prod.config.js --progress --colors",
+    "copy": "cp config.js.example config.js",
+    "postinstall": "npm run copy && webpack --config webpack.prod.config.js --progress --colors",
     "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx src/ts/**/**/*.spec.tsx",
     "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx",
     "start": "node ./app.js"

@@ -1,9 +1,11 @@
 {
   "name": "viking-garage-frontend",
-  "scripts": {
-    "postdeploy": "scripts/setup.sh"
+  "scripts": {},
+  "env": {
+    "API_URL": "https://viking-garage-api-staging.herokuapp.com/",
+    "NODE_MODULES_CACHE": "false",
+    "NPM_CONFIG_PRODUCTION": "false"
   },
-  "env": {},
   "formation": {},
   "addons": [],
   "buildpacks": []

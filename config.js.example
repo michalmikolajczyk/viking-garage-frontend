@@ -1,0 +1,3 @@
+var config = {
+  GOOGLE_MAP_API: 'AIzaSyCdqKWZgAE65hVV89OmGEfeNTQkOB9EXM8'
+};

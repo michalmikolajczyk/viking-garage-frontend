@@ -1,4 +1,4 @@
-const url = location.hostname.match('localhost') ? 'http://localhost:4000' : 'https://viking-garage-api-dev.herokuapp.com';
+const url = location.hostname.match('localhost') ? 'http://localhost:4000' : 'https://viking-garage-api-staging.herokuapp.com';
 
 const API = {
 
