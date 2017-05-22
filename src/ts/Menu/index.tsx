@@ -39,8 +39,8 @@ export default function MenuVG(props) {
       <MenuItem primaryText={i('Profile')} href="/user/profile" />
       <MenuItem primaryText={i('Add offer')} href="/add-offer" />
       <MenuItem primaryText={i('Deals')} href="/deals" />
-      <MenuItem primaryText={i('Messages')} href="user/inbox" />
-      <MenuItem primaryText={i('Account')} href="user/account" />
+      <MenuItem primaryText={i('Messages')} href="/user/inbox" />
+      <MenuItem primaryText={i('Account')} href="/user/account" />
       <Divider />
       <MenuItem primaryText={i('Log out')} onClick={logout} />
     </IconMenu>

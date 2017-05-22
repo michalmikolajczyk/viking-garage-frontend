@@ -47,7 +47,7 @@ export default class SiginForm extends React.Component<any, any> {
           fullWidth={true}
           floatingLabelText={i('First Name')}
           validations="minLength:3"
-          validationError={i('Full name too short! Minimum 3 chars')}
+          validationError={i('Please add more characters (minimum 3)')}
         />
         <FormsyText
           name="lastname"
@@ -55,7 +55,7 @@ export default class SiginForm extends React.Component<any, any> {
           fullWidth={true}
           floatingLabelText={i('Last Name')}
           validations="minLength:3"
-          validationError={i('Full name too short! Minimum 3 chars')}
+          validationError={i('Please add more characters (minimum 3)')}
         />
         <FormsyText
           name="email"

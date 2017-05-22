@@ -24,7 +24,7 @@ export default function UserRequired(props) {
           fullWidth={true}
           validations="minLength:3"
           floatingLabelText={i('First Name')}
-          validationError={i('First name too short! Minimum 3 chars')}
+          validationError={i('Please add more characters (minimum 3)')}
         />
         <FormsyText
           name="lastname"
@@ -34,7 +34,7 @@ export default function UserRequired(props) {
           fullWidth={true}
           validations="minLength:3"
           floatingLabelText={i('Last Name')}
-          validationError={i('Last name too short! Minimum 3 chars')}
+          validationError={i('Please add more characters (minimum 3)')}
         />
         <FormsyDate
           name="birthday"

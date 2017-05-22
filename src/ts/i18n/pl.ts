@@ -129,8 +129,10 @@ export default {
   'or use another e-mail address.': 'lub użyj innego adresu e-mail',
 
 // Signin Form
-  'Full Name': 'Imię i nazwisko',
-  'Full name too short! Minimum 3 chars': 'Imię i nazwisko zbyt krótkie! Minimum 3 znaki',
+  'First Name': 'Imię',
+  'Please add more characters (minimum 3)': 'Proszę wprowadź więcej znaków (minimum 3)',
+  'Last Name': 'Nazwisko',
+  // 'Please add more characters (minimum 3 chars)': '',
   // 'E-mail': '',
   // 'Wrong e-mail address!': '',
   'Date of birth': 'Data Urodzenia',
@@ -344,10 +346,10 @@ export default {
 
 // User Required
   'Required Information': 'Wymagane Informacje',
-  'First Name': 'Imię',
-  'First name too short! Minimum 3 chars': 'Imię za krótkie! Minimum 3 znaki',
-  'Last Name': 'Nazwisko',
-  'Last name too short! Minimum 3 chars': 'Nazwisko za krótkie! Minimum 3 znaki',
+  // 'First Name': 'Imię',
+  // 'Please add more characters (minimum 3 chars)': 'Imię za krótkie! Minimum 3 znaki',
+  // 'Last Name': 'Nazwisko',
+  // 'Please add more characters (minimum 3 chars)': '',
   // 'Date of birth': '',
   'E-mail Address': 'Adres E-mail',
   // 'Wrong e-mail address!': '',
