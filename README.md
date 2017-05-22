@@ -38,6 +38,10 @@ var config = {
 }
 ```
 
+## Deployment
+
+Please look into Heroku Pipelines
+Docker - Travis CI - Github - Heroku Pipeline - Review - Development - Staging - Production
 
 ## Debug
 To enable logs from the App, set in a `localStorage`:
