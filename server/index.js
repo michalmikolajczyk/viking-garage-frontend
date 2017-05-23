@@ -1,6 +1,6 @@
 const serverDev = require('./server-dev');
-const serverProd = require('./server-prod.js');
-const port = (process.env.PORT || 3000);
+const serverProd = require('./server-prod');
+const port = process.env.PORT || 3000;
 const env = process.env.NODE_ENV;
 
 if (env === 'production') {
@@ -8,4 +8,3 @@ if (env === 'production') {
 } else {
   serverDev.listen(port);
 }
-

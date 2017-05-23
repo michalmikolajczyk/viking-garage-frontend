@@ -18,7 +18,7 @@ module.exports = {
     }).listen(port, '0.0.0.0', function (err, result) {
       if (err) return console.log(err);
 
-      console.log('Environment: DEV\nListen on port: ' + port);
+      console.log('Environment: dev\nListen on port: ' + port);
     });
   }
 }
