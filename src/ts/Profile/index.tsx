@@ -9,7 +9,6 @@ import {
   get,
   put,
 } from './api';
-import Container from '../Container';
 import UserMenu from './UserMenu';
 import UserSide from './UserSide';
 import UserPhoto from './UserPhoto';
@@ -62,7 +61,7 @@ export default class UserEdit extends React.Component<any, any> {
 
   render() {
     return (
-      <Container close={true}>
+      <div>
         <UserMenu />
         <div className="user-wrap">
           <UserSide />
@@ -99,7 +98,7 @@ export default class UserEdit extends React.Component<any, any> {
           open={this.state.networkErr}
           close={this.networkErrClose}
         />
-      </Container>
+      </div>
     );
   }
 }

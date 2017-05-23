@@ -39,7 +39,6 @@ describe('Profile', () => {
   });
 
   it('check for inner components', () => {
-    expect(wrapper.find('Container')).to.have.length(1);
     expect(wrapper.find('UserMenu')).to.have.length(1);
 
     expect(wrapper.find('UserSide')).to.have.length(1);

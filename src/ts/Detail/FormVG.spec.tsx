@@ -10,8 +10,9 @@ import { offer } from './mockup';
 describe('<FormVG />', () => {
   it('check for form inputs: price, start & end date, equipment', () => {
     const wrapper = mountWithTheme(<FormVG offer={offer} />);
-    expect(wrapper.find('#base-price')).to.have.length(1);
-    expect(wrapper.find('.date-picker')).to.have.length(2);
+    expect(wrapper.find('[name="base-price"]')).to.have.length(1);
+    expect(wrapper.find('[name="start-date"]')).to.have.length(1);
+    expect(wrapper.find('[name="end-date"]')).to.have.length(1);
     expect(wrapper.find('.equipment')).to.have.length(1);
   });
 

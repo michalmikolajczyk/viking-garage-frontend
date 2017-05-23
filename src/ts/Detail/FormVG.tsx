@@ -114,7 +114,7 @@ export default class FormVG extends React.Component<any, any> {
           <div className="field">
             <FontIcon className="fa fa-money" />
             <TextField
-              id="base-price"
+              name="base-price"
               value={`${i('Base price')}: 55 $ / ${i('day')}`}
               onChange={() => undefined}
               fullWidth={true}
@@ -145,7 +145,6 @@ export default class FormVG extends React.Component<any, any> {
           <div className="field">
             <FontIcon className="fa fa-angle-down" />
             <SelectField
-              id="select-equipment"
               className="equipment"
               value={this.state.equipment}
               onChange={this.equipmentChange}
