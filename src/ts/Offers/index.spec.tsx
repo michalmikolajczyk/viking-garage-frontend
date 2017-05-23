@@ -17,17 +17,17 @@ const coords = {
   longitude: '21.047533',
 };
 
-describe('Signin: <Offers />', () => {
+describe('<Offers />', () => {
   let wrapper;
   let instance;
 
   beforeEach(() => {
     wrapper = shallow(<Offers />);
-    instance = wrapper.instance();    
+    instance = wrapper.instance();
   });
 
   it('check for inner components', () => {
-    expect(wrapper.find('Container')).to.have.length(1);
+    expect(wrapper.find('Header')).to.have.length(1);
     expect(wrapper.find('Search')).to.have.length(1);
   });
 

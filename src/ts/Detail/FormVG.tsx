@@ -123,6 +123,7 @@ export default class FormVG extends React.Component<any, any> {
           <div className="field">
             <FontIcon className="material-icons">today</FontIcon>
             <DatePicker
+              name="start-date"
               className="date-picker"
               autoOk={true}
               value={this.state.startDate}
@@ -133,6 +134,7 @@ export default class FormVG extends React.Component<any, any> {
           <div className="field">
             <FontIcon className="material-icons">date_range</FontIcon>
             <DatePicker
+              name="end-date"
               className="date-picker"
               autoOk={true}
               value={this.state.endDate}
@@ -143,6 +145,7 @@ export default class FormVG extends React.Component<any, any> {
           <div className="field">
             <FontIcon className="fa fa-angle-down" />
             <SelectField
+              id="select-equipment"
               className="equipment"
               value={this.state.equipment}
               onChange={this.equipmentChange}

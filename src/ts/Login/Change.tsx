@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Form } from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
-import Container from '../Container';
+import Header from '../Header';
 import ChangeError from './ChangeError';
 import ChangeSuccess from './ChangeSuccess';
 import NetworkError from '../Dialogs/NetworkError';
@@ -38,7 +38,8 @@ export default class Change extends React.Component<any, any> {
 
   render() {
     return (
-      <Container className="cont">
+      <div>
+        <Header />
         <div className="form">
           <h1 className="title">Change your password.</h1>
           <div className="title-sub">
@@ -91,7 +92,7 @@ export default class Change extends React.Component<any, any> {
             </Form>
           </div>
         </div>
-      </Container>
+      </div>
     );
   }
 }

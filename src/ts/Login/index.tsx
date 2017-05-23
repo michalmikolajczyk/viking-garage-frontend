@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Link } from 'react-router';
 import i from '../i18n';
-import Container from '../Container';
+import Header from '../Header';
 import LoginForm from './LoginForm';
 
 export default function Login(props) {
   return (
-    <Container className="cont">
+    <div>
+      <Header />
       <div className="form">
         <h1 className="title">{i('Log in to your account')}</h1>
         <div className="title-sub">
@@ -26,6 +27,6 @@ export default function Login(props) {
           </Link>
         </div>
       </div>
-    </Container>
+    </div>
   );
 }

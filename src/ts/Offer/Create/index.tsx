@@ -4,7 +4,6 @@ import {
   Paper,
   TextField,
 } from 'material-ui';
-import Container from '../../Container';
 import Select from './Select';
 import DropImage from './DropImage';
 import General from './General';
@@ -31,7 +30,7 @@ export default class Create extends React.Component<any, any> {
 
   render() {
     return (
-      <Container close={true}>
+      <div>
         <Form>
           <div className="create">
             <div className="main-view">
@@ -58,7 +57,7 @@ export default class Create extends React.Component<any, any> {
             </div>
           </div>
         </Form>
-      </Container>
+      </div>
     );
   }
 }

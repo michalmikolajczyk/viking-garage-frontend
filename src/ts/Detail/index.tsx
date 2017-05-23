@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { browserHistory } from 'react-router';
-import Container from '../Container';
 import NetworkError from '../Dialogs/NetworkError';
 import FormVG from './FormVG';
 import Offer from './Offer';
@@ -37,7 +36,7 @@ export default class Detail extends React.Component<any, any> {
 
   render() {
     return (
-      <Container close={true}>
+      <div>
         <div className="detail">
           <Offer offer={this.state.offer} />
           <FormVG offer={this.state.offer} />
@@ -46,7 +45,7 @@ export default class Detail extends React.Component<any, any> {
           open={this.state.networkErr}
           close={this.close}
         />
-      </Container>
+      </div>
     );
   }
 }

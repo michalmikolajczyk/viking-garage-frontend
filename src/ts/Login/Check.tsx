@@ -1,10 +1,11 @@
 import * as React from 'react';
 import i from '../i18n';
-import Container from '../Container';
+import Header from '../Header';
 
 export default function Check() {
   return (
-    <Container className="cont">
+    <div>
+      <Header />
       <div className="form">
         <h1 className="title">{i('Please check your inbox')}</h1>
         <div className="title-sub">
@@ -27,6 +28,6 @@ export default function Check() {
         <div className="inputs">
         </div>
       </div>
-    </Container>
+    </div>
   );
 }

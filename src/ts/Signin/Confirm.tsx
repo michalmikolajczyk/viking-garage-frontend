@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { browserHistory } from 'react-router';
 import i from '../i18n';
-import Container from '../Container';
+import Header from '../Header';
 import ConfirmSuccess from './ConfirmSuccess';
 import NetworkError from '../Dialogs/NetworkError';
 import { resend } from './api';
@@ -31,7 +31,8 @@ export default class Confirm extends React.Component<any, any> {
 
   render() {
     return (
-      <Container className="cont">
+      <div>
+        <Header />
         <div className="form">
           <h1 className="title">{i('Please confirm your account')}</h1>
           <div className="title-sub">
@@ -63,7 +64,7 @@ export default class Confirm extends React.Component<any, any> {
           open={this.state.networkErr}
           close={this.closeNetworkDialog}
         />
-      </Container>
+      </div>
     );
   }
 }

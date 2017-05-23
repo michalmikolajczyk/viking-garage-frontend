@@ -14,7 +14,7 @@ export default class Location extends React.Component<any, any> {
     super(props);
     this.state = { data: [] };
     this.filter = props.filter;
-    this.service = new google.maps.places.AutocompleteService();
+    this.service = typeof google !== 'undefined' ? new google.maps.places.AutocompleteService() : null;
   }
 
   onNewRequest = (chosenRequest: string, index: number) => {
@@ -22,7 +22,7 @@ export default class Location extends React.Component<any, any> {
   }
 
   onUpdateInput = (input: string) => {
-    if (input !== '') {
+    if (this.service && input !== '') {
       this.service.getQueryPredictions({ input }, (predictions, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           this.setState({ data: predictions.map(p => p.description) });

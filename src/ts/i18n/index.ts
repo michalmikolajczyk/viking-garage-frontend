@@ -1,7 +1,7 @@
 import pl from './pl';
 import * as moment from 'moment';
 
-const langCode = (navigator.language || navigator['userLanguage']).substr(0, 2);
+const langCode = typeof navigator !== 'undefined' ? (navigator.language || navigator['userLanguage']).substr(0, 2) : 'en';
 moment.locale(langCode);
 const TRANSLATIONS = {
   pl,
