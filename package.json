@@ -4,11 +4,12 @@
   "description": "VIKING GARAGE frontend",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack/webpack.config.prod.js --progress --colors",
+    "build:app": "webpack --config webpack/webpack.config.prod-app.js --progress --colors",
+    "build:ssr": "webpack --config webpack/webpack.config.prod-ssr.js --progress --colors",
     "dev": "env NODE_ENV=development node ./server",
     "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx src/ts/**/**/*.spec.tsx",
     "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx",
-    "start": "npm run build && env NODE_ENV=production node ./server"
+    "start": "npm run build:ssr && npm run build:app && env NODE_ENV=production node ./server"
   },
   "engines": {
     "node": "7.10.0"
