@@ -45,7 +45,6 @@ export default class LoginForm extends React.Component<any, any> {
       >
         <FormsyText
           name="email"
-          value="viking.garage.app@gmail.com"
           required={true}
           fullWidth={true}
           validations="isEmail"
@@ -55,7 +54,6 @@ export default class LoginForm extends React.Component<any, any> {
         <FormsyText
           name="password"
           type="password"
-          value="secret"
           required={true}
           fullWidth={true}
           validations="minLength:6"
