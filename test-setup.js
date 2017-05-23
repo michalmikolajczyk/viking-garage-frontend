@@ -18,7 +18,7 @@ global.window.requestAnimationFrame = callback => {
 global.window.cancelAnimationFrame = requestID => {};
 
 global.window.localStorage = global.localStorage = {
-  getItem: () => {},
+  getItem: () => null,
   setItem: () => {},
   removeItem: () => {},
 }

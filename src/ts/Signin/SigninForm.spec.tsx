@@ -13,7 +13,8 @@ import * as api from './api';
 import SigninForm from './SigninForm';
 
 const user = {
-  name: 'Viking Garage',
+  firstname: 'Viking',
+  lastname: 'Garage',
   email: 'viking.garage.app@gmail.com',
   password1: 'secret',
   password2: 'secret',
@@ -32,7 +33,7 @@ describe('Signin: <SigninForm />', () => {
   let push;
   beforeEach(() => {
     wrapper = shallow(<SigninForm />, formsyContext());
-    instance = wrapper.instance();    
+    instance = wrapper.instance();
     push = sinon.stub(browserHistory, 'push', () => {});
   });
 
@@ -41,8 +42,9 @@ describe('Signin: <SigninForm />', () => {
   });
 
   it('check for inner components', () => {
-    expect(wrapper.find('FormsyText')).to.have.length(4);
-    expect(wrapper.find('[name="name"]')).to.have.length(1);
+    expect(wrapper.find('FormsyText')).to.have.length(5);
+    expect(wrapper.find('[name="firstname"]')).to.have.length(1);
+    expect(wrapper.find('[name="lastname"]')).to.have.length(1);
     expect(wrapper.find('[name="email"]')).to.have.length(1);
     expect(wrapper.find('[name="password1"]')).to.have.length(1);
     expect(wrapper.find('[name="password2"]')).to.have.length(1);
@@ -52,7 +54,7 @@ describe('Signin: <SigninForm />', () => {
 
     expect(wrapper.find('FormsyCheckbox')).to.have.length(1);
     expect(wrapper.find('[name="agree"]')).to.have.length(1);
-   
+
     expect(wrapper.find('button.submit')).to.have.length(1);
   });
 

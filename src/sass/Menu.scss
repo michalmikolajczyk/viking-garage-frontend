@@ -13,11 +13,17 @@
   }
   .user-profile {
     margin: 18px 16px 0 150px;
+    cursor: pointer;
     .user-image {
       width: 30px;
       height: 30px;
+      border-radius: 50%;
       min-height: 30px !important;
       background-size: cover !important;
+      background-position: center center !important;
+    }
+    .material-icons {
+      font-size: 30px !important;
     }
   }
 }
