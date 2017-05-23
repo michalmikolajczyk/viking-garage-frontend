@@ -5,7 +5,7 @@ import {
 } from 'react-router';
 import { MuiThemeProvider } from 'material-ui/styles';
 import muiThemeVG from '../muiThemeVG';
-import routes from '../Routes';
+import routes from '../routes';
 
 export default function Main() {
   return (
