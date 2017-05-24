@@ -13,13 +13,13 @@ export default function Footer(props) {
     <div className="footer">
       <ul className="contact">
         <li>
-          <a href="https://www.instagram.com/wiherek89/" target="_blank">
-            INSTAGRAM
+          <a href="https://www.instagram.com/vikinggarage" target="_blank">
+            INSTAGRAM vikinggarage
           </a>
         </li>
         <li>
-          <a href="https://www.facebook.com/michal.mikolajczyk" target="_blank">
-            FACEBOOK
+          <a href="https://www.facebook.com/vikinggarage888" target="_blank">
+            FACEBOOK vikinggarage888
           </a>
         </li>
         <li>
@@ -28,8 +28,8 @@ export default function Footer(props) {
           </a>
         </li>
         <li>
-          <a href="mailto:michal@vikinggarage.com" target="_blank">
-            E-MAIL
+          <a href="mailto:ride@vikinggarage.com" target="_blank">
+            E-MAIL ride@vikinggarage.com
           </a>
         </li>
         <li>
@@ -39,7 +39,7 @@ export default function Footer(props) {
         </li>
         <li>
           <a href="tel:+48697951264" target="_blank">
-            PHONE
+            PHONE +48 697 951 264
           </a>
         </li>
         <li>
@@ -51,7 +51,7 @@ export default function Footer(props) {
       <div className="madeby">
         <div className="nowrap">
           <FontIcon style={iconStyle} color="white" className="fa fa-copyright" />
-          2017 Michal Mikolajczyk
+          2017 VIKING GARAGE
         </div>
       </div>
     </div>
