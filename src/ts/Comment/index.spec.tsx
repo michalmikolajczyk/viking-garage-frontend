@@ -7,7 +7,6 @@ import { default as Comments } from './';
 describe('<Comments />', () => {
   it('check for inner component', () => {
     const wrapper = shallow(<Comments />);
-    console.log(wrapper.debug());
     expect(wrapper.find('.comments')).to.have.length(1);
     expect(wrapper.find('Paper')).to.have.length(1);
   });
