@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { browserHistory } from 'react-router';
+import {
+  browserHistory,
+  Link,
+} from 'react-router';
 import {
   Divider,
   FontIcon,
@@ -17,7 +20,7 @@ export default function MenuVG(props) {
     browserHistory.push('/');
   };
 
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = typeof localStorage !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : '';
   const image = user && user['image'];
 
   const iconButtonElement = image
@@ -36,28 +39,28 @@ export default function MenuVG(props) {
       anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
       desktop={true}
     >
-      <MenuItem primaryText={i('Profile')} href="/user/profile" />
-      <MenuItem primaryText={i('Add offer')} href="/add-offer" />
-      <MenuItem primaryText={i('Deals')} href="/deals" />
-      <MenuItem primaryText={i('Messages')} href="/user/inbox" />
-      <MenuItem primaryText={i('Account')} href="/user/account" />
+      <MenuItem primaryText={i('Profile')} containerElement={<Link to="/user/profile" />} />
+      <MenuItem primaryText={i('Add offer')} containerElement={<Link to="/add-offer" />} />
+      <MenuItem primaryText={i('Deals')} containerElement={<Link to="/deals" />} />
+      <MenuItem primaryText={i('Messages')} containerElement={<Link to="/user/inbox" />} />
+      <MenuItem primaryText={i('Account')} containerElement={<Link to="/user/account" />} />
       <Divider />
       <MenuItem primaryText={i('Log out')} onClick={logout} />
     </IconMenu>
   ) : (
     <div className="user">
-      <MenuItem href="/signin" className="menu-item" primaryText={i('Sign in')} />
-      <MenuItem href="/login" className="menu-item" primaryText={i('Log in')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/signin" />} primaryText={i('Sign in')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/login" />} primaryText={i('Log in')} />
     </div>
   );
 
 
   return (
     <div className="menu">
-      <MenuItem href="/bike-owners" className="menu-item" primaryText={i('Bike Owners')} />
-      <MenuItem href="/guides-coaches" className="menu-item" primaryText={i('Guides & Coaches')} />
-      <MenuItem href="/mechanics" className="menu-item" primaryText={i('Mechanics')} />
-      <MenuItem href="/faq" className="menu-item" primaryText={i('FAQ')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/bike-owners" />} primaryText={i('Bike Owners')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/guides-coaches" />} primaryText={i('Guides & Coaches')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/mechanics" />} primaryText={i('Mechanics')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/faq" />} primaryText={i('FAQ')} />
       {userSection}
     </div>
   );

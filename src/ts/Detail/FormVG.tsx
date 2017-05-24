@@ -114,7 +114,7 @@ export default class FormVG extends React.Component<any, any> {
           <div className="field">
             <FontIcon className="fa fa-money" />
             <TextField
-              id="base-price"
+              name="base-price"
               value={`${i('Base price')}: 55 $ / ${i('day')}`}
               onChange={() => undefined}
               fullWidth={true}
@@ -123,6 +123,7 @@ export default class FormVG extends React.Component<any, any> {
           <div className="field">
             <FontIcon className="material-icons">today</FontIcon>
             <DatePicker
+              name="start-date"
               className="date-picker"
               autoOk={true}
               value={this.state.startDate}
@@ -133,6 +134,7 @@ export default class FormVG extends React.Component<any, any> {
           <div className="field">
             <FontIcon className="material-icons">date_range</FontIcon>
             <DatePicker
+              name="end-date"
               className="date-picker"
               autoOk={true}
               value={this.state.endDate}

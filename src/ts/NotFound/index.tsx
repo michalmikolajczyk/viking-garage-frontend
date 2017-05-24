@@ -1,12 +1,13 @@
 import * as React from 'react';
-import Container from '../Container';
+import Header from '../Header';
 
 export default function NotFound(props) {
 	return (
-    <Container>
-      <div className="cont" style={{height: 500, textAlign: 'center', lineHeight: '200px'}}>
+    <div>
+      <Header />
+      <div className="not-found">
         <h1>404... page not found!</h1>
       </div>
-    </Container>
+    </div>
   );
 }

@@ -9,12 +9,10 @@ const expect = chai.expect;
 chai.use(sinonChai);
 
 describe('<AppBarVG />', () => {
-  it('check for inner components: logo & signin/login buttons', () => {
+  it('check for inner components', () => {
     const wrapper = mountWithTheme(<AppBarVG />);
     expect(wrapper.find('AppBar')).to.have.length(1);
-    expect(wrapper.find('.title')).to.have.length(1);
-    expect(wrapper.find({ href: '/signin' })).to.have.length(1);
-    expect(wrapper.find({ href: '/login' })).to.have.length(1);
+    expect(wrapper.find('.app-bar')).to.have.length(1);
   });
 
   it('check if bottom line & search will show up when window.scrollY > 0', () => {

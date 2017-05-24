@@ -8,7 +8,6 @@ describe('<Container />', () => {
   it('check if all subcomponents are rendered', () => {
     const wrapper = mountWithTheme(<Container />);
     expect(wrapper.find('AppBar')).to.have.length(1);
-    expect(wrapper.find('Header')).to.have.length(1);
     expect(wrapper.find('Footer')).to.have.length(1);
   });
 

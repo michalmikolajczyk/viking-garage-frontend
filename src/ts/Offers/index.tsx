@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import Container from '../Container';
+import Header from '../Header';
 import Search from '../Search';
 import Raido from '../Raido';
 import OffersList from './OffersList';
@@ -50,7 +50,7 @@ export default class Offers extends React.Component<any, any> {
   }
 
   setPosition = () => {
-    if (navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
+    if (typeof navigator !== 'undefined' && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           this.setState({
@@ -84,7 +84,8 @@ export default class Offers extends React.Component<any, any> {
       />);
 
     return (
-      <Container>
+      <div>
+        <Header />
         <Search
           locationFilter={this.locationFilter}
           selectFilter={this.selectFilter}
@@ -92,7 +93,7 @@ export default class Offers extends React.Component<any, any> {
           dateFilter={this.dateFilter}
         />
         {body}
-      </Container>
+      </div>
     );
   }
 }

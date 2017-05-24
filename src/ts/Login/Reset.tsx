@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import { Form } from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
 import i from '../i18n';
-import Container from '../Container';
+import Header from '../Header';
 import ResetError from './ResetError';
 import NetworkError from '../Dialogs/NetworkError';
 import { reset } from './api';
@@ -35,7 +35,8 @@ export default class Reset extends React.Component<any, any> {
 
   render() {
     return (
-      <Container className="cont">
+      <div>
+        <Header />
         <div className="form">
           <h1 className="title">{i('Reset your password')}</h1>
           <div className="title-sub">
@@ -76,7 +77,7 @@ export default class Reset extends React.Component<any, any> {
             </Form>
           </div>
         </div>
-      </Container>
+      </div>
     );
   }
 }
