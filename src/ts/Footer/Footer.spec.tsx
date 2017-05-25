@@ -14,10 +14,10 @@ describe('<Footer />', () => {
 
   it('check for social media links', () => {
     const wrapper = mountWithTheme(<Footer />);
-    expect(wrapper.find('a[href="https://www.instagram.com/wiherek89/"]')).to.have.length(1);
-    expect(wrapper.find('a[href="https://www.facebook.com/michal.mikolajczyk"]')).to.have.length(1);
+    expect(wrapper.find('a[href="https://www.instagram.com/vikinggarage"]')).to.have.length(1);
+    expect(wrapper.find('a[href="https://www.facebook.com/vikinggarage888"]')).to.have.length(1);
     expect(wrapper.find('a[href="https://github.com/michalmikolajczyk/"]')).to.have.length(1);
-    expect(wrapper.find('a[href="mailto:michal@vikinggarage.com"]')).to.have.length(1);
+    expect(wrapper.find('a[href="mailto:ride@vikinggarage.com"]')).to.have.length(1);
     expect(wrapper.find('a[href="https://vikinggarage.slack.com"]')).to.have.length(1);
     expect(wrapper.find('a[href="tel:+48697951264"]')).to.have.length(1);
     expect(wrapper.find('a[href="skype:michaljanmikolajczyk?chat"]')).to.have.length(1);

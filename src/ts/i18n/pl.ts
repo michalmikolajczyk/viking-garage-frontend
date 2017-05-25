@@ -366,6 +366,7 @@ export default {
  */
 // Location
   'Search': 'Szukaj',
+  'Find motorcycles to ride around ...': 'Wyszukaj motocykle w okolicy ...',
 // Select
   'Select some values': 'Wybierz wartość',
 

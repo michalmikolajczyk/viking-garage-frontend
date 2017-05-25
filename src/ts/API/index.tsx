@@ -1,4 +1,9 @@
-const url = typeof location !== 'undefined' ? (location.hostname.match('localhost') ? 'http://localhost:4000' : 'https://viking-garage-api-dev.herokuapp.com') : 'https://viking-garage-api-prod.herokuapp.com';
+const url = (() => {
+  if (typeof location === 'undefined') return 'https://viking-garage-api-prod.herokuapp.com';
+  if (location.hostname.match('localhost')) return 'http://localhost:4000';
+  if (location.hostname.match('dev')) return 'https://viking-garage-api-dev.herokuapp.com';
+  if (location.hostname.match('staging')) return 'https://viking-garage-api-staging.herokuapp.com';
+})();
 
 const API = {
 
