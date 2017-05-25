@@ -11,11 +11,16 @@ const log = debug('app:Offers');
 import { offers } from '../Detail/mockup';
 
 export default class Offers extends React.Component<any, any> {
-  state = {
-    data: [{},{}],
-    loading: true,
-    position: null,
-    networkErr: false,
+  static contextTypes = { data: React.PropTypes.object }
+
+  constructor(props, context) {
+    super(props, context);
+    this.state = !_.isEmpty(context.data) ? context.data : {
+      list: [{},{}],
+      load: true,
+      position: null,
+      networkErr: false,
+    };
   }
 
   componentDidMount() {
@@ -28,8 +33,8 @@ export default class Offers extends React.Component<any, any> {
       .then((res) => {
         if (res['err']) return this.setState({ networkErr: true });
         this.setState({
-          data: res,
-          loading: false,
+          list: res,
+          load: false,
         });
       })
       .catch(err => this.setState({ networkErr: true }));
@@ -72,8 +77,8 @@ export default class Offers extends React.Component<any, any> {
           dateFilter={this.dateFilter}
         />
         <OffersList
-          data={this.state.data}
-          loading={this.state.loading}
+          list={this.state.list}
+          load={this.state.load}
           position={this.state.position}
         />
         <NetworkError

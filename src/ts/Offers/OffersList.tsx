@@ -5,16 +5,16 @@ import Offer from './Offer';
 
 export default function OffersList(props) {
   const {
-    data,
-    loading,
+    list,
+    load,
     position,
   } = props;
 
-  const list = data.map((item, key) => <Offer data={item} key={key} position={position}/>);
+  const items = list.map((item, key) => <Offer data={item} key={key} position={position}/>);
 
   return (
-    <div className={`offers ${loading ? 'loading' : ''}`}>
-      {list}
+    <div className={`offers ${load ? 'load' : ''}`}>
+      {items}
     </div>
   );
 }
