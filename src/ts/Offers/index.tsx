@@ -2,22 +2,20 @@ import * as React from 'react';
 import * as _ from 'lodash';
 import Header from '../Header';
 import Search from '../Search';
-import Raido from '../Raido';
 import OffersList from './OffersList';
+import NetworkError from '../Dialogs/NetworkError';
 import * as api from './api';
-import debug from 'debug';
 import i from '../i18n';
+import debug from 'debug';
 const log = debug('app:Offers');
 import { offers } from '../Detail/mockup';
 
 export default class Offers extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      data: [],
-      loading: true,
-      position: null,
-    };
+  state = {
+    data: [{},{}],
+    loading: true,
+    position: null,
+    networkErr: false,
   }
 
   componentDidMount() {
@@ -26,27 +24,15 @@ export default class Offers extends React.Component<any, any> {
   }
 
   loadMore = () => {
-    this.setState({ loading: true });
     api.get()
       .then((res) => {
-        if (res['err']) {
-          return this.setState({
-            data: _.map(offers, i => i),
-            loading: false,
-          });
-        }
+        if (res['err']) return this.setState({ networkErr: true });
         this.setState({
           data: res,
           loading: false,
         });
       })
-      .catch((err) => {
-        log(`Get request error ${err}`);
-        this.setState({
-          data: _.map(offers, i => i),
-          loading: false,
-        });
-      });
+      .catch(err => this.setState({ networkErr: true }));
   }
 
   setPosition = () => {
@@ -73,16 +59,9 @@ export default class Offers extends React.Component<any, any> {
 
   dateFilter(filter) { log('change filter date', filter); }
 
-  render() {
-   const body = this.state.loading
-    ? (<div className="loading"><Raido /></div>)
-    : (<OffersList
-        data={this.state.data}
-        loading={this.state.loading}
-        loadMore={this.loadMore}
-        position={this.state.position}
-      />);
+  closeNetworkErr = () => this.setState({ networkErr: false });
 
+  render() {
     return (
       <div>
         <Header />
@@ -92,7 +71,15 @@ export default class Offers extends React.Component<any, any> {
           rangeFilter={this.rangeFilter}
           dateFilter={this.dateFilter}
         />
-        {body}
+        <OffersList
+          data={this.state.data}
+          loading={this.state.loading}
+          position={this.state.position}
+        />
+        <NetworkError
+          open={this.state.networkErr}
+          close={this.closeNetworkErr}
+        />
       </div>
     );
   }
