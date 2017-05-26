@@ -5,6 +5,7 @@ import Header from '../Accordion/Header';
 
 export default function Offerer({ offer }) {
   const { offerer } = offer;
+  if (typeof offerer === 'undefined') return null;
   const {
     brief,
     city,

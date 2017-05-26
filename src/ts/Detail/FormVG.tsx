@@ -14,27 +14,19 @@ const log = debug('app:DetailForm');
 import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
-  private offer: any;
   private requestId: number;
 
   constructor(props) {
     super(props);
     const { offer } = props;
-    this.offer = offer;
-    const price = offer.price.day;
     this.state = {
-      price,
+      offer,
       startDate: moment().toDate(),
       endDate: moment().add(3, 'days').toDate(),
       equipment: 1,
       total: 55 * 3,
       form: '',
     };
-    this.endDateChange = this.endDateChange.bind(this);
-    this.startDateChange = this.startDateChange.bind(this);
-    this.priceChange = this.priceChange.bind(this);
-    this.equipmentChange = this.equipmentChange.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
@@ -45,7 +37,12 @@ export default class FormVG extends React.Component<any, any> {
     window.cancelAnimationFrame(this.requestId);
   }
 
-  handleScroll() {
+  componentWillReceiveProps(props) {
+     const { offer } = props;
+     this.setState({ offer });
+  }
+
+  handleScroll = () => {
     this.requestId = window.requestAnimationFrame(this.handleScroll);
     const side = document.querySelector('#detail-side').clientHeight;
     const wrap = document.querySelector('#detail-wrap').clientHeight;
@@ -62,60 +59,56 @@ export default class FormVG extends React.Component<any, any> {
     }
   }
 
-  recalculate() {
+  recalculate = () => {
     const start = moment(this.state.startDate);
     const end = moment(this.state.endDate);
     const total = 55 * Math.abs(end.diff(start, 'days'));
     this.setState({ total });
   }
 
-  startDateChange(ev, date) {
+  startDateChange = (ev, date) => {
     log('start date changed', date);
     this.setState({ startDate: date });
     this.recalculate();
   }
 
-  endDateChange(ev, date) {
+  endDateChange = (ev, date) => {
     log('start date changed', date);
     this.setState({ endDate: date });
     this.recalculate();
   }
 
-  equipmentChange(ev, index, equipment) {
+  equipmentChange = (ev, index, equipment) => {
     log('equipment changed', equipment);
     this.setState({ equipment });
   }
 
-  priceChange(ev, index, value) {
+  priceChange = (ev, index, value) => {
     log('price changed', value);
     this.setState({ price: value });
     this.recalculate();
   }
 
   render() {
-    const {
-      title,
-      price,
-    } = this.offer;
 
-    const selectPrice = _.map(price.unit, (num, key) => (
-      <MenuItem
-        key={num}
-        value={num}
-        primaryText={`${i('Base price')}: ${num} ${price.value} / ${key}`}
-      >
-      </MenuItem>));
+    // const selectPrice = _.map(price.unit, (num, key) => (
+    //   <MenuItem
+    //     key={num}
+    //     value={num}
+    //     primaryText={`${i('Base price')}: ${num} ${price.value} / ${key}`}
+    //   >
+    //   </MenuItem>));
 
     return (
       <div id="detail-wrap" className="detail-form">
         <div id="detail-side" className={`${this.state.form}`}>
         <div className="child">
-          <div className="title">{title}</div>
+          <div className="title">{this.state.offer.title}</div>
           <div className="field">
             <FontIcon className="fa fa-money" />
             <TextField
               name="base-price"
-              value={`${i('Base price')}: 55 $ / ${i('day')}`}
+              value={`${i('Base price')}: ${this.state.offer.price} $ / ${i('day')}`}
               onChange={() => undefined}
               fullWidth={true}
             />

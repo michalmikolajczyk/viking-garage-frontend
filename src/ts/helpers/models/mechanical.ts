@@ -19,7 +19,7 @@ export default [
     label: i('Flaws'),
   },
   {
-    key: 'riderExperienceSuggested',
+    key: 'riderExperience',
     label: i('Rider Experience'),
   },
   {

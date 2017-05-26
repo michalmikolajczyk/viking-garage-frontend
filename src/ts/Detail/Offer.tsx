@@ -14,7 +14,6 @@ export default function Offer({ offer }) {
     <div className="detail-offer">
       <HeaderVG offer={offer} />
       <Accordion offer={general} open={true} />
-      <Comment />
       <ListVG offer={offer} />
     </div>
   );
