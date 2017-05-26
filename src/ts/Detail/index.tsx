@@ -18,7 +18,7 @@ export default class Detail extends React.Component<any, any> {
     this.state = {
       id,
       networkErr: false,
-      offer: _.isEmpty(context.data.offer) ? {
+      offer: !_.has(context, 'data.offer') ? {
         price: '',
         motorcycles: [],
       } : context.data.offer,

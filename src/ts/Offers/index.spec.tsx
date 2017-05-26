@@ -53,51 +53,47 @@ describe('<Offers />', () => {
     get.restore();
   });
 
-  it('check if loading data works properly', () => {
+  it('check if loading list works properly', () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState)
 
     expect(instance.setState).to.not.have.been.called;
-    expect(instance.state.data).to.be.deep.equal([]);
-    expect(instance.state.loading).to.be.true;
+    expect(instance.state.list).to.be.deep.equal([{},{}]);
+    expect(instance.state.load).to.be.true;
 
     instance['loadMore']();
     get.resolves(offers);
 
-    expect(instance.setState).to.have.been.calledTwice;
-    expect(instance.state.data).to.be.deep.equal(offers);
-    expect(instance.state.loading).to.be.false;
+    expect(instance.setState).to.have.been.calledOnce;
+    expect(instance.state.list).to.be.deep.equal(offers);
+    expect(instance.state.load).to.be.false;
 
     get['restore']();
   });
 
-  it('check if loads data on backend error', () => {
+  it('check if loads list on backend error', () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
-    expect(instance.state.data).to.be.deep.equal([]);
-    expect(instance.state.loading).to.be.true;
+    expect(instance.state.networkErr).to.be.false;
 
     instance['loadMore']();
     get.resolves({ err: 'no internet connection'});
 
-    expect(instance.setState).to.have.been.calledTwice;
-    expect(instance.state.data).to.be.deep.equal(offers);
-    expect(instance.state.loading).to.be.false;
+    expect(instance.setState).to.have.been.calledOnce;
+    expect(instance.state.networkErr).to.be.true;
     get['restore']();
   });
 
-  it('check if loads data on unexpected network error', () => {
+  it('check if loads list on unexpected network error', () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
-    expect(instance.state.data).to.be.deep.equal([]);
-    expect(instance.state.loading).to.be.true;
+    expect(instance.state.networkErr).to.be.false;
 
     instance['loadMore']();
     get.rejects('something gone wrong');
 
-    expect(instance.setState).to.have.been.calledTwice;
-    expect(instance.state.data).to.be.deep.equal(offers);
-    expect(instance.state.loading).to.be.false;
+    expect(instance.setState).to.have.been.calledOnce
+    expect(instance.state.networkErr).to.be.true;
     get['restore']();
   });
 });
