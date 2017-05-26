@@ -15,13 +15,13 @@ export default class Detail extends React.Component<any, any> {
     super(props, context);
     const id = props.params.id;
     if (isNaN(id)) browserHistory.push('/notfound');
-    this.state = !_.isEmpty(context.data) ? context.data : {
+    this.state = {
       id,
-      offer: {
+      networkErr: false,
+      offer: _.isEmpty(context.data.offer) ? {
         price: '',
         motorcycles: [],
-      },
-      networkErr: false,
+      } : context.data.offer,
     };
   }
 

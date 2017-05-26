@@ -15,9 +15,9 @@ export default class Offers extends React.Component<any, any> {
 
   constructor(props, context) {
     super(props, context);
-    this.state = !_.isEmpty(context.data) ? context.data : {
-      list: [{},{}],
-      load: true,
+    this.state = {
+      list: _.isEmpty(context.data.offers) ? [{},{}] : context.data.offers,
+      load: _.isEmpty(context.data.offers),
       position: null,
       networkErr: false,
     };
