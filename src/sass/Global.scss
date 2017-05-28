@@ -67,3 +67,12 @@ ul {
   padding: 0 10px;
   box-sizing: border-box;
 }
+
+.dialog-raido {
+  padding: 4px 24px 0 !important;
+  .raido {
+    width: 28px;
+    height: 69px;
+    margin-bottom: -8px;
+  }
+}
