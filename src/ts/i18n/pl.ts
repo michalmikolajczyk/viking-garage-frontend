@@ -23,14 +23,14 @@ export default {
  */
 // Network Error
   // 'Cancel': '',
-  'Network Error': 'Błąd Połączenia',
-  'Ups! It seems that we have some problems with network, try again later.':
-  'Ups! Wygląda na to, że mamy problemy z siecią, spróbuj ponownie później.',
+  'We’re not connected': 'Rozłączyło nas!',
+  'The Garage is not connected to the network. Connect your device to the network or try again later.':
+  'W garażu brakuje Internetu! Sprawdź połączenie z siecią lub spróbuj połączyć się później.',
 
 // Save Error
-  'Save Error': 'Błąd Zapisu',
-  'There were some problems with saving new data. Please check whether the data are correct and try again':
-  'Pojawił się błąd przy zapisie danych. Sprawdź proszę czy wprowadzone dane są poprawne i spróbuj ponownie',
+  'We cannot save data': 'Nie możemy zapisać danych',
+  'Something is not right! Please provide your data again or try again later.':
+  'Usterka w garażu! Wprowadź dane ponownie lub wróć do nas za chwilę.',
 
 // Save Success
   'Save Success': 'Zapisano Zmiany',
