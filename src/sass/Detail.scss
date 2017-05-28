@@ -59,6 +59,13 @@ $detail-image-height: 420px;
     svg {
       display: none !important;
     }
+    &.empty {
+      height: 45px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid black;
+      line-height: 50px;
+      color: black;
+    }
   }
   .fa, .material-icons {
     flex: 0 0 35px;

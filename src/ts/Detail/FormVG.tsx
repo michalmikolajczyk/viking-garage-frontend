@@ -8,76 +8,69 @@ import {
   TextField,
   MenuItem,
 } from 'material-ui';
-import debug from 'debug';
-const log = debug('app:DetailForm');
+import RideDialog from './RideDialog';
+import Raido from '../Raido';
 import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
   // default values (before fetched)
+  ride: any
   days = 3;
-  price = 55;
+  price = 35;
 
   constructor(props) {
     super(props);
-    const { offer } = props;
     this.state = {
-      offer,
-      startDate: moment().toDate(),
-      endDate: moment().add(this.days, 'days').toDate(),
-      equipment: 1,
-      total: this.price * this.days,
+      startDate: props.startDate || moment().toDate(),
+      endDate: props.endDate || moment().add(this.days, 'days').toDate(),
+      equipment: props.equipment || 1,
     };
   }
 
-  componentWillReceiveProps(props) {
-     const { offer } = props;
-     this.setState({ offer });
-  }
-
-  recalculate = () => {
+  getTotal = () => {
     const start = moment(this.state.startDate);
     const end = moment(this.state.endDate);
-    const total = _.has(this.state.offer, 'price', this.price) * Math.abs(end.diff(start, 'days'));
-    this.setState({ total });
+    return this.getPrice() * (Math.abs(end.diff(start, 'days')) + 1);
   }
 
-  startDateChange = (ev, date) => {
-    log('start date changed', date);
-    this.setState({ startDate: date });
-    this.recalculate();
-  }
+  getPrice = () => _.get(this.props.offer, 'price', this.price)
 
-  endDateChange = (ev, date) => {
-    log('start date changed', date);
-    this.setState({ endDate: date });
-    this.recalculate();
-  }
+  startDateChange = (ev, date) => this.setState({ startDate: date });
 
-  equipmentChange = (ev, index, equipment) => {
-    log('equipment changed', equipment);
-    this.setState({ equipment });
-  }
+  endDateChange = (ev, date) => this.setState({ endDate: date });
 
-  priceChange = (ev, index, value) => {
-    log('price changed', value);
-    this.setState({ price: value });
-    this.recalculate();
-  }
+  equipmentChange = (ev, index, equipment) => this.setState({ equipment });
+
+  openRideDialog = () => this.ride.open();
 
   render() {
-    const title = _.get(this.state.offer, 'title', '');
-    const price = _.get(this.state.offer, 'price', this.price);
+    const title = this.props.main && <div className="title">{_.get(this.props.offer, 'title', '')}</div>
+
+    const button = this.props.main && (
+      <button onClick={this.openRideDialog} className="ride-btn">
+        <Raido />
+        <span>IDE</span>
+      </button>
+    );
+
+    const dialog = this.props.main && (
+      <RideDialog
+        ref={(r) => this.ride = r}
+        offer={this.props.offer}
+        startDate={this.state.startDate}
+        endDate={this.state.endDate}
+        equipment={this.state.equipment}
+      />
+    );
+
     return (
       <div className="child">
-        <div className="title">{title}</div>
-        <div className="field">
+        {title}
+        <div className="field empty">
           <FontIcon className="fa fa-money" />
-          <TextField
-            name="base-price"
-            value={`${i('Base price')}: ${price} $ / ${i('day')}`}
-            onChange={() => undefined}
-            fullWidth={true}
-          />
+          <div>
+            {`${i('Base price')}: ${this.getPrice()} $ / ${i('day')}`}
+          </div>
         </div>
         <div className="field">
           <FontIcon className="material-icons">today</FontIcon>
@@ -113,7 +106,11 @@ export default class FormVG extends React.Component<any, any> {
             <MenuItem key={2} value={2} primaryText={`${i('Equipment')}: ${i('Full')}`} />
           </SelectField>
         </div>
-        <div className="price">{`${i('Total')}: ${this.state.total} $`}</div>
+        <div className="field empty">
+          {`${i('Total')}: ${this.getTotal()} $`}
+        </div>
+        {button}
+        {dialog}
       </div>
     );
   }

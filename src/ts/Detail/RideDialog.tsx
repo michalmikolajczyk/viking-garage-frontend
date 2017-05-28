@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import {
   Dialog,
   FlatButton,
@@ -10,12 +11,10 @@ import FormVG from './FormVG';
 import i from '../i18n';
 
 export default class RideDialog extends React.Component<any, any> {
-  title: string
-
   constructor(props) {
     super(props);
     this.state = {
-      open: true,
+      open: false,
       canSubmit: false,
     }
   }
@@ -41,6 +40,7 @@ export default class RideDialog extends React.Component<any, any> {
   ];
 
   render() {
+    const title = _.get(this.props.offer, 'title', '');
     return (
       <Dialog
         open={this.state.open}
@@ -52,9 +52,9 @@ export default class RideDialog extends React.Component<any, any> {
         <div className="ride-form">
           <div className="detail-form">
             <div className="dialog-title">
-              {this.props.title}
+              {title}
             </div>
-            <FormVG />
+            <FormVG {...this.props} />
             <div className="text">
               If you are interested in that ride, leave us your details- our team will contact you:
             </div>
@@ -68,7 +68,7 @@ export default class RideDialog extends React.Component<any, any> {
                 className="text-input"
                 name="name"
                 fullWidth={true}
-                floatingLabelText={i('First Name')}
+                floatingLabelText={i('Your Name')}
                 validations="minLength:3"
                 validationError={i('Please add more characters (minimum 3)')}
               />
@@ -77,7 +77,7 @@ export default class RideDialog extends React.Component<any, any> {
                 name="email"
                 required={true}
                 fullWidth={true}
-                floatingLabelText={i('E-mail')}
+                floatingLabelText={i('Your Email Address')}
                 validations="isEmail"
                 validationError={i('Wrong e-mail address!')}
               />
