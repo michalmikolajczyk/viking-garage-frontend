@@ -8,14 +8,20 @@ import { Form } from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
 import Raido from '../Raido';
 import FormVG from './FormVG';
+import { ride } from './api';
 import i from '../i18n';
 
 export default class RideDialog extends React.Component<any, any> {
+  formsy: any;
+  formvg: any;
+
   constructor(props) {
     super(props);
     this.state = {
       open: false,
       canSubmit: false,
+      networkErr: false,
+      rideSuccess: false,
     }
   }
 
@@ -23,29 +29,50 @@ export default class RideDialog extends React.Component<any, any> {
 
   close = () => this.setState({ open: false });
 
-  submit = () => {};
+  closeRideSuccess = () => this.setState({ rideSucess: false });
 
-  actions = [
-    <FlatButton
-      label={i('Cancel')}
-      primary={true}
-      onTouchTap={this.close}
-    />,
-    <FlatButton
-      label={i('Submit')}
-      primary={true}
-      keyboardFocused={true}
-      onTouchTap={() => {}}
-    />,
-  ];
+  submit = (user) => {
+    const {
+      startDate,
+      endDate,
+      equipment,
+    } = this.formvg.state;
+    ride({
+      ...user,
+      startDate,
+      endDate,
+      equipment,
+    })
+      .then((res) => {
+        if (res['err']) return this.setState({ networkErr: true });
+        this.props.success();
+        this.setState({ open: false });
+      })
+      .catch(err => this.setState({ networkErr: true }));
+  };
 
   render() {
     const title = _.get(this.props.offer, 'title', '');
+    const actions = [
+      <FlatButton
+        label={i('Cancel')}
+        primary={true}
+        onTouchTap={this.close}
+      />,
+      <FlatButton
+        label={i('Submit')}
+        primary={true}
+        keyboardFocused={true}
+        disabled={!this.state.canSubmit}
+        onTouchTap={() => this.formsy.submit()}
+      />,
+    ];
+
     return (
       <Dialog
         open={this.state.open}
         title={<div className="dialog-raido"><Raido /></div>}
-        actions={this.actions}
+        actions={actions}
         modal={false}
         autoScrollBodyContent={true}
       >
@@ -54,19 +81,24 @@ export default class RideDialog extends React.Component<any, any> {
             <div className="dialog-title">
               {title}
             </div>
-            <FormVG {...this.props} />
+            <FormVG
+              ref={(f) => this.formvg = f}
+              {...this.props}
+            />
             <div className="text">
               If you are interested in that ride, leave us your details- our team will contact you:
             </div>
           </div>
             <Form
+              ref={(f) => this.formsy = f}
+              onSubmit={this.submit}
               onValid={() => this.setState({ canSubmit: true })}
               onInvalid={() => this.setState({ canSubmit: false })}
-              onSubmit={this.submit}
             >
               <FormsyText
                 className="text-input"
                 name="name"
+                required={true}
                 fullWidth={true}
                 floatingLabelText={i('Your Name')}
                 validations="minLength:3"

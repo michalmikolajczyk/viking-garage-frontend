@@ -9,6 +9,7 @@ import {
   MenuItem,
 } from 'material-ui';
 import RideDialog from './RideDialog';
+import RideSuccess from './RideSuccess';
 import Raido from '../Raido';
 import i from '../i18n';
 
@@ -24,6 +25,7 @@ export default class FormVG extends React.Component<any, any> {
       startDate: props.startDate || moment().toDate(),
       endDate: props.endDate || moment().add(this.days, 'days').toDate(),
       equipment: props.equipment || 1,
+      rideSuccess: false,
     };
   }
 
@@ -36,12 +38,12 @@ export default class FormVG extends React.Component<any, any> {
   getPrice = () => _.get(this.props.offer, 'price', this.price)
 
   startDateChange = (ev, date) => this.setState({ startDate: date });
-
   endDateChange = (ev, date) => this.setState({ endDate: date });
-
   equipmentChange = (ev, index, equipment) => this.setState({ equipment });
 
   openRideDialog = () => this.ride.open();
+  openRideSuccess = () => this.setState({ rideSuccess: true })
+  closeRideSuccess = () => this.setState({ rideSuccess: false })
 
   render() {
     const title = this.props.main && <div className="title">{_.get(this.props.offer, 'title', '')}</div>
@@ -54,13 +56,20 @@ export default class FormVG extends React.Component<any, any> {
     );
 
     const dialog = this.props.main && (
-      <RideDialog
-        ref={(r) => this.ride = r}
-        offer={this.props.offer}
-        startDate={this.state.startDate}
-        endDate={this.state.endDate}
-        equipment={this.state.equipment}
-      />
+      <div>
+        <RideDialog
+          ref={(r) => this.ride = r}
+          offer={this.props.offer}
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          equipment={this.state.equipment}
+          success={this.openRideSuccess}
+        />
+        <RideSuccess
+          open={this.state.rideSuccess}
+          close={this.closeRideSuccess}
+        />
+      </div>
     );
 
     return (

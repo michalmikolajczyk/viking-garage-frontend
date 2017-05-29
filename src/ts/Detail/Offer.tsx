@@ -10,7 +10,6 @@ const log = debug('app:Offer');
 
 export default function Offer({ offer }) {
   const motorcycles = _.get(offer, 'motorcycles[0]', {});
-  console.log(motorcycles);
   const general = parser('general', motorcycles);
   return (
     <div className="detail-offer">
