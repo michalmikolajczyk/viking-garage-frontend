@@ -8,6 +8,7 @@ import { Form } from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
 import Raido from '../Raido';
 import FormVG from './FormVG';
+import NetworkError from '../Dialogs/NetworkError';
 import { ride } from './api';
 import i from '../i18n';
 
@@ -19,6 +20,7 @@ export default class RideDialog extends React.Component<any, any> {
     super(props);
     this.state = {
       open: false,
+      wait: false,
       canSubmit: false,
       networkErr: false,
       rideSuccess: false,
@@ -29,9 +31,12 @@ export default class RideDialog extends React.Component<any, any> {
 
   close = () => this.setState({ open: false });
 
+  closeNetworkErr = () => this.setState({ networkErr: false });
+
   closeRideSuccess = () => this.setState({ rideSucess: false });
 
   submit = (user) => {
+    this.setState({ wait: true });
     const {
       startDate,
       endDate,
@@ -42,13 +47,15 @@ export default class RideDialog extends React.Component<any, any> {
       startDate,
       endDate,
       equipment,
+      offer: this.props.offer.id,
+      total: this.formvg.getTotal(),
     })
       .then((res) => {
-        if (res['err']) return this.setState({ networkErr: true });
+        if (res['err']) return this.setState({ networkErr: true, wait: false });
         this.props.success();
-        this.setState({ open: false });
+        this.setState({ open: false, wait: false });
       })
-      .catch(err => this.setState({ networkErr: true }));
+      .catch(err => this.setState({ networkErr: true, wait: false }));
   };
 
   render() {
@@ -58,12 +65,13 @@ export default class RideDialog extends React.Component<any, any> {
         label={i('Cancel')}
         primary={true}
         onTouchTap={this.close}
+        disabled={this.state.wait}
       />,
       <FlatButton
         label={i('Submit')}
         primary={true}
         keyboardFocused={true}
-        disabled={!this.state.canSubmit}
+        disabled={!this.state.canSubmit || this.state.wait}
         onTouchTap={() => this.formsy.submit()}
       />,
     ];
@@ -122,6 +130,10 @@ export default class RideDialog extends React.Component<any, any> {
               </a>
           </div>
         </div>
+        <NetworkError
+          open={this.state.networkErr}
+          close={this.closeNetworkErr}
+        />
       </Dialog>
     );
   }
