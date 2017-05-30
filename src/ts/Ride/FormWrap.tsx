@@ -33,7 +33,9 @@ export default class FormWrap extends React.Component<any, any> {
     return (
       <div id="detail-wrap" className="detail-form">
         <div id="detail-side" className={`${this.state.form}`}>
-          {this.props.children}
+          <div className="child">
+            {this.props.children}
+          </div>
         </div>
       </div>
     );

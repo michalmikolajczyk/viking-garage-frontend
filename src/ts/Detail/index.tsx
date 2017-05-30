@@ -2,8 +2,7 @@ import * as React from 'react';
 import { browserHistory } from 'react-router';
 import * as _ from 'lodash';
 import NetworkError from '../Dialogs/NetworkError';
-import FormVG from './FormVG';
-import FormWrap from './FormWrap';
+import FormVG from '../Ride/FormVG';
 import Offer from './Offer';
 import * as api from './api';
 
@@ -38,9 +37,7 @@ export default class Detail extends React.Component<any, any> {
       <div>
         <div className="detail">
           <Offer offer={this.state.offer} />
-          <FormWrap>
-            <FormVG offer={this.state.offer} main={true} />
-          </FormWrap>
+          <FormVG offer={this.state.offer} />
         </div>
         <NetworkError
           open={this.state.networkErr}

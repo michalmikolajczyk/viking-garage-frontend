@@ -1,126 +1,103 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import {
-  DatePicker,
-  FontIcon,
-  SelectField,
-  TextField,
-  MenuItem,
-} from 'material-ui';
+import FormPure from './FormPure';
+import FormWrap from './FormWrap';
+import Raido from '../Raido';
 import RideDialog from './RideDialog';
 import RideSuccess from './RideSuccess';
-import Raido from '../Raido';
+import NetworkError from '../Dialogs/NetworkError';
+import { ride } from './api';
 import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
   // default values (before fetched)
-  ride: any
   days = 3;
   price = 35;
+  state = {
+    startDate: moment().toDate(),
+    endDate: moment().add(3, 'days').toDate(),
+    equipment: 1,
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: props.startDate || moment().toDate(),
-      endDate: props.endDate || moment().add(this.days, 'days').toDate(),
-      equipment: props.equipment || 1,
-      rideSuccess: false,
-    };
-  }
+    wait: false,
+    rideDialog: false,
+    networkErr: false,
+    rideSuccess: false,
+  };
 
-  getTotal = () => {
-    const start = moment(this.state.startDate);
-    const end = moment(this.state.endDate);
-    return this.getPrice() * (Math.abs(end.diff(start, 'days')) + 1);
-  }
+  submit = (user) => {
+    this.setState({ wait: true });
+    ride({
+      ...user,
+      offer: this.props.offer.id,
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+      equipment: this.state.equipment,
+      total: this.getTotal(),
+    })
+      .then((res) => {
+        if (res['err']) return this.setState({  wait: false, networkErr: true });
+        this.setState({
+          wait: false,
+          rideDialog: false,
+          rideSuccess: true,
+        });
+      })
+      .catch(err => this.setState({ wait: false, networkErr: true }));
+  };
 
-  getPrice = () => _.get(this.props.offer, 'price', this.price)
-
-  startDateChange = (ev, date) => this.setState({ startDate: date });
-  endDateChange = (ev, date) => this.setState({ endDate: date });
-  equipmentChange = (ev, index, equipment) => this.setState({ equipment });
-
-  openRideDialog = () => this.ride.open();
-  openRideSuccess = () => this.setState({ rideSuccess: true })
+  closeNetworkErr = () => this.setState({ networkErr: false })
+  openRideDialog = () => this.setState({ rideDialog: true })
+  closeRideDialog = () => this.setState({ rideDialog: false })
   closeRideSuccess = () => this.setState({ rideSuccess: false })
 
+  getTitle = () => _.get(this.props.offer, 'title', '')
+  getPrice = () => _.get(this.props.offer, 'price', this.price)
+  getTotal = () => this.getPrice() * (Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1);
+  startDateChange = (ev, startDate) => this.setState({ startDate });
+  endDateChange = (ev, endDate) => this.setState({ endDate });
+  equipmentChange = (ev, index, equipment) => this.setState({ equipment });
+
   render() {
-    const title = this.props.main && <div className="title">{_.get(this.props.offer, 'title', '')}</div>
-
-    const button = this.props.main && (
-      <button onClick={this.openRideDialog} className="ride-btn">
-        <Raido />
-        <span>IDE</span>
-      </button>
-    );
-
-    const dialog = this.props.main && (
-      <div>
-        <RideDialog
-          ref={(r) => this.ride = r}
-          offer={this.props.offer}
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          equipment={this.state.equipment}
-          success={this.openRideSuccess}
-        />
-        <RideSuccess
-          open={this.state.rideSuccess}
-          close={this.closeRideSuccess}
-        />
-      </div>
-    );
+    const formData = {
+      ...this.state,
+      price: this.getPrice(),
+      total: this.getTotal(),
+      endDateChange: this.endDateChange,
+      equipmentChange: this.equipmentChange,
+      startDateChange: this.startDateChange,
+    }
 
     return (
-      <div className="child">
-        {title}
-        <div className="field empty">
-          <FontIcon className="fa fa-money" />
-          <div>
-            {`${i('Base price')}: ${this.getPrice()} $ / ${i('day')}`}
-          </div>
-        </div>
-        <div className="field">
-          <FontIcon className="material-icons">today</FontIcon>
-          <DatePicker
-            name="start-date"
-            className="date-picker"
-            autoOk={true}
-            value={this.state.startDate}
-            onChange={this.startDateChange}
-            fullWidth={true}
+      <FormWrap>
+        <div className="title">{this.getTitle()}</div>
+        <FormPure {...formData} />
+        <button
+          className="ride-btn"
+          disabled={_.isEmpty(this.props.offer)}
+          onClick={this.openRideDialog}
+        >
+          <Raido />
+          <span>IDE</span>
+        </button>
+        <div>
+          <RideDialog
+            {...formData}
+            submit={this.submit}
+            wait={this.state.wait}
+            open={this.state.rideDialog}
+            close={this.closeRideDialog}
+          />
+          <RideSuccess
+            open={this.state.rideSuccess}
+            close={this.closeRideSuccess}
+          />
+          <NetworkError
+            open={this.state.networkErr}
+            close={this.closeNetworkErr}
           />
         </div>
-        <div className="field">
-          <FontIcon className="material-icons">date_range</FontIcon>
-          <DatePicker
-            name="end-date"
-            className="date-picker"
-            autoOk={true}
-            value={this.state.endDate}
-            onChange={this.endDateChange}
-            fullWidth={true}
-          />
-        </div>
-        <div className="field">
-          <FontIcon className="fa fa-angle-down" />
-          <SelectField
-            className="equipment"
-            value={this.state.equipment}
-            onChange={this.equipmentChange}
-            fullWidth={true}
-          >
-            <MenuItem key={1} value={1} primaryText={`${i('Equipment')}: ${i('Basic')}`} />
-            <MenuItem key={2} value={2} primaryText={`${i('Equipment')}: ${i('Full')}`} />
-          </SelectField>
-        </div>
-        <div className="field empty">
-          {`${i('Total')}: ${this.getTotal()} $`}
-        </div>
-        {button}
-        {dialog}
-      </div>
+      </FormWrap>
     );
   }
 }
