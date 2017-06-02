@@ -27,9 +27,13 @@ module.exports = {
 
     app.use('/dist', express.static(path.resolve('dist')));
 
-    app.get('/', (req, res) => {
+    app.get('/', (req, res, next) => {
       request(API + '/offer', (err, response, body) => {
-        if (err) return res.send('API server error ' + err);
+        if (err || response.statusCode != 200) {
+          console.log('API server error ' + err);
+          console.log(response);
+          return next();
+        }
         const json = JSON.parse(body);
         const data = { offers: json };
         render(req.url, data)
@@ -38,10 +42,14 @@ module.exports = {
       })
     });
 
-    app.get('/offer/*', (req, res) => {
+    app.get('/offer/*', (req, res, next) => {
       const id = req.url.split('/')[2];
       request(API + '/offer/' + id, (err, response, body) => {
-        if (err) return res.send('API server error ' + err);
+        if (err || response.statusCode != 200) {
+          console.log('API server error ' + err);
+          console.log(response);
+          return next();
+        }
         const json = JSON.parse(body);
         const data = { offer: json };
         render(req.url, data)
@@ -58,6 +66,6 @@ module.exports = {
 
     app.listen(port);
 
-    console.log('Environment: prod\nListen on port: ' + port);
+    console.log('Environment: ' + process.env.NODE_ENV + '\nListen on port: ' + port);
   }
 }
