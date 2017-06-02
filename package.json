@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run build:ssr && npm run build:app",
-    "build:app": "webpack --config webpack/webpack.config.prod-app.js --progress --colors",
-    "build:ssr": "webpack --config webpack/webpack.config.prod-ssr.js --progress --colors",
+    "build:app": "webpack --optimize-minimize --config webpack/webpack.config.prod-app.js --progress --colors",
+    "build:ssr": "webpack --optimize-minimize --config webpack/webpack.config.prod-ssr.js --progress --colors",
     "dev": "env NODE_ENV=development node ./server",
     "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx src/ts/**/**/*.spec.tsx",
     "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx",

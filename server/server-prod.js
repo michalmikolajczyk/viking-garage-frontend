@@ -29,6 +29,7 @@ module.exports = {
 
     app.get('/', (req, res) => {
       request(API + '/offer', (err, response, body) => {
+        if (err) return res.send('API server error ' + err);
         const json = JSON.parse(body);
         const data = { offers: json };
         render(req.url, data)
@@ -40,8 +41,9 @@ module.exports = {
     app.get('/offer/*', (req, res) => {
       const id = req.url.split('/')[2];
       request(API + '/offer/' + id, (err, response, body) => {
+        if (err) return res.send('API server error ' + err);
         const json = JSON.parse(body);
-        const data = { offer: json }
+        const data = { offer: json };
         render(req.url, data)
           .then(app => send(res, app, JSON.stringify(data)))
           .catch(err => res.send('Internal server error'));

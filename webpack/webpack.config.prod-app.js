@@ -14,13 +14,13 @@ module.exports = {
   resolve: common.resolve,
 
   plugins: common.plugins.concat([
-    // new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   minimize: true,
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    }),
   ]),
 
   module: common.module,
