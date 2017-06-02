@@ -38,7 +38,7 @@ export default class FormVG extends React.Component<any, any> {
       currency: i('USD'),
     })
       .then((res) => {
-        if (res['err']) return this.setState({  wait: false, networkErr: true });
+        if (res && res['err']) return this.setState({ wait: false, networkErr: true });
         this.setState({
           wait: false,
           rideDialog: false,
