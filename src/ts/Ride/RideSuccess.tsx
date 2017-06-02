@@ -29,13 +29,13 @@ export default function RideSuccess(props){
       autoScrollBodyContent={true}
     >
       <div className="ride-success">
-        Your ride is booked.
+        {i('Your ride is booked.')}
         <br />
         <br />
-        Our team will contact you within the next 24 hours in order to confirm it and discuss the details.
+        {i('Our team will contact you within the next 24 hours in order to confirm it and discuss the details.')}
         <br />
         <br />
-        Get ready for an unforgetable experience with VIKING GARAGE!
+        {i('Get ready for an unforgettable experience with VIKING GARAGE!')}
       </div>
     </Dialog>
   );

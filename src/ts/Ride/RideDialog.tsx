@@ -49,7 +49,7 @@ export default class RideDialog extends React.Component<any, any> {
             </div>
             <FormPure {...this.props}/>
             <div className="text">
-              If you are interested in that ride, leave us your details- our team will contact you:
+              {i('If you are interested in that ride, leave us your details - our team will contact you:')}
             </div>
           </div>
           <Form
@@ -78,10 +78,10 @@ export default class RideDialog extends React.Component<any, any> {
             />
           </Form>
           <div className="text">
-            PS: You can also call us (WhatsApp works):
+            {i('PS: You can also call us (WhatsApp works):')}
             <br />
             <a href="tel:+48697951264" target="_blank">
-              Phone: +48 697 951 264
+              {i('Phone:')} +48 697 951 264
             </a>
           </div>
         </div>
