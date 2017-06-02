@@ -33,7 +33,9 @@ export default class FormVG extends React.Component<any, any> {
       startDate: this.state.startDate,
       endDate: this.state.endDate,
       equipment: this.state.equipment,
-      total: this.getTotal(),
+      price: `${this.getPrice()} ${i('USD')}`,
+      total: `${this.getTotal()} ${i('USD')}`,
+      currency: i('USD'),
     })
       .then((res) => {
         if (res['err']) return this.setState({  wait: false, networkErr: true });

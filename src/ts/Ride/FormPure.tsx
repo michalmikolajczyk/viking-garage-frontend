@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as fx from 'money';
 import {
   DatePicker,
   FontIcon,
@@ -19,12 +20,14 @@ export default function FormPure(props){
     startDateChange,
   } = props
 
+  const localPrice = fx(price).to(i('USD')).toFixed(2);
+  const localTotal = fx(total).to(i('USD')).toFixed(2);
   return (
     <div>
       <div className="field empty">
         <FontIcon className="fa fa-money" />
         <div>
-          {`${i('Base price')}: ${price} $ / ${i('day')}`}
+          {`${i('Base price')}: ${localPrice} ${i('USD')} / ${i('day')}`}
         </div>
       </div>
       <div className="field">
@@ -62,7 +65,7 @@ export default function FormPure(props){
         </SelectField>
       </div>
       <div className="field empty">
-        {`${i('Total')}: ${total} $`}
+        {`${i('Total')}: ${localTotal} ${i('USD')}`}
       </div>
     </div>
   );

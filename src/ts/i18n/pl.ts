@@ -363,6 +363,12 @@ export default {
   'View Profile': 'Zobacz Profil',
 
 /**
+ * Ride
+ */
+ 'USD': 'PLN',
+
+
+/**
  * Search
  */
 // Location
@@ -370,8 +376,6 @@ export default {
   'Find motorcycles to ride around ...': 'Wyszukaj motocykle w okolicy ...',
 // Select
   'Select some values': 'Wybierz wartość',
-
-
 }
 
 
