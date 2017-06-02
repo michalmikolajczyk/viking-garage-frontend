@@ -1,10 +1,13 @@
 import * as React from 'react';
+import * as injectTapEventPlugin from 'react-tap-event-plugin';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { MuiThemeProvider } from 'material-ui/styles';
 import DataProvider from './DataProvider';
 import muiThemeVG from './muiThemeVG';
 import routes from './routes';
+
+injectTapEventPlugin();
 
 export default function render(location, data) {
   return new Promise((resolve, reject) => {
