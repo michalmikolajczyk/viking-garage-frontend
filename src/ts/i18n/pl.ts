@@ -2,7 +2,7 @@ export default {
 // Header
   'rent motorcycles and gear': 'wynajem motocykli i sprzętu',
   'find mechanics, coaches, trails': 'mechanicy, trenerzy i trasy',
-  'everywhere in the world': 'gdziekolwiek na świecie',
+  'everywhere in the world': 'w dowolnym miejscu na świecie',
 
 // Menu
   'Profile': 'Profil',
@@ -13,7 +13,7 @@ export default {
   'Log out': 'Wyloguj',
   'Sign in': 'Stwórz konto',
   'Log in': 'Zaloguj się',
-  'Bike Owners': 'Motocykliści',
+  'Bike Owners': 'Wynajmij Motocykl',
   'Guides & Coaches': 'Przewodnicy i Trenerzy',
   'Mechanics': 'Mechanicy',
   'FAQ': 'FAQ',
