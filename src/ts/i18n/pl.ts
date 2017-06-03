@@ -178,10 +178,10 @@ export default {
   'Optional services': 'Dodatkowe usługi',
 
 // Offerer
-  'With VG since': 'Razem z VG od',
+  'With VIKING GARAGE since': 'Z VIKING GARAGE od',
   'Recommendations': 'Rekomendacje',
   'Send message': 'Wyślij wiadomość',
-  'Offerer details': 'Dane użytkownika',
+  'Offerer details': 'Informacje o wynajmującym',
 
 /**
  * helpers/models
@@ -362,6 +362,8 @@ export default {
   'Base price': 'Cena',
   'USD': 'PLN',
   'day': 'dzień',
+  'Start Date': 'Data Rozpoczęcia',
+  'End Date': 'Data Zakończenia',
   'Equipment': 'Wyposażenie',
   'Basic': 'Podstawowe',
   'Full': 'Pełne',
