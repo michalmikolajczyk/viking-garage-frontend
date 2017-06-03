@@ -12,11 +12,9 @@ import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
   // default values (before fetched)
-  days = 3;
-  price = 35;
   state = {
-    startDate: moment().toDate(),
-    endDate: moment().add(3, 'days').toDate(),
+    startDate: null,
+    endDate: null,
     equipment: 1,
 
     wait: false,
@@ -54,8 +52,9 @@ export default class FormVG extends React.Component<any, any> {
   closeRideSuccess = () => this.setState({ rideSuccess: false })
 
   getTitle = () => _.get(this.props.offer, 'title', '')
-  getPrice = () => _.get(this.props.offer, 'price', this.price)
-  getTotal = () => this.getPrice() * (Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1);
+  getPrice = () => _.get(this.props.offer, 'price', 0)
+  getRange = () => (this.state.startDate && this.state.endDate) ? (Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1) : 0;
+  getTotal = () => this.getPrice() * this.getRange();
   startDateChange = (ev, startDate) => this.setState({ startDate });
   endDateChange = (ev, endDate) => this.setState({ endDate });
   equipmentChange = (ev, index, equipment) => this.setState({ equipment });

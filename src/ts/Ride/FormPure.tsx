@@ -26,7 +26,7 @@ export default function FormPure(props){
     <div>
       <div className="field empty">
         <FontIcon className="fa fa-money" />
-        <div>
+        <div className="text">
           {`${i('Base price')}: ${localPrice} ${i('USD')} / ${i('day')}`}
         </div>
       </div>
@@ -37,8 +37,11 @@ export default function FormPure(props){
           className="date-picker"
           autoOk={true}
           value={startDate}
+          hintText={i('Start Date')}
           onChange={startDateChange}
           fullWidth={true}
+          hintStyle={{ paddingLeft: 35 }}
+          inputStyle={{ paddingLeft: 35 }}
         />
       </div>
       <div className="field">
@@ -48,8 +51,11 @@ export default function FormPure(props){
           className="date-picker"
           autoOk={true}
           value={endDate}
+          hintText={i('End Date')}
           onChange={endDateChange}
           fullWidth={true}
+          hintStyle={{ paddingLeft: 35 }}
+          inputStyle={{ paddingLeft: 35 }}
         />
       </div>
       <div className="field">
@@ -59,6 +65,8 @@ export default function FormPure(props){
           value={equipment}
           onChange={equipmentChange}
           fullWidth={true}
+          hintStyle={{ paddingLeft: 35 }}
+          labelStyle={{ paddingLeft: 35 }}
         >
           <MenuItem key={1} value={1} primaryText={`${i('Equipment')}: ${i('Basic')}`} />
           <MenuItem key={2} value={2} primaryText={`${i('Equipment')}: ${i('Full')}`} />
