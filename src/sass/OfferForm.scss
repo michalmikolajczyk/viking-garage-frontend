@@ -1,0 +1,69 @@
+.detail-form {
+  text-align: left;
+  flex: 0 0 300px;
+  padding: 0 64px 0 0;
+  #detail-side {
+    padding-top: 54px;
+    transform: translate3d(0,0,0) !important;
+    width: 300px;
+  }
+  .fixed {
+    margin-top: -54px;
+    position: fixed;
+  }
+  .absolute {
+    position: absolute;
+    bottom: 60px;
+  }
+  .title {
+    @extend .h5;
+    @extend .nowrap;
+    width: 100%;
+    text-transform: uppercase;
+    margin-bottom: 39px;
+  }
+  .field {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    .date-picker input {
+      cursor: pointer !important;
+    }
+    .fa, .material-icons {
+      position: absolute !important;
+      font-size: 24px !important;
+      line-height: 46px;
+    }
+    &.empty {
+      height: 45px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid black;
+      line-height: 50px;
+      color: black;
+      cursor: default;
+      .text {
+        font-weight: $medium;
+        margin-left: 35px;
+      }
+    }
+    svg { display: none !important }
+    hr { border-bottom: 1px solid black !important }
+  }
+  .ride-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 66px;
+    margin-top: 43px;
+    border: 2px solid #6B6B6B;
+    font-size: 24px;
+    letter-spacing: 5px;
+    background: transparent;
+    border-radius: 3px;
+    .raido {
+      padding-right: 5px;
+    }
+  }
+}
