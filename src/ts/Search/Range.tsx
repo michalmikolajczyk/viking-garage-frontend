@@ -31,8 +31,10 @@ export default class Range extends React.Component<any, any> {
           <SelectField
             value={this.state.value}
             onChange={this.onChange}
-            fullWidth={true}
             maxHeight={200}
+            fullWidth={true}
+            hintStyle={{ paddingLeft: 30 }}
+            labelStyle={{ paddingLeft: 30 }}
           >
             {this.items}
           </SelectField>

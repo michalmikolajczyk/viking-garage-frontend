@@ -106,6 +106,9 @@ export default class Select extends React.Component<any, any> {
             value={[...this.state.values]}
             onChange={this.onChange}
             selectionRenderer={this.selectionRenderer}
+            fullWidth={true}
+            hintStyle={{ paddingLeft: 30 }}
+            labelStyle={{ paddingLeft: 30 }}
           >
             {this.menuItems()}
           </SelectField>

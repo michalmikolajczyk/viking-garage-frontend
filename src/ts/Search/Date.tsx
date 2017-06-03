@@ -33,25 +33,30 @@ export default class DateVG extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="date">
-        <FontIcon className="material-icons">today</FontIcon>
-        <DatePicker
-          className="filter"
-          autoOk={true}
-          value={this.state.startDate}
-          onChange={this.onChangeStart}
-          hintText="Today"
-          fullWidth={true}
-        />
-        <FontIcon className="material-icons">date_range</FontIcon>
-        <DatePicker
-          className="filter"
-          autoOk={true}
-          value={this.state.endDate}
-          onChange={this.onChangeEnd}
-          hintText="19/01/2017"
-          fullWidth={true}
-        />
-      </div>);
+      <div className="date-wrap">
+        <div className="date">
+          <FontIcon className="material-icons">today</FontIcon>
+          <DatePicker
+            className="filter"
+            autoOk={true}
+            value={this.state.startDate}
+            onChange={this.onChangeStart}
+            fullWidth={true}
+            inputStyle={{ paddingLeft: 30 }}
+          />
+        </div>
+        <div className="date">
+          <FontIcon className="material-icons">date_range</FontIcon>
+          <DatePicker
+            className="filter"
+            autoOk={true}
+            value={this.state.endDate}
+            onChange={this.onChangeEnd}
+            fullWidth={true}
+            inputStyle={{ paddingLeft: 30 }}
+          />
+        </div>
+      </div>
+    );
   }
 }
