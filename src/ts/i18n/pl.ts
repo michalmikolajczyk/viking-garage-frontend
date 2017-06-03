@@ -301,6 +301,7 @@ export default {
   'Circuits': 'Tory',
   'Other': 'Inne',
 
+  'Select type': 'Wybierz rodzaj',
   'Scooter': 'Skutery',
   'Electric': 'Elektryczne',
   'Small (children)': 'Małe (dla dzieci)',
