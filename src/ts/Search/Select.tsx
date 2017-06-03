@@ -11,12 +11,7 @@ const log = debug('app:Select');
 import i from '../i18n';
 
 export default class Select extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      values: new Set(),
-    };
-  }
+  state = { values: new Set() }
 
   selectionRenderer = (values) => {
     return [...values].sort().reduce(
@@ -107,7 +102,7 @@ export default class Select extends React.Component<any, any> {
         <div className="filter">
           <SelectField
             multiple={true}
-            hintText="Select type"
+            hintText={i('Select type')}
             value={[...this.state.values]}
             onChange={this.onChange}
             selectionRenderer={this.selectionRenderer}
@@ -129,41 +124,42 @@ const rawItems = {
     'Electric',
     'Small (children)',
   ],
-  Mechanic: [
-    'Off-road & dual-sport',
-    'Street',
-    'Electric',
-    'Scooter',
-  ],
-  'Coach / Instructor': [
-    'Off-road',
-    'Street',
-  ],
-  Guide: [
-    'Off-road',
-    'Street',
-  ],
-  Equipment: [
-    'Off-road',
-    'Street',
-  ],
-  Parts: [
-    'Dirtbikes',
-    'Streetbikes',
-  ],
-  Circuits: [
-    'Motocross',
-    'Enduro',
-    'Race tracks',
-  ],
-  Other: [
-    'Shops',
-    'Events',
-    'Clubs',
-  ],
+// Hide for alfa release
+  // Mechanic: [
+  //   'Off-road & dual-sport',
+  //   'Street',
+  //   'Electric',
+  //   'Scooter',
+  // ],
+  // 'Coach / Instructor': [
+  //   'Off-road',
+  //   'Street',
+  // ],
+  // Guide: [
+  //   'Off-road',
+  //   'Street',
+  // ],
+  // Equipment: [
+  //   'Off-road',
+  //   'Street',
+  // ],
+  // Parts: [
+  //   'Dirtbikes',
+  //   'Streetbikes',
+  // ],
+  // Circuits: [
+  //   'Motocross',
+  //   'Enduro',
+  //   'Race tracks',
+  // ],
+  // Other: [
+  //   'Shops',
+  //   'Events',
+  //   'Clubs',
+  // ],
 };
 
 const items = _.flatten(_.keys(rawItems).map((item) => [
-  item,
-  ...rawItems[item].map(i => `${item}#${i}`),
+  i(item),
+  ...rawItems[item].map(it => `${i(item)}#${i(it)}`),
 ]));
