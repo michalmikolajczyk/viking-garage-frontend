@@ -6,7 +6,6 @@ import Location from './Location';
 import Range from './Range';
 
 export default function Search(props) {
-
   const {
     locationFilter,
     selectFilter,
@@ -15,7 +14,7 @@ export default function Search(props) {
   } = props;
 
   return (
-    <div className="search cont">
+    <div className="search">
       <Location
         icon="location_on"
         filter={locationFilter} />

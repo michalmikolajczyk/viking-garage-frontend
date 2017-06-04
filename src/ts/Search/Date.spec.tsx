@@ -12,7 +12,7 @@ import DateVG from './Date';
 describe('Search <Date />', () => {
   it('check for inner components', () => {
     const wrapper = shallow(<DateVG />);
-    expect(wrapper.find('.date')).to.have.length(1);
+    expect(wrapper.find('.date')).to.have.length(2);
     expect(wrapper.find('.filter')).to.have.length(2);
     expect(wrapper.find('DatePicker')).to.have.length(2);
   });

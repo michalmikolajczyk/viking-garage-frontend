@@ -49,6 +49,8 @@ export default class Location extends React.Component<any, any> {
             onUpdateInput={this.onUpdateInput}
             dataSource={this.state.data}
             fullWidth={true}
+            hintStyle={{ paddingLeft: 30 }}
+            inputStyle={{ paddingLeft: 30 }}
           />
         </div>
       </div>);

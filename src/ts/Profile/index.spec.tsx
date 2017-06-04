@@ -14,10 +14,12 @@ import {
 import * as api from './api';
 import { default as Profile } from './';
 
+const date = new Date()
+
 const user = {
   firstname: 'Viking',
   lastname: 'Garage',
-  birthday: new Date(),
+  birthday: date,
   email: 'viking.garage.app@gmail.com',
 };
 
@@ -25,7 +27,7 @@ const res = {
   data: {
     firstname: 'Viking',
     lastname: 'Garage',
-    birthday: new Date(),
+    birthday: date,
     email: 'viking.garage.app@gmail.com',
   },
 };
