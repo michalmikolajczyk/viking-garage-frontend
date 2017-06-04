@@ -1,11 +1,15 @@
 import * as React from 'react';
+import * as injectTapEventPlugin from 'react-tap-event-plugin';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { MuiThemeProvider } from 'material-ui/styles';
+import DataProvider from './DataProvider';
 import muiThemeVG from './muiThemeVG';
 import routes from './routes';
 
-export default function render(location) {
+injectTapEventPlugin();
+
+export default function render(location, data) {
   return new Promise((resolve, reject) => {
     match({ routes, location }, (err, redirect, props) => {
       if (err) return reject(err);
@@ -13,9 +17,9 @@ export default function render(location) {
       if (props) {
         resolve(
           renderToString(
-            <MuiThemeProvider muiTheme={muiThemeVG}>
+            <DataProvider data={data}>
               <RouterContext {...props} />
-            </MuiThemeProvider>
+            </DataProvider>
           )
         );
       }

@@ -1,15 +1,17 @@
 import * as React from 'react';
-import { Link } from 'react-router';
+import { MuiThemeProvider } from 'material-ui/styles';
+import muiThemeVG from '../muiThemeVG';
 import { default as AppBarVG } from '../AppBar';
 import Footer from '../Footer';
-// import Header from '../Header';
 
 export default function Container(props) {
   return (
-     <div>
-      <AppBarVG />
-      {props.children}
-      <Footer />
-    </div>
+    <MuiThemeProvider muiTheme={muiThemeVG}>
+      <div>
+        <AppBarVG />
+        {props.children}
+        <Footer />
+      </div>
+    </MuiThemeProvider>
   );
 }

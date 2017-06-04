@@ -3,6 +3,7 @@ import i from '../i18n';
 import * as models from './models';
 
 export default function parser(schema: string, items: Object): any {
+  if (typeof items === 'undefined') return [];
   return _.map(models[schema], model => {
     let value;
     if (typeof items[model.key] === 'boolean') {

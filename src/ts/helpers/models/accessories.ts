@@ -2,7 +2,7 @@ import i from '../../i18n';
 
 export default [
   {
-    key: 'travelBoxesBags',
+    key: 'travelBoxes',
     label: i('Travel Boxes/Bags'),
   },
   {

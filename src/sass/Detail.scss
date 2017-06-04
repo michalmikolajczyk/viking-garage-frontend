@@ -1,17 +1,27 @@
+$detail-image-height: 420px;
+
 .detail {
   @extend .cont;
   width: 100%;
   min-width: 300px;
+  min-height: 650px;
   padding-top: 112px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   .image {
     margin-right: 100px;
-    height: 420px;
+    height: $detail-image-height;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
+  }
+  .fa-motorcycle {
+    color: #9B9B9B !important;
+    display: block !important;
+    line-height: $detail-image-height !important;
+    font-size: 374px !important;
+    text-align: center;
   }
 }
 

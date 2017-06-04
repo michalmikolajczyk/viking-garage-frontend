@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-dom';
+import DataProvider from './DataProvider';
 import Main from './Main';
 import '../js/pollyfills';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
@@ -7,7 +8,15 @@ const { AppContainer } = require('react-hot-loader');
 
 injectTapEventPlugin();
 const root = document.getElementById('app');
-render(<AppContainer><Main /></AppContainer>, root);
+
+render(
+  <AppContainer>
+    <DataProvider data={window['APP_DATA']}>
+      <Main />
+    </DataProvider>
+  </AppContainer>,
+  root,
+);
 
 // Handle hot reloading requests from Webpack
 declare var module: { hot: any };

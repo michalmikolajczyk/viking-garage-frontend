@@ -1,17 +1,22 @@
+$card-height: 378px;
+$card-width: 529px;
+$card-head-color: rgba(0, 0, 0, 0.55);
+$card-head-dark: rgba(0, 0, 0, 0.65);
+
 .offers {
+  @extend .cont;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   padding: 49px 0 0;
-  // padding: 49px 0 135px;
   min-height: 500px;
 }
 
 .card {
-  width: 529px;
-  height: 378px;
+  width: $card-width;
+  height: $card-height;
   margin-bottom: 92px;
   position: relative;
   .image {
@@ -23,6 +28,13 @@
     position: absolute;
     bottom: 0;
   }
+  .fa {
+    display: block !important;
+    font-size: 323px !important;
+    line-height: $card-height !important;
+    color: #9B9B9B !important;
+    text-align: center;
+  }
   .head {
     width: 100%;
     height: 114px;
@@ -30,7 +42,7 @@
     bottom: 0;
     box-sizing: border-box;
     color: white;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: $card-head-color;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: row;
@@ -50,26 +62,23 @@
   }
 }
 
-.offers-wrap {
-  position: relative;
-  .load {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 135px;
-    padding-top: 40px;
-    box-sizing: border-box;
-    background-color: #606060;
-    text-align: center;
-    .loadmore {
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
-      text-decoration: underline;
-      background-color: transparent;
-      border: none;
-      outline: none;
-    }
+.load {
+  .head {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: slidingAnimation;
+    animation-timing-function: linear;
+    background: linear-gradient(to right, $card-head-color 8%, $card-head-dark 18%, $card-head-color 33%);
+    background-size: 900px;
+  }
+}
+
+@keyframes slidingAnimation{
+  0% {
+    background-position: -450px 0
+  }
+  100% {
+    background-position: 450px 0
   }
 }

@@ -17,10 +17,9 @@ describe('<Accordion />', () => {
     expect(wrapper.find('Table')).to.have.length(1);
   });
 
-  it('check for closed accordion without header', () => {
+  it('check for closed accordion', () => {
     const wrapper = shallow(<Accordion />);
     expect(wrapper.find('.accordion')).to.have.length(1);
-    expect(wrapper.find('Header')).to.have.length(0);
     expect(wrapper.find('Table')).to.have.length(0);
   });
 

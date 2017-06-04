@@ -4,9 +4,6 @@ import Header from './Header';
 import Table from './Table';
 
 export default class Accordion extends React.Component<any, any> {
-  private header: any;
-  private table: any;
-
   constructor(props) {
     super(props);
     const {
@@ -14,26 +11,28 @@ export default class Accordion extends React.Component<any, any> {
       offer,
       header,
     } = props;
-    this.state = { open };
-    this.header = header;
-    this.table = <Table offer={offer} />;
-    this.toggle = this.toggle.bind(this);
+    this.state = {
+      open,
+      offer,
+      header,
+    };
   }
 
-  toggle() {
-    this.setState({ open: !this.state.open });
+  componentWillReceiveProps({ offer }) {
+    this.setState({ offer });
   }
+
+  toggle = () => this.setState({ open: !this.state.open })
 
   render() {
     const icon = this.state.open
       ? <FontIcon className="material-icons">expand_less</FontIcon>
       : <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>;
-    const header = this.header && <Header call={this.toggle} icon={icon} head={this.header} />;
 
     return (
       <div className="accordion">
-        {header}
-        {this.state.open && this.table}
+        <Header call={this.toggle} icon={icon} head={this.state.header} />
+        {this.state.open && <Table offer={this.state.offer}/>}
       </div>
     );
   }

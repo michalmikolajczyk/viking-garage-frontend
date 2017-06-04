@@ -7,7 +7,7 @@ export default function Header(props) {
     icon,
     head,
   } = props;
-
+  if (typeof head === 'undefined') return null;
   return (
     <div className="acc-header">
       <FlatButton

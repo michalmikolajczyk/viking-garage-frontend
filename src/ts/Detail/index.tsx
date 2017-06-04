@@ -1,38 +1,40 @@
 import * as React from 'react';
 import { browserHistory } from 'react-router';
+import * as _ from 'lodash';
 import NetworkError from '../Dialogs/NetworkError';
 import FormVG from './FormVG';
 import Offer from './Offer';
 import * as api from './api';
 import debug from 'debug';
 const log = debug('app:Detail');
-import * as mockup from './mockup';
 
 export default class Detail extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
+  static contextTypes = { data: React.PropTypes.object }
+
+  constructor(props, context) {
+    super(props, context);
     const id = props.params.id;
     if (isNaN(id)) browserHistory.push('/notfound');
     this.state = {
       id,
-      offer: mockup.offer,
       networkErr: false,
+      offer: !_.has(context, 'data.offer') ? {
+        price: '',
+        motorcycles: [],
+      } : context.data.offer,
     };
   }
 
   componentDidMount() {
     api.get(this.state.id)
       .then((res) => {
-        if (res['err']) throw res['msg'];
+        if (res['err']) return this.setState({ networkErr: true });
         this.setState({ offer: res });
       })
-      .catch((err) => {
-        log(`API get error ${err}`);
-        this.setState({ networkErr: true });
-      });
+      .catch(err => this.setState({ networkErr: true }));
   }
 
-  close = () => this.setState({ networkErr: false });
+  closeNetworkErr = () => this.setState({ networkErr: false });
 
   render() {
     return (
@@ -43,7 +45,7 @@ export default class Detail extends React.Component<any, any> {
         </div>
         <NetworkError
           open={this.state.networkErr}
-          close={this.close}
+          close={this.closeNetworkErr}
         />
       </div>
     );

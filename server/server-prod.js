@@ -1,28 +1,71 @@
 const express = require('express');
-const render = require('../dist/ssr').default;
+const request = require('request');
 const path = require('path');
+const hbs = require('express-handlebars');
 const fs = require('fs');
+const render = require('../dist/ssr').default;
+const API = process.env.API_URL || 'https://viking-garage-api-dev.herokuapp.com';
+
+function send(res, content, context) {
+  res.render('index', {
+    content,
+    context,
+  });
+}
 
 module.exports = {
   listen: function (port) {
-    const app = express()
+    const app = express();
+
+    app.set('views', path.resolve('src/hbs'));
+    app.engine('hbs', hbs({
+      extname: 'hbs',
+      defaultLayout: 'main.hbs',
+      layoutsDir: path.resolve('src/hbs'),
+    }));
+    app.set('view engine', 'hbs');
 
     app.use('/dist', express.static(path.resolve('dist')));
 
+    app.get('/', (req, res, next) => {
+      request(API + '/offer', (err, response, body) => {
+        if (err || response.statusCode != 200) {
+          console.log('API server error ' + err);
+          console.log(response);
+          return next();
+        }
+        const json = JSON.parse(body);
+        const data = { offers: json };
+        render(req.url, data)
+          .then(app => send(res, app, JSON.stringify(data)))
+          .catch(err => res.send('Internal server error'));
+      })
+    });
+
+    app.get('/offer/*', (req, res, next) => {
+      const id = req.url.split('/')[2];
+      request(API + '/offer/' + id, (err, response, body) => {
+        if (err || response.statusCode != 200) {
+          console.log('API server error ' + err);
+          console.log(response);
+          return next();
+        }
+        const json = JSON.parse(body);
+        const data = { offer: json };
+        render(req.url, data)
+          .then(app => send(res, app, JSON.stringify(data)))
+          .catch(err => res.send('Internal server error'));
+      })
+    });
+
     app.get('*', function (req, res) {
       render(req.url)
-        .then((appString) => {
-          const indexFile = fs.readFileSync('index.html', 'utf8');
-          const index = indexFile.replace('<div id="mockup"></div>', appString);
-          res.send(index);
-        })
-        .catch((err) => {
-          res.send('Internal server error');
-        });
+        .then(app => send(res, app))
+        .catch(err => res.send('Internal server error'));
     });
 
     app.listen(port);
 
-    console.log('Environment: prod\nListen on port: ' + port);
+    console.log('Environment: ' + process.env.NODE_ENV + '\nListen on port: ' + port);
   }
 }
