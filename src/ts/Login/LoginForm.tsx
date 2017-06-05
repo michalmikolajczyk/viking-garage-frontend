@@ -44,6 +44,7 @@ export default class LoginForm extends React.Component<any, any> {
         onSubmit={this.submit}
       >
         <FormsyText
+          id="login-email"
           name="email"
           required={true}
           fullWidth={true}
@@ -52,6 +53,7 @@ export default class LoginForm extends React.Component<any, any> {
           validationError={i('Wrong e-mail address!')}
         />
         <FormsyText
+          id="login-password"
           name="password"
           type="password"
           required={true}

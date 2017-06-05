@@ -28,6 +28,7 @@ export default class DateVG extends React.Component<any, any> {
         <div className="date">
           <FontIcon className="material-icons">today</FontIcon>
           <DatePicker
+            id="search-date-start"
             className="filter"
             autoOk={true}
             onChange={this.onChangeStart}
@@ -40,6 +41,7 @@ export default class DateVG extends React.Component<any, any> {
         <div className="date">
           <FontIcon className="material-icons">date_range</FontIcon>
           <DatePicker
+            id="search-date-end"
             className="filter"
             autoOk={true}
             onChange={this.onChangeEnd}

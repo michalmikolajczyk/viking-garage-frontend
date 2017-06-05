@@ -52,6 +52,7 @@ export default class Reset extends React.Component<any, any> {
             >
               <div className="reset">
                 <FormsyText
+                  id="reset-email"
                   name="email"
                   required={true}
                   fullWidth={true}

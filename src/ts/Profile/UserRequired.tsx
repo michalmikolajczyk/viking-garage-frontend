@@ -17,6 +17,7 @@ export default function UserRequired(props) {
       </div>
       <div className="body">
         <FormsyText
+          id="user-profile-firstname"
           name="firstname"
           disabled={disabled}
           value={user && user.firstname}
@@ -27,6 +28,7 @@ export default function UserRequired(props) {
           validationError={i('Please add more characters (minimum 3)')}
         />
         <FormsyText
+          id="user-profile-lastname"
           name="lastname"
           disabled={disabled}
           value={user && user.lastname}
@@ -37,6 +39,7 @@ export default function UserRequired(props) {
           validationError={i('Please add more characters (minimum 3)')}
         />
         <FormsyDate
+          id="user-profile-birthday"
           name="birthday"
           disabled={disabled}
           required={true}
@@ -45,6 +48,7 @@ export default function UserRequired(props) {
           floatingLabelText={i('Date of birth')}
         />
         <FormsyText
+          id="user-profile-email"
           name="email"
           disabled={disabled}
           value={user && user.email}
