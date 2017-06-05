@@ -13,6 +13,12 @@ function send(res, content, context) {
   });
 }
 
+function errorHandler(err, req, res, next) {
+  console.log('API server error ' + err);
+  console.log(res);
+  return next();
+}
+
 module.exports = {
   listen: function (port) {
     const app = express();
@@ -29,13 +35,12 @@ module.exports = {
 
     app.get('/', (req, res, next) => {
       request(API + '/offer', (err, response, body) => {
-        if (err || response.statusCode != 200) {
-          console.log('API server error ' + err);
-          console.log(response);
-          return next();
-        }
+        if (err || response.statusCode != 200) return errorHandler(err, req, response, next);
         const json = JSON.parse(body);
-        const data = { offers: json };
+        const data = {
+          offers: json,
+          userAgent: req.headers['user-agent'],
+        };
         render(req.url, data)
           .then(app => send(res, app, JSON.stringify(data)))
           .catch(err => res.send('Internal server error'));
@@ -45,13 +50,12 @@ module.exports = {
     app.get('/offer/*', (req, res, next) => {
       const id = req.url.split('/')[2];
       request(API + '/offer/' + id, (err, response, body) => {
-        if (err || response.statusCode != 200) {
-          console.log('API server error ' + err);
-          console.log(response);
-          return next();
-        }
+        if (err || response.statusCode != 200) return errorHandler(err, req, response, next);
         const json = JSON.parse(body);
-        const data = { offer: json };
+        const data = {
+          offer: json,
+          userAgent: req.headers['user-agent'],
+        };
         render(req.url, data)
           .then(app => send(res, app, JSON.stringify(data)))
           .catch(err => res.send('Internal server error'));
@@ -59,8 +63,9 @@ module.exports = {
     });
 
     app.get('*', function (req, res) {
-      render(req.url)
-        .then(app => send(res, app))
+      const data = { userAgent: req.headers['user-agent'] }
+      render(req.url, data)
+        .then(app => send(res, app, JSON.stringify(data)))
         .catch(err => res.send('Internal server error'));
     });
 

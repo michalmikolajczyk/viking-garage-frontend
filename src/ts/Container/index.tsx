@@ -1,17 +1,29 @@
 import * as React from 'react';
-import { MuiThemeProvider } from 'material-ui/styles';
+import * as _ from 'lodash';
+import {
+  getMuiTheme,
+  MuiThemeProvider,
+} from 'material-ui/styles';
 import muiThemeVG from '../muiThemeVG';
 import { default as AppBarVG } from '../AppBar';
 import Footer from '../Footer';
 
-export default function Container(props) {
-  return (
-    <MuiThemeProvider muiTheme={muiThemeVG}>
-      <div>
-        <AppBarVG />
-        {props.children}
-        <Footer />
-      </div>
-    </MuiThemeProvider>
-  );
+export default class Container extends React.Component<any, any> {
+  static contextTypes = { data: React.PropTypes.object }
+
+  render() {
+    const userAgent = typeof navigator !== 'undefined'
+      ? navigator.userAgent
+      : _.get(this.context, 'data.userAgent', 'all');
+
+    return (
+      <MuiThemeProvider muiTheme={getMuiTheme({ userAgent, ...muiThemeVG })}>
+        <div>
+          <AppBarVG />
+          {this.props.children}
+          <Footer />
+        </div>
+      </MuiThemeProvider>
+    );
+  }
 }
