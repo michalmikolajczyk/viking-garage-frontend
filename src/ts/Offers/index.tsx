@@ -62,23 +62,13 @@ export default class Offers extends React.Component<any, any> {
     }
   }
 
-  locationFilter = (location) => {
-    log('change location', location);
-    this.setState({ location }, this.update);
-  }
+  locationFilter = (location) => this.setState({ location }, this.update);
 
-  distanceFilter = (distance) => {
-    log('change filter distabnce', distance);
-    this.setState({ distance }, this.update);
-  }
+  distanceFilter = (distance) => this.setState({ distance }, this.update);
 
-  typeFilter = (type) => {
-    log('change filter type', type);
-    this.setState({ type }, this.update);
-  }
+  typeFilter = (type) => this.setState({ type }, this.update);
 
-
-  dateFilter(filter) { log('change filter date', filter); }
+  dateFilter = (date) => this.setState({ date }, this.update);
 
   closeNetworkErr = () => this.setState({ networkErr: false });
 
