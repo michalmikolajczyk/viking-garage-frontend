@@ -17,39 +17,31 @@ describe('Search <Date />', () => {
     expect(wrapper.find('DatePicker')).to.have.length(2);
   });
 
-  it('check if sets actual date on create (to the minute accuracy)', () => {
-    const start = moment().toDate().toString()
-    const end = moment().add(14, 'days').toDate().toString();
-    const wrapper = shallow(<DateVG />);
-    expect(wrapper.state().startDate.toString()).to.be.equal(start);
-    expect(wrapper.state().endDate.toString()).to.be.equal(end);
-  });
-
   it('check if updates filter on change start date', () => {
-    const start = moment().toDate();
+    const startDate = moment().toDate();
     const filter = sinon.spy((params) => {
       const {
-        startDate,
-        endDate,
+        start,
+        end,
       } = params;
-      expect(startDate).to.be.equal(start);
+      expect(start).to.be.equal(startDate);
     });
     const wrapper = shallow(<DateVG filter={filter} />);
     const instance = wrapper.instance();
-    instance['onChangeStart'](undefined, start);
+    instance['onChangeStart'](undefined, startDate);
   });
 
   it('check if update filter on change end date', () => {
-    const end = moment().toDate();
+    const endDate = moment().toDate();
     const filter = sinon.spy((params) => {
       const {
-        startDate,
-        endDate,
+        start,
+        end,
       } = params;
-      expect(endDate).to.be.equal(end);
+      expect(end).to.be.equal(endDate);
     });
     const wrapper = shallow(<DateVG filter={filter} />);
     const instance = wrapper.instance();
-    instance['onChangeEnd'](undefined, end);
+    instance['onChangeEnd'](undefined, endDate);
   });
 });

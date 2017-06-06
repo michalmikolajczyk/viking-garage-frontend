@@ -6,45 +6,38 @@ import * as sinon from 'sinon';
 import * as sinonChai from 'sinon-chai';
 chai.use(sinonChai);
 const { expect } = chai;
-import Range from './Range';
+import Distance from './Distance';
 
-const initValue = 8;
+const dist = [2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657];
+const convert = (data) => data.map(d => ({text: `${d} km`, value: d}))
 
-describe('Search <Range />', () => {
+describe('Search <Distance />', () => {
   it('check for inner components', () => {
-    const wrapper = shallow(<Range filter={() => {}}/>);
-    expect(wrapper.find('.range')).to.have.length(1);
+    const wrapper = shallow(<Distance filter={() => {}}/>);
+    expect(wrapper.find('.distance')).to.have.length(1);
     expect(wrapper.find('FontIcon')).to.have.length(1);
-    expect(wrapper.find('SelectField')).to.have.length(1);
-    expect(wrapper.find('MenuItem')).to.have.length(21);
-  });
-
-  it('check if sets initial distans', () => {
-    const wrapper = shallow(<Range filter={() => {}}/>);
-    expect(wrapper.state().value).to.be.equal(initValue);
+    expect(wrapper.find('AutoComplete')).to.have.length(1);
   });
 
   it('check if updates state on change distance', () => {
-    const value = 2;
-    const wrapper = shallow(<Range filter={() => {}}/>);
+    const wrapper = shallow(<Distance filter={() => {}}/>);
     const instance = wrapper.instance();
 
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
-    expect(instance.state.value).to.be.equal(initValue);
-    instance['onChange'](undefined, 0, value);
+    instance['onUpdateInput'](1);
 
     expect(instance.setState).to.have.been.calledOnce;
-    expect(instance.state.value).to.be.equal(value);
+    expect(instance.state.data).to.be.deep.equal(convert(dist));
   });
 
   it('check if updates filter on change distance', () => {
-    const value = 2;
+    const value = '120';
     const filter = sinon.spy((params) => {
       expect(params).to.be.equal(value);
     });
-    const wrapper = shallow(<Range filter={filter} />);
+    const wrapper = shallow(<Distance filter={filter} />);
     const instance = wrapper.instance();
-    instance['onChange'](undefined, 0, value);
+    instance['onNewRequest'](value);
   });
 });
