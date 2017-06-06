@@ -293,7 +293,7 @@ export default {
   'Circuits': 'Tory',
   'Other': 'Inne',
 
-  'Select type': 'Wybierz rodzaj',
+  'Select type...': 'Wybierz rodzaj...',
   'Scooter': 'Skutery',
   'Electric': 'Elektryczne',
   'Small (children)': 'Małe (dla dzieci)',
@@ -391,6 +391,9 @@ export default {
 // Location
   'Search': 'Szukaj',
   'Find motorcycles to ride around ...': 'Wyszukaj motocykle w okolicy ...',
+  'Not found': 'Brak wyników',
+  'Set distance...': 'Wybierz odległość...',
+
 // Select
   'Select some values': 'Wybierz wartość',
 }
