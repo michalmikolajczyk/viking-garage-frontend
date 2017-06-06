@@ -1,43 +1,45 @@
 import * as React from 'react';
 import {
-  SelectField,
+  AutoComplete,
   MenuItem,
   FontIcon,
 } from 'material-ui';
+import i from '../i18n';
 
-const ranges = [2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657];
+const dist = [2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657];
+const convert = (data) => data.map(d => ({text: `${d} km`, value: d}))
 
-export default class Range extends React.Component<any, any> {
-  filter: any
-  items: any
+export default class Distance extends React.Component<any, any> {
+  state = { data: convert(dist) };
 
-  constructor(props) {
-    super(props);
-    this.state = { value: 8 };
-    this.filter = props.filter;
-    this.items = ranges.map(r =>  <MenuItem key={r}  value={r} primaryText={`${r} km`} />)
+  onNewRequest = (distance, index) => {
+    if (typeof distance === 'object') return this.props.filter(distance.value);
+    const int = distance.indexOf('km') !== -1 ? distance : distance.split('km')[0];
+    this.props.filter(int);
   }
 
-  onChange = (event, index, value) => {
-    this.setState({ value })
-    this.filter(value);
+  onUpdateInput = (input) => {
+    const intInput = parseInt(input);
+    const data = convert(dist.filter(d => d > intInput));
+    this.setState({ data });
   }
 
   render() {
     return (
-      <div className="range">
+      <div className="distance">
         <FontIcon className="material-icons">my_location</FontIcon>
         <div className="filter">
-          <SelectField
-            value={this.state.value}
-            onChange={this.onChange}
-            maxHeight={200}
+          <AutoComplete
+            hintText={i('Set distance...')}
+            maxSearchResults={5}
+            filter={AutoComplete.noFilter}
+            openOnFocus={true}
+            onNewRequest={this.onNewRequest}
+            onUpdateInput={this.onUpdateInput}
+            dataSource={this.state.data}
             fullWidth={true}
             hintStyle={{ paddingLeft: 30 }}
-            labelStyle={{ paddingLeft: 30 }}
-          >
-            {this.items}
-          </SelectField>
+          />
         </div>
       </div>);
   }
