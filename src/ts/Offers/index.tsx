@@ -18,18 +18,24 @@ export default class Offers extends React.Component<any, any> {
     this.state = {
       list: !_.has(context, 'data.offers') ? [{},{}] : context.data.offers,
       load: !_.has(context, 'data.offers'),
-      position: null,
+
+      location: null,
+      distance: null,
+      type: null,
+      date: null,
+      page: 0,
+
       networkErr: false,
     };
   }
 
   componentDidMount() {
-    this.loadMore();
-    this.setPosition();
+    this.setLocation();
+    this.update();
   }
 
-  loadMore = () => {
-    api.get()
+  update = () => {
+    api.get(this.state)
       .then((res) => {
         if (res['err']) return this.setState({ networkErr: true });
         this.setState({
@@ -40,27 +46,37 @@ export default class Offers extends React.Component<any, any> {
       .catch(err => this.setState({ networkErr: true }));
   }
 
-  setPosition = () => {
+  setLocation = () => {
     if (typeof navigator !== 'undefined' && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           this.setState({
-            position: {
-              latitude: pos.coords.latitude.toFixed(6),
-              longitude: pos.coords.longitude.toFixed(6),
+            location: {
+              lat: pos.coords.latitude.toFixed(6),
+              lng: pos.coords.longitude.toFixed(6),
             },
           });
         },
-        () => log('Position could not be determined'),
+        () => log('location could not be determined'),
       );
     }
   }
 
-  locationFilter(filter) { log('change filter location', filter); }
+  locationFilter = (location) => {
+    log('change location', location);
+    this.setState({ location }, this.update);
+  }
 
-  selectFilter(filter) { log('change filter select', filter); }
+  distanceFilter = (distance) => {
+    log('change filter distabnce', distance);
+    this.setState({ distance }, this.update);
+  }
 
-  rangeFilter(filter) { log('change filter range', filter); }
+  typeFilter = (type) => {
+    log('change filter type', type);
+    this.setState({ type }, this.update);
+  }
+
 
   dateFilter(filter) { log('change filter date', filter); }
 
@@ -72,14 +88,14 @@ export default class Offers extends React.Component<any, any> {
         <Header />
         <Search
           locationFilter={this.locationFilter}
-          selectFilter={this.selectFilter}
-          rangeFilter={this.rangeFilter}
+          distanceFilter={this.distanceFilter}
+          typeFilter={this.typeFilter}
           dateFilter={this.dateFilter}
         />
         <OffersList
           list={this.state.list}
           load={this.state.load}
-          position={this.state.position}
+          location={this.state.location}
         />
         <NetworkError
           open={this.state.networkErr}
