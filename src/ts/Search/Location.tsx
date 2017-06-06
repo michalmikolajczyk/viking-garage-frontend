@@ -7,28 +7,35 @@ import i from '../i18n';
 declare const google: any;
 
 export default class Location extends React.Component<any, any> {
-  service: any;
   filter: any;
+  state = { data: [] };
+  dataConfig = { text: 'description', value: 'place_id' }
+  statusOk = typeof google !== 'undefined' ? google.maps.places.PlacesServiceStatus.OK : null;
+  placesService = typeof google !== 'undefined' ? new google.maps.places.PlacesService(document.createElement('div')) : null;
+  selectService = typeof google !== 'undefined' ? new google.maps.places.AutocompleteService() : null;
 
-  constructor(props) {
-    super(props);
-    this.state = { data: [] };
-    this.filter = props.filter;
-    this.service = typeof google !== 'undefined' ? new google.maps.places.AutocompleteService() : null;
-  }
-
-  onNewRequest = (chosenRequest: string, index: number) => {
-    this.filter(chosenRequest);
-  }
-
-  onUpdateInput = (input: string) => {
-    if (this.service && input !== '') {
-      this.service.getQueryPredictions({ input }, (predictions, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          this.setState({ data: predictions.map(p => p.description) });
-        } else {
-          this.setState({ data: ['Not found'] });
+  onNewRequest = (details, index) => {
+    if (this.placesService && details) {
+      const placeId = details['place_id'];
+      this.placesService.getDetails({ placeId }, (place, status) => {
+        if (status === this.statusOk) {
+          this.props.filter({
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng()
+          });
         }
+      })
+    }
+  }
+
+  onUpdateInput = (input) => {
+    if (this.selectService && input) {
+      this.selectService.getQueryPredictions({ input }, (predictions, status) => {
+        this.setState({
+          data: status === this.statusOk
+          ? predictions
+          : [i('Not found')]
+        });
       });
     } else {
       this.setState({ data: [] });
@@ -48,6 +55,7 @@ export default class Location extends React.Component<any, any> {
             onNewRequest={this.onNewRequest}
             onUpdateInput={this.onUpdateInput}
             dataSource={this.state.data}
+            dataSourceConfig={this.dataConfig}
             fullWidth={true}
             hintStyle={{ paddingLeft: 30 }}
             inputStyle={{ paddingLeft: 30 }}
