@@ -4,7 +4,7 @@ import * as geolib from 'geolib';
 import { Link } from 'react-router';
 import i from '../i18n';
 
-export default function Offer({ data, position }) {
+export default function Offer({ data, location }) {
   const {
     id,
     url,
@@ -15,9 +15,9 @@ export default function Offer({ data, position }) {
   } = data;
 
   let distance = '';
-  if (position && coord) {
+  if (location && coord) {
     const coordinates = { latitude: coord.coordinates[0], longitude: coord.coordinates[1] };
-    distance = Math.round(geolib.getDistance(position, coordinates) / 1000).toString();
+    distance = Math.round(geolib.getDistance(location, coordinates) / 1000).toString();
     distance = `, ${i('distance')}: ${distance} km`;
   }
 

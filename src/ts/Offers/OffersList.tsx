@@ -7,10 +7,10 @@ export default function OffersList(props) {
   const {
     list,
     load,
-    position,
+    location,
   } = props;
 
-  const items = list.map((item, key) => <Offer data={item} key={key} position={position}/>);
+  const items = list.map((item, key) => <Offer data={item} key={key} location={location}/>);
 
   return (
     <div className={`offers ${load ? 'load' : ''}`}>
