@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { FontIcon } from 'material-ui';
 import Date from './Date';
-import Select from './Select';
+import Type from './Type';
 import Location from './Location';
-import Range from './Range';
+import Distance from './Distance';
 
 export default function Search(props) {
   const {
     locationFilter,
-    selectFilter,
-    rangeFilter,
+    distanceFilter,
+    typeFilter,
     dateFilter,
   } = props;
 
@@ -18,8 +18,8 @@ export default function Search(props) {
       <Location
         icon="location_on"
         filter={locationFilter} />
-      <Range filter={rangeFilter} />
-      <Select filter={selectFilter} />
+      <Distance filter={distanceFilter} />
+      <Type filter={typeFilter} />
       <Date filter={dateFilter} />
     </div>
   );
