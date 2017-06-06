@@ -58,7 +58,6 @@ export default class Location extends React.Component<any, any> {
             dataSourceConfig={this.dataConfig}
             fullWidth={true}
             hintStyle={{ paddingLeft: 30 }}
-            inputStyle={{ paddingLeft: 30 }}
           />
         </div>
       </div>);
