@@ -18,9 +18,11 @@ export default (() => {
           button: `skontaktuj się z nami`
         },
         mechanic: {
-          title: ``,
-          text: ``,
-          button: ``,
+          title: `Mechanicy`,
+          text: `Sprawna maszyna to podstawa. W naszym Garażu masz dostęp tylko i wyłącznie do w pełni sprawnych motocykli. Jednak usterki chodzą po ludziach i motocyklach. Czasem zdarza się, że pomimo swoich umiejętności potrzebujesz kogoś kto zna się na temacie. Bazę mechaników, którzy zajmą się Twoją maszyną znajdziesz na VIKING GARAGE.
+
+Jeżeli jesteś zainteresowany nadaniem swojemu motocyklowi niepowtarzalnego wyglądu znajdziesz tu również profesjonalistów, którzy w swoich warsztatach kastomizują motocykle sprawiając by nawet najmniejszy szczegół Twojego motocykla stanowił oryginalną całość.`,
+          button: `Jeżeli chcesz zostać Mechanikiem VIKING GARAGE skontaktuj się z nami`,
         },
         faq: {
           title: ``,
@@ -28,6 +30,5 @@ export default (() => {
           button: ``,
         },
       }
-
-      }
+  }
 })()
