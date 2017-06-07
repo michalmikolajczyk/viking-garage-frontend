@@ -14,8 +14,6 @@ function send(res, content, context) {
 }
 
 function errorHandler(err, req, res, next) {
-  console.log('API server error ' + err);
-  console.log(res);
   return next();
 }
 
