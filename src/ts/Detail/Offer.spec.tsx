@@ -10,5 +10,6 @@ describe('<Offer />', () => {
     const wrapper = shallow(<Offer offer={offer} />);
     expect(wrapper.find('HeaderVG')).to.have.length(1);
     expect(wrapper.find('Accordion')).to.have.length(1);
+    expect(wrapper.find('ListVG')).to.have.length(1);
   });
 });

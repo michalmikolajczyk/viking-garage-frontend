@@ -2,11 +2,9 @@ import * as React from 'react';
 import { browserHistory } from 'react-router';
 import * as _ from 'lodash';
 import NetworkError from '../Dialogs/NetworkError';
-import FormVG from './FormVG';
+import FormVG from '../Ride/FormVG';
 import Offer from './Offer';
 import * as api from './api';
-import debug from 'debug';
-const log = debug('app:Detail');
 
 export default class Detail extends React.Component<any, any> {
   static contextTypes = { data: React.PropTypes.object }
@@ -18,10 +16,7 @@ export default class Detail extends React.Component<any, any> {
     this.state = {
       id,
       networkErr: false,
-      offer: !_.has(context, 'data.offer') ? {
-        price: '',
-        motorcycles: [],
-      } : context.data.offer,
+      offer: _.get(context, 'data.offer', {}),
     };
   }
 
@@ -33,6 +28,7 @@ export default class Detail extends React.Component<any, any> {
       })
       .catch(err => this.setState({ networkErr: true }));
   }
+
 
   closeNetworkErr = () => this.setState({ networkErr: false });
 

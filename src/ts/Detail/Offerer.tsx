@@ -28,7 +28,7 @@ export default function Offerer({ offer }) {
           <div className="offerer-main">
             <div>{name}</div>
             <div>{`${city}, ${country}`}</div>
-            <div>{`${i('With VG since')} ${sinceStr}`}</div>
+            <div>{`${i('With VIKING GARAGE since')} ${sinceStr}`}</div>
           </div>
           <div className="descript">{brief}</div>
           <div className="recommend">{`${i('Recommendations')}: ${points}`}</div>

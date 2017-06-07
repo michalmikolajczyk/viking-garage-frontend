@@ -169,14 +169,6 @@ export default {
   'Mechanical condition': 'Stan techniczny',
   'Rating': 'Ocena',
 
-// FormVG
-  'Base price': 'Cena podstawowa',
-  'Total': 'Łączna cena',
-  'day': 'dzień',
-  'Equipment': 'Wyposażenie',
-  'Basic': 'Podstawowe',
-  'Full': 'Pełne',
-
 // ListVG
   'Motorcycle additional specs': 'Specyfikacja motocykla',
   'Mechanical state': 'Stan techniczny',
@@ -186,10 +178,10 @@ export default {
   'Optional services': 'Dodatkowe usługi',
 
 // Offerer
-  'With VG since': 'Razem z VG od',
+  'With VIKING GARAGE since': 'Z VIKING GARAGE od',
   'Recommendations': 'Rekomendacje',
   'Send message': 'Wyślij wiadomość',
-  'Offerer details': 'Dane użytkownika',
+  'Offerer details': 'Informacje o wynajmującym',
 
 /**
  * helpers/models
@@ -363,6 +355,37 @@ export default {
   'View Profile': 'Zobacz Profil',
 
 /**
+ * Ride
+ */
+
+// FormPure
+  'Base price': 'Cena',
+  'USD': 'PLN',
+  'day': 'dzień',
+  'Start Date': 'Data Rozpoczęcia',
+  'End Date': 'Data Zakończenia',
+  'Equipment': 'Wyposażenie',
+  'Basic': 'Podstawowe',
+  'Full': 'Pełne',
+  'Total': 'Łączna cena',
+
+// RideDialog
+  'If you are interested in that ride, leave us your details - our team will contact you:':
+  'Jeśli jesteś zainteresowany jazdą, zostaw nam swoje dane - nasz zespół skontaktuje się z Tobą:',
+  'Your Name': 'Twoje Imię',
+  'Your Email Address': 'Twój Adress Email',
+  'PS: You can also call us (WhatsApp works):':
+  'PS: Możesz także zadzwonić do nas',
+  'Phone:': 'Telefon:',
+
+// RideSuccess
+  'Your ride is booked.': 'Twoja jazda jest zarezerwowana.',
+  'Our team will contact you within the next 24 hours in order to confirm it and discuss the details.':
+  'Nasz zespół skontaktuje się z Tobą w ciągu 24 godzin, aby potwierdzić rezerwację i omówić szczegóły.',
+  'Get ready for an unforgettable experience with VIKING GARAGE!':
+  'Przygotuj się na niezapomniane przeżycia z VIKING GARAGE!',
+
+/**
  * Search
  */
 // Location
@@ -370,8 +393,6 @@ export default {
   'Find motorcycles to ride around ...': 'Wyszukaj motocykle w okolicy ...',
 // Select
   'Select some values': 'Wybierz wartość',
-
-
 }
 
 

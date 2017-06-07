@@ -6,20 +6,8 @@ import Table from './Table';
 export default class Accordion extends React.Component<any, any> {
   constructor(props) {
     super(props);
-    const {
-      open,
-      offer,
-      header,
-    } = props;
-    this.state = {
-      open,
-      offer,
-      header,
-    };
-  }
-
-  componentWillReceiveProps({ offer }) {
-    this.setState({ offer });
+    const { open } = props;
+    this.state = { open };
   }
 
   toggle = () => this.setState({ open: !this.state.open })
@@ -31,8 +19,8 @@ export default class Accordion extends React.Component<any, any> {
 
     return (
       <div className="accordion">
-        <Header call={this.toggle} icon={icon} head={this.state.header} />
-        {this.state.open && <Table offer={this.state.offer}/>}
+        <Header call={this.toggle} icon={icon} head={this.props.header} />
+        {this.state.open && <Table offer={this.props.offer}/>}
       </div>
     );
   }
