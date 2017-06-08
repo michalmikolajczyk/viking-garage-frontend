@@ -4,31 +4,22 @@ import {
   DatePicker,
   FontIcon,
 } from 'material-ui';
+import i from '../i18n';
 
 export default class DateVG extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: moment().toDate(),
-      endDate: moment().add(14, 'days').toDate(),
-    };
-  }
-
-  updateFilter = () => {
-    this.props.filter({
-      startDate: this.state.startDate,
-      endDate: this.state.endDate,
-    });
+  state = {
+    start: null,
+    end: null,
   }
 
   onChangeStart = (event, date) => {
-    this.setState({ startDate: date });
-    this.updateFilter();
+    if (this.state.end) this.props.filter({ start: date, end: this.state.end });
+    this.setState({ start: date });
   }
 
   onChangeEnd = (event, date) => {
-    this.setState({ endDate: date });
-    this.updateFilter();
+    if (this.state.start) this.props.filter({ start: this.state.start, end: date });
+    this.setState({ end: date });
   }
 
   render() {
@@ -39,9 +30,10 @@ export default class DateVG extends React.Component<any, any> {
           <DatePicker
             className="filter"
             autoOk={true}
-            value={this.state.startDate}
             onChange={this.onChangeStart}
+            hintText={i('Start Date')}
             fullWidth={true}
+            hintStyle={{ paddingLeft: 30 }}
             inputStyle={{ paddingLeft: 30 }}
           />
         </div>
@@ -50,9 +42,10 @@ export default class DateVG extends React.Component<any, any> {
           <DatePicker
             className="filter"
             autoOk={true}
-            value={this.state.endDate}
             onChange={this.onChangeEnd}
+            hintText={i('End Date')}
             fullWidth={true}
+            hintStyle={{ paddingLeft: 30 }}
             inputStyle={{ paddingLeft: 30 }}
           />
         </div>

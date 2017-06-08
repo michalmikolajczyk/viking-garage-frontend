@@ -76,3 +76,9 @@ ul {
     margin-bottom: -8px;
   }
 }
+
+.dots {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

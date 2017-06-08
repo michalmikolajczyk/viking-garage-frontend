@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { getMuiTheme } from 'material-ui/styles';
 
 // source: https://github.com/callemall/material-ui/issues/5330
 export function mountWithTheme(node) {

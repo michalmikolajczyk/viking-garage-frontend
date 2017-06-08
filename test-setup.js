@@ -52,8 +52,10 @@ global.navigator = {
 }
 
 function AutocompleteService() {};
+function getDetails() {}
+function PlacesService() { return { getDetails } }
 
-global.google = { maps: { places: { AutocompleteService } } };
+global.google = { maps: { places: { AutocompleteService, PlacesService, PlacesServiceStatus: { OK: false } } } };
 
 // for material-ui event handler
 var injectTapEventPlugin = require('react-tap-event-plugin');

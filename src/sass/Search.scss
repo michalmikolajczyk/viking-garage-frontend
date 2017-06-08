@@ -4,10 +4,15 @@
   max-width: 1120px;
   margin: auto;
   display: flex;
-  .location, .range, .select, .date-wrap, .date {
+  .location, .distance, .type, .date-wrap, .date {
     flex: 1 1 100%;
     display: flex;
     position: relative;
+    input {
+      @extend .dots;
+      padding-left: 30px !important;
+      box-sizing: border-box !important;
+    }
     .material-icons {
       position: absolute !important;
       font-size: 24px !important;
@@ -20,7 +25,7 @@
     }
   }
 // hide SelectField default icons
-  .select svg, .range svg {
+  .type svg, .distance svg {
     display: none !important
   }
   .date input {

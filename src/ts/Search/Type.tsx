@@ -13,18 +13,7 @@ import i from '../i18n';
 export default class Select extends React.Component<any, any> {
   state = { values: new Set() }
 
-  selectionRenderer = (values) => {
-    return [...values].sort().reduce(
-      (acc, curr, index, arr) => {
-        if (curr.indexOf('#') === -1) {
-          return [curr, [...acc[1], `${curr.toUpperCase()}, `]];
-        } else {
-          return [acc[0], [...acc[1], `${curr.split('#')[1]}, `]];
-        }
-      },
-      [undefined, []],
-    )[1];
-  }
+  selectionRenderer = (values) => [...values].sort().map(m => m.indexOf('#') > -1 ? m.split('#')[1] : m).join(', ');
 
   menuItems = () => items.map((item) => {
     if (item.indexOf('#') > -1) {
@@ -56,6 +45,12 @@ export default class Select extends React.Component<any, any> {
     return str.indexOf('#') === -1;
   }
 
+  save = (values) => {
+    const set = new Set(values);
+    this.props.filter(this.selectionRenderer(set).replace(/\s/g, ''));
+    this.setState({ values: set });
+  }
+
   onChange = (event, index, values) => {
     // Toggle inside MenuItem invoke onChange twice - once with event object
     if (!_.isArray(values)) return;
@@ -64,15 +59,11 @@ export default class Select extends React.Component<any, any> {
       const diff = [...this.state.values].filter(i => values.indexOf(i) === -1)[0];
       if (this.isGroup(diff)) {
         // unchecked group: remove all items from this group
-        return this.setState({
-          values: new Set(values.filter(v => v.indexOf(diff) === -1)),
-        });
+        return this.save(values.filter(v => v.indexOf(diff) === -1));
       } else {
         // unchecked label: remove item & uncheck group toggle
         const group = diff.split('#')[0];
-        return this.setState({
-          values: new Set(values.filter(v => v !== group)),
-        });
+        return this.save(values.filter(v => v !== group));
       }
     } else {
       // user checked (added) new option
@@ -80,29 +71,25 @@ export default class Select extends React.Component<any, any> {
       if (this.isGroup(diff)) {
         // checked group: add all items from group
         const val = values.concat(items.filter(i => i.indexOf(`${diff}#`) > -1));
-        return this.setState({
-          values: new Set(val),
-        });
+        return this.save(val);
       } else {
         // checked label: add item & check if should add group toggle (if all items from group is checked)
         const groupLabel = diff.split('#')[0];
         const allFromGroup = items.filter(i => i.indexOf(`${groupLabel}#`) > -1);
         const group = _.difference(allFromGroup, values).length === 0 ? [groupLabel] : [];
-        return this.setState({
-          values: new Set([...values, ...group]),
-        });
+        this.save([...values, ...group]);
       }
     }
   }
 
   render() {
     return (
-      <div className="select">
+      <div className="type">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
         <div className="filter">
           <SelectField
             multiple={true}
-            hintText={i('Select type')}
+            hintText={i('Select type...')}
             value={[...this.state.values]}
             onChange={this.onChange}
             selectionRenderer={this.selectionRenderer}

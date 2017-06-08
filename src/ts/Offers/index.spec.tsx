@@ -46,13 +46,6 @@ describe('<Offers />', () => {
     done();
   });
 
-  it('check if sets coordinates on componentDidMount', () => {
-    const get = sinon.stub(api, 'get', () => Promise.resolve())
-    const wrapper = mountWithTheme(<Offers />);
-    expect(wrapper.state().position).to.be.deep.equal(coords)
-    get.restore();
-  });
-
   it('check if loading list works properly', () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState)
@@ -61,7 +54,7 @@ describe('<Offers />', () => {
     expect(instance.state.list).to.be.deep.equal([{},{}]);
     expect(instance.state.load).to.be.true;
 
-    instance['loadMore']();
+    instance['update']();
     get.resolves(offers);
 
     expect(instance.setState).to.have.been.calledOnce;
@@ -76,7 +69,7 @@ describe('<Offers />', () => {
     instance.setState = sinon.spy(instance.setState);
     expect(instance.state.networkErr).to.be.false;
 
-    instance['loadMore']();
+    instance['update']();
     get.resolves({ err: 'no internet connection'});
 
     expect(instance.setState).to.have.been.calledOnce;
@@ -89,7 +82,7 @@ describe('<Offers />', () => {
     instance.setState = sinon.spy(instance.setState);
     expect(instance.state.networkErr).to.be.false;
 
-    instance['loadMore']();
+    instance['update']();
     get.rejects('something gone wrong');
 
     expect(instance.setState).to.have.been.calledOnce
