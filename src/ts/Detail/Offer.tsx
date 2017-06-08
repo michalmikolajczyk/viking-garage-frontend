@@ -9,7 +9,7 @@ import debug from 'debug';
 const log = debug('app:Offer');
 
 export default function Offer({ offer }) {
-  const motorcycles = _.get(offer, 'motorcycles[0]', {});
+  const motorcycles = _.get(offer, 'motorcycles[0]');
   const general = parser('general', motorcycles);
   return (
     <div className="detail-offer">

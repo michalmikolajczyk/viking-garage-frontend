@@ -2,6 +2,7 @@ import * as React from 'react';
 import { FontIcon } from 'material-ui';
 
 export default function HeaderVG({ offer }) {
+  if (!offer) return null;
   const {
     title,
     brief,
@@ -28,7 +29,7 @@ export default function HeaderVG({ offer }) {
 }
 
 function Offerer({ offerer }) {
-  if (typeof offerer === 'undefined') return null;
+  if (!offerer) return null;
   const {
     name,
     image,
