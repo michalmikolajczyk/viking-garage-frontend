@@ -6,6 +6,12 @@ export default function parser(schema: string, items: Object): any {
   if (typeof items === 'undefined') return [];
   return _.map(models[schema], model => {
     let value;
+    if (!items[model.key]) {
+      return {
+        value: '---',
+        label: model.label,
+      };
+    }
     if (typeof items[model.key] === 'boolean') {
       value = items[model.key] ? i('Yes') : i('No');
     } else {
