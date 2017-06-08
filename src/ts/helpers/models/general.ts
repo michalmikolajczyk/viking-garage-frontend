@@ -54,7 +54,7 @@ export default [
   },
   {
     key: 'acceleration',
-    label: i('0 - 100'),
+    label: i('Acceleration'),
     units: 's',
   },
 ]
