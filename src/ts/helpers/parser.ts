@@ -6,7 +6,7 @@ export default function parser(schema: string, items: Object): any {
   if (typeof items === 'undefined') return [];
   return _.map(models[schema], model => {
     let value;
-    if (!items[model.key]) {
+    if (typeof items[model.key] === 'undefined' || items[model.key] === null) {
       return {
         value: '---',
         label: model.label,
