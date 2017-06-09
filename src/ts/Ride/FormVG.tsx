@@ -3,12 +3,14 @@ import * as _ from 'lodash';
 import * as moment from 'moment';
 import FormPure from './FormPure';
 import FormWrap from './FormWrap';
+import Contact from '../Contact';
 import Raido from '../Raido';
-import RideDialog from './RideDialog';
-import RideSuccess from './RideSuccess';
-import NetworkError from '../Dialogs/NetworkError';
-import { ride } from './api';
 import i from '../i18n';
+
+const success = {
+  title: 'Your ride is booked.',
+  body: 'Our team will contact you within the next 24 hours in order to confirm it and discuss the details.\n\nGet ready for an unforgettable experience with VIKING GARAGE!',
+}
 
 export default class FormVG extends React.Component<any, any> {
   // default values (before fetched)
@@ -23,28 +25,38 @@ export default class FormVG extends React.Component<any, any> {
     rideSuccess: false,
   };
 
-  submit = (user) => {
-    this.setState({ wait: true });
-    ride({
-      ...user,
-      offer: this.props.offer.id,
-      startDate: this.state.startDate,
-      endDate: this.state.endDate,
-      equipment: this.state.equipment,
-      price: `${this.getPrice()} ${i('USD')}`,
-      total: `${this.getTotal()} ${i('USD')}`,
-      currency: i('USD'),
-    })
-      .then((res) => {
-        if (res && res['err']) return this.setState({ wait: false, networkErr: true });
-        this.setState({
-          wait: false,
-          rideDialog: false,
-          rideSuccess: true,
-        });
-      })
-      .catch(err => this.setState({ wait: false, networkErr: true }));
-  };
+  getMessage = () => ({
+    offer: this.props.offer.id,
+    startDate: this.state.startDate,
+    endDate: this.state.endDate,
+    equipment: this.state.equipment,
+    price: `${this.getPrice()} ${i('USD')}`,
+    total: `${this.getTotal()} ${i('USD')}`,
+    currency: i('USD'),
+  });
+
+  // submit = (user) => {
+  //   this.setState({ wait: true });
+  //   ride({
+  //     ...user,
+  //     offer: this.props.offer.id,
+  //     startDate: this.state.startDate,
+  //     endDate: this.state.endDate,
+  //     equipment: this.state.equipment,
+  //     price: `${this.getPrice()} ${i('USD')}`,
+  //     total: `${this.getTotal()} ${i('USD')}`,
+  //     currency: i('USD'),
+  //   })
+  //     .then((res) => {
+  //       if (res && res['err']) return this.setState({ wait: false, networkErr: true });
+  //       this.setState({
+  //         wait: false,
+  //         rideDialog: false,
+  //         rideSuccess: true,
+  //       });
+  //     })
+  //     .catch(err => this.setState({ wait: false, networkErr: true }));
+  // };
 
   closeNetworkErr = () => this.setState({ networkErr: false })
   openRideDialog = () => this.setState({ rideDialog: true })
@@ -60,43 +72,44 @@ export default class FormVG extends React.Component<any, any> {
   equipmentChange = (ev, index, equipment) => this.setState({ equipment });
 
   render() {
+    const title = this.getTitle();
+    const price = this.getPrice();
+    const total = this.getTotal();
+
     const formData = {
       ...this.state,
-      price: this.getPrice(),
-      total: this.getTotal(),
+      price,
+      total,
       endDateChange: this.endDateChange,
       equipmentChange: this.equipmentChange,
       startDateChange: this.startDateChange,
     }
 
+    const rideButton = (
+      <div className="ride-btn">
+        <Raido />
+        <span>IDE</span>
+      </div>
+    );
+
     return (
       <FormWrap>
-        <div className="title">{this.getTitle()}</div>
+        <div className="title">{title}</div>
         <FormPure {...formData} />
-        <button
-          className="ride-btn"
-          disabled={_.isEmpty(this.props.offer)}
-          onClick={this.openRideDialog}
-        >
-          <Raido />
-          <span>IDE</span>
-        </button>
         <div>
-          <RideDialog
-            {...formData}
-            submit={this.submit}
-            wait={this.state.wait}
-            open={this.state.rideDialog}
-            close={this.closeRideDialog}
-          />
-          <RideSuccess
-            open={this.state.rideSuccess}
-            close={this.closeRideSuccess}
-          />
-          <NetworkError
-            open={this.state.networkErr}
-            close={this.closeNetworkErr}
-          />
+          <Contact
+            success={success}
+            button={rideButton}
+            message={this.getMessage}
+          >
+            <div className="title">
+              {title}
+            </div>
+            <FormPure {...formData} />
+            <div className="text">
+              {i('If you are interested in that ride, leave us your details - our team will contact you:')}
+            </div>
+          </Contact>
         </div>
       </FormWrap>
     );
