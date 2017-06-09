@@ -8,9 +8,24 @@ export default (() => {
     default:
       return {
         owner: {
-          title: `Zarabiaj na VIKING GARAGE\nwynajmując swoje motocykle`,
+          title: `Zarabiaj na swoim motocyklu`,
           text: `VIKING GARAGE to społeczność, która wielbi motocykle i jazdę na nich. To garaż, do którego można zajrzeć w każdej chwili, aby znaleźć to co najważniejsze - gromadzimy tutaj różnych ludzi, który na swój sposób realizują swoje motocyklowe pasje - od dzielenie się swoim doświadczeniem z początkującymi motocyklistami, po tworzenie customów i naprawę sprzętu motocyklowego.\n\nTo tutaj Twoja pasja może stać się źródłem dodatkowych pieniędzy - od kilkudziesięciu złotych na paliwo po spory biznes prowadzony za pomocą platformy VIKING GARAGE.`,
-          button: 'Zacznij zarabiać na swoim motocyklu',
+          button: 'Zacznij zarabiać teraz',
+          dialog: {
+            title: 'Pomożemy Tobie przygotować motocykl do wynajmu',
+            body: `
+KROK 1\n
+Zostaw nam do siebie kontakt - nasz zespół odezwie się do Ciebie i odpowie na wszelkie pytania
+\nKROK 2\n
+Stwórz ofertę wynajmu - razem z naszym zespołem przygotuj opis motocykla, zdjęcia i ceny
+\nKROK 3\n
+Wynajmuj swój motocykl członkom społeczności z całego świat  i zarabiaj na tym pieniądz
+`,
+          },
+          success: {
+            title: 'Dziękujemy!',
+            body: 'Nasz zespół skontaktuje się z Tobą w ciągu 24h\ni wspólnie stworzycie ofertę dla Twojego motocykla.',
+          },
         },
         guide: {
           title: `Prawdziwa jazda zaczyna się kiedy masz już opanowaną technikę\ni znasz trasy, na których możesz rozwinąć prędkość.`,
