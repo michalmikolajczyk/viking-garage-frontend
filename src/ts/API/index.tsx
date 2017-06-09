@@ -22,8 +22,8 @@ const API = {
   signin: `${url}/user/signin`,
   verify: `${url}/user/verify`,
 
-// booking
-  ride: `${url}/ride`,
+// contact
+  contact: `${url}/contact`,
 
 // offer
   offer: `${url}/offer`,

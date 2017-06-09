@@ -4,86 +4,110 @@ import {
   Dialog,
   FlatButton,
 } from 'material-ui';
-import { Form } from 'formsy-react';
-import { FormsyText } from 'formsy-material-ui/lib';
+import Reaction from './Reaction';
+import ContactForm from './ContactForm';
+import NetworkError from '../Dialogs/NetworkError';
 import Raido from '../Raido';
 import i from '../i18n';
+import { contact } from './api';
 
-export default class RideDialog extends React.Component<any, any> {
+interface props {
+  title?: string;
+  button: any;
+  success: object;
+  message?: Function;
+}
+
+export default class Contact extends React.Component<props, any> {
   formsy: any;
-  state = { canSubmit: false }
+  state = {
+    open: true,
+    wait: false,
+    canSubmit: false,
+    openDialog: false,
+    networkErr: false,
+  }
 
-  onValid = () => this.setState({ canSubmit: true })
-  onInvalid = () => this.setState({ canSubmit: false })
+  submit = (data) => {
+    this.setState({
+      open: false,
+      openDialog: true,
+    });
+    // contact(data)
+    //   .then((res) => {
+    //     if (res && res['err']) return this.setState({ networkErr: true });
+    //     this.setState({ openDialog: true });
+    //   })
+    //   .catch(err => this.setState({ networkErr: true }));
+  }
+
+  open = () => this.setState({ open: true });
+  close = () => this.setState({ open: false });
+  onValid = () => this.setState({ canSubmit: true });
+  onInvalid = () => this.setState({ canSubmit: false });
+  closeOpenDialog = () => this.setState({ openDialog: false });
+  closeNetworkErr = () => this.setState({ networkErr: false });
 
   render() {
+    const {
+      title,
+      button,
+      success,
+      children,
+    } = this.props;
+
     const actions = [
       <FlatButton
         label={i('Cancel')}
         primary={true}
-        onTouchTap={this.props.close}
-        disabled={this.props.wait}
+        onTouchTap={this.close}
+        disabled={this.state.wait}
       />,
       <FlatButton
         label={i('Submit')}
         primary={true}
         keyboardFocused={true}
-        disabled={!this.state.canSubmit || this.props.wait}
-        onTouchTap={() => this.formsy.submit()}
+        disabled={!this.state.canSubmit || this.state.wait}
+        onTouchTap={this.submit}
       />,
     ];
 
     return (
-      <Dialog
-        open={this.props.open}
-        title={<div className="dialog-raido"><Raido /></div>}
-        actions={actions}
-        modal={false}
-        autoScrollBodyContent={true}
-      >
-        <div className="ride-form">
-          <div className="detail-form">
-            <div className="dialog-title">
-              {_.get(this.props.offer, 'title', '')}
-            </div>
-            <div className="text">
-              {i('If you are interested in that ride, leave us your details - our team will contact you:')}
-            </div>
-          </div>
-          <Form
-            ref={(r) => this.formsy = r}
-            onSubmit={this.props.submit}
-            onValid={this.onValid}
-            onInvalid={this.onInvalid}
+      <div>
+        <div className="inputs">
+          <button
+            onClick={this.open}
+            className="contact-submit"
           >
-            <FormsyText
-              className="text-input"
-              name="name"
-              required={true}
-              fullWidth={true}
-              floatingLabelText={i('Your Name')}
-              validations="minLength:3"
-              validationError={i('Please add more characters (minimum 3)')}
-            />
-            <FormsyText
-              className="text-input"
-              name="email"
-              required={true}
-              fullWidth={true}
-              floatingLabelText={i('Your Email Address')}
-              validations="isEmail"
-              validationError={i('Wrong e-mail address!')}
-            />
-          </Form>
-          <div className="text">
-            {i('PS: You can also call us (WhatsApp works):')}
-            <br />
-            <a href="tel:+48697951264" target="_blank">
-              {i('Phone:')} +48 697 951 264
-            </a>
-          </div>
+            {this.props.button}
+          </button>
         </div>
-      </Dialog>
+        <Dialog
+          modal={false}
+          actions={actions}
+          open={this.state.open}
+          autoScrollBodyContent={true}
+          title={title || <div className="dialog-raido"><Raido /></div>}
+        >
+          <div className="contact-body">
+            {this.props.children}
+            <ContactForm
+              submit={this.submit}
+              onValid={this.onValid}
+              onInvalid={this.onInvalid}
+            />
+          </div>
+        </Dialog>
+        <NetworkError
+          open={this.state.networkErr}
+          close={this.closeNetworkErr}
+        />
+        <Reaction
+          data={success}
+          open={this.state.openDialog}
+          close={this.closeOpenDialog}
+        />
+      </div>
     );
   }
 }
