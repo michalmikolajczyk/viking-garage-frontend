@@ -22,15 +22,26 @@
 
 .contact-submit {
   width: 100%;
-  padding: 20px !important;
-  display: block;
-  font-size: 23px;
-  border: 1px solid black;
-  border-radius: 3px;
-  text-transform: uppercase;
-  &:disabled {
-    color: #979797;
-    border: 1px solid #C8C8C8;
+  margin-top: 50px;
+  font-size: 24px;
+  border: none;
+  .ride-btn {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px !important;
+    letter-spacing: 5px;
+    border-radius: 3px;
+    border: 1px solid black;
+    text-transform: uppercase;
+  }
+  .page-btn {
+    width: 100%;
+    padding: 20px !important;
+    display: block;
+    border: 1px solid black;
+    border-radius: 3px;
+    border: 1px solid black;
+    text-transform: uppercase;
   }
 }
 
@@ -44,4 +55,16 @@
   font-weight: 300;
   box-sizing: border-box;
   white-space: pre-line;
+}
+
+.pages {
+  @extend .cont;
+  .form {
+    .title {
+      margin: 49px 0;
+    }
+    .title-sub {
+      text-align: left;
+    }
+  }
 }
