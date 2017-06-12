@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
+import * as fx from 'money';
 import * as moment from 'moment';
 import FormPure from './FormPure';
 import FormWrap from './FormWrap';
@@ -26,8 +27,8 @@ Offer: ${location.hostname}/offer/${this.props.offer.id},
 Start date: ${this.state.startDate},
 End date: ${this.state.endDate},
 Equipment: ${this.state.equipment},
-Price: ${this.getPrice()} ${i('USD')},
-Total: ${this.getTotal()} ${i('USD')},
+Price: ${fx(this.getPrice()).to(i('USD')).toFixed(2)} ${i('USD')},
+Total: ${fx(this.getTotal()).to(i('USD')).toFixed(2)} ${i('USD')},
 Currency: ${i('USD')}`;
 
   render() {
@@ -50,6 +51,7 @@ Currency: ${i('USD')}`;
         <FormPure {...formData} />
         <div>
           <Contact
+            type="ride"
             button={<div className="ride-btn">RIDE</div>}
             message={this.getMessage}
             success={{

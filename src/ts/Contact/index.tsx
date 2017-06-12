@@ -12,6 +12,7 @@ import i from '../i18n';
 import { contact } from './api';
 
 interface props {
+  type: string;
   title?: string;
   button: any;
   success: object;
@@ -31,7 +32,7 @@ export default class Contact extends React.Component<props, any> {
   submit = (data) => {
     const body = this.props.message && this.props.message();
     this.setState({ wait: true });
-    contact({ ...data, body })
+    contact({ ...data, body, type: this.props.type })
       .then((res) => {
         if (res && res['err']) return this.setState({ networkErr: true, wait: false });
         this.setState({
