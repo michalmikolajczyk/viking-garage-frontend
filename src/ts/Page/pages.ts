@@ -13,8 +13,7 @@ export default (() => {
           button: 'Zacznij zarabiać teraz',
           dialog: {
             title: 'Pomożemy Tobie przygotować motocykl do wynajmu',
-            body: `
-KROK 1\n
+            body: `KROK 1\n
 Zostaw nam do siebie kontakt - nasz zespół odezwie się do Ciebie i odpowie na wszelkie pytania
 \nKROK 2\n
 Stwórz ofertę wynajmu - razem z naszym zespołem przygotuj opis motocykla, zdjęcia i ceny

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router';
 import Contact from '../Contact';
-import Header from '../Header';
 import pages from './pages';
 import i from '../i18n';
 
@@ -9,9 +8,10 @@ export default function Page(props) {
   const { type } = props.params;
   const msg = pages[type];
 
+  const pageButton = <div className="page-btn">{msg['button']}</div>;
+
   return (
-    <div>
-      <Header />
+    <div className="pages">
       <div className="form">
         <div className="title">{msg['title']}</div>
         <div className="title-sub">
@@ -21,7 +21,7 @@ export default function Page(props) {
         </div>
         <Contact
           title="Wynajmij swój motocykl"
-          button={msg['button']}
+          button={pageButton}
           success={msg['success']}
         >
           <div className="title">
