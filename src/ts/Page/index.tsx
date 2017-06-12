@@ -19,7 +19,7 @@ export default function Page(props) {
         </div>
         <Contact
           type={type}
-          title="Wynajmij swój motocykl"
+          title={msg['dialog']['head']}
           button={<div className="page-btn">{msg['button']}</div>}
           success={msg['success']}
         >

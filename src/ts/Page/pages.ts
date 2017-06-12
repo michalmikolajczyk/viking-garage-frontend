@@ -12,6 +12,7 @@ export default (() => {
           text: `VIKING GARAGE to społeczność, która wielbi motocykle i jazdę na nich. To garaż, do którego można zajrzeć w każdej chwili, aby znaleźć to co najważniejsze - gromadzimy tutaj różnych ludzi, który na swój sposób realizują swoje motocyklowe pasje - od dzielenie się swoim doświadczeniem z początkującymi motocyklistami, po tworzenie customów i naprawę sprzętu motocyklowego.\n\nTo tutaj Twoja pasja może stać się źródłem dodatkowych pieniędzy - od kilkudziesięciu złotych na paliwo po spory biznes prowadzony za pomocą platformy VIKING GARAGE.`,
           button: 'Zacznij zarabiać teraz',
           dialog: {
+            head: 'Wynajmij swój motocykl',
             title: 'Pomożemy Tobie przygotować motocykl do wynajmu',
             body: `KROK 1\n
 Zostaw nam do siebie kontakt - nasz zespół odezwie się do Ciebie i odpowie na wszelkie pytania
