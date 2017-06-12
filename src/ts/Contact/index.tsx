@@ -21,7 +21,7 @@ interface props {
 export default class Contact extends React.Component<props, any> {
   formsy: any;
   state = {
-    open: true,
+    open: false,
     wait: false,
     canSubmit: false,
     openDialog: false,
@@ -29,16 +29,18 @@ export default class Contact extends React.Component<props, any> {
   }
 
   submit = (data) => {
-    this.setState({
-      open: false,
-      openDialog: true,
-    });
-    // contact(data)
-    //   .then((res) => {
-    //     if (res && res['err']) return this.setState({ networkErr: true });
-    //     this.setState({ openDialog: true });
-    //   })
-    //   .catch(err => this.setState({ networkErr: true }));
+    const body = this.props.message && this.props.message();
+    this.setState({ wait: true });
+    contact({ ...data, body })
+      .then((res) => {
+        if (res && res['err']) return this.setState({ networkErr: true, wait: false });
+        this.setState({
+          wait: false,
+          open: false,
+          openDialog: true,
+        });
+      })
+      .catch(err => this.setState({ networkErr: true, wait: false }));
   }
 
   open = () => this.setState({ open: true });
@@ -68,7 +70,7 @@ export default class Contact extends React.Component<props, any> {
         primary={true}
         keyboardFocused={true}
         disabled={!this.state.canSubmit || this.state.wait}
-        onTouchTap={this.submit}
+        onTouchTap={() => this.formsy.submit()}
       />,
     ];
 
@@ -77,8 +79,7 @@ export default class Contact extends React.Component<props, any> {
         <div className="inputs">
           <button
             onClick={this.open}
-            className="contact-submit"
-          >
+            className="contact-submit">
             {this.props.button}
           </button>
         </div>
@@ -92,6 +93,7 @@ export default class Contact extends React.Component<props, any> {
           <div className="contact-body">
             {this.props.children}
             <ContactForm
+              ref={f => this.formsy = f}
               submit={this.submit}
               onValid={this.onValid}
               onInvalid={this.onInvalid}
