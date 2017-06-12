@@ -8,8 +8,6 @@ export default function Page(props) {
   const { type } = props.params;
   const msg = pages[type];
 
-  const pageButton = <div className="page-btn">{msg['button']}</div>;
-
   return (
     <div className="pages">
       <div className="form">
@@ -22,7 +20,7 @@ export default function Page(props) {
         <Contact
           type={type}
           title="Wynajmij swój motocykl"
-          button={pageButton}
+          button={<div className="page-btn">{msg['button']}</div>}
           success={msg['success']}
         >
           <div className="title">
