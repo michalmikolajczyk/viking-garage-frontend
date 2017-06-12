@@ -4,72 +4,31 @@ import * as moment from 'moment';
 import FormPure from './FormPure';
 import FormWrap from './FormWrap';
 import Contact from '../Contact';
-import Raido from '../Raido';
 import i from '../i18n';
 
-const success = {
-  title: 'Your ride is booked.',
-  body: 'Our team will contact you within the next 24 hours in order to confirm it and discuss the details.\n\nGet ready for an unforgettable experience with VIKING GARAGE!',
-}
-
 export default class FormVG extends React.Component<any, any> {
-  // default values (before fetched)
   state = {
     startDate: null,
     endDate: null,
     equipment: 1,
-
-    wait: false,
-    rideDialog: false,
-    networkErr: false,
-    rideSuccess: false,
   };
-
-  getMessage = () => ({
-    offer: this.props.offer.id,
-    startDate: this.state.startDate,
-    endDate: this.state.endDate,
-    equipment: this.state.equipment,
-    price: `${this.getPrice()} ${i('USD')}`,
-    total: `${this.getTotal()} ${i('USD')}`,
-    currency: i('USD'),
-  });
-
-  // submit = (user) => {
-  //   this.setState({ wait: true });
-  //   ride({
-  //     ...user,
-  //     offer: this.props.offer.id,
-  //     startDate: this.state.startDate,
-  //     endDate: this.state.endDate,
-  //     equipment: this.state.equipment,
-  //     price: `${this.getPrice()} ${i('USD')}`,
-  //     total: `${this.getTotal()} ${i('USD')}`,
-  //     currency: i('USD'),
-  //   })
-  //     .then((res) => {
-  //       if (res && res['err']) return this.setState({ wait: false, networkErr: true });
-  //       this.setState({
-  //         wait: false,
-  //         rideDialog: false,
-  //         rideSuccess: true,
-  //       });
-  //     })
-  //     .catch(err => this.setState({ wait: false, networkErr: true }));
-  // };
-
-  closeNetworkErr = () => this.setState({ networkErr: false })
-  openRideDialog = () => this.setState({ rideDialog: true })
-  closeRideDialog = () => this.setState({ rideDialog: false })
-  closeRideSuccess = () => this.setState({ rideSuccess: false })
 
   getTitle = () => _.get(this.props.offer, 'title', '')
   getPrice = () => _.get(this.props.offer, 'price', 0)
   getRange = () => (this.state.startDate && this.state.endDate) ? (Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1) : 0;
   getTotal = () => this.getPrice() * this.getRange();
-  startDateChange = (ev, startDate) => this.setState({ startDate });
   endDateChange = (ev, endDate) => this.setState({ endDate });
+  startDateChange = (ev, startDate) => this.setState({ startDate });
   equipmentChange = (ev, index, equipment) => this.setState({ equipment });
+
+  getMessage = () => `RIDE REQUEST - ${this.getTitle()}
+Offer: ${location.hostname}/offer/${this.props.offer.id},
+Start date: ${this.state.startDate},
+End date: ${this.state.endDate},
+Equipment: ${this.state.equipment},
+Price: ${this.getPrice()} ${i('USD')},
+Total: ${this.getTotal()} ${i('USD')},
+Currency: ${i('USD')}`;
 
   render() {
     const title = this.getTitle();
@@ -81,16 +40,9 @@ export default class FormVG extends React.Component<any, any> {
       price,
       total,
       endDateChange: this.endDateChange,
-      equipmentChange: this.equipmentChange,
       startDateChange: this.startDateChange,
+      equipmentChange: this.equipmentChange,
     }
-
-    const rideButton = (
-      <div className="ride-btn">
-        <Raido />
-        <span>IDE</span>
-      </div>
-    );
 
     return (
       <FormWrap>
@@ -98,9 +50,12 @@ export default class FormVG extends React.Component<any, any> {
         <FormPure {...formData} />
         <div>
           <Contact
-            success={success}
-            button={rideButton}
+            button={<div className="ride-btn">RIDE</div>}
             message={this.getMessage}
+            success={{
+              title: i('Your ride is booked.'),
+              body: i('Our team will contact you within the next 24 hours in order to confirm it and discuss the details.\n\nGet ready for an unforgettable experience with VIKING GARAGE!'),
+            }}
           >
             <div className="title">
               {title}
