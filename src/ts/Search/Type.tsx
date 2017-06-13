@@ -84,9 +84,9 @@ export default class Select extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="type">
+      <div className="filter">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
-        <div className="filter">
+        <div className="input">
           <SelectField
             id="search-select"
             multiple={true}

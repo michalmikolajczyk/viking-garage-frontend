@@ -1,35 +1,80 @@
+.mobile-search {
+  height: 0;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: white;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  border-bottom: 1px solid $col-border;
+  &.open {
+    height: 287px;
+  }
+  .wrap {
+    padding: 15px;
+  }
+}
+
 .search {
-  width: 100%;
-  height: 50px;
-  max-width: 1120px;
-  margin: auto;
+  height: 216px;
   display: flex;
-  .location, .distance, .type, .date-wrap, .date {
-    flex: 1 1 100%;
+  flex-direction: column;
+  line-height: 46px;
+  font-size: 24px;
+  .date-wrap {
     display: flex;
-    position: relative;
-    input {
-      @extend .dots;
-      padding-left: 30px !important;
-      box-sizing: border-box !important;
-    }
-    .material-icons {
-      position: absolute !important;
-      font-size: 24px !important;
-      line-height: 46px;
-    }
-    .filter {
-      position: absolute;
-      left: 0;
-      right: 0;
+    flex: 1 200%;
+    flex-direction: column;
+    & input {
+      cursor: pointer !important;
     }
   }
-// hide SelectField default icons
-  .type svg, .distance svg {
+  .filter svg {
     display: none !important
   }
-  .date input {
-    cursor: pointer !important;
+}
+
+.filter {
+  flex: 1 100%;
+  display: flex;
+  position: relative;
+  input {
+    @extend .dots;
+    padding-left: 30px !important;
+    box-sizing: border-box !important;
+  }
+  .material-icons {
+    position: absolute !important;
+    font-size: 24px !important;
+    line-height: 46px;
+  }
+  .input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    & div {
+      @extend .dots;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  &.appbar {
+    line-height: 100px;
+    input {
+      padding-right: 30px !important;
+    }
+    .material-icons {
+      line-height: 68px;
+      cursor: pointer;
+    }
+    .right-btn {
+      position: absolute;
+      right: 23px;
+    }
   }
 }
 
@@ -37,4 +82,24 @@
   text-transform: uppercase !important;
   padding: 8px 0 6px !important;
   font-weight: 900 !important;
+}
+
+@media screen and (min-width: $tablet-min) {
+  .search {
+    padding: 30px 20px;
+    .date-wrap {
+      flex-direction: row;
+      flex: 1 100%;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-min) {
+  .search {
+    flex-direction: row;
+    height: 110px;
+    max-width: 1120px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
 }
