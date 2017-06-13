@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import { AppBar } from 'material-ui';
 import Raido from '../Raido';
 import Menu from '../Menu';
-import { default as Search } from '../Search/Location';
 import debug from 'debug';
 const log = debug('app:AppBar');
 
@@ -36,8 +35,6 @@ export default class AppBarVG extends React.Component<any, any> {
     // there is a polyfill in js/polyfills.js
     this.requestId = window.requestAnimationFrame(this.handleScroll);
   }
-
-  search(filter) { log('AppBar search change', filter); }
 
   render() {
     const line = this.state.visible && <div className="app-bar-line"></div>;
