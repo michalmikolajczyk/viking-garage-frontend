@@ -20,7 +20,7 @@
 .form-pure {
   .title {
     @extend .h5;
-    @extend .nowrap;
+    @extend .dots;
     width: 100%;
     text-transform: uppercase;
     margin-bottom: 39px;
