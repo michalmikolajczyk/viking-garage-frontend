@@ -4,16 +4,11 @@ import i from '../i18n';
 
 export default function Header(props) {
   return (
-    <div className="cont header">
+    <div className="header">
       <div className="title">
-        VIKING
-        <div className="title-in">
-          GA
-          <span className="replace">
-            &#160;&#160;
-            <Raido />
-          </span>
-          AGE
+        <div>VIKING</div>
+        <div className="below">
+          GA<span className="replace">R<Raido /></span>AGE
         </div>
       </div>
       <div className="text">
