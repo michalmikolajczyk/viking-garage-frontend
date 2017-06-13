@@ -23,23 +23,16 @@ export default function Offer({ data, location }) {
   }
 
   const renderLink = id ? `offer/${id}/${url}` : '/';
-
   const renderTitle = title || '';
-
-  const renderPrice = price && <div className="foot">{`${fx(price).to(i('USD')).toFixed(2)} ${i('USD')}/${i('day')}${distance}`}</div>
-
-  const renderImage = image && <div style={{ backgroundImage: `url(${image})` }} className="image"/>;
+  const renderPrice = price && `${fx(price).to(i('USD')).toFixed(2)} ${i('USD')}/${i('day')}${distance}`;
+  const renderImage = image && { backgroundImage: `url(${image})` };
 
   return (
-    <Link to={renderLink} className="offer-btn-link">
-      <div className="card">
-        {renderImage}
-        <div className="head">
-          <div className="descript">
-            <div className="title">{renderTitle}</div>
-            {renderPrice}
-          </div>
-        </div>
+    <Link to={renderLink} className="card">
+      <div style={renderImage} className="image"/>
+      <div className="head">
+        <div className="title">{renderTitle}</div>
+        <div className="foot">{renderPrice}</div>
       </div>
     </Link>);
 }
