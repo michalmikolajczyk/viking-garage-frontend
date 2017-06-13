@@ -14,12 +14,14 @@ export default function Footer(props) {
       <ul className="contact">
         <li>
           <a href="https://www.instagram.com/vikinggarage" target="_blank">
-            INSTAGRAM vikinggarage
+            INSTAGRAM
+            <span className="mobile-hid"> vikinggarage</span>
           </a>
         </li>
         <li>
           <a href="https://www.facebook.com/vikinggarage888" target="_blank">
-            FACEBOOK vikinggarage888
+            FACEBOOK
+            <span className="mobile-hid"> vikinggarage888</span>
           </a>
         </li>
         <li>
@@ -29,9 +31,12 @@ export default function Footer(props) {
         </li>
         <li>
           <a href="mailto:ride@vikinggarage.com" target="_blank">
-            E-MAIL ride@vikinggarage.com
+            E-MAIL
+            <span className="mobile-hid"> ride@vikinggarage.com</span>
           </a>
         </li>
+      </ul>
+      <ul className="contact right">
         <li>
           <a href="https://vikinggarage.slack.com" target="_blank">
             SLACK
@@ -39,7 +44,8 @@ export default function Footer(props) {
         </li>
         <li>
           <a href="tel:+48697951264" target="_blank">
-            PHONE +48 697 951 264
+            PHONE
+            <span className="mobile-hid"> +48 697 951 264</span>
           </a>
         </li>
         <li>
