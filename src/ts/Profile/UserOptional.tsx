@@ -13,6 +13,7 @@ export default function UserOptional(props) {
       </div>
       <div className="body">
         <FormsyText
+          id="user-profile-phone"
           name="phone"
           fullWidth={true}
           disabled={disabled}
@@ -22,6 +23,7 @@ export default function UserOptional(props) {
           validationError={i('Wrong phone number!')}
         />
         <FormsyText
+          id="user-profile-emergency"
           name="emergency"
           fullWidth={true}
           disabled={disabled}
@@ -31,6 +33,7 @@ export default function UserOptional(props) {
           validationError={i('Wrong phone number!')}
         />
         <FormsyText
+          id="user-profile-city"
           name="city"
           fullWidth={true}
           disabled={disabled}
@@ -40,6 +43,7 @@ export default function UserOptional(props) {
           validationError={i('Wrong city name!')}
         />
         <FormsyText
+          id="user-profile-country"
           name="country"
           fullWidth={true}
           disabled={disabled}
@@ -49,6 +53,7 @@ export default function UserOptional(props) {
           validationError={i('Wrong country name!')}
         />
         <FormsyText
+          id="user-profile-brief"
           name="brief"
           fullWidth={true}
           disabled={disabled}

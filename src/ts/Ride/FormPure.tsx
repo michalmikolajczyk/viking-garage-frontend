@@ -33,6 +33,7 @@ export default function FormPure(props){
       <div className="field">
         <FontIcon className="material-icons">today</FontIcon>
         <DatePicker
+          id="form-start-date"
           name="start-date"
           className="date-picker"
           autoOk={true}
@@ -47,6 +48,7 @@ export default function FormPure(props){
       <div className="field">
         <FontIcon className="material-icons">date_range</FontIcon>
         <DatePicker
+          id="form-end-date"
           name="end-date"
           className="date-picker"
           autoOk={true}
@@ -61,6 +63,7 @@ export default function FormPure(props){
       <div className="field">
         <FontIcon className="fa fa-angle-down" />
         <SelectField
+          id="form-equipment"
           className="equipment"
           value={equipment}
           onChange={equipmentChange}
