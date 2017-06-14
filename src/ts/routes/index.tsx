@@ -31,7 +31,9 @@ export default (
     <Route path="/check" component={Check} />
     <Route path="/verify/:token" component={Verify} />
     <Route path="/user/profile" component={Profile} />
-    <Route path="/page/:type" component={Page} />
+    <Route path="/page/owner" component={Page} />
+    <Route path="/page/guide" component={Page} />
+    <Route path="/page/mechanic" component={Page} />
     <Route path="*" component={NotFound} />
   </Route>
 );
