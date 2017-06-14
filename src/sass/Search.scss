@@ -73,7 +73,10 @@
     }
     .right-btn {
       position: absolute;
-      right: 23px;
+      right: 0;
+      width: 24px;
+      height: 64px;
+      flex-direction: column;
     }
   }
 }
