@@ -14,6 +14,7 @@ export default class  MobileSearch extends React.Component<any, any> {
         <Location
           appbar={true}
           toggle={this.toggle}
+          value={this.props.location}
           filter={this.props.locationFilter}
         />
         <div className={`mobile-search ${this.state.open ? 'open' : ''}`}>

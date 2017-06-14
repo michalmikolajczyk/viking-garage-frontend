@@ -79,6 +79,7 @@ export default class Offers extends React.Component<any, any> {
       distanceFilter: this.distanceFilter,
       typeFilter: this.typeFilter,
       dateFilter: this.dateFilter,
+      location: this.state.location,
     };
 
     return (

@@ -11,11 +11,14 @@ export default function SearchPure(props) {
     distanceFilter,
     typeFilter,
     dateFilter,
+    location,
   } = props;
 
   return (
     <div className="search">
-      <Location filter={locationFilter} />
+      <Location
+        value={location}
+        filter={locationFilter} />
       <Distance filter={distanceFilter} />
       <Type filter={typeFilter} />
       <Date filter={dateFilter} />
