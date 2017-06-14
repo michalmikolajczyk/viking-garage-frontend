@@ -23,7 +23,7 @@ export default function FormPure(props){
   const localPrice = fx(price).to(i('USD')).toFixed(2);
   const localTotal = fx(total).to(i('USD')).toFixed(2);
   return (
-    <div>
+    <div className="form-pure">
       <div className="field empty">
         <FontIcon className="fa fa-money" />
         <div className="text">

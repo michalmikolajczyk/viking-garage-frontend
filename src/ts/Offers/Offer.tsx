@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { FontIcon } from 'material-ui';
 import * as geolib from 'geolib';
 import { Link } from 'react-router';
 import i from '../i18n';
@@ -27,9 +26,7 @@ export default function Offer({ data, location }) {
 
   const renderPrice = price && <div className="foot">{`${price} $/${i('day')}${distance}`}</div>
 
-  const renderImage = image
-  ? <div style={{ backgroundImage: `url(${image})` }} className="image"/>
-  : <FontIcon className="fa fa-motorcycle" />;
+  const renderImage = image && <div style={{ backgroundImage: `url(${image})` }} className="image"/>;
 
   return (
     <Link to={renderLink} className="offer-btn-link">

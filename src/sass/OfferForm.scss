@@ -15,6 +15,9 @@
     position: absolute;
     bottom: 60px;
   }
+}
+
+.form-pure {
   .title {
     @extend .h5;
     @extend .nowrap;
@@ -49,21 +52,12 @@
     svg { display: none !important }
     hr { border-bottom: 1px solid black !important }
   }
-  .ride-btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 66px;
-    margin-top: 43px;
-    border: 2px solid #6B6B6B;
-    font-size: 24px;
-    letter-spacing: 5px;
-    background: transparent;
-    border-radius: 3px;
-    .raido {
-      padding-right: 5px;
-    }
+}
+
+.ride-btn {
+  font-size: 24px;
+  letter-spacing: 5px;
+  .raido {
+    padding-right: 5px;
   }
 }

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { browserHistory } from 'react-router';
 import * as _ from 'lodash';
 import NetworkError from '../Dialogs/NetworkError';
-import FormVG from '../Ride/FormVG';
+import FormVG from '../FormVG';
 import Offer from './Offer';
 import * as api from './api';
 
