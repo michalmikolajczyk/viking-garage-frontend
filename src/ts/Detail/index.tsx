@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { browserHistory } from 'react-router';
 import * as _ from 'lodash';
+import { default as AppBarVG } from '../AppBar';
 import NetworkError from '../Dialogs/NetworkError';
 import FormVG from '../FormVG';
 import Offer from './Offer';
@@ -29,12 +30,12 @@ export default class Detail extends React.Component<any, any> {
       .catch(err => this.setState({ networkErr: true }));
   }
 
-
   closeNetworkErr = () => this.setState({ networkErr: false });
 
   render() {
     return (
       <div>
+        <AppBarVG />
         <div className="detail">
           <Offer offer={this.state.offer} />
           <FormVG offer={this.state.offer} />

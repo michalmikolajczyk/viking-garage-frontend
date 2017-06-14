@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router';
 import { FontIcon } from 'material-ui';
 import SearchPure from './SearchPure';
 import Location from './Location';
@@ -9,7 +10,7 @@ export default class  MobileSearch extends React.Component<any, any> {
   toggle = () => this.setState({ open: !this.state.open });
 
   render() {
-    return (
+    const comp = (
       <div className="mobile-only">
         <Location
           appbar={true}
@@ -27,5 +28,7 @@ export default class  MobileSearch extends React.Component<any, any> {
         </div>
       </div>
     );
+    if (this.props.locationFilter) return comp;
+    return <Link to="/">{comp}</Link>;
   }
 }
