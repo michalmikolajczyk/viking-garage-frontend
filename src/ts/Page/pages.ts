@@ -7,7 +7,8 @@ export default (() => {
         owner: {
           title: 'Zarabiaj na swoim motocyklu',
           head: 'Wynajmij swój motocykl i zostań\nczęścią zaufanej motospołeczności.',
-          text: 'W VIKING GARAGE gromadzimy ludzi, którzy dowolnie realizują swoje motocyklowe pasje - od dzielenia się swoim doświadczeniem z początkującymi motocyklistami, po tworzenie customów i naprawę sprzętu motocyklowego.\n\nTo tutaj Twoja pasja może stać się źródłem dodatkowych pieniędzy - od kilkudziesięciu złotych na paliwo po spory biznes prowadzony za pomocą platformy VIKING GARAGE',
+          texta: 'W VIKING GARAGE gromadzimy ludzi, którzy dowolnie realizują swoje motocyklowe pasje - od dzielenia się swoim doświadczeniem z początkującymi motocyklistami, po tworzenie customów i naprawę sprzętu motocyklowego.',
+          textb: 'To tutaj Twoja pasja może stać się źródłem dodatkowych pieniędzy - od kilkudziesięciu złotych na paliwo po spory biznes prowadzony za pomocą platformy VIKING GARAGE',
           button: 'Zacznij zarabiać teraz',
           dialog: {
             head: 'Wynajmij swój motocykl',
@@ -18,6 +19,8 @@ export default (() => {
             title: 'Dziękujemy!',
             body: 'Nasz zespół skontaktuje się z Tobą w ciągu 24h i wspólnie stworzycie ofertę dla Twojego motocykla.',
           },
+          imagea: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner1.jpg',
+          imageb: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner2.jpg',
         },
         guide: {
           title: 'Zdobywaj umiejętności',
@@ -36,6 +39,8 @@ export default (() => {
             title: 'Dziękujemy!',
             body: 'Nasz zespół skontaktuje się z Tobą w ciągu 24h',
           },
+          image1: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/guide1.jpg',
+          image2: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/guide2.jpg',
         },
         mechanic: {
           title: 'Znajdź Mechanika',
@@ -54,6 +59,8 @@ export default (() => {
             title: 'Dziękujemy!',
             body: 'Nasz zespół skontaktuje się z Tobą w ciągu 24h',
           },
+          image1: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815395/page/mechanic1.jpg',
+          image2: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/mechanic2.jpg',
         },
       }
 
@@ -73,6 +80,8 @@ export default (() => {
             title: 'Thanks!',
             body: 'Our team will contact you within 24 hours and work together to create an offer of your motorbike.',
           },
+          image1: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner1.jpg',
+          image2: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner2.jpg',
         },
         guide: {
           title: 'Develop your skills',
@@ -91,6 +100,8 @@ export default (() => {
             title: 'Thanks!',
             body: 'Our team will contact you within 24 hours',
           },
+          image1: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/guide1.jpg',
+          image2: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/guide2.jpg',
         },
         mechanic: {
           title: 'Find a Mechanic',
@@ -109,6 +120,8 @@ export default (() => {
             title: 'Thanks!',
             body: 'Our team will contact you within 24 hours',
           },
+          image1: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815395/page/mechanic1.jpg',
+          image2: 'http://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/mechanic2.jpg',
         },
       }
   }

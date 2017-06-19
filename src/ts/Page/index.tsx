@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router';
+import AppBar from '../AppBar';
 import Contact from '../Contact';
 import pages from './pages';
 import i from '../i18n';
@@ -44,21 +45,33 @@ export default function Page(props) {
     <div>
       <div className="title">{msg['title2']}</div>
       <div className="head">{msg['head2']}</div>
-      <div className="title-sub">{msg['text2']}</div>
-      <br />
-      <br />
+      <div className="image" style={{ backgroundImage: `url(${msg['image2']})` }} />
+      <div className="text">{msg['text2']}</div>
       {contact2}
     </div>
   );
 
+  const text = msg['texta'] ? (
+    <div>
+      <div className="image" style={{ backgroundImage: `url(${msg['imagea']})` }} />
+      <div className="text">{msg['texta']}</div>
+      <div className="image" style={{ backgroundImage: `url(${msg['imageb']})` }} />
+      <div className="text">{msg['textb']}</div>
+    </div>
+  ) : (
+    <div>
+      <div className="image" style={{ backgroundImage: `url(${msg['image1']})` }} />
+      <div className="text">{msg['text']}</div>
+    </div>
+  )
+
   return (
-    <div className="pages">
-      <div className="form">
+    <div>
+      <AppBar />
+      <div className="page">
         <div className="title">{msg['title']}</div>
         <div className="head">{msg['head']}</div>
-        <div className="title-sub">{msg['text']}</div>
-        <br />
-        <br />
+        {text}
         {contact1}
         {page2}
       </div>
