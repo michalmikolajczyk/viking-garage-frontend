@@ -380,10 +380,8 @@ export default {
 
 // RideSuccess
   'Your ride is booked.': 'Twoja jazda jest zarezerwowana.',
-  'Our team will contact you within the next 24 hours in order to confirm it and discuss the details.':
-  'Nasz zespół skontaktuje się z Tobą w ciągu 24 godzin, aby potwierdzić rezerwację i omówić szczegóły.',
-  'Get ready for an unforgettable experience with VIKING GARAGE!':
-  'Przygotuj się na niezapomniane przeżycia z VIKING GARAGE!',
+  'Our team will contact you within the next 24 hours in order to confirm it and discuss the details.\n\nGet ready for an unforgettable experience with VIKING GARAGE!':
+  'Nasz zespół skontaktuje się z Tobą w ciągu 24 godzin, aby potwierdzić rezerwację i omówić szczegóły.\n\nPrzygotuj się na niezapomniane przeżycia z VIKING GARAGE!',
 
 /**
  * Search

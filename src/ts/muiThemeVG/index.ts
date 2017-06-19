@@ -1,9 +1,7 @@
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
 const raidoRed1 = '#BB0003';
 const raidoRed2 = '#FF2427';
 
-const muiThemeVG = getMuiTheme({
+const muiThemeVG = {
   fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
   palette: {
     primary1Color: '#000000',
@@ -20,6 +18,6 @@ const muiThemeVG = getMuiTheme({
     // trackOnColor: raidoRed1,
     thumbOnColor: '#000000',
   },
-});
+}
 
 export default muiThemeVG

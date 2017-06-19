@@ -57,10 +57,10 @@ export default function MenuVG(props) {
 
   return (
     <div className="menu">
-      <MenuItem className="menu-item" containerElement={<Link to="/bike-owners" />} primaryText={i('Bike Owners')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/guides-coaches" />} primaryText={i('Guides & Coaches')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/mechanics" />} primaryText={i('Mechanics')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/faq" />} primaryText={i('FAQ')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/owner" />} primaryText={i('Bike Owners')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/guide" />} primaryText={i('Guides & Coaches')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/mechanic" />} primaryText={i('Mechanics')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} />
       {userSection}
     </div>
   );

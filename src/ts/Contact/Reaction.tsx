@@ -6,8 +6,9 @@ import {
 import Raido from '../Raido';
 import i from '../i18n';
 
-export default function RideSuccess(props){
+export default function Reaction(props){
   const {
+    data,
     open,
     close,
   } = props;
@@ -23,20 +24,15 @@ export default function RideSuccess(props){
   return (
     <Dialog
       open={open}
-      title={<div className="dialog-raido"><Raido /></div>}
+      title={data.title || <div className="dialog-raido"><Raido /></div>}
       actions={actions}
       modal={false}
       autoScrollBodyContent={true}
     >
-      <div className="ride-success">
-        {i('Your ride is booked.')}
-        <br />
-        <br />
-        {i('Our team will contact you within the next 24 hours in order to confirm it and discuss the details.')}
-        <br />
-        <br />
-        {i('Get ready for an unforgettable experience with VIKING GARAGE!')}
+      <div className="reaction">
+        {data.body}
       </div>
     </Dialog>
   );
 }
+

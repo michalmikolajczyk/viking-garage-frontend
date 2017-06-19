@@ -48,6 +48,7 @@ export default class Location extends React.Component<any, any> {
         <FontIcon className="material-icons">{this.props.icon}</FontIcon>
         <div className="filter">
           <AutoComplete
+            id="search-location"
             hintText={i('Find motorcycles to ride around ...')}
             maxSearchResults={5}
             openOnFocus={true}

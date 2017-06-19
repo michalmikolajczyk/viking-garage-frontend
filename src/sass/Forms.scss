@@ -6,12 +6,22 @@
     font-weight: 300;
     font-size: 55px;
     margin: 28px 0 49px;
+    white-space: pre-line;
+  }
+  .head {
+    font-weight: 300;
+    font-size: 27px;
+    margin: 0 0 49px;
+    white-space: pre-line;
   }
   .title-sub {
     font-size: 21px;
     font-weight: 200;
     line-height: 27px;
     letter-spacing: 0.15px;
+    white-space: pre-line;
+    max-width: 500px;
+    margin: 0 auto;
   }
   .title-btn {
     text-decoration: underline;

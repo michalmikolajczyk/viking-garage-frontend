@@ -11,7 +11,7 @@ import { formsyContext } from '../helpers/test-theme';
 import * as moment from 'moment';
 import * as _ from 'lodash';
 
-import FormVG from './FormVG';
+import Contact from './';
 import { offer } from '../Detail/mockup';
 import * as api from './api';
 
@@ -20,103 +20,100 @@ const user = {
   email: 'viking.garage.app@gmail.com',
 }
 
-describe('<FormVG />', () => {
+const success = {
+  title: 'Success',
+  body: 'Maan, that was nice!',
+}
+
+const message = 'special message';
+
+describe('<Contact />', () => {
   let wrapper;
   let instance;
   beforeEach(() => {
-    wrapper = shallow(<FormVG offer={offer} />, formsyContext());
+    wrapper = shallow(<Contact type="contact" success={success} button="btn" message={() => message}/>, formsyContext());
     instance = wrapper.instance();
   });
 
   it('check for form inputs: price, start & end date, equipment', () => {
-    expect(wrapper.find('FormWrap')).to.have.length(1);
-    expect(wrapper.find('FormPure')).to.have.length(1);
-    expect(wrapper.find('RideDialog')).to.have.length(1);
-    expect(wrapper.find('RideSuccess')).to.have.length(1);
+    expect(wrapper.find('button')).to.have.length(1);
+    expect(wrapper.find('Dialog')).to.have.length(1);
+    expect(wrapper.find('ContactForm')).to.have.length(1);
     expect(wrapper.find('NetworkError')).to.have.length(1);
+    expect(wrapper.find('Reaction')).to.have.length(1);
   });
 
   it('check if submit action get proper data', () => {
-    const ride = sinon.stub(api, 'ride', (params) => {
+    const contact = sinon.stub(api, 'contact', (params) => {
       expect(params.name).to.be.equal(user.name);
       expect(params.email).to.be.equal(user.email);
-      expect(params.offer).to.be.equal(offer.id);
-      expect(params.startDate).to.be.equal(instance.state.startDate);
-      expect(params.endDate).to.be.equal(instance.state.endDate);
-      expect(params.equipmnent).to.be.equal(instance.state.equipmnent);
-      expect(params.price).to.be.equal(`${instance.getPrice()} USD`);
-      expect(params.total).to.be.equal(`${instance.getTotal()} USD`);
-      expect(params.currency).to.be.equal('USD');
+      expect(params.type).to.be.equal('contact');
       return Promise.resolve('ok');
     });
     instance['submit'](user);
-    ride.restore();
+    contact.restore();
+  });
+
+  it('check if submit action get proper data from getMessage() props', () => {
+    const contact = sinon.stub(api, 'contact', (params) => {
+      expect(params.body).to.be.equal(message);
+      return Promise.resolve('ok');
+    });
+    instance['submit'](user);
+    contact.restore();
   });
 
   it('check if submit action works properly', () => {
-    const ride = sinon.stub(api, 'ride')['returnsPromise']();
+    const contact = sinon.stub(api, 'contact')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.rideDialog).to.be.false;
-    expect(instance.state.rideSuccess).to.be.false;
+    expect(instance.state.openDialog).to.be.false;
 
     instance['submit'](user);
-    ride.resolves();
+    contact.resolves();
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.rideDialog).to.be.false;
-    expect(instance.state.rideSuccess).to.be.true;
+    expect(instance.state.open).to.be.false;
+    expect(instance.state.openDialog).to.be.true;
 
-    ride['restore']();
+    contact['restore']();
   });
 
   it('check if submit action shows backend error', () => {
-    const ride = sinon.stub(api, 'ride')['returnsPromise']();
+    const contact = sinon.stub(api, 'contact')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.rideSuccess).to.be.false;
+    expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.false;
 
     instance['submit']();
-    ride.resolves({ err: 'no internet connection'});
+    contact.resolves({ err: 'no internet connection'});
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.rideSuccess).to.be.false;
+    expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.true;
-    ride['restore']();
+    contact['restore']();
   });
 
   it('check if submit action shows unexpected network error', () => {
-    const ride = sinon.stub(api, 'ride')['returnsPromise']();
+    const contact = sinon.stub(api, 'contact')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.rideSuccess).to.be.false;
+    expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.false;
 
     instance['submit']();
-    ride.rejects('something gone wrong');
+    contact.rejects('something gone wrong');
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.rideSuccess).to.be.false;
+    expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.true;
-    ride['restore']();
-  });
-
-  it('check if total calculation works fine', () => {
-    const days = [0, 7, -5];
-    const price = 55;
-    const start = moment().toDate();
-    wrapper.instance()['startDateChange'](undefined, start);
-    _.forEach(days, (day) => {
-      const end = day > 0 ? moment().add(day, 'days').toDate() : moment().subtract(day, 'days').toDate();
-      wrapper.instance()['endDateChange'](undefined, end);
-      expect(instance.getTotal()).to.be.equal(((Math.abs(day) + 1) * price));
-    });
+    contact['restore']();
   });
 });

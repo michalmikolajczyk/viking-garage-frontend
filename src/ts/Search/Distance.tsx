@@ -30,6 +30,7 @@ export default class Distance extends React.Component<any, any> {
         <FontIcon className="material-icons">my_location</FontIcon>
         <div className="filter">
           <AutoComplete
+            id="search-distance"
             hintText={i('Set distance...')}
             maxSearchResults={5}
             filter={AutoComplete.noFilter}

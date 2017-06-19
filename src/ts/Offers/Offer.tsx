@@ -28,9 +28,7 @@ export default function Offer({ data, location }) {
 
   const renderPrice = price && <div className="foot">{`${fx(price).to(i('USD')).toFixed(2)} ${i('USD')}/${i('day')}${distance}`}</div>
 
-  const renderImage = image
-  ? <div style={{ backgroundImage: `url(${image})` }} className="image"/>
-  : <FontIcon className="fa fa-motorcycle" />;
+  const renderImage = image && <div style={{ backgroundImage: `url(${image})` }} className="image"/>;
 
   return (
     <Link to={renderLink} className="offer-btn-link">

@@ -53,6 +53,7 @@ export default class Change extends React.Component<any, any> {
             >
               <div className="reset">
                 <FormsyText
+                  id="change-password1"
                   name="password1"
                   type="password"
                   required={true}
@@ -62,6 +63,7 @@ export default class Change extends React.Component<any, any> {
                   validationError={i('Password too short! Minimum 6 chars')}
                 />
                 <FormsyText
+                  id="change-password2"
                   name="password2"
                   type="password"
                   required={true}

@@ -88,6 +88,7 @@ export default class Select extends React.Component<any, any> {
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
         <div className="filter">
           <SelectField
+            id="search-select"
             multiple={true}
             hintText={i('Select type...')}
             value={[...this.state.values]}

@@ -42,6 +42,7 @@ export default class SiginForm extends React.Component<any, any> {
         onSubmit={this.submit}
       >
         <FormsyText
+          id="signin-firstname"
           name="firstname"
           required={true}
           fullWidth={true}
@@ -50,6 +51,7 @@ export default class SiginForm extends React.Component<any, any> {
           validationError={i('Please add more characters (minimum 3)')}
         />
         <FormsyText
+          id="signin-lastname"
           name="lastname"
           required={true}
           fullWidth={true}
@@ -58,6 +60,7 @@ export default class SiginForm extends React.Component<any, any> {
           validationError={i('Please add more characters (minimum 3)')}
         />
         <FormsyText
+          id="signin-email"
           name="email"
           required={true}
           fullWidth={true}
@@ -66,12 +69,14 @@ export default class SiginForm extends React.Component<any, any> {
           validationError={i('Wrong e-mail address!')}
         />
         <FormsyDate
+          id="signin-birthday"
           name="birthday"
           floatingLabelText={i('Date of birth')}
           required={true}
           fullWidth={true}
         />
         <FormsyText
+          id="signin-password1"
           name="password1"
           type="password"
           required={true}
@@ -81,6 +86,7 @@ export default class SiginForm extends React.Component<any, any> {
           validationError={i('Password too short! Minimum 6 chars')}
         />
         <FormsyText
+          id="signin-password2"
           name="password2"
           type="password"
           required={true}
@@ -91,6 +97,7 @@ export default class SiginForm extends React.Component<any, any> {
         />
         <div className="checkbox">
           <FormsyCheckbox
+            id="signin-agree"
             value={true}
             required={true}
             name="agree"

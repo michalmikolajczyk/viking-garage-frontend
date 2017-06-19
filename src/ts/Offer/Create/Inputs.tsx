@@ -30,6 +30,7 @@ const inputGenerator = (type, key, label) => {
       return (
         <div className="col">
           <FormsyText
+            id={`offer-create-${label}`}
             name={key}
             floatingLabelText={label}
             fullWidth={true}
@@ -43,6 +44,7 @@ const inputGenerator = (type, key, label) => {
       return (
       <div className="col select-col">
           <FormsySelect
+            id={`offer-create-${label}`}
             floatingLabelText={label}
             name={key}
             fullWidth={true}
@@ -56,6 +58,7 @@ const inputGenerator = (type, key, label) => {
       return (
         <div className="col checkbox">
           <FormsyCheckbox
+            id={`offer-create-${label}`}
             name={key}
             label={label}
             labelPosition="left"
@@ -66,6 +69,7 @@ const inputGenerator = (type, key, label) => {
       return (
         <div className="col">
           <FormsyText
+            id={`offer-create-${label}`}
             validations="isNumeric"
             floatingLabelText={label}
             name={key}
