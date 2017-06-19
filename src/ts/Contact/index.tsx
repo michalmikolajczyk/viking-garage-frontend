@@ -89,6 +89,7 @@ export default class Contact extends React.Component<props, any> {
           actions={actions}
           open={this.state.open}
           autoScrollBodyContent={true}
+          contentStyle={{ minWidth: 320 }}
           title={title || <div className="dialog-raido"><Raido /></div>}
         >
           <div className="contact-body">

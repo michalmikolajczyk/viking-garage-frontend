@@ -1,26 +1,7 @@
-.detail-form {
-  text-align: left;
-  flex: 0 0 300px;
-  padding: 0 64px 0 0;
-  #detail-side {
-    padding-top: 54px;
-    transform: translate3d(0,0,0) !important;
-    width: 300px;
-  }
-  .fixed {
-    margin-top: -54px;
-    position: fixed;
-  }
-  .absolute {
-    position: absolute;
-    bottom: 60px;
-  }
-}
-
 .form-pure {
   .title {
-    @extend .h5;
-    @extend .nowrap;
+    // @extend .h5;
+    // @extend .dots;
     width: 100%;
     text-transform: uppercase;
     margin-bottom: 39px;
@@ -51,13 +32,5 @@
     }
     svg { display: none !important }
     hr { border-bottom: 1px solid black !important }
-  }
-}
-
-.ride-btn {
-  font-size: 24px;
-  letter-spacing: 5px;
-  .raido {
-    padding-right: 5px;
   }
 }

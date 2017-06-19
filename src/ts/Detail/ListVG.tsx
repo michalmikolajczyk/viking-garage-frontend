@@ -52,7 +52,7 @@ export default function ListVG({ offer }) {
     );
   });
   return (
-    <div>
+    <div className="accordions">
       {accordions}
       <Offerer offer={offer} />
     </div>);

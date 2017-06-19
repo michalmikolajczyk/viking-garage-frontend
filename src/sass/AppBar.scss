@@ -2,37 +2,32 @@
   position: fixed !important;
   transform: translate3d(0,0,0) !important;
   .title {
-    width: 80px;
+    width: 30px;
     height: 64px;
     display: block;
-    box-sizing: border-box;
+    padding: 15px 0 0 15px;
     margin: -8px 0 0 -8px !important;
-    padding: 15px 0 0 40px;
-    &.border {
-      border-right: solid 1px #B5B5B5 !important;
-    }
-  }
-  .location {
-    display: flex;
-    align-items: center;
-    & hr {
-      display: none;
-    }
-    .material-icons {
-      padding: 5px 10px 0 20px;
-      color: rgba(0, 0, 0, 0.298039) !important;
-    }
-    .filter {
-      width: 100%;
-    }
-  }
-  .app-bar-line {
-    position: fixed;
-    z-index: 1100;
-    width: 100%;
-    margin: 64px 0 0 -24px;
-    height: 1px;
-    background: #B5B5B5;
-    transform: translate3d(0,0,0);
+    box-sizing: border-box;
   }
 }
+
+.border {
+  .app-bar {
+    border-bottom: 1px solid $col-border;
+  }
+}
+
+@media screen and (min-width: $tablet-min) {
+  .app-bar {
+    .title {
+      width: 80px;
+      padding: 15px 0 0 40px;
+    }
+  }
+  .border {
+    .title {
+      border-right: 1px solid $col-border;
+    }
+  }
+}
+

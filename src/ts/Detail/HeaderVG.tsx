@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FontIcon } from 'material-ui';
+import Card from '../Offers/Offer';
 
 export default function HeaderVG({ offer }) {
   if (!offer) return null;
@@ -10,19 +10,26 @@ export default function HeaderVG({ offer }) {
     offerer,
   } = offer;
 
-  const renderImage = typeof image !== 'undefined'
-  ? <div className="image" style={{ backgroundImage: `url(${image})` }}/>
-  : <FontIcon className="fa fa-motorcycle"/>
+  const renderImage = image && <div className="image mobile-hid" style={{ backgroundImage: `url(${image})` }}/>;
 
   return (
-    <div>
-      {renderImage}
-      <div className="title">
-        {title}
+    <div className={`headervg ${title ? '' : 'load'}`}>
+      <div className="mobile-tablet-only">
+        <Card
+          data={offer}
+          disable={true}
+          location={false}
+        />
       </div>
-      <Offerer offerer={offerer}/>
-      <div className="text">
-        {brief}
+      <div className="headervg-desktop mobile-tablet-hid">
+        {renderImage}
+        <div className="title">
+          {title}
+        </div>
+        <Offerer offerer={offerer}/>
+        <div className="text">
+          {brief}
+        </div>
       </div>
     </div>
   );

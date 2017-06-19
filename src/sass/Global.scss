@@ -1,6 +1,7 @@
 body {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
+  min-width: $mobile-min;
 }
 
 * {
@@ -16,6 +17,7 @@ button {
   cursor: pointer !important;
   padding: 0;
   background: transparent;
+  border: none;
   &:disabled {
     cursor: not-allowed !important;
   }
@@ -66,6 +68,27 @@ ul {
   cursor: pointer;
   padding: 0 10px;
   box-sizing: border-box;
+}
+
+.btn-main {
+  @extend .t3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  min-width: 100px;
+  padding: 0 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  background: $col-red;
+  color: $col-white;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.right {
+  float: right;
 }
 
 .dialog-raido {

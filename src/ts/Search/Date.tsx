@@ -25,11 +25,11 @@ export default class DateVG extends React.Component<any, any> {
   render() {
     return (
       <div className="date-wrap">
-        <div className="date">
+        <div className="filter">
           <FontIcon className="material-icons">today</FontIcon>
           <DatePicker
             id="search-date-start"
-            className="filter"
+            className="input"
             autoOk={true}
             onChange={this.onChangeStart}
             hintText={i('Start Date')}
@@ -38,11 +38,11 @@ export default class DateVG extends React.Component<any, any> {
             inputStyle={{ paddingLeft: 30 }}
           />
         </div>
-        <div className="date">
+        <div className="filter">
           <FontIcon className="material-icons">date_range</FontIcon>
           <DatePicker
             id="search-date-end"
-            className="filter"
+            className="input"
             autoOk={true}
             onChange={this.onChangeEnd}
             hintText={i('End Date')}

@@ -11,7 +11,7 @@ import Location from './Location';
 describe('Search: <Location />', () => {
   it('check for inner components', () => {
     const wrapper = shallow(<Location filter={() => {}} />)
-    expect(wrapper.find('.location')).to.have.length(1);
+    expect(wrapper.find('.input')).to.have.length(1);
     expect(wrapper.find('FontIcon')).to.have.length(1);
     expect(wrapper.find('AutoComplete')).to.have.length(1);
   });

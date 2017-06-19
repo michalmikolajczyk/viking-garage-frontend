@@ -178,7 +178,7 @@ export default {
   'Optional services': 'Dodatkowe usługi',
 
 // Offerer
-  'With VIKING GARAGE since': 'Z VIKING GARAGE od',
+  'With VG since': 'Z VG od',
   'Recommendations': 'Rekomendacje',
   'Send message': 'Wyślij wiadomość',
   'Offerer details': 'Informacje o wynajmującym',

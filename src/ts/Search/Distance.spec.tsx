@@ -14,7 +14,7 @@ const convert = (data) => data.map(d => ({text: `${d} km`, value: d}))
 describe('Search <Distance />', () => {
   it('check for inner components', () => {
     const wrapper = shallow(<Distance filter={() => {}}/>);
-    expect(wrapper.find('.distance')).to.have.length(1);
+    expect(wrapper.find('.input')).to.have.length(1);
     expect(wrapper.find('FontIcon')).to.have.length(1);
     expect(wrapper.find('AutoComplete')).to.have.length(1);
   });

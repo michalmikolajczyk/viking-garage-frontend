@@ -47,12 +47,12 @@ Currency: ${i('USD')}`;
 
     return (
       <FormWrap>
-        <div className="title">{title}</div>
+        <div className="title mobile-tablet-hid">{title}</div>
         <FormPure {...formData} />
         <div>
           <Contact
             type="ride"
-            button={<div className="ride-btn">RIDE</div>}
+            button={<div className="btn-main btn-ride">RIDE</div>}
             message={this.getMessage}
             success={{
               title: i('Your ride is booked.'),

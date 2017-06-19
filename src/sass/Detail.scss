@@ -1,169 +1,201 @@
 $detail-image-height: 420px;
 
 .detail {
-  @extend .cont;
   width: 100%;
-  min-width: 300px;
-  min-height: 650px;
-  padding-top: 112px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  .image {
-    margin-right: 100px;
-    height: $detail-image-height;
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
+  box-sizing: border-box;
+  padding: 64px 15px 30px;
+  max-width: 559px;
+  margin: 0 auto;
+  .headervg {
+    margin: 0 -15px;
   }
-  .fa-motorcycle {
-    color: #9B9B9B !important;
-    display: block !important;
-    line-height: $detail-image-height !important;
-    font-size: 374px !important;
-    text-align: center;
+  .detail-form {
+    .btn-ride {
+      width: 210px;
+      height: 36px;
+    }
   }
 }
 
-.detail-offer {
-  flex: 1;
-  padding: 0 30px 60px;
-  .title {
-    @extend .h3;
-    margin-top: 57px;
-  }
-  .owner {
-    display: flex;
-    align-items: center;
-    padding-top: 34px;
-    .picture {
-      display: inline-block;
-      width: 55px;
-      height: 55px;
-      background-size: cover;
+@media screen and (min-width: $tablet-min) {
+  .detail {
+    .headervg {
+      margin: 0;
+      .card {
+        width: 100%;
+      }
     }
-    .owner-details {
-      @extend .t3;
-      display: inline-block;
-      padding: 10px;
-      vertical-align: top;
-    }
-  }
-  .text {
-    @extend .t2;
-    padding: 17px 0 30px;
-    line-height: 30px;
   }
 }
 
-.comments {
-  padding: 60px 0 30px;
-  .comments-cont {
-    padding: 22px 30px;
-    .references {
-      @extend .t3;
+@media screen and (min-width: 559px) {
+  .detail {
+    .headervg {
+      .card {
+        width: 529px;
+      }
     }
-    .ratings {
-      margin-top: 45px;
+  }
+}
+
+@media screen and (min-width: $desktop-min) {
+  .detail {
+    position: relative;
+    max-width: 1069px;
+    min-height: 600px;
+    padding: 112px 30px 60px;
+    box-sizing: border-box;
+    & > div {
+      width: calc(100% - 344px);
     }
-    .row {
-      display: flex;
-      margin-bottom: 17px;
-      .rate {
-        display: flex;
-        flex: 1;
-        justify-content: space-between;
-        align-items: center;
-        padding-right: 25px;
-        .type {
-          @extend .t5;
-          padding-right: 20px;
+    // header with photo
+    .headervg {
+      .headervg-desktop {
+        .image {
+          width: 100%;
+          height: $detail-image-height;
+          background-size: contain;
+          background-position: center center;
+          background-repeat: no-repeat;
         }
-        .stars {
-          .material-icons {
-            font-size: 18px !important;
-            padding: 2px;
+        .title {
+          font-size: 34px;
+          font-weight: $medium;
+          letter-spacing: 2.43px;
+          padding: 30px 0 0 0;
+        }
+        .owner {
+          display: flex;
+          align-items: center;
+          padding: 30px 0 0 0;
+          .picture {
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            background-size: cover;
+          }
+          .owner-details {
+            font-size: 16px;
+            font-weight: $regular;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 10px;
+            vertical-align: top;
           }
         }
+        .text {
+          font-size: 16px;
+          font-weight: $regular;
+          letter-spacing: 1px;
+          padding: 30px 0;
+          line-height: 30px;
+        }
       }
     }
-    .comment {
-      margin-top: 57px;
-      .author {
-        @extend .t5;
-        display: flex;
-        .picture {
-          width: 35px;
-          height: 35px;
-          background-image: url('https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg');
-          background-size: cover;
-          background-position: center center;
-        }
-        .fullname {
-          padding: 9px 0px 0 19px;
-        }
-        .location {
-          padding: 9px 0px 0 19px;
+
+    // form for booking (right column)
+    .detail-form {
+      position: absolute;
+      top: 0;
+      right: 30px;
+      bottom: 0;
+      width: 314px;
+      margin: 112px 0 0 0;
+      #detail-side {
+        padding: 54px 0 0 0;
+        transform: translate3d(0,0,0) !important;
+        width: 314px;
+        .title {
+          font-size: 28px;
+          font-weight: $medium;
+          letter-spacing: 2px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%;
+          text-transform: uppercase;
+          margin-bottom: 39px;
         }
       }
-      .text {
-        @extend .t5;
-        font-style: italic;
-        padding: 14px 0;
-        line-height: 30px;
+      .fixed {
+        margin-top: -54px;
+        position: fixed;
+      }
+      .absolute {
+        position: absolute;
+        bottom: 60px;
       }
     }
-  }
-  .view-all {
-    @extend .t6;
-    border-top: 1px solid black;
-    margin-top: 8px;
-    height: 54px;
-    text-decoration: underline;
-    text-align: center;
-    padding-top: 21px;
-    cursor: pointer;
-    box-sizing: border-box;
   }
 }
 
-@keyframes colorchange {
-  0% {
-    stroke: #BB0003 !important;
-  }
-  50% {
-    stroke: #FF2427 !important;
-    opacity: 0.5;
-  }
-  100% {
-    stroke: #BB0003 !important;
-  }
-}
-
-@-webkit-keyframes colorchange {
-  0% {
-    stroke: #BB0003 !important;
-  }
-  50% {
-    stroke: #FF2427 !important;
-    opacity: 0.5;
-  }
-  100% {
-    stroke: #BB0003 !important;
-  }
-}
-
-.loading {
-  min-height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .raido {
-    width: 40px;
-    height: 100px;
-    #Stroke-1 {
-      animation: colorchange 1s infinite ease-in-out;
-       -webkit-animation: colorchange 1s infinite ease-in-out;
-    }
-  }
-}
+// .comments {
+//   padding: 60px 0 30px;
+//   .comments-cont {
+//     padding: 22px 30px;
+//     .references {
+//       @extend .t3;
+//     }
+//     .ratings {
+//       margin-top: 45px;
+//     }
+//     .row {
+//       display: flex;
+//       margin-bottom: 17px;
+//       .rate {
+//         display: flex;
+//         flex: 1;
+//         justify-content: space-between;
+//         align-items: center;
+//         padding-right: 25px;
+//         .type {
+//           @extend .t5;
+//           padding-right: 20px;
+//         }
+//         .stars {
+//           .material-icons {
+//             font-size: 18px !important;
+//             padding: 2px;
+//           }
+//         }
+//       }
+//     }
+//     .comment {
+//       margin-top: 57px;
+//       .author {
+//         @extend .t5;
+//         display: flex;
+//         .picture {
+//           width: 35px;
+//           height: 35px;
+//           background-image: url('https://scontent-waw1-1.cdninstagram.com/t51.2885-15/e35/15877344_344661349253204_5404343355553349632_n.jpg');
+//           background-size: cover;
+//           background-position: center center;
+//         }
+//         .fullname {
+//           padding: 9px 0px 0 19px;
+//         }
+//         .location {
+//           padding: 9px 0px 0 19px;
+//         }
+//       }
+//       .text {
+//         @extend .t5;
+//         font-style: italic;
+//         padding: 14px 0;
+//         line-height: 30px;
+//       }
+//     }
+//   }
+//   .view-all {
+//     @extend .t6;
+//     border-top: 1px solid black;
+//     margin-top: 8px;
+//     height: 54px;
+//     text-decoration: underline;
+//     text-align: center;
+//     padding-top: 21px;
+//     cursor: pointer;
+//     box-sizing: border-box;
+//   }
+// }

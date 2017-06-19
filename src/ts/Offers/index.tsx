@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import Header from '../Header';
-import Search from '../Search';
+import SearchPure from '../Search/SearchPure';
 import OffersList from './OffersList';
 import NetworkError from '../Dialogs/NetworkError';
 import * as api from './api';
@@ -9,6 +9,7 @@ import i from '../i18n';
 import debug from 'debug';
 const log = debug('app:Offers');
 import { offers } from '../Detail/mockup';
+import { default as AppBarVG } from '../AppBar';
 
 export default class Offers extends React.Component<any, any> {
   static contextTypes = { data: React.PropTypes.object }
@@ -73,15 +74,21 @@ export default class Offers extends React.Component<any, any> {
   closeNetworkErr = () => this.setState({ networkErr: false });
 
   render() {
+    const filters = {
+      locationFilter: this.locationFilter,
+      distanceFilter: this.distanceFilter,
+      typeFilter: this.typeFilter,
+      dateFilter: this.dateFilter,
+      location: this.state.location,
+    };
+
     return (
       <div>
+        <AppBarVG {...filters}/>
         <Header />
-        <Search
-          locationFilter={this.locationFilter}
-          distanceFilter={this.distanceFilter}
-          typeFilter={this.typeFilter}
-          dateFilter={this.dateFilter}
-        />
+        <div className="mobile-hid">
+          <SearchPure {...filters} />
+        </div>
         <OffersList
           list={this.state.list}
           load={this.state.load}

@@ -29,9 +29,9 @@ export default function Unauthorized(props) {
   return (
     <Dialog
       open={open}
-      contentStyle={{ maxWidth: 650 }}
       title={i('User Unauthorized')}
       actions={actions}
+      contentStyle={{ maxWidth: 650, minWidth: 320 }}
     >
       {i('Try to log in or go back to the main page')}
     </Dialog>

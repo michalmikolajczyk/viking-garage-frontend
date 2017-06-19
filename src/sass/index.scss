@@ -1,5 +1,7 @@
-@import 'Global';
+@import 'Colors';
+@import 'Grid';
 @import 'Fonts';
+@import 'Global';
 
 @import 'Offer/index';
 @import '404';
@@ -8,10 +10,11 @@
 @import 'Contact';
 @import 'Detail';
 @import 'Footer';
+@import 'FormPure';
 @import 'Forms';
 @import 'Header';
 @import 'Menu';
-@import 'OfferForm';
 @import 'Offers';
+@import 'Pages';
 @import 'Search';
 @import 'UserEdit';

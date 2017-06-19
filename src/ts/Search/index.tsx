@@ -1,26 +1,34 @@
 import * as React from 'react';
+import { Link } from 'react-router';
 import { FontIcon } from 'material-ui';
-import Date from './Date';
-import Type from './Type';
+import SearchPure from './SearchPure';
 import Location from './Location';
-import Distance from './Distance';
 
-export default function Search(props) {
-  const {
-    locationFilter,
-    distanceFilter,
-    typeFilter,
-    dateFilter,
-  } = props;
+export default class  MobileSearch extends React.Component<any, any> {
+  state = { open: false };
 
-  return (
-    <div className="search">
-      <Location
-        icon="location_on"
-        filter={locationFilter} />
-      <Distance filter={distanceFilter} />
-      <Type filter={typeFilter} />
-      <Date filter={dateFilter} />
-    </div>
-  );
+  toggle = () => this.setState({ open: !this.state.open });
+
+  render() {
+    const comp = (
+      <div className="mobile-only">
+        <Location
+          appbar={true}
+          toggle={this.toggle}
+          value={this.props.location}
+          filter={this.props.locationFilter}
+        />
+        <div className={`mobile-search ${this.state.open ? 'open' : ''}`}>
+          <div className="wrap">
+            <SearchPure {...this.props} />
+            <button className="btn-main right" onClick={this.toggle}>
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+    if (this.props.locationFilter) return comp;
+    return <Link to="/">{comp}</Link>;
+  }
 }

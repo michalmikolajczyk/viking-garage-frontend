@@ -1,0 +1,36 @@
+$mobile-min: 320px;
+$mobile-max: 479px;
+
+$tablet-min: 480px;
+$tablet-max: 767px;
+
+$desktop-min: 768px;
+$desktop-max: 1200px;
+
+$grid__bp-md: 768;
+$grid__cols: 12;
+
+@media screen and (max-width: $mobile-max) {
+  .mobile-hid {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: $tablet-min) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: $tablet-max) {
+  .mobile-tablet-hid {
+    display: none !important;
+  }
+}
+
+
+@media screen and (min-width: $desktop-min) {
+  .mobile-tablet-only {
+    display: none !important;
+  }
+}

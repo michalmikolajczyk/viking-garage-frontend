@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { browserHistory } from 'react-router';
 import * as _ from 'lodash';
+import { default as AppBarVG } from '../AppBar';
 import NetworkError from '../Dialogs/NetworkError';
+import Accordion from '../Accordion';
+import HeaderVG from './HeaderVG';
+import ListVG from './ListVG';
+import parser from '../helpers/parser';
 import FormVG from '../FormVG';
-import Offer from './Offer';
 import * as api from './api';
 
 export default class Detail extends React.Component<any, any> {
@@ -29,15 +33,21 @@ export default class Detail extends React.Component<any, any> {
       .catch(err => this.setState({ networkErr: true }));
   }
 
-
   closeNetworkErr = () => this.setState({ networkErr: false });
 
   render() {
+    const { offer } = this.state;
+    const motorcycles = _.get(offer, 'motorcycles[0]', {});
+    const general = parser('general', motorcycles);
+
     return (
       <div>
+        <AppBarVG />
         <div className="detail">
-          <Offer offer={this.state.offer} />
-          <FormVG offer={this.state.offer} />
+          <HeaderVG offer={offer} />
+          <FormVG offer={offer} />
+          <Accordion offer={general} open={true} />
+          <ListVG offer={offer} />
         </div>
         <NetworkError
           open={this.state.networkErr}

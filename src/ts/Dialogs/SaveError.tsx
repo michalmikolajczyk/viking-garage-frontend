@@ -23,9 +23,9 @@ export default function SaveError(props) {
   return (
     <Dialog
       open={open}
-      contentStyle={{ maxWidth: 650 }}
       title={i('Save Error')}
       actions={actions}
+      contentStyle={{ maxWidth: 650, minWidth: 320 }}
     >
       {i('There were some problems with saving new data. Please check whether the data are correct and try again')}
     </Dialog>

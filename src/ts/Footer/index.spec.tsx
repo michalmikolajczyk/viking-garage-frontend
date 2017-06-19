@@ -9,7 +9,7 @@ describe('<Footer />', () => {
     const wrapper = mountWithTheme(<Footer />);
     expect(wrapper.find('.footer')).to.have.length(1);
     expect(wrapper.find('.contact')).to.have.length(1);
-    expect(wrapper.find('.madeby')).to.have.length(1);
+    expect(wrapper.find('.copyright')).to.have.length(1);
   });
 
   it('check for social media links', () => {

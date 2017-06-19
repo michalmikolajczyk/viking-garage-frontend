@@ -17,22 +17,22 @@ export default function Offerer({ offer }) {
   } = offerer;
   const sinceStr = moment(since).format('DD MMM YYYY');
   return (
-    <div>
+    <div className="accordion">
       <Header head={i('Offerer details')} />
       <div className="offerer">
-        <div
-          className="picture"
-          style={{ backgroundImage: `url(${image})` }}
-        />
         <div className="offerer-info">
+          <div
+            className="picture"
+            style={{ backgroundImage: `url(${image})` }}
+          />
           <div className="offerer-main">
             <div>{name}</div>
             <div>{`${city}, ${country}`}</div>
-            <div>{`${i('With VIKING GARAGE since')} ${sinceStr}`}</div>
+            <div>{`${i('With VG since')} ${sinceStr}`}</div>
           </div>
-          <div className="descript">{brief}</div>
-          <div className="recommend">{`${i('Recommendations')}: ${points}`}</div>
-          <button className="message">{i('Send message')}</button>
+        </div>
+        <div className="offerer-brief">
+          {brief}
         </div>
       </div>
     </div>);

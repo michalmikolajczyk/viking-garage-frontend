@@ -26,9 +26,9 @@ export default class Distance extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="distance">
+      <div className="filter">
         <FontIcon className="material-icons">my_location</FontIcon>
-        <div className="filter">
+        <div className="input">
           <AutoComplete
             id="search-distance"
             hintText={i('Set distance...')}
