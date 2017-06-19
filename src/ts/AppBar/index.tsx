@@ -41,13 +41,11 @@ export default class AppBarVG extends React.Component<any, any> {
 
   render() {
     const line = this.state.visible && <div className="app-bar-line"></div>;
-    const search = this.state.visible && <Search icon="search" filter={this.search} />;
 
     return (
       <AppBar
         className="app-bar"
-        zDepth={0} // switch off box-shadow
-        title={search}
+        zDepth={0}
         showMenuIconButton={true}
         iconElementLeft={<Link className={'title' + (this.state.visible ? ' border' : '')} to="/"><Raido /></Link>}
         iconElementRight={<Menu update={() => this.forceUpdate()} />}

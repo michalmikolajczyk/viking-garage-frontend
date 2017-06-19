@@ -4,8 +4,8 @@ import i from '../i18n';
 import Header from '../Accordion/Header';
 
 export default function Offerer({ offer }) {
+  if (!offer || !offer.offerer) return null;
   const { offerer } = offer;
-  if (typeof offerer === 'undefined') return null;
   const {
     brief,
     city,

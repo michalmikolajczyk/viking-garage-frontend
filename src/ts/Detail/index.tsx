@@ -16,7 +16,7 @@ export default class Detail extends React.Component<any, any> {
     this.state = {
       id,
       networkErr: false,
-      offer: _.get(context, 'data.offer', {}),
+      offer: _.get(context, 'data.offer'),
     };
   }
 

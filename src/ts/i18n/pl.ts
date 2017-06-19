@@ -205,7 +205,7 @@ export default {
   'Seat Height': 'Wysokość Siedzenia',
   'Torque': 'Moment Obrotowy',
   'Max. Riders': 'Liczba Jeźdźców',
-  '0 - 100': '0 - 100',
+  'Acceleration': 'Przyspieszenie',
 
 // helmet
   'Make': 'Marka',

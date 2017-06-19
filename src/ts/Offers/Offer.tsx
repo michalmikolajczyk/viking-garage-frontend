@@ -1,4 +1,6 @@
 import * as React from 'react';
+import * as fx from 'money';
+import { FontIcon } from 'material-ui';
 import * as geolib from 'geolib';
 import { Link } from 'react-router';
 import i from '../i18n';
@@ -24,7 +26,7 @@ export default function Offer({ data, location }) {
 
   const renderTitle = title || '';
 
-  const renderPrice = price && <div className="foot">{`${price} $/${i('day')}${distance}`}</div>
+  const renderPrice = price && <div className="foot">{`${fx(price).to(i('USD')).toFixed(2)} ${i('USD')}/${i('day')}${distance}`}</div>
 
   const renderImage = image && <div style={{ backgroundImage: `url(${image})` }} className="image"/>;
 
