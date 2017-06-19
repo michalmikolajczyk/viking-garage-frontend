@@ -47,7 +47,7 @@ Currency: ${i('USD')}`;
 
     return (
       <FormWrap>
-        <div className="title mobile-hid">{title}</div>
+        <div className="title mobile-tablet-hid">{title}</div>
         <FormPure {...formData} />
         <div>
           <Contact

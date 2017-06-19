@@ -28,7 +28,8 @@ export default function Reaction(props){
       actions={actions}
       modal={false}
       autoScrollBodyContent={true}
-    >
+      contentStyle={{ minWidth: 320 }}
+   >
       <div className="reaction">
         {data.body}
       </div>
