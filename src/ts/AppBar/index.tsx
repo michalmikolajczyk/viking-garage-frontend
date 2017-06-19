@@ -41,7 +41,6 @@ export default class AppBarVG extends React.Component<any, any> {
 
   render() {
     const line = this.state.visible && <div className="app-bar-line"></div>;
-    // const search = this.state.visible && <Search icon="search" filter={this.search} />;
 
     return (
       <AppBar
