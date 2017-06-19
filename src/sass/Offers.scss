@@ -15,41 +15,43 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  .card {
-    width: $card-mobile-width;
-    height: $card-mobile-height;
-    margin-bottom: 33px;
-    position: relative;
-    .image {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+}
+
+.card {
+  width: $card-mobile-width;
+  height: $card-mobile-height;
+  display: flex;
+  margin: 0 auto 33px;
+  position: relative;
+  .image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .head {
+    width: 100%;
+    height: $card-mobile-head;
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    color: white;
+    background-color: $card-head-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .title {
+      @extend .dots;
+      font-size: 16px;
+      font-weight: $medium;
     }
-    .head {
-      width: 100%;
-      height: $card-mobile-head;
-      position: absolute;
-      bottom: 0;
-      padding: 15px;
-      box-sizing: border-box;
-      color: white;
-      background-color: $card-head-color;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      .title {
-        @extend .dots;
-        font-size: 16px;
-        font-weight: $medium;
-      }
-      .foot {
-        @extend .dots;
-        font-size: 13px;
-        font-weight: $medium;
-        padding-top: 5px;
-      }
+    .foot {
+      @extend .dots;
+      font-size: 13px;
+      font-weight: $medium;
+      padding-top: 5px;
     }
   }
 }
@@ -57,17 +59,19 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
 @media screen and (min-width: $tablet-min) {
   .offers {
     .card {
-      width: $card-width;
-      height: $card-height;
       margin: 0 auto 92px auto;
-      .head {
-        height: 114px;
-        .title {
-          font-size: 21px;
-        }
-        .foot {
-          font-size: 13px
-        }
+    }
+  }
+  .card {
+    width: $card-width;
+    height: $card-height;
+    .head {
+      height: 114px;
+      .title {
+        font-size: 21px;
+      }
+      .foot {
+        font-size: 13px
       }
     }
   }
@@ -78,18 +82,20 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
     padding: 0 20px;
     box-sizing: border-box;
     .card {
-      width: inherit;
-      height: $card-height;
       margin: 0 0 5%;
       flex: 0 47.5%;
-      .head {
-        height: 114px;
-        .title {
-          font-size: 21px;
-        }
-        .foot {
-          font-size: 13px
-        }
+    }
+  }
+  .card {
+    width: inherit;
+    height: $card-height;
+    .head {
+      height: 114px;
+      .title {
+        font-size: 21px;
+      }
+      .foot {
+        font-size: 13px
       }
     }
   }

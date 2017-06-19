@@ -72,17 +72,23 @@ ul {
 
 .btn-main {
   @extend .t3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 34px;
   min-width: 100px;
   padding: 0 10px;
   margin: 10px 0;
   box-sizing: border-box;
-  float: right;
   background: $col-red;
   color: $col-white;
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.right {
+  float: right;
 }
 
 .dialog-raido {

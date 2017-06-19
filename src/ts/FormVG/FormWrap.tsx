@@ -14,6 +14,7 @@ export default class FormWrap extends React.Component<any, any> {
 
   handleScroll = () => {
     this.requestId = window.requestAnimationFrame(this.handleScroll);
+    if (window.innerWidth <= 767) return;
     const side = document.querySelector('#detail-side').clientHeight;
     const wrap = document.querySelector('#detail-wrap').clientHeight;
     const diff = wrap - side;
