@@ -21,7 +21,7 @@ export default class  MobileSearch extends React.Component<any, any> {
         <div className={`mobile-search ${this.state.open ? 'open' : ''}`}>
           <div className="wrap">
             <SearchPure {...this.props} />
-            <button className="btn-main right-btn" onClick={this.toggle}>
+            <button className="btn-main right" onClick={this.toggle}>
               OK
             </button>
           </div>
