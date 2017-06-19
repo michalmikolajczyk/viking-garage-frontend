@@ -29,7 +29,7 @@ const items = _.flatten(_.keys(rawItems).map((item) => [
 describe('Search <Type />', () => {
   it('check for inner components', () => {
     const wrapper = shallow(<Type />);
-    expect(wrapper.find('.type')).to.have.length(1);
+    expect(wrapper.find('.input')).to.have.length(1);
     expect(wrapper.find('FontIcon')).to.have.length(1);
     expect(wrapper.find('SelectField')).to.have.length(1);
   });

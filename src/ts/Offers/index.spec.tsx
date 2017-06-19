@@ -27,8 +27,10 @@ describe('<Offers />', () => {
   });
 
   it('check for inner components', () => {
+    expect(wrapper.find('AppBarVG')).to.have.length(1);
     expect(wrapper.find('Header')).to.have.length(1);
-    expect(wrapper.find('Search')).to.have.length(1);
+    expect(wrapper.find('SearchPure')).to.have.length(1);
+    expect(wrapper.find('OffersList')).to.have.length(1);
   });
 
   it('check if loads offers on componentDidMount', (done) => {
