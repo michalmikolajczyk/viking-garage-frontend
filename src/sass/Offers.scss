@@ -25,7 +25,7 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
   .image {
     width: 100%;
     height: 100%;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
   }
