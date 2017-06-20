@@ -64,7 +64,7 @@ export default (() => {
         },
         faq: {
           title: 'FAQ',
-          text: 'Platforma VIKING GARAGE umożliwia wynajęcie motocykli na krótko- i długoterminowo, bezpośrednio od właściciela. Motocykle dostępne są na terenie całej Polski, a także w Portugalii, na Wyspach Kanaryjskich i w Indonezji.\n\nPrawo jazdy nie jest konieczne w przypadku jazdy na torach i w terenie, a przy wynajmie motocykli o pojemności do 125 cm³, do jazdy po ulicy wystarczy kategoria B.\n\nOsoby, które chcą podnosić swoje umiejętności, mogą zainteresować oferty od naszych znajomych, mistrzów Polski w motocross, enduro, freestyle motocross, jak i doświadczonych zawodników i przewodników Enduro w Hiszpanii, Portugalii i w Indonezji.',
+          text: 'Platforma VIKING GARAGE umożliwia wynajęcie motocykli krótko- i długoterminowo, bezpośrednio od właściciela. Motocykle dostępne są na terenie całej Polski, a także w Portugalii, na Wyspach Kanaryjskich i w Indonezji.\n\nPrawo jazdy nie jest konieczne w przypadku jazdy na torach i w terenie, a przy wynajmie motocykli o pojemności do 125 cm³, do jazdy po ulicy wystarczy kategoria B.\n\nOsoby, które chcą podnosić swoje umiejętności, mogą zainteresować oferty od naszych znajomych, mistrzów Polski w motocross, enduro, freestyle motocross, jak i doświadczonych zawodników i przewodników Enduro w Hiszpanii, Portugalii i w Indonezji.',
         }
       }
 
