@@ -9,7 +9,6 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
 
 .offers {
   width: 100%;
-  max-width: 1120px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -81,7 +80,8 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
 
 @media screen and (min-width: $desktop-min) {
   .offers {
-    padding: 0 20px;
+    padding: 0 80px;
+    max-width: 1280px;
     box-sizing: border-box;
     .card {
       margin: 0 0 5%;
