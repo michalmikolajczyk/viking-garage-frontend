@@ -4,7 +4,7 @@ const url = (() => {
   if (location.hostname.match('dev')) return 'https://viking-garage-api-dev.herokuapp.com';
   if (location.hostname.match('staging')) return 'https://viking-garage-api-staging.herokuapp.com';
   if (location.hostname.match('viking-garage-frontend-s-pr')) return 'https://viking-garage-api-staging.herokuapp.com';
-  return 'https://viking-garage-api-prod.herokuapp.com';
+  return 'https://viking-garage-api-dev.herokuapp.com';
 })();
 
 const API = {
