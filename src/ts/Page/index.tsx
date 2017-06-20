@@ -51,9 +51,11 @@ export default function Page(props) {
     </div>
   );
 
+  const img = msg['imagea'] && (<div className="image" style={{ backgroundImage: `url(${msg['imagea']})` }} />);
+
   const text = msg['texta'] ? (
     <div>
-      <div className="image" style={{ backgroundImage: `url(${msg['imagea']})` }} />
+      {img}
       <div className="text">{msg['texta']}</div>
       <div className="image" style={{ backgroundImage: `url(${msg['imageb']})` }} />
       <div className="text">{msg['textb']}</div>

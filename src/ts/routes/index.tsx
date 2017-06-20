@@ -34,6 +34,7 @@ export default (
     <Route path="/page/owner" component={Page} />
     <Route path="/page/guide" component={Page} />
     <Route path="/page/mechanic" component={Page} />
+    <Route path="/page/faq" component={Page} />
     <Route path="*" component={NotFound} />
   </Route>
 );
