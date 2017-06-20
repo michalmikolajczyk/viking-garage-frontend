@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as moment from 'moment';
 import * as fx from 'money';
 import {
   DatePicker,
@@ -19,6 +20,16 @@ export default function FormPure(props){
     equipmentChange,
     startDateChange,
   } = props
+
+  function shouldDisableDateStart(date) {
+    if (!endDate) return moment().isAfter(date, 'days');
+    return !moment(date).isBetween(moment(), endDate, 'days', '[]');
+  }
+
+  function shouldDisableDateEnd(date) {
+    if (!startDate) return moment().isAfter(date, 'days');
+    return moment(startDate).isAfter(date, 'days');
+  }
 
   const localPrice = fx(price).to(i('USD')).toFixed(2);
   const localTotal = fx(total).to(i('USD')).toFixed(2);
@@ -43,6 +54,7 @@ export default function FormPure(props){
           fullWidth={true}
           hintStyle={{ paddingLeft: 35 }}
           inputStyle={{ paddingLeft: 35 }}
+          shouldDisableDate={shouldDisableDateStart}
         />
       </div>
       <div className="field">
@@ -58,6 +70,7 @@ export default function FormPure(props){
           fullWidth={true}
           hintStyle={{ paddingLeft: 35 }}
           inputStyle={{ paddingLeft: 35 }}
+          shouldDisableDate={shouldDisableDateEnd}
         />
       </div>
       <div className="field">
@@ -80,5 +93,4 @@ export default function FormPure(props){
       </div>
     </div>
   );
-
 }
