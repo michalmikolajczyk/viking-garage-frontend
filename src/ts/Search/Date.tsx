@@ -22,6 +22,16 @@ export default class DateVG extends React.Component<any, any> {
     this.setState({ end: date });
   }
 
+  shouldDisableDateStart = (date) => {
+    if (!this.state.end) return moment().isAfter(date, 'days');
+    return !moment(date).isBetween(moment(), this.state.end, 'days', '[]');
+  }
+
+  shouldDisableDateEnd = (date) => {
+    if (!this.state.start) return moment().isAfter(date, 'days');
+    return moment(this.state.start).isAfter(date, 'days');
+  }
+
   render() {
     return (
       <div className="date-wrap">
@@ -36,6 +46,7 @@ export default class DateVG extends React.Component<any, any> {
             fullWidth={true}
             hintStyle={{ paddingLeft: 30 }}
             inputStyle={{ paddingLeft: 30 }}
+            shouldDisableDate={this.shouldDisableDateStart}
           />
         </div>
         <div className="filter">
@@ -49,6 +60,7 @@ export default class DateVG extends React.Component<any, any> {
             fullWidth={true}
             hintStyle={{ paddingLeft: 30 }}
             inputStyle={{ paddingLeft: 30 }}
+            shouldDisableDate={this.shouldDisableDateEnd}
           />
         </div>
       </div>
