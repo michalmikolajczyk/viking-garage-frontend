@@ -23,11 +23,11 @@ export default function NetworkError(props) {
   return (
     <Dialog
       open={open}
-      title={i('Network Error')}
+      title={i('We’re not connected')}
       actions={actions}
       contentStyle={{ maxWidth: 650, minWidth: 320 }}
     >
-      {i('Ups! It seems that we have some problems with network, try again later.')}
+      {i('We’re not connected! Connect your device to the network or try again later.')}
     </Dialog>
   );
 }
