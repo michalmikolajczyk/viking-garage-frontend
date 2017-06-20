@@ -90,6 +90,8 @@
 @media screen and (min-width: $tablet-min) {
   .search {
     padding: 30px 20px;
+    max-width: 529px;
+    margin: 0 auto;
     .date-wrap {
       flex-direction: row;
       flex: 1 100%;
@@ -99,9 +101,10 @@
 
 @media screen and (min-width: $desktop-min) {
   .search {
+    padding: 30px 80px;
     flex-direction: row;
     height: 110px;
-    max-width: 1120px;
+    max-width: 1280px;
     margin: 0 auto;
     box-sizing: border-box;
   }
