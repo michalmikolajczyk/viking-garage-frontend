@@ -27,7 +27,7 @@ export default function NetworkError(props) {
       actions={actions}
       contentStyle={{ maxWidth: 650, minWidth: 320 }}
     >
-      {i('The Garage is not connected to the network. Connect your device to the network or try again later.')}
+      {i('We’re not connected! Connect your device to the network or try again later.')}
     </Dialog>
   );
 }

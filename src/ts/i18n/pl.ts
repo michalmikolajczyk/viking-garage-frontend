@@ -24,13 +24,13 @@ export default {
 // Network Error
   // 'Cancel': '',
   'We’re not connected': 'Rozłączyło nas!',
-  'The Garage is not connected to the network. Connect your device to the network or try again later.':
-  'W garażu brakuje Internetu! Sprawdź połączenie z siecią lub spróbuj połączyć się później.',
+  'We’re not connected! Connect your device to the network or try again later.':
+  'Rozłączyło nas! Sprawdź połączenie z siecią lub spróbuj połączyć się później.',
 
 // Save Error
   'We cannot save data': 'Nie możemy zapisać danych',
-  'Something is not right! Please provide your data again or try again later.':
-  'Usterka w garażu! Wprowadź dane ponownie lub wróć do nas za chwilę.',
+  'Something went wrong! Please provide your data again or try again later.':
+  'Coś poszło nie tak! Sprawdź czy wprowadzone dane są poprawne i spróbuj zapisać je ponownie.',
 
 // Save Success
   'Save Success': 'Zapisano Zmiany',

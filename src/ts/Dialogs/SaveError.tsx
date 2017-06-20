@@ -27,7 +27,7 @@ export default function SaveError(props) {
       actions={actions}
       contentStyle={{ maxWidth: 650, minWidth: 320 }}
     >
-      {i('Something is not right! Please provide your data again or try again later.')}
+      {i('Something went wrong! Please provide your data again or try again later.')}
     </Dialog>
   );
 }
