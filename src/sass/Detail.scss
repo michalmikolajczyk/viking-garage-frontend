@@ -50,46 +50,44 @@ $detail-image-height: 420px;
     }
     // header with photo
     .headervg {
-      .headervg-desktop {
-        .image {
-          width: 100%;
-          height: $detail-image-height;
-          background-size: contain;
-          background-position: center center;
-          background-repeat: no-repeat;
+      .image {
+        width: 100%;
+        height: $detail-image-height;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+      .title {
+        font-size: 34px;
+        font-weight: $medium;
+        letter-spacing: 2.43px;
+        padding: 30px 0 0 0;
+      }
+      .owner {
+        display: flex;
+        align-items: center;
+        padding: 30px 0 0 0;
+        .picture {
+          display: inline-block;
+          width: 55px;
+          height: 55px;
+          background-size: cover;
         }
-        .title {
-          font-size: 34px;
-          font-weight: $medium;
-          letter-spacing: 2.43px;
-          padding: 30px 0 0 0;
-        }
-        .owner {
-          display: flex;
-          align-items: center;
-          padding: 30px 0 0 0;
-          .picture {
-            display: inline-block;
-            width: 55px;
-            height: 55px;
-            background-size: cover;
-          }
-          .owner-details {
-            font-size: 16px;
-            font-weight: $regular;
-            letter-spacing: 1px;
-            display: inline-block;
-            padding: 10px;
-            vertical-align: top;
-          }
-        }
-        .text {
+        .owner-details {
           font-size: 16px;
           font-weight: $regular;
           letter-spacing: 1px;
-          padding: 30px 0;
-          line-height: 30px;
+          display: inline-block;
+          padding: 10px;
+          vertical-align: top;
         }
+      }
+      .text {
+        font-size: 16px;
+        font-weight: $regular;
+        letter-spacing: 1px;
+        padding: 30px 0;
+        line-height: 30px;
       }
     }
 

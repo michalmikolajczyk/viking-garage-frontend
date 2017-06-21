@@ -2,7 +2,18 @@ import * as React from 'react';
 import Card from '../Offers/Offer';
 
 export default function HeaderVG({ offer }) {
-  if (!offer) return null;
+  const mobileComp = (
+    <div className="mobile-tablet-only">
+      <Card
+        data={offer || {}}
+        disable={true}
+        location={false}
+      />
+    </div>
+  );
+
+  if (!offer) return (<div className="headervg load">{mobileComp}</div>);
+
   const {
     title,
     brief,
@@ -13,15 +24,9 @@ export default function HeaderVG({ offer }) {
   const renderImage = image && <div className="image mobile-hid" style={{ backgroundImage: `url(${image})` }}/>;
 
   return (
-    <div className={`headervg ${title ? '' : 'load'}`}>
-      <div className="mobile-tablet-only">
-        <Card
-          data={offer}
-          disable={true}
-          location={false}
-        />
-      </div>
-      <div className="headervg-desktop mobile-tablet-hid">
+    <div className="headervg">
+      {mobileComp}
+      <div className="mobile-tablet-hid">
         {renderImage}
         <div className="title">
           {title}
