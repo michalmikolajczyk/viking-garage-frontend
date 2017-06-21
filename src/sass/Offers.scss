@@ -1,5 +1,3 @@
-$card-mobile-height: 240px;
-$card-mobile-width: 100%;
 $card-mobile-head: 78px;
 
 $card-height: 378px;
@@ -17,14 +15,22 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
 }
 
 .card {
-  width: $card-mobile-width;
-  height: $card-mobile-height;
+  width: 100%;
   display: flex;
   margin: 0 auto 33px;
   position: relative;
-  .image {
+  &:before {
+    content: "";
+    display: block;
     width: 100%;
-    height: 100%;
+    padding-top: 71.45%;
+  }
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -65,7 +71,6 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
   }
   .card {
     width: $card-width;
-    height: $card-height;
     .head {
       height: 114px;
       .title {
@@ -84,13 +89,11 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
     max-width: 1280px;
     box-sizing: border-box;
     .card {
-      margin: 0 0 5%;
+      margin: 0 0 50px;
       flex: 0 47.5%;
     }
   }
   .card {
-    width: inherit;
-    height: $card-height;
     .head {
       height: 114px;
       .title {
