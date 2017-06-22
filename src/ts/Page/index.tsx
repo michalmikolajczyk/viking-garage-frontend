@@ -62,7 +62,7 @@ export default function Page(props) {
     </div>
   ) : (
     <div>
-      <div className="image" style={{ backgroundImage: `url(${msg['image1']})` }} />
+      {img}
       <div className="text">{msg['text']}</div>
     </div>
   )
