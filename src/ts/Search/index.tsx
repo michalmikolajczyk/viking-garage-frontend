@@ -11,7 +11,7 @@ export default class  MobileSearch extends React.Component<any, any> {
 
   render() {
     const comp = (
-      <div className="mobile-only mobile-search-wrap">
+      <div className="mobile-only">
         <Location
           appbar={true}
           toggle={this.toggle}

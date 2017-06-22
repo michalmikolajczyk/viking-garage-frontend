@@ -62,13 +62,13 @@
       box-sizing: border-box;
     }
   }
-
   &.appbar {
+    line-height: 100px;
     input {
       padding-right: 30px !important;
     }
     .material-icons {
-      top: 10px;
+      line-height: 68px;
       cursor: pointer;
     }
     .right-btn {
@@ -79,12 +79,6 @@
       flex-direction: column;
     }
   }
-}
-
-.mobile-search-wrap {
-  width: 100%;
-  height: 100%;
-  display: flex;
 }
 
 .menu-toggle {
