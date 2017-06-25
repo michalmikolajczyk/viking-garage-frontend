@@ -76,6 +76,9 @@ ul {
   min-width: 100px;
   padding: 0 10px;
   margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   background: $col-red;
   color: $col-white;
