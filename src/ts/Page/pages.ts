@@ -19,7 +19,7 @@ export default (() => {
             title: 'Dziękujemy!',
             body: 'Nasz zespół skontaktuje się z Tobą w ciągu 24h i wspólnie stworzycie ofertę dla Twojego motocykla.',
           },
-          imagea: 'https://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner1.jpg',
+          image1: 'https://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner1.jpg',
           imageb: 'https://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner2.jpg',
         },
         guide: {
