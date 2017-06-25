@@ -12,6 +12,7 @@
     position: relative;
     .date-picker input {
       cursor: pointer !important;
+      box-sizing: border-box;
     }
     .fa, .material-icons {
       position: absolute !important;
