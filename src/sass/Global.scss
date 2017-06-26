@@ -85,6 +85,9 @@ ul {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
+  & > div {
+    margin: auto;
+  }
 }
 
 .right {
