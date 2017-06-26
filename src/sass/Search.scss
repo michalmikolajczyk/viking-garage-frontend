@@ -63,7 +63,15 @@
     }
   }
   &.appbar {
-    line-height: 100px;
+    .input {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      & > div {
+        display: flex !important;
+        padding-top: 5px !important;
+      }
+    }
     input {
       padding-right: 30px !important;
     }
