@@ -1,19 +1,22 @@
 {
-	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es6",
-		"moduleResolution": "node",
-		"baseUrl": "src/ts",
-		"allowSyntheticDefaultImports": true,
-		"noImplicitAny": false,
-		"sourceMap": true,
-		"outDir": "ts-build",
-		"jsx": "react",
-		"skipLibCheck": true
-	},
-	"exclude": [
-		"node_modules",
-		"src/ts/**/*.spec.ts",
-		"src/ts/**/*.spec.tsx"
-	]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",
+    "baseUrl": "src/ts",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "outDir": "ts-build",
+    "jsx": "react",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "src/ts/**/*.spec.ts",
+    "src/ts/**/*.spec.tsx"
+  ]
 }
