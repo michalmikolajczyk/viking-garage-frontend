@@ -8,7 +8,7 @@ export function get(state) {
   const date = state.date ? `&start=${moment(state.date.start).unix()}&end=${moment(state.date.end).unix()}` : '';
   const req = `${API.offer}?${location}${distance}${type}${date}`;
 
-  return window['fetch'](req, {
+  return fetch(req, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   })
