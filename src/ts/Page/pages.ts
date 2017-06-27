@@ -73,7 +73,8 @@ export default (() => {
         owner: {
           title: 'Rent your bike',
           head: 'Become a part of trustworthy motocommunity.',
-          text: 'In VIKING GARAGE we gather people who, in their own way, realizes various motorbike passions - from sharing their experience with beginner motorcyclists, to customizing and repairing motorbikes.\n\nIt is here your passion can become a source of extra money - from a few dollars for fuel to quite big business developed on VIKING GARAGE platform.',
+          texta: 'In VIKING GARAGE we gather people who, in their own way, realizes various motorbike passions - from sharing their experience with beginner motorcyclists, to customizing and repairing motorbikes.',
+          textb: 'It is here your passion can become a source of extra money - from a few dollars for fuel to quite big business developed on VIKING GARAGE platform.',
           button: 'Start earning money',
           dialog: {
             head: 'Rent your motorbike',
@@ -85,7 +86,7 @@ export default (() => {
             body: 'Our team will contact you within 24 hours and work together to create an offer of your motorbike.',
           },
           image1: 'https://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner1.jpg',
-          image2: 'https://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner2.jpg',
+          imageb: 'https://res.cloudinary.com/hsv4d1yfs/image/upload/v1497815392/page/owner2.jpg',
         },
         guide: {
           title: 'Develop your skills',
