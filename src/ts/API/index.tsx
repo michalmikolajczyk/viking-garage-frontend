@@ -1,4 +1,5 @@
 const url = (() => {
+  if (typeof location === 'undefined') return 'https://viking-garage-api-staging.herokuapp.com';
   if (location.hostname.match('dev')) return 'https://viking-garage-api-dev.herokuapp.com';
   if (location.hostname.match('vikinggarage.com')) return 'https://viking-garage-api-production.herokuapp.com';
   return 'https://viking-garage-api-staging.herokuapp.com';
