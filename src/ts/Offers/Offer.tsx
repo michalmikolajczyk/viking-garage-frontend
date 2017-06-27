@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import * as fx from 'money';
 import { FontIcon } from 'material-ui';
 import * as geolib from 'geolib';
@@ -22,7 +23,7 @@ export default function Offer(props) {
   } = data;
 
   let distance = '';
-  if (location && coord) {
+  if (location && _.has(coord, 'coordinates[0]')) {
     const coordinates = { latitude: coord.coordinates[0], longitude: coord.coordinates[1] };
     distance = Math.round(geolib.getDistance(location, coordinates) / 1000).toString();
     distance = `, ${i('distance')}: ${distance} km`;
