@@ -1,11 +1,7 @@
 const url = (() => {
-  if (typeof location === 'undefined') return 'https://viking-garage-api-production.herokuapp.com';
-  if (location.hostname.match('localhost')) return 'https://viking-garage-api-dev.herokuapp.com';
   if (location.hostname.match('dev')) return 'https://viking-garage-api-dev.herokuapp.com';
-  if (location.hostname.match('staging')) return 'https://viking-garage-api-staging.herokuapp.com';
-  if (location.hostname.match('vikinggarage')) return 'https://viking-garage-api-production.herokuapp.com';
-  if (location.hostname.match('viking-garage-frontend-s-pr')) return 'https://viking-garage-api-staging.herokuapp.com';
-  return 'https://viking-garage-api-production.herokuapp.com';
+  if (location.hostname.match('vikinggarage.com')) return 'https://viking-garage-api-production.herokuapp.com';
+  return 'https://viking-garage-api-staging.herokuapp.com';
 })();
 
 const API = {
