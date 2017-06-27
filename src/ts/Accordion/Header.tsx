@@ -11,7 +11,7 @@ export default function Header(props) {
   return (
     <div className="acc-header">
       <FlatButton
-        icon={icon || <div className="material-icons" />}
+        icon={icon || <div className="fa" />}
         onTouchTap={call}
         disableTouchRipple={true}
       >

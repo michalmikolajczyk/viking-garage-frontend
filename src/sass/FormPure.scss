@@ -14,10 +14,20 @@
       cursor: pointer !important;
       box-sizing: border-box;
     }
-    .fa, .material-icons {
+    .fa {
       position: absolute !important;
-      font-size: 24px !important;
       line-height: 46px;
+      width: 30px;
+      text-align: center;
+    }
+    .fa-money {
+      font-size: 22px !important;
+    }
+    .fa-calendar, .fa-calendar-check-o {
+      font-size: 20px !important;
+    }
+    .fa-angle-down {
+      font-size: 24px !important;
     }
     &.empty {
       height: 45px;

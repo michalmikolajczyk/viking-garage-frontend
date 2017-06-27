@@ -42,7 +42,7 @@ export default function FormPure(props){
         </div>
       </div>
       <div className="field">
-        <FontIcon className="material-icons">today</FontIcon>
+        <FontIcon className="fa fa-calendar-check-o" />
         <DatePicker
           id="form-start-date"
           name="start-date"
@@ -58,7 +58,7 @@ export default function FormPure(props){
         />
       </div>
       <div className="field">
-        <FontIcon className="material-icons">date_range</FontIcon>
+        <FontIcon className="fa fa-calendar" />
         <DatePicker
           id="form-end-date"
           name="end-date"
