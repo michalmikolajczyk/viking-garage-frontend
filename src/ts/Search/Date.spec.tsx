@@ -18,7 +18,7 @@ describe('Search <Date />', () => {
     expect(wrapper.find('DatePicker')).to.have.length(2);
   });
 
-  it('check if updates filter on change start date', () => {
+  it('check if choosing the start date works properly', () => {
     const startDate = moment().toDate();
     const filter = sinon.spy((params) => {
       const {
@@ -32,7 +32,7 @@ describe('Search <Date />', () => {
     instance['onChangeStart'](undefined, startDate);
   });
 
-  it('check if update filter on change end date', () => {
+  it('check if choosing the end date works properly', () => {
     const endDate = moment().toDate();
     const filter = sinon.spy((params) => {
       const {
@@ -46,7 +46,7 @@ describe('Search <Date />', () => {
     instance['onChangeEnd'](undefined, endDate);
   });
 
-  it('check if date picker before today is disabled', () => {
+  it('check if dates before today are disabled', () => {
     const wrongDate = moment().add(-5, 'days').toDate();
     const okDate = moment().add(5, 'days').toDate();
     const wrapper = shallow(<DateVG filter={() => {}} />);
@@ -57,7 +57,7 @@ describe('Search <Date />', () => {
     expect(instance['shouldDisableDateEnd'](okDate)).to.be.false;
   });
 
-  it('check if date picker is disabled after setting end date', () => {
+  it('check if dates after picked end date are disabled', () => {
     const wrongStartDate = moment().add(10, 'days').toDate();
     const okStartDate = moment().add(1, 'days').toDate();
     const endDate = moment().add(5, 'days').toDate();
@@ -68,7 +68,7 @@ describe('Search <Date />', () => {
     expect(instance['shouldDisableDateStart'](okStartDate)).to.be.false;
   });
 
-  it('check if date picker is disabled after setting end date', () => {
+  it('check if dates before picked start date are disabled', () => {
     const startDate = moment().add(10, 'days').toDate();
     const wrongEndDate = moment().add(5, 'days').toDate();
     const okEndDate = moment().add(15, 'days').toDate();
@@ -79,7 +79,7 @@ describe('Search <Date />', () => {
     expect(instance['shouldDisableDateEnd'](okEndDate)).to.be.false;
   });
 
-  it('check if date picker is ok between start and end date', () => {
+  it('check if dates between picked start and end date are active', () => {
     const startDate = moment().add(5, 'days').toDate();
     const endDate = moment().add(10, 'days').toDate();
     const okMiddle =  moment().add(7, 'days').toDate();
