@@ -14,8 +14,8 @@ export default class Accordion extends React.Component<any, any> {
 
   render() {
     const icon = this.state.open
-      ? <FontIcon className="material-icons">expand_less</FontIcon>
-      : <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>;
+      ? <FontIcon className="fa fa-angle-up" />
+      : <FontIcon className="fa fa-angle-down" />;
 
     return (
       <div className="accordion">
