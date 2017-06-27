@@ -25,8 +25,8 @@ export default function Select({ selected, onChange }) {
           {menuItems}
         </DropDownMenu>
         <FontIcon
-          className="material-icons"
+          className="fa fa-angle-down"
           style={{ fontSize: 34 }}
-        >keyboard_arrow_down</FontIcon>
+        />
     </div>);
 }

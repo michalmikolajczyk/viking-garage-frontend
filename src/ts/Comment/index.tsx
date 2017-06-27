@@ -84,11 +84,11 @@ export default class Comments extends React.Component<any, any> {
   stars(rate) {
     return _.times(5, (i) => {
       if (rate < i + 0.5) {
-        return <FontIcon key={i} className="material-icons">star_border</FontIcon>;
+        return <FontIcon key={i} className="fa fa-star-o" />;
       } else if (rate < i + 1) {
-        return <FontIcon key={i} className="material-icons">star_half</FontIcon>;
+        return <FontIcon key={i} className="fa fa-star-half-o" />;
       } else {
-        return <FontIcon key={i} className="material-icons">star</FontIcon>;
+        return <FontIcon key={i} className="fa fa-star" />;
       }
     });
   }
