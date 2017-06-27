@@ -36,7 +36,7 @@ export default class DateVG extends React.Component<any, any> {
     return (
       <div className="date-wrap">
         <div className="filter">
-          <FontIcon className="material-icons">today</FontIcon>
+          <FontIcon className="fa fa-calendar-check-o" />
           <DatePicker
             id="search-date-start"
             className="input"
@@ -50,7 +50,7 @@ export default class DateVG extends React.Component<any, any> {
           />
         </div>
         <div className="filter">
-          <FontIcon className="material-icons">date_range</FontIcon>
+          <FontIcon className="fa fa-calendar" />
           <DatePicker
             id="search-date-end"
             className="input"

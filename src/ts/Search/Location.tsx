@@ -55,17 +55,17 @@ export default class Location extends React.Component<any, any> {
 
   render() {
     const { appbar } = this.props;
-    const leftIcon = appbar ? 'search' : 'location_on';
+    const leftIcon = appbar ? 'fa-search' : 'fa-map-marker';
     const hintText = appbar ? '' : i('Find motorcycles to ride around ...');
     const rightBtn = appbar && (
       <button className="right-btn" onClick={this.props.toggle}>
-        <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
+        <FontIcon className="fa fa-angle-down" />
       </button>
     );
 
     return (
       <div className={`filter ${this.props.appbar ? 'appbar' : ''}`}>
-        <FontIcon className="material-icons">{leftIcon}</FontIcon>
+        <FontIcon className={`fa ${leftIcon}`} />
         <div className="input">
           <AutoComplete
             id="search-location"

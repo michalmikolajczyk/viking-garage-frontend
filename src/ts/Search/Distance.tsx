@@ -27,7 +27,7 @@ export default class Distance extends React.Component<any, any> {
   render() {
     return (
       <div className="filter">
-        <FontIcon className="material-icons">my_location</FontIcon>
+        <FontIcon className="fa fa-location-arrow" />
         <div className="input">
           <AutoComplete
             id="search-distance"

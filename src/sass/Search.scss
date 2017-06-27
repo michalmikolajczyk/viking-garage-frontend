@@ -47,10 +47,14 @@
     padding-left: 30px !important;
     box-sizing: border-box !important;
   }
-  .material-icons {
+  .fa {
     position: absolute !important;
     font-size: 24px !important;
     line-height: 46px;
+  }
+  .fa-calendar, .fa-calendar-check-o {
+    font-size: 20px !important;
+    line-height: 45px;
   }
   .input {
     position: absolute;
@@ -75,15 +79,19 @@
     input {
       padding-right: 30px !important;
     }
-    .material-icons {
+    .fa {
       line-height: 68px;
       cursor: pointer;
+      text-align: center;
+      width: 15px;
+    }
+    .fa-search {
+      font-size: 18px !important;
     }
     .right-btn {
       position: absolute;
       right: 0;
       width: 24px;
-      height: 64px;
       flex-direction: column;
     }
   }
