@@ -26,7 +26,7 @@ export default function MenuVG(props) {
 
   // const iconButtonElement = image
   // ? <MenuItem className="user-image" style={{ background: `url(${image})` }}/>
-  // : <FontIcon className="material-icons">account_circle</FontIcon>
+  // : <FontIcon className="fa fa-user-circle" />
 
   // const paperStyle = {
   //   height: 30,
