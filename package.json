@@ -55,6 +55,7 @@
     "formsy-react": "^0.19.2",
     "geolib": "^2.0.22",
     "jsdom": "^9.10.0",
+    "localstorage-polyfill": "^1.0.1",
     "material-ui": "^0.17.4",
     "mocha": "^3.2.0",
     "moment": "^2.17.1",
