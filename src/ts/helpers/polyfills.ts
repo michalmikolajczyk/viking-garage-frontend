@@ -5,9 +5,6 @@ if (!window['Promise']) window['Promise'] = Promise;
 // fetch polyfill
 import 'whatwg-fetch';
 
-// localStorage polyfill https://github.com/capaj/localstorage-polyfill
-import 'localstorage-polyfill';
-
 // Object.assing() polyfill https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 if (typeof Object.assign != 'function') {
   Object.assign = (target, varArgs) => { // .length of function is 2
