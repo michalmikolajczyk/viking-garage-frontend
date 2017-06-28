@@ -88,18 +88,24 @@ export default class Contact extends React.Component<props, any> {
           modal={false}
           actions={actions}
           open={this.state.open}
-          autoScrollBodyContent={true}
-          contentStyle={{ minWidth: 320 }}
           title={title || <div className="dialog-raido"><Raido /></div>}
+          repositionOnUpdate={false}
+          autoDetectWindowHeight={false}
+          autoScrollBodyContent={false}
+          className="dialog-root"
+          contentClassName="dialog-content"
+          bodyClassName="dialog-body"
         >
-          <div className="contact-body">
-            {this.props.children}
-            <ContactForm
-              ref={f => this.formsy = f}
-              submit={this.submit}
-              onValid={this.onValid}
-              onInvalid={this.onInvalid}
-            />
+          <div className="dialog-scroll">
+            <div className="contact-body ">
+              {this.props.children}
+              <ContactForm
+                ref={f => this.formsy = f}
+                submit={this.submit}
+                onValid={this.onValid}
+                onInvalid={this.onInvalid}
+              />
+            </div>
           </div>
         </Dialog>
         <NetworkError

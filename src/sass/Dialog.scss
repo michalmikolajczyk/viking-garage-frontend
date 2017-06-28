@@ -1,0 +1,45 @@
+.dialog-root {
+  padding: 0 !important;
+}
+
+.dialog-root > div:first-child {
+  height: 100%;
+}
+
+/* Used as wrapper */
+.dialog-root > div:first-child > .dialog-content {
+  transform: none !important;
+
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Actual content */
+.dialog-root > div:first-child > .dialog-content > div {
+  width: 100%;
+  max-width: 800px;
+  max-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-root > div:first-child > .dialog-content > div > .dialog-body {
+  padding: 0 !important;
+  border-top: solid #e0e0e0 1px;
+  border-bottom: solid #e0e0e0 1px;
+  display: flex;
+}
+
+.dialog-root > div:first-child > .dialog-content > div > .dialog-body > .dialog-scroll {
+  padding: 0 16px 16px 16px;
+  width: 100%;
+  overflow: auto;
+  min-width: 320px;
+  box-sizing: border-box;
+}
