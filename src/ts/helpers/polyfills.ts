@@ -5,35 +5,12 @@ if (!window['Promise']) window['Promise'] = Promise;
 // fetch polyfill
 import 'whatwg-fetch';
 
-// requestAnimFrame shim  with setTimeout fallback
-// http://stackoverflow.com/a/13002988/6041704
-if (typeof window !== 'undefined') {
-  window.requestAnimationFrame =
-    window.requestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    window.oRequestAnimationFrame ||
-    window.msRequestAnimationFrame ||
-    function (callback) {
-        window.setTimeout(callback, 1000 / 60);
-    };
-}
-
-// localStorage polyfill https://gist.github.com/juliocesar/926500
-if (!('localStorage' in window)) {
-  window.localStorage = {
-    _data       : {},
-    setItem     : function(id, val) { return this._data[id] = String(val); },
-    getItem     : function(id) { return this._data.hasOwnProperty(id) ? this._data[id] : undefined; },
-    removeItem  : function(id) { return delete this._data[id]; },
-    clear       : function() { return this._data = {}; }
-  };
-}
+// localStorage polyfill https://github.com/capaj/localstorage-polyfill
+import 'localstorage-polyfill';
 
 // Object.assing() polyfill https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 if (typeof Object.assign != 'function') {
-  Object.assign = function(target, varArgs) { // .length of function is 2
-    'use strict';
+  Object.assign = (target, varArgs) => { // .length of function is 2
     if (target == null) { // TypeError if undefined or null
       throw new TypeError('Cannot convert undefined or null to object');
     }
@@ -51,4 +28,28 @@ if (typeof Object.assign != 'function') {
     }
     return to;
   };
+}
+
+// requestAnimFrame polyfill https://gist.github.com/paulirish/1579671
+if (typeof window !== 'undefined') {
+  var lastTime = 0;
+  var vendors = ['ms', 'moz', 'webkit', 'o'];
+  for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+    window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+  }
+
+  if (!window.requestAnimationFrame) {
+    window['requestAnimationFrame'] = function(callback) {
+      var currTime = new Date().getTime();
+      var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+      var id = window.setTimeout(function() { callback(currTime + timeToCall); }, timeToCall);
+      lastTime = currTime + timeToCall;
+      return id;
+    }
+  }
+
+  if (!window.cancelAnimationFrame) {
+    window.cancelAnimationFrame = (id) => clearTimeout(id);
+  }
 }

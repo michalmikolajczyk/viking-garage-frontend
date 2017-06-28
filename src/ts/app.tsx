@@ -3,7 +3,6 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import DataProvider from './DataProvider';
 import Main from './Main';
-import '../js/pollyfills';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 const { AppContainer } = require('react-hot-loader');
 
