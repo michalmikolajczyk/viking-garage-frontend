@@ -17,14 +17,15 @@ export default class Offers extends React.Component<any, any> {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      list: !_.has(context, 'data.offers') ? [{},{}] : context.data.offers,
+      list: _.get(context, 'data.offers.data', [{}, {}]),
       load: !_.has(context, 'data.offers'),
+      offset: 0,
+      empty: false,
 
       location: null,
       distance: null,
       type: null,
       date: null,
-      page: 0,
 
       networkErr: false,
     };
@@ -40,7 +41,9 @@ export default class Offers extends React.Component<any, any> {
       .then((res) => {
         if (res['err']) return this.setState({ networkErr: true });
         this.setState({
-          list: res,
+          list: res['data'],
+          offset: res['offset'],
+          empty: res['empty'],
           load: false,
         });
       })
