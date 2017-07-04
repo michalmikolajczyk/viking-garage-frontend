@@ -23,7 +23,7 @@ export default class Select extends React.Component<any, any> {
           insetChildren={true}
           checked={this.state.values.has(item)}
           value={item}
-          primaryText={item.split('#')[1]}
+          primaryText={i(item.split('#')[1])}
         />);
     } else {
       return (
@@ -32,7 +32,7 @@ export default class Select extends React.Component<any, any> {
           value={item}
         >
           <Toggle
-            label={item}
+            label={i(item)}
             className="menu-toggle"
             toggled={this.state.values.has(item)}
           />
@@ -113,7 +113,7 @@ const rawItems = {
     'Dual-sport',
     'Scooter',
     'Electric',
-    'Small (children)',
+    'Small',
   ],
 // Hide for alfa release
   // Mechanic: [
@@ -152,5 +152,5 @@ const rawItems = {
 
 const items = _.flatten(_.keys(rawItems).map((item) => [
   i(item),
-  ...rawItems[item].map(it => `${i(item)}#${i(it)}`),
+  ...rawItems[item].map(it => `${item}#${it}`),
 ]));
