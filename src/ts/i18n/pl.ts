@@ -296,10 +296,12 @@ export default {
   'Select type...': 'Wybierz rodzaj...',
   'Scooter': 'Skutery',
   'Electric': 'Elektryczne',
-  'Small (children)': 'Małe (dla dzieci)',
+  'Mini': 'Mini',
   'Shops': 'Sklepy',
   'Events': 'Wydarzenia',
   'Clubs': 'Kluby',
+  'Load more': 'Załaduj więcej',
+  'There is no offers matching to your filters!': 'Brak ofert zgodnych z podanymi kryteriami!',
 
 // Offer
   'distance': 'odległość',

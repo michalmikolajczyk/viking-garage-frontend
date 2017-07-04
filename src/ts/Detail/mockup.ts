@@ -115,7 +115,10 @@ const offer_item = {
   url: 'ktm-sx-125-2012-warsaw-poland',
 };
 
-const offers = [offer_item];
+const offers = {
+  data: [offer_item],
+  offset: 0,
+};
 
 const offer = {
   ...offer_item,

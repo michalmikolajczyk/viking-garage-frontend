@@ -10,6 +10,7 @@ import debug from 'debug';
 const log = debug('app:Offers');
 import { offers } from '../Detail/mockup';
 import { default as AppBarVG } from '../AppBar';
+const limit = process.env.VG_LIMIT || 7;
 
 export default class Offers extends React.Component<any, any> {
   static contextTypes = { data: React.PropTypes.object }
@@ -17,30 +18,36 @@ export default class Offers extends React.Component<any, any> {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      list: !_.has(context, 'data.offers') ? [{},{}] : context.data.offers,
+      list: _.get(context, 'data.offers.data', [{}, {}]),
       load: !_.has(context, 'data.offers'),
+      offset: 0,
+      empty: false,
+      last: false,
 
       location: null,
       distance: null,
       type: null,
       date: null,
-      page: 0,
 
       networkErr: false,
     };
   }
 
   componentDidMount() {
-    this.setLocation();
     this.update();
+    // this.setLocation();
   }
 
   update = () => {
     api.get(this.state)
       .then((res) => {
         if (res['err']) return this.setState({ networkErr: true });
+        const list = this.state.offset === 0 ? res['data'] : [...this.state.list, ...res['data']];
         this.setState({
-          list: res,
+          list,
+          offset: res['offset'],
+          empty: res['empty'],
+          last: res['data'].length < limit,
           load: false,
         });
       })
@@ -63,15 +70,17 @@ export default class Offers extends React.Component<any, any> {
     }
   }
 
-  locationFilter = (location) => this.setState({ location }, this.update);
+  locationFilter = (location) => this.setState({ location, offset: 0 }, this.update);
 
-  distanceFilter = (distance) => this.setState({ distance }, this.update);
+  distanceFilter = (distance) => this.setState({ distance, offset: 0 }, this.update);
 
-  typeFilter = (type) => this.setState({ type }, this.update);
+  typeFilter = (type) => this.setState({ type, offset: 0 }, this.update);
 
-  dateFilter = (date) => this.setState({ date }, this.update);
+  dateFilter = (date) => this.setState({ date, offset: 0 }, this.update);
 
   closeNetworkErr = () => this.setState({ networkErr: false });
+
+  loadMore = () => this.setState({ offset: this.state.offset + limit }, this.update);
 
   render() {
     const filters = {
@@ -82,6 +91,9 @@ export default class Offers extends React.Component<any, any> {
       location: this.state.location,
     };
 
+    const emptyMsg = this.state.empty && (<div className="offers-empty">{i('There is no offers matching to your filters!')}</div>);
+    const loadMore = !this.state.last && !this.state.empty && (<button onClick={this.loadMore} className="loadmore">{i('Load more')}</button>);
+
     return (
       <div>
         <AppBarVG {...filters}/>
@@ -89,11 +101,13 @@ export default class Offers extends React.Component<any, any> {
         <div className="mobile-hid">
           <SearchPure {...filters} />
         </div>
+        {emptyMsg}
         <OffersList
           list={this.state.list}
           load={this.state.load}
           location={this.state.location}
         />
+        {loadMore}
         <NetworkError
           open={this.state.networkErr}
           close={this.closeNetworkErr}
