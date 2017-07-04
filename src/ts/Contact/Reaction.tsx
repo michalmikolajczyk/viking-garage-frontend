@@ -33,7 +33,7 @@ export default function Reaction(props){
         className="dialog-root"
         contentClassName="dialog-content"
         bodyClassName="dialog-body"
-     >
+      >
       <div className="dialog-scroll">
         <div className="reaction">
           {data.body}
