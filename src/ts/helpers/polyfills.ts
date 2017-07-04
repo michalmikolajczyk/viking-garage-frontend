@@ -1,6 +1,6 @@
 // Promise polyfill
 import Promise from 'promise-polyfill';
-if (!window['Promise']) window['Promise'] = Promise;
+if (typeof window !== 'undefined' && !window['Promise']) window['Promise'] = Promise;
 
 // fetch polyfill
 import 'whatwg-fetch';
