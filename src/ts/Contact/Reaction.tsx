@@ -22,16 +22,22 @@ export default function Reaction(props){
   ];
 
   return (
-    <Dialog
-      open={open}
-      title={data.title || <div className="dialog-raido"><Raido /></div>}
-      actions={actions}
-      modal={false}
-      autoScrollBodyContent={true}
-      contentStyle={{ minWidth: 320 }}
-   >
-      <div className="reaction">
-        {data.body}
+      <Dialog
+        modal={false}
+        actions={actions}
+        open={open}
+        title={data.title || <div className="dialog-raido"><Raido /></div>}
+        repositionOnUpdate={false}
+        autoDetectWindowHeight={false}
+        autoScrollBodyContent={false}
+        className="dialog-root"
+        contentClassName="dialog-content"
+        bodyClassName="dialog-body"
+     >
+      <div className="dialog-scroll">
+        <div className="reaction">
+          {data.body}
+        </div>
       </div>
     </Dialog>
   );
