@@ -296,7 +296,7 @@ export default {
   'Select type...': 'Wybierz rodzaj...',
   'Scooter': 'Skutery',
   'Electric': 'Elektryczne',
-  'Small': 'Małe',
+  'Mini': 'Mini',
   'Shops': 'Sklepy',
   'Events': 'Wydarzenia',
   'Clubs': 'Kluby',

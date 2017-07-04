@@ -113,7 +113,7 @@ const rawItems = {
     'Dual-sport',
     'Scooter',
     'Electric',
-    'Small',
+    'Mini',
   ],
 // Hide for alfa release
   // Mechanic: [
