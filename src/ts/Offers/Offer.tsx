@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as moment from 'moment';
 import * as fx from 'money';
 import { FontIcon } from 'material-ui';
 import * as geolib from 'geolib';
@@ -8,6 +9,7 @@ import i from '../i18n';
 export default function Offer(props) {
   const {
     data,
+    date,
     disable,
     location,
   } = props;
@@ -28,7 +30,8 @@ export default function Offer(props) {
     distance = `, ${i('distance')}: ${distance} km`;
   }
 
-  const renderLink = id ? `offer/${id}/${url}` : '/';
+  const query = date && { start: moment(date.start).unix(), end: moment(date.end).unix() };
+  const renderLink = id ? { pathname: `offer/${id}/${url}`, query } : '/';
   const renderTitle = title || '';
   const renderPrice = price && `${fx(price).to(i('USD')).toFixed(2)} ${i('USD')}/${i('day')}${distance}`;
   const renderImage = image && { backgroundImage: `url(${image})` };

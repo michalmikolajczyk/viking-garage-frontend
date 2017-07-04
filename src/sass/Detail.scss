@@ -9,10 +9,21 @@ $detail-image-height: 420px;
   .headervg {
     margin: 0 -15px;
   }
+  .brief-text {
+    margin: 30px 0;
+    line-height: 24px;
+    font-weight: 100;
+  }
   .detail-form {
     .btn-ride {
       width: 210px;
       height: 36px;
+      svg {
+        height: 26px;
+        #Stroke-1 {
+          stroke: white;
+        }
+      }
     }
   }
 }
@@ -72,6 +83,7 @@ $detail-image-height: 420px;
           width: 55px;
           height: 55px;
           background-size: cover;
+          border-radius: 50%;
         }
         .owner-details {
           font-size: 16px;
@@ -84,7 +96,7 @@ $detail-image-height: 420px;
       }
       .text {
         font-size: 16px;
-        font-weight: $regular;
+        font-weight: $light;
         letter-spacing: 1px;
         padding: 30px 0;
         line-height: 30px;

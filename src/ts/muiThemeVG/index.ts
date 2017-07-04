@@ -7,6 +7,10 @@ const muiThemeVG = {
     primary1Color: '#000000',
     primary2Color: '#000000',
   },
+  raisedButton: {
+    primaryTextColor: 'white',
+    primaryColor: raidoRed1,
+  },
   appBar: {
     color: '#ffffff',
     textColor: '#000000',

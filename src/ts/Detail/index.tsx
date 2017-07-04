@@ -19,6 +19,8 @@ export default class Detail extends React.Component<any, any> {
     if (isNaN(id)) browserHistory.push('/notfound');
     this.state = {
       id,
+      end: _.get(this.props, 'location.query.end', null),
+      start: _.get(this.props, 'location.query.start', null),
       networkErr: false,
       offer: _.get(context, 'data.offer'),
     };
@@ -45,7 +47,14 @@ export default class Detail extends React.Component<any, any> {
         <AppBarVG />
         <div className="detail">
           <HeaderVG offer={offer} />
-          <FormVG offer={offer} />
+          <FormVG
+            offer={offer}
+            end={this.state.end}
+            start={this.state.start}
+          />
+          <div className="brief-text mobile-tablet-only">
+            {_.get(offer, 'brief')}
+          </div>
           <Accordion offer={general} open={true} />
           <ListVG offer={offer} />
         </div>

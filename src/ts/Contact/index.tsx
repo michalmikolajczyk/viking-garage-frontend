@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import {
   Dialog,
   FlatButton,
+  RaisedButton,
 } from 'material-ui';
 import Reaction from './Reaction';
 import ContactForm from './ContactForm';
@@ -66,7 +67,7 @@ export default class Contact extends React.Component<props, any> {
         onTouchTap={this.close}
         disabled={this.state.wait}
       />,
-      <FlatButton
+      <RaisedButton
         label={i('Submit')}
         primary={true}
         keyboardFocused={true}
