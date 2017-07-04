@@ -10,7 +10,7 @@ import debug from 'debug';
 const log = debug('app:Offers');
 import { offers } from '../Detail/mockup';
 import { default as AppBarVG } from '../AppBar';
-const limit = 4;
+const limit = process.env.VG_LIMIT || 7;
 
 export default class Offers extends React.Component<any, any> {
   static contextTypes = { data: React.PropTypes.object }
