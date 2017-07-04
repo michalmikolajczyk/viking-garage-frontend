@@ -390,7 +390,7 @@ export default {
  */
 // Location
   'Search': 'Szukaj',
-  'Find motorcycles to ride around ...': 'Wyszukaj motocykle w okolicy ...',
+  'Select place...': 'Wybierz miejsce...',
   'Not found': 'Brak wyników',
   'Set distance...': 'Wybierz odległość...',
 
