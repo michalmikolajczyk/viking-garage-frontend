@@ -60,7 +60,7 @@ describe('<Offers />', () => {
     get.resolves(offers);
 
     expect(instance.setState).to.have.been.calledOnce;
-    expect(instance.state.list).to.be.deep.equal(offers);
+    expect(instance.state.list).to.be.deep.equal(offers.data);
     expect(instance.state.load).to.be.false;
 
     get['restore']();

@@ -44,7 +44,7 @@ export default class Offers extends React.Component<any, any> {
         if (res['err']) return this.setState({ networkErr: true });
         const list = this.state.offset === 0 ? res['data'] : [...this.state.list, ...res['data']];
         this.setState({
-          list: list,
+          list,
           offset: res['offset'],
           empty: res['empty'],
           last: res['data'].length < limit,

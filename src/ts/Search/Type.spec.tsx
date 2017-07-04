@@ -17,7 +17,7 @@ const rawItems = {
     'Dual-sport',
     'Scooter',
     'Electric',
-    'Small (children)',
+    'Small',
   ],
 };
 
