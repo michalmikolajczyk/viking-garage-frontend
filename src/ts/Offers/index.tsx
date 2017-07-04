@@ -105,6 +105,7 @@ export default class Offers extends React.Component<any, any> {
         <OffersList
           list={this.state.list}
           load={this.state.load}
+          date={this.state.date}
           location={this.state.location}
         />
         {loadMore}

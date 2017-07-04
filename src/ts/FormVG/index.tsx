@@ -9,11 +9,15 @@ import Raido from '../Raido';
 import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
-  state = {
-    startDate: null,
-    endDate: null,
-    equipment: 1,
-  };
+  constructor(props) {
+    super(props);
+    const { start, end } = props;
+    this.state = {
+      startDate: start && moment.unix(start).toDate(),
+      endDate: end && moment.unix(end).toDate(),
+      equipment: 1,
+    };
+  }
 
   getTitle = () => _.get(this.props.offer, 'title', '')
   getPrice = () => _.get(this.props.offer, 'price', 0)
