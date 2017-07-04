@@ -52,6 +52,9 @@ export default class Detail extends React.Component<any, any> {
             end={this.state.end}
             start={this.state.start}
           />
+          <div className="brief-text mobile-tablet-only">
+            {_.get(offer, 'brief')}
+          </div>
           <Accordion offer={general} open={true} />
           <ListVG offer={offer} />
         </div>
