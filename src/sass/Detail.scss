@@ -78,6 +78,7 @@ $detail-image-height: 420px;
           width: 55px;
           height: 55px;
           background-size: cover;
+          border-radius: 50%;
         }
         .owner-details {
           font-size: 16px;
@@ -90,7 +91,7 @@ $detail-image-height: 420px;
       }
       .text {
         font-size: 16px;
-        font-weight: $regular;
+        font-weight: $light;
         letter-spacing: 1px;
         padding: 30px 0;
         line-height: 30px;
