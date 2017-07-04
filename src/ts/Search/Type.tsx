@@ -151,6 +151,6 @@ const rawItems = {
 };
 
 const items = _.flatten(_.keys(rawItems).map((item) => [
-  i(item),
+  item,
   ...rawItems[item].map(it => `${item}#${it}`),
 ]));
