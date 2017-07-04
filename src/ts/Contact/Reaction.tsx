@@ -26,7 +26,7 @@ export default function Reaction(props){
         modal={false}
         actions={actions}
         open={open}
-        title={data.title || <div className="dialog-raido"><Raido /></div>}
+        title={data.title || (<div className="dialog-raido"><Raido /></div>)}
         repositionOnUpdate={false}
         autoDetectWindowHeight={false}
         autoScrollBodyContent={false}
