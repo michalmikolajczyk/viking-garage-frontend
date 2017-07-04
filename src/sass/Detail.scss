@@ -13,6 +13,12 @@ $detail-image-height: 420px;
     .btn-ride {
       width: 210px;
       height: 36px;
+      svg {
+        height: 26px;
+        #Stroke-1 {
+          stroke: white;
+        }
+      }
     }
   }
 }

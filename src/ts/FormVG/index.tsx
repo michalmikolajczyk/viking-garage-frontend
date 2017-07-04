@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import FormPure from './FormPure';
 import FormWrap from './FormWrap';
 import Contact from '../Contact';
+import Raido from '../Raido';
 import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
@@ -52,7 +53,7 @@ Currency: ${i('USD')}`;
         <div>
           <Contact
             type="ride"
-            button={<div className="btn-main btn-ride">RIDE</div>}
+            button={<div className="btn-main btn-ride"><Raido />IDE</div>}
             message={this.getMessage}
             success={{
               title: i('Your ride is booked.'),
