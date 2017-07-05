@@ -20,7 +20,6 @@ function errorHandler(err, req, res, next) {
 module.exports = {
   listen: function (port) {
     const app = express();
-
     app.set('views', path.resolve('src/hbs'));
     app.engine('hbs', hbs({
       extname: 'hbs',
@@ -28,8 +27,14 @@ module.exports = {
       layoutsDir: path.resolve('src/hbs'),
     }));
     app.set('view engine', 'hbs');
-
+    
     app.use('/dist', express.static(path.resolve('dist')));
+
+    app.use(function (req,res,next) {
+      const httpsAddress = ['https://', req.get('Host'), req.url].join('');
+      if (req.headers['x-forwarded-proto'] !== 'https') return res.redirect(httpsAddress);
+      return next();
+    });
 
     app.get('/', (req, res, next) => {
       request(API + '/offer', (err, response, body) => {
