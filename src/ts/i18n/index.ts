@@ -8,7 +8,8 @@ const TRANSLATIONS = {
   pl,
 };
 
-export default function translate(s) {
+export default function translate(s?: string) {
+  if (typeof s === 'undefined') return langCode;
   const trans = TRANSLATIONS[langCode];
   if (trans && s in trans) return trans[s];
   return s;
