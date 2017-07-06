@@ -57,7 +57,7 @@ Currency: ${i('USD')}`;
         <div>
           <Contact
             type="ride"
-            button={<div className="btn-main btn-ride"><Raido />IDE</div>}
+            button={<div className="btn-main btn-ride"><Raido /><span className="hid">R</span>IDE</div>}
             message={this.getMessage}
             success={{
               title: i('Your ride is booked.'),
