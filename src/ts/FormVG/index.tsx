@@ -37,8 +37,9 @@ Total: ${fx(this.getTotal()).to(i('USD')).toFixed(2)} ${i('USD')},
 Currency: ${i('USD')}`;
 
   render() {
-    const title = this.getTitle(this.props.offer);
-    const price = this.getPrice(this.props.offer);
+    const { offer } = this.props;
+    const title = this.getTitle(offer);
+    const price = this.getPrice(offer);
     const total = this.getTotal();
 
     const formData = {
@@ -57,7 +58,7 @@ Currency: ${i('USD')}`;
         <div>
           <Contact
             type="ride"
-            button={<div className="btn-main btn-ride"><Raido /><span className="hid">R</span>IDE</div>}
+            button={<div className="btn-main btn-ride"><Raido />IDE</div>}
             message={this.getMessage}
             success={{
               title: i('Your ride is booked.'),

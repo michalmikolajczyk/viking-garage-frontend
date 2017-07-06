@@ -11,6 +11,7 @@ export default function Raido() {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
+        R
         <defs>
             <polygon
               id="path-1"
