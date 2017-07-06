@@ -83,16 +83,25 @@ export default class Offers extends React.Component<any, any> {
   loadMore = () => this.setState({ offset: this.state.offset + limit }, this.update);
 
   render() {
+    const {
+      list,
+      load,
+      last,
+      date,
+      empty,
+      location,
+    } = this.state;
+
     const filters = {
-      locationFilter: this.locationFilter,
-      distanceFilter: this.distanceFilter,
+      location,
       typeFilter: this.typeFilter,
       dateFilter: this.dateFilter,
-      location: this.state.location,
+      locationFilter: this.locationFilter,
+      distanceFilter: this.distanceFilter,
     };
 
-    const emptyMsg = this.state.empty && (<div className="offers-empty">{i('There is no offers matching to your filters!')}</div>);
-    const loadMore = !this.state.last && !this.state.empty && (<button onClick={this.loadMore} className="loadmore">{i('Load more')}</button>);
+    const emptyMsg = empty && (<div className="offers-empty">{i('There is no offers matching to your filters!')}</div>);
+    const loadMore = !last && !empty && (<button onClick={this.loadMore} className="loadmore">{i('Load more')}</button>);
 
     return (
       <div>
@@ -103,10 +112,10 @@ export default class Offers extends React.Component<any, any> {
         </div>
         {emptyMsg}
         <OffersList
-          list={this.state.list}
-          load={this.state.load}
-          date={this.state.date}
-          location={this.state.location}
+          list={list}
+          load={load}
+          date={date}
+          location={location}
         />
         {loadMore}
         <NetworkError
