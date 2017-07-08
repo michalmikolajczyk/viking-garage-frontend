@@ -56,11 +56,6 @@
     position: absolute;
     left: 0;
     right: 0;
-    & div {
-      @extend .dots;
-      width: 100%;
-      box-sizing: border-box;
-    }
   }
   &.appbar {
     .input {
@@ -87,6 +82,9 @@
       flex-direction: column;
     }
   }
+}
+.search-select {
+  padding-top: 2px;
 }
 
 .menu-toggle {

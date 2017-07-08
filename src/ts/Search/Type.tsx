@@ -84,7 +84,7 @@ export default class Select extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="filter">
+      <div className="filter search-select">
         <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
         <div className="input">
           <SelectField
