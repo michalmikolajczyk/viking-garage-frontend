@@ -28,6 +28,8 @@
   "dependencies": {
     "@types/chai": "^3.4.34",
     "@types/enzyme": "^2.7.4",
+    "@types/fullcalendar": "^2.7.44",
+    "@types/jquery": "^3.2.6",
     "@types/jsdom": "^2.0.29",
     "@types/material-ui": "^0.17.2",
     "@types/mocha": "^2.2.39",
@@ -53,7 +55,9 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "formsy-material-ui": "^0.6.0",
     "formsy-react": "^0.19.2",
+    "fullcalendar": "^3.4.0",
     "geolib": "^2.0.22",
+    "jquery": "^3.2.1",
     "jsdom": "^9.10.0",
     "material-ui": "^0.17.4",
     "mocha": "^3.2.0",
