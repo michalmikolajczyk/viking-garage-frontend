@@ -1,6 +1,6 @@
 ### Project ###
 dist
-config.js
+.env
 
 ### Sass ###
 .sass-cache/
