@@ -1,12 +1,43 @@
 {
   "name": "viking-garage-frontend",
+  "logo": "https://res.cloudinary.com/hkhuw4b7v/image/upload/v1499880454/raido_logo_small_kx9txb.png",
+  "description": "A worldwide marketplace and community for real people riding real motorcycles. Local private rentals, repairs, tours. VG brings the Platform and logistics.",
+  "keywords": [
+    "motorcycle",
+    "rental",
+    "repair",
+    "tour",
+    "marketplace",
+    "community",
+    "global",
+    "local",
+    "private",
+    "worldwide",
+    "motocross",
+    "enduro",
+    "cafe racer",
+    "scrambler",
+    "chopper",
+    "bobber",
+    "brat style",
+    "adventure",
+    "braap"
+  ],
+  "website": "https://vikinggarage.com/",
+  "repository": "https://github.com/michalmikolajczyk/viking-garage-frontend",
   "scripts": {},
   "env": {
-    "API_URL": "https://viking-garage-api-staging.herokuapp.com/",
-    "NODE_MODULES_CACHE": "false",
-    "NPM_CONFIG_PRODUCTION": "false"
+    "API_URL": {
+      "description": "URL to API for application requests",
+      "value": "https://viking-garage-api-staging.herokuapp.com/",
+      "required": true
+    },
+    "NODE_MODULES_CACHE": false,
+    "NPM_CONFIG_PRODUCTION": false
   },
   "formation": {},
-  "addons": [],
+  "addons": [
+    "papertrail"
+  ],
   "buildpacks": []
 }
