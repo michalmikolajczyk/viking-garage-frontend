@@ -29,8 +29,8 @@ describe('<FormVG />', () => {
   });
 
   it('check if simple methods works fine', () => {
-    expect(instance.getTitle()).to.be.equal(offer.title);
-    expect(instance.getPrice()).to.be.equal(offer.price);
+    expect(instance.getTitle(instance.props.offer)).to.be.equal(offer.title);
+    expect(instance.getPrice(instance.props.offer)).to.be.equal(offer.price);
   });
 
   it('check if total calculation works fine', () => {

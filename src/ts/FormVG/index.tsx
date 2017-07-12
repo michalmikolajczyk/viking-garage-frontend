@@ -19,26 +19,27 @@ export default class FormVG extends React.Component<any, any> {
     };
   }
 
-  getTitle = () => _.get(this.props.offer, 'title', '')
-  getPrice = () => _.get(this.props.offer, 'price', 0)
+  getTitle = offer => _.get(offer, 'title', '')
+  getPrice = offer => _.get(offer, 'price', 0)
   getRange = () => (this.state.startDate && this.state.endDate) ? (Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1) : 0;
-  getTotal = () => this.getPrice() * this.getRange();
+  getTotal = () => this.getPrice(this.props.offer) * this.getRange();
   endDateChange = (ev, endDate) => this.setState({ endDate });
   startDateChange = (ev, startDate) => this.setState({ startDate });
   equipmentChange = (ev, index, equipment) => this.setState({ equipment });
 
-  getMessage = () => `RIDE REQUEST - ${this.getTitle()}
+  getMessage = () => `RIDE REQUEST - ${this.getTitle(this.props.offer)}
 Offer: ${location.hostname}/offer/${this.props.offer.id},
 Start date: ${this.state.startDate || 'no date'},
 End date: ${this.state.endDate || 'no date'},
 Equipment: ${this.state.equipment},
-Price: ${fx(this.getPrice()).to(i('USD')).toFixed(2)} ${i('USD')},
+Price: ${fx(this.getPrice(this.props.offer)).to(i('USD')).toFixed(2)} ${i('USD')},
 Total: ${fx(this.getTotal()).to(i('USD')).toFixed(2)} ${i('USD')},
 Currency: ${i('USD')}`;
 
   render() {
-    const title = this.getTitle();
-    const price = this.getPrice();
+    const { offer } = this.props;
+    const title = this.getTitle(offer);
+    const price = this.getPrice(offer);
     const total = this.getTotal();
 
     const formData = {
