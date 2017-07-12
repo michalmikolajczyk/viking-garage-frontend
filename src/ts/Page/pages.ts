@@ -1,7 +1,7 @@
-const langCode = typeof navigator !== 'undefined' ? (navigator.language || navigator['userLanguage']).substr(0, 2) : 'en';
+import i from '../i18n';
 
 export default (() => {
-  switch (langCode) {
+  switch (i()) {
     case 'pl':
       return {
         owner: {

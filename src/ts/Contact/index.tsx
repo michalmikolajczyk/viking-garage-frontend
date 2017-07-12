@@ -33,7 +33,7 @@ export default class Contact extends React.Component<props, any> {
   submit = (data) => {
     const body = this.props.message && this.props.message();
     this.setState({ wait: true });
-    contact({ ...data, body, type: this.props.type })
+    contact({ ...data, body, type: this.props.type, code: i() })
       .then((res) => {
         if (res && res['err']) return this.setState({ networkErr: true, wait: false });
         this.setState({
