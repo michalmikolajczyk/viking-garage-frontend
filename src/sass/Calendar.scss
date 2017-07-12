@@ -2,3 +2,20 @@
   background: #BB0003;
   opacity: 1;
 }
+
+.fc-header-toolbar {
+  margin-top: 1em;
+  .fc-right {
+    .fc-button {
+      // reset styles
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+      background: #EEEEEE;
+      opacity: 1 !important;
+      &:hover {
+        background: #E0E0E0;
+      }
+    }
+  }
+}
