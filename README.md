@@ -19,6 +19,9 @@ cd viking-garage-frontend
 scripts/setup.sh
 ```
 
+## Config
+To run application you have to set env vars. Check `app.json` for required variables and default values. For local build you can create `.env` file in root directory with variables (for details check out [dotenv](https://github.com/motdotla/dotenv))
+
 ## Install
 ```
 npm i
@@ -29,14 +32,6 @@ npm i
 npm start
 ```
 You can now access the app through your localhost, default port: 3000.
-
-## Config
-Add in the root directory file `config.js` with an API keys:
-```
-var config = {
-  GOOGLE_MAP_API: 'AIzaSyCdqKWZgAE65hVV89OmGEfeNTQkOB9EXM8'
-}
-```
 
 ## Deployment
 
