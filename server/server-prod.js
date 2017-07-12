@@ -4,7 +4,7 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const fs = require('fs');
 const render = require('../dist/ssr').default;
-const API = process.env.API_URL || 'https://viking-garage-api-dev.herokuapp.com';
+const API = process.env.API_URL;
 
 function send(res, content, context) {
   res.render('index', {
@@ -27,7 +27,7 @@ module.exports = {
       layoutsDir: path.resolve('src/hbs'),
     }));
     app.set('view engine', 'hbs');
-    
+
     app.use('/dist', express.static(path.resolve('dist')));
 
     app.use(function (req,res,next) {
