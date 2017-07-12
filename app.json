@@ -28,12 +28,25 @@
   "scripts": {},
   "env": {
     "API_URL": {
-      "description": "URL to API for application requests",
+      "description": "URL to API for server side render requests",
       "value": "https://viking-garage-api-staging.herokuapp.com/",
       "required": true
     },
-    "NODE_MODULES_CACHE": false,
-    "NPM_CONFIG_PRODUCTION": false
+    "NODE_ENV": {
+      "description": "Mode of running application",
+      "value": "production",
+      "required": true
+    },
+    "NODE_MODULES_CACHE": {
+      "description": "Heroku maintains a cache directory that is persisted between builds",
+      "value": false,
+      "required": true
+    },
+    "PORT": {
+      "description": "Port to run application server",
+      "value": 3000,
+      "required": true
+    }
   },
   "formation": {},
   "addons": [
