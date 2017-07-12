@@ -6,6 +6,7 @@ import {
 } from 'material-ui/styles';
 import muiThemeVG from '../muiThemeVG';
 import Footer from '../Footer';
+import Calendar from '../Calendar';
 
 export default class Container extends React.Component<any, any> {
   static contextTypes = { data: React.PropTypes.object }
@@ -19,6 +20,7 @@ export default class Container extends React.Component<any, any> {
       <MuiThemeProvider muiTheme={getMuiTheme({ userAgent, ...muiThemeVG })}>
         <div>
           {this.props.children}
+          <Calendar />
           <Footer />
         </div>
       </MuiThemeProvider>

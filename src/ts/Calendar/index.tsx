@@ -1,11 +1,17 @@
 import * as React from 'react';
-import * as $ from 'jquery';
-import * as moment from 'moment';
-import 'fullcalendar';
-import 'fullcalendar/dist/gcal.min.js';
-import * as _ from 'lodash';
+import {
+  Dialog,
+  FlatButton,
+  RaisedButton,
+} from 'material-ui';
+// import * as $ from 'jquery';
+// import * as moment from 'moment';
+// import 'fullcalendar';
+// import 'fullcalendar/dist/gcal.min.js';
+import i from '../i18n';
 
 export default class CalendarVG extends React.Component<any, any> {
+  state = { open: true };
 
   componentDidMount() {
     const { calendar } = this.refs;
@@ -37,7 +43,37 @@ export default class CalendarVG extends React.Component<any, any> {
     $(calendar).fullCalendar('destroy');
   }
 
+  close = () => this.setState({ open: false });
+
   render() {
-    return (<div ref="calendar" />);
+    const actions = [
+      <FlatButton
+        label={i('Cancel')}
+        primary={true}
+        onTouchTap={this.close}
+      />,
+      <RaisedButton
+        label={i('Submit')}
+        primary={true}
+        keyboardFocused={true}
+        onTouchTap={this.close}
+      />,
+    ];
+
+    return (
+      <Dialog
+        modal={false}
+        actions={actions}
+        open={this.state.open}
+        title="Calendar"
+        repositionOnUpdate={false}
+        autoDetectWindowHeight={false}
+        autoScrollBodyContent={false}
+        className="dialog-root"
+        contentClassName="dialog-content"
+        bodyClassName="dialog-body"
+      >
+        <div ref="calendar" />
+      </Dialog>);
   }
 }
