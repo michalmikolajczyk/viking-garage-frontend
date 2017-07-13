@@ -29,16 +29,8 @@
 .acc-header {
   padding: 15px 0 0 0;
   border-bottom: 1px solid rgb(224, 224, 224);
-  button {
-    width: 100%;
-    background: transparent !important;
-    display: flex !important;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    align-items: center;
-  }
   .material-icons {
-    flex: 0 1 30px;
+    width: 24px;
   }
 }
 
@@ -98,23 +90,6 @@
     }
   }
 
-  .acc-header {
-    // @extend .h6;
-    padding: 16px 0 0 0;
-    border-bottom: 1px solid rgb(224, 224, 224);
-    button {
-      width: 100%;
-      background: transparent !important;
-      display: flex !important;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      align-items: center;
-    }
-    .material-icons {
-      flex: 0 1 30px;
-    }
-  }
-
   .offerer {
     padding: 25px 0 0 0;
     display: flex;
@@ -140,6 +115,7 @@
   .accordion {
     .table {
       .row {
+        max-width: 50%;
         &:nth-child(2n) {
           .col:nth-child(1) {
             margin: 18px 0 0 15px;
