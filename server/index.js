@@ -12,7 +12,7 @@ Object.keys(appConf.env).forEach((key) => {
     console.error(key, 'is undefined!');
     console.error('You should set all env vars!');
     console.error('For details check app.json and README');
-    process.exit();
+    process.exit(1);
   }
 });
 
