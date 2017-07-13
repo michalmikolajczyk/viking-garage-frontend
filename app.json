@@ -44,7 +44,6 @@
     },
     "PORT": {
       "description": "Port to run application server",
-      "value": "3000",
       "required": true
     }
   },
