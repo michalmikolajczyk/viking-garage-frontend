@@ -140,6 +140,7 @@
   .accordion {
     .table {
       .row {
+        max-width: 50%;
         &:nth-child(2n) {
           .col:nth-child(1) {
             margin: 18px 0 0 15px;
