@@ -9,7 +9,7 @@ const appConf = JSON.parse(appJSON);
 
 Object.keys(appConf.env).forEach((key) => {
   let unset = false;
-  if (process.env[key] === undefined) {
+  if (appConf.env[key].required && process.env[key] === undefined) {
     console.error(key, 'is undefined!');
     unset = true;
   }
