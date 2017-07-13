@@ -22,9 +22,20 @@ export default class CalendarVG extends React.Component<any, any> {
         right: 'prev,next,today',
       },
       googleCalendarApiKey: 'AIzaSyCf_-TbI116dCRFyfB8Wx8ufxewlMAI5wA',
-      events: {
-        googleCalendarId: '44jn1fb44u4uju8hm2tv34ncpg@group.calendar.google.com',
-      },
+      eventSources: [
+        {
+          googleCalendarId: 'mpegrcvhg03rh82pr4ppuhe3hk@group.calendar.google.com',
+          className: 'ktm-125',
+        },
+        {
+          googleCalendarId: '44jn1fb44u4uju8hm2tv34ncpg@group.calendar.google.com',
+          className: 'ktm-250',
+        },
+        {
+          googleCalendarId: '8t2fgpl13ptpiqm1rq00rhh6as@group.calendar.google.com',
+          className: 'husaberg',
+        },
+      ],
       eventColor: 'rgba(189, 0, 3, 0.3)',
       allDaySlot: false,
       slotDuration: '00:30:00',
