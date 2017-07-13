@@ -39,12 +39,12 @@
     },
     "NODE_MODULES_CACHE": {
       "description": "Heroku maintains a cache directory that is persisted between builds",
-      "value": false,
+      "value": "false",
       "required": true
     },
     "PORT": {
       "description": "Port to run application server",
-      "value": 3000,
+      "value": "3000",
       "required": true
     }
   },
