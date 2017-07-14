@@ -1,29 +1,43 @@
 .grupon {
-  padding: 64px 0;
+  padding: 64px 0 20px 0;
   margin: 0 auto;
   text-align: center;
-  p, li {
-    text-align: left;
+  .wrap {
+    padding: 20px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 100;
+  }
+  .sublist, .subacc {
+    font-size: 16px;
     line-height: 22px;
+    text-align: left;
+    p {
+      display: inline;
+    }
+    a {
+      color: #BB0003;
+      text-decoration: underline;
+    }
   }
-  p {
-    padding: 15px;
+  .subacc {
+    padding: 20px 0 0;
   }
-  .title {
-    font-size: 35px;
-    padding: 15px;
+  .sublist {
+    padding-left: 20px;
+  }
+  .bold {
+    font-weight: $regular;
+  }
+  .center {
+    display: block !important;
+    text-align: center;
   }
 }
 
 @media screen and (min-width: $tablet-min) {
   .grupon {
-    max-width: 600px;
-    p, li {
-      font-size: 20px;
-      font-weight: 100;
-      margin: 0 auto;
+    max-width: 650px;
+    .sublist, .subacc {
       line-height: 25px;
     }
   }
@@ -33,6 +47,9 @@
   .grupon {
     .title {
       font-size: 45px;
+    }
+    .sublist, .subacc {
+      font-size: 20px;
     }
   }
 }
