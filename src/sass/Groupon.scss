@@ -1,0 +1,38 @@
+.grupon {
+  padding: 64px 0;
+  margin: 0 auto;
+  text-align: center;
+  p, li {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+  }
+  p {
+    padding: 15px;
+  }
+  .title {
+    font-size: 35px;
+    padding: 15px;
+  }
+}
+
+@media screen and (min-width: $tablet-min) {
+  .grupon {
+    max-width: 600px;
+    p, li {
+      font-size: 20px;
+      font-weight: 100;
+      margin: 0 auto;
+      line-height: 25px;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-min) {
+  .grupon {
+    .title {
+      font-size: 45px;
+    }
+  }
+}
