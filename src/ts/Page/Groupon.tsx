@@ -16,8 +16,11 @@ export default function Grupon() {
             GA<span className="replace">R<Raido /></span>AGE
           </div>
         </div>
+        <div className="groupon-logo">
+          <img src="http://assets1.grouponcdn.com/images/logos/powered_by_groupon.png" />
+        </div>
       </div>
-      <div className="grupon">
+      <div className="groupon">
         <div className="wrap">
           <div className="subwrap">
             Już teraz możesz skorzystać ze zniżek GROUPON, które upoważniają Cię do skorzystania ze zorganizowanych jazd na wybranych motocyklach. Na platformie VIKING GARAGE możesz zarezerwować motocykl w dostępnym terminie i w niższych cenach.

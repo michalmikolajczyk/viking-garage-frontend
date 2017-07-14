@@ -1,4 +1,13 @@
-.grupon {
+.groupon-logo {
+  width: 268px;
+  align-self: center;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.groupon {
   padding: 64px 0 20px 0;
   margin: 0 auto;
   text-align: center;
@@ -35,7 +44,7 @@
 }
 
 @media screen and (min-width: $tablet-min) {
-  .grupon {
+  .groupon {
     max-width: 650px;
     .sublist, .subacc {
       line-height: 25px;
@@ -51,8 +60,8 @@
 }
 
 @media screen and (min-width: $desktop-min) {
-  .grupon {
-    padding: 0 0 20px 0;
+  .groupon {
+    padding: 40px 0 20px 0;
     .wrap {
       font-size: 20px;
       .subwrap {
