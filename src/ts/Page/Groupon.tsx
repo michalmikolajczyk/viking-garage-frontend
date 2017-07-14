@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router';
 import AppBar from '../AppBar';
+import Raido from '../Raido';
 import AccText from '../Accordion/AccText';
 import i from '../i18n';
 
@@ -8,9 +9,17 @@ export default function Grupon() {
   return (
     <div>
       <AppBar />
+      <div className="header mobile-tablet-hid">
+        <div className="title">
+          <div>VIKING</div>
+          <div className="below">
+            GA<span className="replace">R<Raido /></span>AGE
+          </div>
+        </div>
+      </div>
       <div className="grupon">
         <div className="wrap">
-          <div>
+          <div className="subwrap">
             Już teraz możesz skorzystać ze zniżek GROUPON, które upoważniają Cię do skorzystania ze zorganizowanych jazd na wybranych motocyklach. Na platformie VIKING GARAGE możesz zarezerwować motocykl w dostępnym terminie i w niższych cenach.
             <br />
             <br />

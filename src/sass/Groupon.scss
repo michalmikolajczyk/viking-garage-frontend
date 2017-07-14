@@ -41,15 +41,39 @@
       line-height: 25px;
     }
   }
+  .acc-header {
+    button {
+      span {
+        font-size: 16px !important;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $desktop-min) {
   .grupon {
-    .title {
-      font-size: 45px;
+    padding: 0 0 20px 0;
+    .wrap {
+      font-size: 20px;
+      .subwrap {
+        padding-bottom: 40px
+      }
     }
     .sublist, .subacc {
       font-size: 20px;
+    }
+    .subacc {
+      padding: 30px 0;
+    }
+    .sublist {
+      padding-left: 30px;
+    }
+    .acc-header {
+      button {
+        span {
+          font-size: 20px !important;
+        }
+      }
     }
   }
 }
