@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router';
 import {
   FontIcon,
 } from 'material-ui';
@@ -35,7 +36,7 @@ export default function Footer(props) {
             <span className="mobile-hid"> ride@vikinggarage.com</span>
           </a>
         </div>
-        <div className="right">
+        <div>
           <a href="https://vikinggarage.slack.com" target="_blank">
             SLACK
           </a>
@@ -50,6 +51,11 @@ export default function Footer(props) {
           <a href="skype:michaljanmikolajczyk?chat" target="_blank">
             SKYPE
           </a>
+        </div>
+        <div className="right">
+          <Link to="/privacy-policy">
+            PRIVACY POLICY
+          </Link>
         </div>
         <div className="copyright">
           <FontIcon style={iconStyle} color="white" className="fa fa-copyright" />
