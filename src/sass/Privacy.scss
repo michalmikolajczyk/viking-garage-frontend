@@ -2,11 +2,13 @@
   padding: 64px 0;
   margin: 0 auto;
   text-align: center;
-  p {
+  p, li {
     text-align: left;
     font-size: 16px;
     font-weight: 300;
     line-height: 22px;
+  }
+  p {
     padding: 15px;
   }
   .title {
@@ -18,7 +20,7 @@
 @media screen and (min-width: $tablet-min) {
   .privacy {
     max-width: 600px;
-    p {
+    p, li {
       font-size: 20px;
       font-weight: 100;
       margin: 0 auto;
