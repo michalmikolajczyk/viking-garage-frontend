@@ -22,6 +22,10 @@ export default function Grupon() {
       </div>
       <div className="groupon">
         <div className="wrap">
+          <div className="groupon-logo mobile-tablet-only">
+            <img src="http://assets1.grouponcdn.com/images/logos/powered_by_groupon.png" />
+          </div>
+
           <div className="subwrap">
             Już teraz możesz skorzystać ze zniżek GROUPON, które upoważniają Cię do skorzystania ze zorganizowanych jazd na wybranych motocyklach. Na platformie VIKING GARAGE możesz zarezerwować motocykl w dostępnym terminie i w niższych cenach.
             <br />

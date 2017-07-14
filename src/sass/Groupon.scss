@@ -1,6 +1,5 @@
 .groupon-logo {
-  width: 268px;
-  align-self: center;
+  width: 130px;
   img {
     width: 100%;
     height: auto;
@@ -60,6 +59,15 @@
 }
 
 @media screen and (min-width: $desktop-min) {
+  .groupon-logo {
+    width: 268px;
+    align-self: center;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
   .groupon {
     padding: 40px 0 20px 0;
     .wrap {
