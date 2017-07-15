@@ -13,10 +13,24 @@
   padding: 64px 0 20px 0;
   margin: 0 auto;
   text-align: center;
-  #map {
-    height: 330px;
-    width: 100%;
-   }
+  .map-wrap {
+    display: flex;
+    flex-direction: column;
+    #map {
+      flex: 1 0 auto;
+      height: 270px;
+    }
+    .map-addr {
+      padding-top: 15px;
+      box-sizing: border-box;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: column;
+      .addr {
+        padding-bottom: 15px;
+      }
+    }
+  }
   .wrap {
     padding: 20px;
     font-size: 16px;
@@ -54,6 +68,20 @@
     max-width: 900px;
     .sublist, .subacc {
       line-height: 25px;
+    }
+    .map-wrap {
+      flex-direction: row;
+      #map {
+        flex: 1 0 auto;
+        height: 300px;
+      }
+      .map-addr {
+        flex: 0 0 220px;
+        padding: 0 15px;
+        .addr {
+          padding: 0;
+        }
+      }
     }
   }
   .acc-header {
