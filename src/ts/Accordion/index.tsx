@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FontIcon } from 'material-ui';
-import iconWrap from '../iconWrap';
+import IconWrap from '../IconWrap';
 import Header from './Header';
 import Table from './Table';
 
@@ -15,8 +15,8 @@ export default class Accordion extends React.Component<any, any> {
 
   render() {
     const icon = this.state.open
-      ? iconWrap(<FontIcon className="material-icons">expand_less</FontIcon>, 'hide')
-      : iconWrap(<FontIcon className="material-icons">keyboard_arrow_down</FontIcon>, 'show more');
+      ? <IconWrap aria="hide" icon="expand_less" />
+      : <IconWrap aria="show more" icon="keyboard_arrow_down" />;
 
     return (
       <div className="accordion">

@@ -30,11 +30,11 @@ module.exports = {
 
     app.use('/dist', express.static(path.resolve('dist')));
 
-    app.use(function (req,res,next) {
-      const httpsAddress = ['https://', req.get('Host'), req.url].join('');
-      if (req.headers['x-forwarded-proto'] !== 'https') return res.redirect(httpsAddress);
-      return next();
-    });
+    // app.use(function (req,res,next) {
+    //   const httpsAddress = ['https://', req.get('Host'), req.url].join('');
+    //   if (req.headers['x-forwarded-proto'] !== 'https') return res.redirect(httpsAddress);
+    //   return next();
+    // });
 
     app.get('/', (req, res, next) => {
       request(API + '/offer', (err, response, body) => {
@@ -54,6 +54,7 @@ module.exports = {
       const id = req.url.split('/')[2];
       request(API + '/offer/' + id, (err, response, body) => {
         if (err || response.statusCode != 200) return errorHandler(err, req, response, next);
+
         const json = JSON.parse(body);
         const data = {
           offer: json,
@@ -61,7 +62,7 @@ module.exports = {
         };
         render(req.url, data)
           .then(app => send(res, app, JSON.stringify(data)))
-          .catch(err => res.send('Internal server error'));
+          .catch(err => res.send('Internal server error', err));
       })
     });
 
