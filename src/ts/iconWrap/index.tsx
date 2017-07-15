@@ -10,7 +10,7 @@ export default function iconWrap(icon: JSX.Element, alt?: string) {
 
 		render() {
 			if (this.isMounted) return icon;
-			return <div aria-label={alt} />;
+			return <div aria-label={alt} className="material-icons" />;
 		}
 	};
 }
