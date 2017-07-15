@@ -7,9 +7,10 @@ import {
   SelectField,
   MenuItem,
 } from 'material-ui';
+import IconWrap from '../IconWrap';
 import i from '../i18n';
 
-export default function FormPure(props){
+export default function FormPure(props) {
   const {
     price,
     total,
@@ -19,7 +20,7 @@ export default function FormPure(props){
     endDateChange,
     equipmentChange,
     startDateChange,
-  } = props
+  } = props;
 
   function shouldDisableDateStart(date) {
     if (!endDate) return moment().isAfter(date, 'days');
@@ -42,7 +43,7 @@ export default function FormPure(props){
         </div>
       </div>
       <div className="field">
-        <FontIcon className="material-icons">today</FontIcon>
+        <IconWrap icon="today" />
         <DatePicker
           id="form-start-date"
           name="start-date"
@@ -58,7 +59,7 @@ export default function FormPure(props){
         />
       </div>
       <div className="field">
-        <FontIcon className="material-icons">date_range</FontIcon>
+        <IconWrap icon="date_range" />
         <DatePicker
           id="form-end-date"
           name="end-date"

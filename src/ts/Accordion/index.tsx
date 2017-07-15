@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { FontIcon } from 'material-ui';
 import IconWrap from '../IconWrap';
 import Header from './Header';
 import Table from './Table';

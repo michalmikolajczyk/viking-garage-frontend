@@ -4,6 +4,7 @@ import {
   FontIcon,
   MenuItem,
 } from 'material-ui';
+import IconWrap from '../../IconWrap';
 
 const menuItems = [
   'coach',
@@ -24,9 +25,9 @@ export default function Select({ selected, onChange }) {
         >
           {menuItems}
         </DropDownMenu>
-        <FontIcon
-          className="material-icons"
+        <IconWrap
+          icon="keyboard_arrow_down"
           style={{ fontSize: 34 }}
-        >keyboard_arrow_down</FontIcon>
+        />
     </div>);
 }
