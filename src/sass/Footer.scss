@@ -1,5 +1,5 @@
 .footer {
-  height: 140px;
+  height: 165px;
   padding: 20px;
   box-sizing: border-box;
   background-color: black;
@@ -26,7 +26,7 @@
 
 @media screen and (min-width: $tablet-min) {
   .footer {
-    height: 309px;
+    height: 340px;
     padding: 53px;
     .contact {
       & > div {

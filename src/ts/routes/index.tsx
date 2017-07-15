@@ -17,6 +17,7 @@ import Confirm from '../Signin/Confirm';
 import Verify from '../Signin/Verify';
 import Profile from '../Profile';
 import Page from '../Page';
+import Privacy from '../Page/Privacy';
 
 export default (
   <Route path="/" component={Container}>
@@ -35,6 +36,7 @@ export default (
     <Route path="/page/guide" component={Page} />
     <Route path="/page/mechanic" component={Page} />
     <Route path="/page/faq" component={Page} />
+    <Route path="/privacy-policy" component={Privacy} />
     <Route path="*" component={NotFound} />
   </Route>
 );
