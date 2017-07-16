@@ -17,7 +17,6 @@ import Confirm from '../Signin/Confirm';
 import Verify from '../Signin/Verify';
 import Profile from '../Profile';
 import Page from '../Page';
-import Groupon from '../Page/Groupon';
 import Privacy from '../Page/Privacy';
 
 export default (
@@ -37,7 +36,6 @@ export default (
     <Route path="/page/guide" component={Page} />
     <Route path="/page/mechanic" component={Page} />
     <Route path="/page/faq" component={Page} />
-    <Route path="/groupon" component={Groupon} />
     <Route path="/privacy-policy" component={Privacy} />
     <Route path="*" component={NotFound} />
   </Route>
