@@ -17,13 +17,13 @@ export default function Grupon() {
           </div>
         </div>
         <div className="groupon-logo">
-          <img src="https://assets1.grouponcdn.com/images/logos/powered_by_groupon.png" />
+          <img src="https://res.cloudinary.com/hkhuw4b7v/image/upload/v1500232121/groupon_logo_tpslhq.png" />
         </div>
       </div>
       <div className="groupon">
         <div className="wrap">
           <div className="groupon-logo-mob mobile-tablet-only">
-            <img src="https://assets1.grouponcdn.com/images/logos/powered_by_groupon.png" />
+            <img src="https://res.cloudinary.com/hkhuw4b7v/image/upload/v1500232121/groupon_logo_tpslhq.png" />
           </div>
 
           <div className="subwrap">

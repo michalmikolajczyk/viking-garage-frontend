@@ -61,7 +61,7 @@ export default function MenuVG(props) {
       <MenuItem className="menu-item" containerElement={<Link to="/page/guide" />} primaryText={i('Guides & Coaches')} />
       <MenuItem className="menu-item" containerElement={<Link to="/page/mechanic" />} primaryText={i('Mechanics')} />
       <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/groupon" />} primaryText={<div style={{ height: 30 }}><img style={{ height: '100%', paddingTop: 7 }} src="https://assets1.grouponcdn.com/images/logos/powered_by_groupon.png" /></div>} />
+      <MenuItem className="menu-item" containerElement={<Link to="/groupon" />} primaryText={<div style={{ height: 20 }}><img style={{ height: '100%', paddingTop: 13 }} src="https://res.cloudinary.com/hkhuw4b7v/image/upload/v1500232121/groupon_logo_tpslhq.png" /></div>} />
     </div>
   );
 
