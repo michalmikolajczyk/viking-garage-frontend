@@ -10,6 +10,6 @@ export default class IconWrap extends React.Component<any, any> {
 
   render() {
     if (this.state.isMounted) return <FontIcon className="material-icons" style={this.props.style}>{this.props.icon}</FontIcon>;
-    return <div aria-label={this.props.aria && ''} className="hide">{this.props.aria && ''}</div>;
+    return <div aria-label={this.props.aria || ''} className="hide">{this.props.aria || ''}</div>;
   }
 }
