@@ -11,7 +11,7 @@ function send(res, content, context) {
   res.render('index', {
     content,
     context,
-    GA,
+    GA: `'${GA}'`,
   });
 }
 
