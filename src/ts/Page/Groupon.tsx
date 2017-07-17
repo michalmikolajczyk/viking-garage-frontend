@@ -13,7 +13,7 @@ export default function Grupon() {
         <div className="title">
           <div>VIKING</div>
           <div className="below">
-            GA<span className="replace">R<Raido /></span>AGE
+            GA<span className="replace"><Raido /></span>AGE
           </div>
         </div>
         <div className="groupon-logo">
