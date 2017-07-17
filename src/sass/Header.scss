@@ -11,13 +11,14 @@
     }
   }
   .replace {
+    width: 31px;
     position: relative;
-    color: transparent;
+    display: inline-block;
     .raido {
       width: 25px;
       height: 61px;
       position: absolute;
-      top: 0;
+      top: -47px;
       left: 4px;
     }
   }
@@ -31,11 +32,12 @@
 @media screen and (min-width: $tablet-min) {
   .header {
     .replace {
+      width: 40px;
       .raido {
         width: 28px;
         height: 70px;
-        top: 4px;
-        left: 10px;
+        top: -59px;
+        left: 7px;
       }
     }
   }

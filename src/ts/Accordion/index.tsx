@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FontIcon } from 'material-ui';
+import IconWrap from '../IconWrap';
 import Header from './Header';
 import Table from './Table';
 
@@ -10,12 +10,12 @@ export default class Accordion extends React.Component<any, any> {
     this.state = { open };
   }
 
-  toggle = () => this.setState({ open: !this.state.open })
+  toggle = () => this.setState({ open: !this.state.open });
 
   render() {
     const icon = this.state.open
-      ? <FontIcon className="material-icons">expand_less</FontIcon>
-      : <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>;
+      ? <IconWrap aria="hide" icon="expand_less" />
+      : <IconWrap aria="show more" icon="keyboard_arrow_down" />;
 
     return (
       <div className="accordion">

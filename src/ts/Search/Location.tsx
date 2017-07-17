@@ -1,9 +1,7 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import {
-  AutoComplete,
-  FontIcon,
-} from 'material-ui';
+import { AutoComplete } from 'material-ui';
+import IconWrap from '../IconWrap';
 import i from '../i18n';
 declare const google: any;
 
@@ -12,7 +10,7 @@ export default class Location extends React.Component<any, any> {
     data: [],
     value: '',
   };
-  dataConfig = { text: 'description', value: 'place_id' }
+  dataConfig = { text: 'description', value: 'place_id' };
   statusOk = typeof google !== 'undefined' ? google.maps.places.PlacesServiceStatus.OK : null;
   placesService = typeof google !== 'undefined' ? new google.maps.places.PlacesService(document.createElement('div')) : null;
   selectService = typeof google !== 'undefined' ? new google.maps.places.AutocompleteService() : null;
@@ -34,7 +32,7 @@ export default class Location extends React.Component<any, any> {
             val: details.description,
           });
         }
-      })
+      });
     }
   }
 
@@ -45,7 +43,7 @@ export default class Location extends React.Component<any, any> {
         this.setState({
           data: status === this.statusOk
           ? predictions
-          : [i('Not found')]
+          : [i('Not found')],
         });
       });
     } else {
@@ -59,13 +57,13 @@ export default class Location extends React.Component<any, any> {
     const hintText = appbar ? '' : i('Select place...');
     const rightBtn = appbar && (
       <button className="right-btn" onClick={this.props.toggle}>
-        <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
+        <IconWrap icon="keyboard_arrow_down" aria="show filters" />
       </button>
     );
 
     return (
       <div className={`filter ${this.props.appbar ? 'appbar' : ''}`}>
-        <FontIcon className="material-icons">{leftIcon}</FontIcon>
+        <IconWrap icon={leftIcon} aria="search by location" />
         <div className="input">
           <AutoComplete
             id="search-location"
@@ -83,7 +81,7 @@ export default class Location extends React.Component<any, any> {
           />
           {rightBtn}
         </div>
-       </div>
+      </div>
     );
   }
 }

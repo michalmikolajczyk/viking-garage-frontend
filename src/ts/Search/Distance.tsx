@@ -1,13 +1,10 @@
 import * as React from 'react';
-import {
-  AutoComplete,
-  MenuItem,
-  FontIcon,
-} from 'material-ui';
+import { AutoComplete } from 'material-ui';
+import IconWrap from '../IconWrap';
 import i from '../i18n';
 
 const dist = [2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657];
-const convert = (data) => data.map(d => ({text: `${d} km`, value: d}))
+const convert = data => data.map(d => ({ text: `${d} km`, value: d }));
 
 export default class Distance extends React.Component<any, any> {
   state = { data: convert(dist) };
@@ -19,7 +16,7 @@ export default class Distance extends React.Component<any, any> {
   }
 
   onUpdateInput = (input) => {
-    const intInput = parseInt(input);
+    const intInput = parseInt(input, 10);
     const data = convert(dist.filter(d => d > intInput));
     this.setState({ data });
   }
@@ -27,7 +24,7 @@ export default class Distance extends React.Component<any, any> {
   render() {
     return (
       <div className="filter">
-        <FontIcon className="material-icons">my_location</FontIcon>
+        <IconWrap icon="my_location" />
         <div className="input">
           <AutoComplete
             id="search-distance"

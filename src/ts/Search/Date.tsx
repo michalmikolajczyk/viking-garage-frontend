@@ -1,16 +1,14 @@
 import * as React from 'react';
 import * as moment from 'moment';
-import {
-  DatePicker,
-  FontIcon,
-} from 'material-ui';
+import { DatePicker } from 'material-ui';
 import i from '../i18n';
+import IconWrap from '../IconWrap';
 
 export default class DateVG extends React.Component<any, any> {
   state = {
     start: null,
     end: null,
-  }
+  };
 
   onChangeStart = (event, date) => {
     if (this.state.end) this.props.filter({ start: date, end: this.state.end });
@@ -36,7 +34,7 @@ export default class DateVG extends React.Component<any, any> {
     return (
       <div className="date-wrap">
         <div className="filter">
-          <FontIcon className="material-icons">today</FontIcon>
+          <IconWrap icon="today" />
           <DatePicker
             id="search-date-start"
             className="input"
@@ -50,7 +48,7 @@ export default class DateVG extends React.Component<any, any> {
           />
         </div>
         <div className="filter">
-          <FontIcon className="material-icons">date_range</FontIcon>
+          <IconWrap icon="date_range" />
           <DatePicker
             id="search-date-end"
             className="input"

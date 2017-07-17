@@ -4,6 +4,7 @@ import {
   Paper,
 } from 'material-ui';
 import * as _ from 'lodash';
+import IconWrap from '../IconWrap';
 import i from '../i18n';
 import { default as comments } from './comments-mockup';
 
@@ -84,11 +85,11 @@ export default class Comments extends React.Component<any, any> {
   stars(rate) {
     return _.times(5, (i) => {
       if (rate < i + 0.5) {
-        return <FontIcon key={i} className="material-icons">star_border</FontIcon>;
+        return <IconWrap key={i} icon="star_border" aria="star empty" />;
       } else if (rate < i + 1) {
-        return <FontIcon key={i} className="material-icons">star_half</FontIcon>;
+        return <IconWrap key={i} icon="star_half" aria="star half" />;
       } else {
-        return <FontIcon key={i} className="material-icons">star</FontIcon>;
+        return <IconWrap key={i} icon="star" aria="star full" />;
       }
     });
   }

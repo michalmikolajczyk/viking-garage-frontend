@@ -1,19 +1,17 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import {
-  FontIcon,
   SelectField,
   MenuItem,
   Toggle,
 } from 'material-ui';
-import debug from 'debug';
-const log = debug('app:Select');
+import IconWrap from '../IconWrap';
 import i from '../i18n';
 
 export default class Select extends React.Component<any, any> {
-  state = { values: new Set() }
+  state = { values: new Set() };
 
-  selectionRenderer = (values) => [...values].sort().map(m => m.indexOf('#') > -1 ? m.split('#')[1] : m).join(', ');
+  selectionRenderer = values => [...values].sort().map(m => m.indexOf('#') > -1 ? m.split('#')[1] : m).join(', ');
 
   menuItems = () => items.map((item) => {
     if (item.indexOf('#') > -1) {
@@ -85,7 +83,7 @@ export default class Select extends React.Component<any, any> {
   render() {
     return (
       <div className="filter search-select">
-        <FontIcon className="material-icons">keyboard_arrow_down</FontIcon>
+        <IconWrap icon="keyboard_arrow_down" />
         <div className="input">
           <SelectField
             id="search-select"
@@ -150,7 +148,7 @@ const rawItems = {
   // ],
 };
 
-const items = _.flatten(_.keys(rawItems).map((item) => [
+const items = _.flatten(_.keys(rawItems).map(item => [
   item,
   ...rawItems[item].map(it => `${item}#${it}`),
 ]));
