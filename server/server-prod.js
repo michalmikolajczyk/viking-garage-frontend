@@ -5,11 +5,13 @@ const hbs = require('express-handlebars');
 const fs = require('fs');
 const render = require('../dist/ssr').default;
 const API = process.env.API_URL;
+const GA = process.env.GOOGLE_ANALYTICS;
 
 function send(res, content, context) {
   res.render('index', {
     content,
     context,
+    GA,
   });
 }
 
