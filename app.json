@@ -34,8 +34,7 @@
     },
     "GA_TRACKER": {
       "description": "Google Analytics property ID (tracking ID)",
-      "value": "https://viking-garage-api-staging.herokuapp.com/",
-      "required": true
+      "required": false
     },
     "NODE_ENV": {
       "description": "Mode of running application",
