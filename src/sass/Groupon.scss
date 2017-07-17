@@ -1,0 +1,34 @@
+.groupon-main {
+    max-width: 1120px;
+    margin: 55px auto;
+    padding: 55px;
+    box-sizing: border-box;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    > * {
+        margin: 0;
+    }
+    a.image-link {
+        display: block;
+        float: left;
+        // max-height: 22.6px;
+        max-width: 233px;
+        padding: 55px;
+        margin: -55px 0 0 -55px;
+        img {
+            max-width: 233px;
+        }
+    }
+    a.reganchor {
+        text-decoration: underline;
+    }
+    p.groupon-p {
+        margin-bottom: 55px;
+        line-height: 21px;
+        font-weight: 300;
+    }
+    > :last-child {
+        clear: both;
+        margin-bottom: 0px !important;
+    }
+}

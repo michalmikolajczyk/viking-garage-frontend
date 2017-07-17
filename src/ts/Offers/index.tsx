@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import Header from '../Header';
+import Groupon from '../Groupon';
 import SearchPure from '../Search/SearchPure';
 import OffersList from './OffersList';
 import NetworkError from '../Dialogs/NetworkError';
@@ -107,6 +108,7 @@ export default class Offers extends React.Component<any, any> {
       <div>
         <AppBarVG {...filters}/>
         <Header />
+        <Groupon />
         <div className="mobile-hid">
           <SearchPure {...filters} />
         </div>
