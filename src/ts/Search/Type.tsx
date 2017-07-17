@@ -106,6 +106,7 @@ export default class Select extends React.Component<any, any> {
 
 const rawItems = {
   Motorcycle: [
+    'GROUPON®',
     'Off-road',
     'Street',
     'Dual-sport',
