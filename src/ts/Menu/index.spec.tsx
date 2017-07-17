@@ -9,7 +9,7 @@ describe('<Menu />', () => {
   it('check for inner components', () => {
     const wrapper = mountWithTheme(<Menu />);
     expect(wrapper.find('.menu')).to.have.length(1);
-    expect(wrapper.find('.menu-item')).to.have.length(5);
+    expect(wrapper.find('.menu-item')).to.have.length(4);
   });
 
   // it('check if user logged in display user menu', () => {
