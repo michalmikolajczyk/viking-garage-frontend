@@ -32,7 +32,7 @@ export default class Offers extends React.Component<any, any> {
 
       networkErr: false,
     };
-    this.limit = _.get(context, 'data.vgLimit', 8);
+    this.limit = parseInt(_.get(context, 'data.vgLimit', 8), 10);
   }
 
   componentDidMount() {
