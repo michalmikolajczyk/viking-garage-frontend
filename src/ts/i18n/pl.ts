@@ -364,6 +364,7 @@ export default {
   'Base price': 'Cena',
   'USD': 'PLN',
   'day': 'dzień',
+  'hour': 'godzina',
   'Start Date': 'Data Rozpoczęcia',
   'End Date': 'Data Zakończenia',
   'Equipment': 'Wyposażenie',
