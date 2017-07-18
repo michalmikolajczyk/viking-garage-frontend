@@ -39,6 +39,7 @@ Please look into Heroku Pipelines
 Docker - Travis CI - Github - Heroku Pipeline - Review - Development - Staging - Production
 
 ## Logs
+Application use [debug](https://github.com/visionmedia/debug) (npm module) for logs on client & server side (checkout link for docs)
 To enable logs from the production server, set env var `DEBUG=server`
 To enable logs from the app on client side, set in a `localStorage`:
 ```

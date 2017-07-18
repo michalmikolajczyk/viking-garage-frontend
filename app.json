@@ -33,7 +33,7 @@
       "required": true
     },
     "DEBUG": {
-      "description": "Variable for debug loggin (set to 'server' to show production server logs)",
+      "description": "Env var for logs (set to 'server' to show production server logs)",
       "required": false
     },
     "GA_TRACKER": {
