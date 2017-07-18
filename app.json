@@ -32,6 +32,10 @@
       "value": "https://viking-garage-api-staging.herokuapp.com/",
       "required": true
     },
+    "DEBUG": {
+      "description": "Variable for debug loggin (set to 'server' to show production server logs)",
+      "required": false
+    },
     "GA_TRACKER": {
       "description": "Google Analytics property ID (tracking ID)",
       "required": false
@@ -49,6 +53,10 @@
     "PORT": {
       "description": "Port to run application server",
       "required": true
+    },
+    "VG_LIMIT": {
+      "description": "Limit for pagination in main view",
+      "required": false
     }
   },
   "formation": {},
