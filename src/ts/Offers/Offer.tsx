@@ -5,6 +5,7 @@ import { FontIcon } from 'material-ui';
 import * as geolib from 'geolib';
 import { Link } from 'react-router';
 import i from '../i18n';
+import { renderUnit } from '../Groupon/helper';
 
 export default function Offer(props) {
   const {
@@ -33,7 +34,7 @@ export default function Offer(props) {
   const query = date && { start: moment(date.start).unix(), end: moment(date.end).unix() };
   const renderLink = id ? { pathname: `offer/${id}/${url}`, query } : '/';
   const renderTitle = title || '';
-  const renderPrice = price && `${fx(price).to(i('USD')).toFixed(2)} ${i('USD')}/${i('day')}${distance}`;
+  const renderPrice = price && `${renderUnit(data)}${distance}`;
   const renderImage = image && { backgroundImage: `url(${image})` };
 
   return disable ? (
