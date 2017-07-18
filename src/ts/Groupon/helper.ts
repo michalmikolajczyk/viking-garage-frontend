@@ -14,7 +14,7 @@ export function renderUnit(offer): string {
   const unit = _.includes(subtypes, offer.subtype) ? 'hour' : 'day';
   const price = _.get(offer, 'price', 0);
   console.log(price);
-  return `${fx(price).to(i('USD')).toFixed(2)} ${i('USD')}/${i(unit)}`;
+  return `${fx(price).to(i('USD')).toFixed(2)} ${i('USD')} / ${i(unit)}`;
 }
 
 export function countTotal(offer, range: number): string {
