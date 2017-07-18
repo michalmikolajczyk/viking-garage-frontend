@@ -4,6 +4,7 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const fs = require('fs');
 const render = require('../dist/ssr').default;
+const vgLimit = process.env.VG_LIMIT || 8;
 const API = process.env.API_URL;
 const GA = process.env.GA_TRACKER;
 
@@ -43,6 +44,7 @@ module.exports = {
         if (err || response.statusCode != 200) return errorHandler(err, req, response, next);
         const json = JSON.parse(body);
         const data = {
+          vgLimit,
           offers: json,
           userAgent: req.headers['user-agent'],
         };
@@ -58,6 +60,7 @@ module.exports = {
         if (err || response.statusCode != 200) return errorHandler(err, req, response, next);
         const json = JSON.parse(body);
         const data = {
+          vgLimit,
           offer: json,
           userAgent: req.headers['user-agent'],
         };
@@ -68,7 +71,10 @@ module.exports = {
     });
 
     app.get('*', function (req, res) {
-      const data = { userAgent: req.headers['user-agent'] }
+      const data = {
+        vgLimit,
+        userAgent: req.headers['user-agent'],
+      };
       render(req.url, data)
         .then(app => send(res, app, JSON.stringify(data)))
         .catch(err => res.send('Internal server error'));
