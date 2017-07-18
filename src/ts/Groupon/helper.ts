@@ -10,10 +10,8 @@ const subtypes = [
 
 export function renderUnit(offer): string {
   if (!offer) return '';
-  console.log(offer);
   const unit = _.includes(subtypes, offer.subtype) ? 'hour' : 'day';
   const price = _.get(offer, 'price', 0);
-  console.log(price);
   return `${fx(price).to(i('USD')).toFixed(2)} ${i('USD')} / ${i(unit)}`;
 }
 
