@@ -7,6 +7,7 @@ import Accordion from '../Accordion';
 import HeaderVG from './HeaderVG';
 import ListVG from './ListVG';
 import parser from '../helpers/parser';
+import { isHour } from '../helpers/hours';
 import FormVG from '../FormVG';
 import * as api from './api';
 
@@ -41,6 +42,7 @@ export default class Detail extends React.Component<any, any> {
     const { offer } = this.state;
     const motorcycles = _.get(offer, 'motorcycles[0]', {});
     const general = parser('general', motorcycles);
+    const hour = isHour(offer);
 
     return (
       <div>
@@ -48,10 +50,10 @@ export default class Detail extends React.Component<any, any> {
         <div className="detail">
           <HeaderVG offer={offer} />
           <FormVG
+            hour={hour}
             offer={offer}
             end={this.state.end}
             start={this.state.start}
-            hour={true}
           />
           <div className="brief-text mobile-tablet-only">
             {_.get(offer, 'brief')}
