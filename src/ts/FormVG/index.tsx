@@ -41,7 +41,7 @@ export default class FormVG extends React.Component<any, any> {
   getMessage = () => `RIDE REQUEST - ${this.getTitle(this.props.offer)}
 Offer: ${location.hostname}/offer/${this.props.offer.id},
 Start date: ${this.state.startDate || 'no date'},
-End date: ${this.state.endDate || 'no date'},
+End date: ${this.props.hour ? (this.state.startDate || 'no date') : (this.state.endDate || 'no date')},
 Equipment: ${this.state.equipment},
 Price: ${this.getPrice(this.props.offer)},
 Total: ${this.getTotal(this.props.offer)},

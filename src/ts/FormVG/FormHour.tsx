@@ -70,6 +70,7 @@ export default function FormHour(props) {
           className="date-picker"
           format={timeFormat}
           autoOk={true}
+          value={endDate}
           minutesStep={15}
           hintText={i('Start Hour')}
           onChange={endDateChange}
