@@ -10,7 +10,7 @@ import Raido from '../Raido';
 import {
   countTotal,
   renderUnit,
-} from '../Groupon/helper';
+} from '../helpers/hours';
 import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
@@ -27,8 +27,14 @@ export default class FormVG extends React.Component<any, any> {
   getTitle = offer => _.get(offer, 'title', '');
   getPrice = offer => renderUnit(offer);
   getTotal = offer => countTotal(offer, this.getRange());
-  getRange = () => (this.state.startDate && this.state.endDate) ? (Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1) : 0;
+  getRange = () => {
+    if (this.props.hour && this.state.interval) return this.state.interval.val;
+    if (!this.props.hour && this.state.startDate && this.state.endDate) return Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1;
+    return 0;
+  }
+
   endDateChange = (ev, endDate) => this.setState({ endDate });
+  intervalChange = (ev, interval) => this.setState({ interval });
   startDateChange = (ev, startDate) => this.setState({ startDate });
   equipmentChange = (ev, index, equipment) => this.setState({ equipment });
 
@@ -39,6 +45,7 @@ End date: ${this.state.endDate || 'no date'},
 Equipment: ${this.state.equipment},
 Price: ${this.getPrice(this.props.offer)},
 Total: ${this.getTotal(this.props.offer)},
+Range: ${this.getRange()} ${this.props.hour ? 'hours' : 'days'}
 Currency: ${i('USD')}`
 
   render() {
@@ -55,6 +62,7 @@ Currency: ${i('USD')}`
       price,
       total,
       endDateChange: this.endDateChange,
+      intervalChange: this.intervalChange,
       startDateChange: this.startDateChange,
       equipmentChange: this.equipmentChange,
     };

@@ -5,7 +5,7 @@ import { FontIcon } from 'material-ui';
 import * as geolib from 'geolib';
 import { Link } from 'react-router';
 import i from '../i18n';
-import { renderUnit } from '../Groupon/helper';
+import { renderUnit } from '../helpers/hours';
 
 export default function Offer(props) {
   const {

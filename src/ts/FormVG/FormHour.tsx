@@ -1,8 +1,10 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import * as moment from 'moment';
 import * as fx from 'money';
 import {
   DatePicker,
+  TimePicker,
   FontIcon,
   SelectField,
   MenuItem,
@@ -15,22 +17,26 @@ export default function FormHour(props) {
     price,
     total,
     endDate,
-    equipment,
+    interval,
     startDate,
+    equipment,
     endDateChange,
+    intervalChange,
     equipmentChange,
     startDateChange,
   } = props;
 
   function shouldDisableDateStart(date) {
-    if (!endDate) return moment().isAfter(date, 'days');
-    return !moment(date).isBetween(moment(), endDate, 'days', '[]');
+    return moment().isAfter(date, 'days');
   }
 
-  function shouldDisableDateEnd(date) {
-    if (!startDate) return moment().isAfter(date, 'days');
-    return moment(startDate).isAfter(date, 'days');
+  const hours = [1, 2, 3, 5, 8];
+
+  function onIntervalChange(ev, key) {
+    intervalChange(ev, { val: hours[key], ind: key });
   }
+
+  const timeFormat = i() === 'en' ? 'ampm' : '24hr';
 
   return (
     <div className="form-pure">
@@ -57,34 +63,35 @@ export default function FormHour(props) {
         />
       </div>
       <div className="field">
-        <IconWrap icon="date_range" />
-        <DatePicker
+        <IconWrap icon="access_time" />
+        <TimePicker
           id="form-end-date"
           name="end-date"
           className="date-picker"
+          format={timeFormat}
           autoOk={true}
-          value={endDate}
-          hintText={i('End Date')}
+          minutesStep={15}
+          hintText={i('Start Hour')}
           onChange={endDateChange}
           fullWidth={true}
           hintStyle={{ paddingLeft: 35 }}
           inputStyle={{ paddingLeft: 35 }}
-          shouldDisableDate={shouldDisableDateEnd}
         />
       </div>
       <div className="field">
-        <FontIcon className="fa fa-angle-down" />
+        <IconWrap icon="timelapse" />
         <SelectField
           id="form-equipment"
           className="equipment"
-          value={equipment}
-          onChange={equipmentChange}
+          value={_.get(interval, 'ind')}
+          onChange={onIntervalChange}
+          autoWidth={true}
           fullWidth={true}
+          hintText={i('Duration')}
           hintStyle={{ paddingLeft: 35 }}
           labelStyle={{ paddingLeft: 35 }}
         >
-          <MenuItem key={1} value={1} primaryText={`${i('Equipment')}: ${i('Basic')}`} />
-          <MenuItem key={2} value={2} primaryText={`${i('Equipment')}: ${i('Full')}`} />
+          {hours.map((val, ind) => <MenuItem key={ind} value={ind} primaryText={moment.duration(val, 'hour').humanize()} />)}
         </SelectField>
       </div>
       <div className="field empty">
