@@ -17,7 +17,6 @@ export function renderUnit(offer): string {
 
 export function countTotal(offer, range: number): string {
   if (!_.has(offer, 'subtype')) return '';
-  const unit = _.includes(subtypes, offer.subtype) ? 24 : 1;
-  const total = _.get(offer, 'price', 0) * unit * range;
+  const total = _.get(offer, 'price', 0) * range;
   return `${fx(total).to(i('USD')).toFixed(2)} ${i('USD')}`;
 }
