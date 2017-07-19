@@ -367,6 +367,8 @@ export default {
   'hour': 'godzina',
   'Start Date': 'Data Rozpoczęcia',
   'End Date': 'Data Zakończenia',
+  'Start Hour': 'Godzina Rozpoczęcia',
+  'Duration': 'Czas Trwania',
   'Equipment': 'Wyposażenie',
   'Basic': 'Podstawowe',
   'Full': 'Pełne',
