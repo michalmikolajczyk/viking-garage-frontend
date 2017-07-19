@@ -6,10 +6,6 @@ import FormPure from './FormPure';
 import FormWrap from './FormWrap';
 import Contact from '../Contact';
 import Raido from '../Raido';
-import {
-  countTotal,
-  renderUnit,
-} from '../Groupon/helper';
 import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
@@ -23,10 +19,10 @@ export default class FormVG extends React.Component<any, any> {
     };
   }
 
-  getTitle = offer => _.get(offer, 'title', '');
-  getPrice = offer => renderUnit(offer);
-  getTotal = offer => countTotal(offer, this.getRange());
+  getTitle = offer => _.get(offer, 'title', '')
+  getPrice = offer => _.get(offer, 'price', 0)
   getRange = () => (this.state.startDate && this.state.endDate) ? (Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1) : 0;
+  getTotal = () => this.getPrice(this.props.offer) * this.getRange();
   endDateChange = (ev, endDate) => this.setState({ endDate });
   startDateChange = (ev, startDate) => this.setState({ startDate });
   equipmentChange = (ev, index, equipment) => this.setState({ equipment });
@@ -36,15 +32,15 @@ Offer: ${location.hostname}/offer/${this.props.offer.id},
 Start date: ${this.state.startDate || 'no date'},
 End date: ${this.state.endDate || 'no date'},
 Equipment: ${this.state.equipment},
-Price: ${this.getPrice(this.props.offer)},
-Total: ${this.getTotal(this.props.offer)},
-Currency: ${i('USD')}`
+Price: ${fx(this.getPrice(this.props.offer)).to(i('USD')).toFixed(2)} ${i('USD')},
+Total: ${fx(this.getTotal()).to(i('USD')).toFixed(2)} ${i('USD')},
+Currency: ${i('USD')}`;
 
   render() {
     const { offer } = this.props;
     const title = this.getTitle(offer);
     const price = this.getPrice(offer);
-    const total = this.getTotal(offer);
+    const total = this.getTotal();
 
     const formData = {
       ...this.state,
@@ -53,7 +49,7 @@ Currency: ${i('USD')}`
       endDateChange: this.endDateChange,
       startDateChange: this.startDateChange,
       equipmentChange: this.equipmentChange,
-    };
+    }
 
     return (
       <FormWrap>

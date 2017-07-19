@@ -10,10 +10,6 @@ const expect = chai.expect;
 import { formsyContext } from '../helpers/test-theme';
 import * as moment from 'moment';
 import * as _ from 'lodash';
-import {
-  countTotal,
-  renderUnit,
-} from '../Groupon/helper';
 
 import FormVG from './';
 import { offer } from '../Detail/mockup';
@@ -34,7 +30,7 @@ describe('<FormVG />', () => {
 
   it('check if simple methods works fine', () => {
     expect(instance.getTitle(instance.props.offer)).to.be.equal(offer.title);
-    expect(instance.getPrice(instance.props.offer)).to.be.equal(renderUnit(instance.props.offer));
+    expect(instance.getPrice(instance.props.offer)).to.be.equal(offer.price);
   });
 
   it('check if total calculation works fine', () => {
@@ -45,7 +41,7 @@ describe('<FormVG />', () => {
     _.forEach(days, (day) => {
       const end = day > 0 ? moment().add(day, 'days').toDate() : moment().subtract(day, 'days').toDate();
       instance['endDateChange'](undefined, end);
-      expect(instance.getTotal(instance.props.offer)).to.be.equal(countTotal(instance.props.offer, Math.abs(day) + 1));
+      expect(instance.getTotal()).to.be.equal(((Math.abs(day) + 1) * price));
     });
   });
 });
