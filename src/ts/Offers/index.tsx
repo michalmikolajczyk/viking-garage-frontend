@@ -11,10 +11,10 @@ import debug from 'debug';
 const log = debug('app:Offers');
 import { offers } from '../Detail/mockup';
 import { default as AppBarVG } from '../AppBar';
-const limit = process.env.VG_LIMIT || 7;
 
 export default class Offers extends React.Component<any, any> {
-  static contextTypes = { data: React.PropTypes.object }
+  static contextTypes = { data: React.PropTypes.object };
+  limit: number;
 
   constructor(props, context) {
     super(props, context);
@@ -32,6 +32,7 @@ export default class Offers extends React.Component<any, any> {
 
       networkErr: false,
     };
+    this.limit = parseInt(_.get(context, 'data.vgLimit', 8), 10);
   }
 
   componentDidMount() {
@@ -48,7 +49,7 @@ export default class Offers extends React.Component<any, any> {
           list,
           offset: res['offset'],
           empty: res['empty'],
-          last: res['data'].length < limit,
+          last: res['data'].length < this.limit,
           load: false,
         });
       })
@@ -71,17 +72,17 @@ export default class Offers extends React.Component<any, any> {
     }
   }
 
-  locationFilter = (location) => this.setState({ location, offset: 0 }, this.update);
+  locationFilter = location => this.setState({ location, offset: 0 }, this.update);
 
-  distanceFilter = (distance) => this.setState({ distance, offset: 0 }, this.update);
+  distanceFilter = distance => this.setState({ distance, offset: 0 }, this.update);
 
-  typeFilter = (type) => this.setState({ type, offset: 0 }, this.update);
+  typeFilter = type => this.setState({ type, offset: 0 }, this.update);
 
-  dateFilter = (date) => this.setState({ date, offset: 0 }, this.update);
+  dateFilter = date => this.setState({ date, offset: 0 }, this.update);
 
   closeNetworkErr = () => this.setState({ networkErr: false });
 
-  loadMore = () => this.setState({ offset: this.state.offset + limit }, this.update);
+  loadMore = () => this.setState({ offset: this.state.offset + this.limit }, this.update);
 
   render() {
     const {

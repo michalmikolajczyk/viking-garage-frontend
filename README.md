@@ -38,14 +38,16 @@ You can now access the app through your localhost, default port: 3000.
 Please look into Heroku Pipelines
 Docker - Travis CI - Github - Heroku Pipeline - Review - Development - Staging - Production
 
-## Debug
-To enable logs from the App, set in a `localStorage`:
+## Logs
+Application use [debug](https://github.com/visionmedia/debug) (npm module) for logs on client & server side (checkout link for docs)
+To enable logs from the production server, set env var `DEBUG=server`
+To enable logs from the app on client side, set in a `localStorage`:
 ```
 localStorage.setItem('debug', 'app:*')
 ```
 To add logger to a new module:
 ```
 import debug from 'debug';
-var log = debug('app:NameOfModule');
-log('goes to stdout');
+const log = debug('app:NameOfModule');
+log('goes to stdout with prefix "app:NameOfModule"');
 ```
