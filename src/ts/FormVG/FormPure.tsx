@@ -32,14 +32,12 @@ export default function FormPure(props) {
     return moment(startDate).isAfter(date, 'days');
   }
 
-  const localPrice = fx(price).to(i('USD')).toFixed(2);
-  const localTotal = fx(total).to(i('USD')).toFixed(2);
   return (
     <div className="form-pure">
       <div className="field empty">
         <FontIcon className="fa fa-money" />
         <div className="text">
-          {`${i('Base price')}: ${localPrice} ${i('USD')} / ${i('day')}`}
+          {`${i('Base price')}: ${price}`}
         </div>
       </div>
       <div className="field">
@@ -90,7 +88,7 @@ export default function FormPure(props) {
         </SelectField>
       </div>
       <div className="field empty">
-        {`${i('Total')}: ${localTotal} ${i('USD')}`}
+        {`${i('Total')}: ${total}`}
       </div>
     </div>
   );
