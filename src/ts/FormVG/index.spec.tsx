@@ -28,7 +28,7 @@ describe('<FormVG />', () => {
 
   it('check for form inner components', () => {
     expect(wrapper.find('FormWrap')).to.have.length(1);
-    expect(wrapper.find('FormPure')).to.have.length(2);
+    expect(wrapper.find('FormDay')).to.have.length(2);
     expect(wrapper.find('Contact')).to.have.length(1);
   });
 

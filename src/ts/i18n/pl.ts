@@ -360,7 +360,7 @@ export default {
  * Ride
  */
 
-// FormPure
+// FormDay & FormHour
   'Base price': 'Cena',
   'USD': 'PLN',
   'day': 'dzień',

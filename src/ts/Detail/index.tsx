@@ -11,7 +11,7 @@ import FormVG from '../FormVG';
 import * as api from './api';
 
 export default class Detail extends React.Component<any, any> {
-  static contextTypes = { data: React.PropTypes.object }
+  static contextTypes = { data: React.PropTypes.object };
 
   constructor(props, context) {
     super(props, context);
@@ -51,6 +51,7 @@ export default class Detail extends React.Component<any, any> {
             offer={offer}
             end={this.state.end}
             start={this.state.start}
+            hour={true}
           />
           <div className="brief-text mobile-tablet-only">
             {_.get(offer, 'brief')}

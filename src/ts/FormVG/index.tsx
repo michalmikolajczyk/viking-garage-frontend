@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as _ from 'lodash';
 import * as fx from 'money';
 import * as moment from 'moment';
-import FormPure from './FormPure';
+import FormDay from './FormDay';
+import FormHour from './FormHour';
 import FormWrap from './FormWrap';
 import Contact from '../Contact';
 import Raido from '../Raido';
@@ -41,7 +42,10 @@ Total: ${this.getTotal(this.props.offer)},
 Currency: ${i('USD')}`
 
   render() {
-    const { offer } = this.props;
+    const {
+      hour,
+      offer,
+    } = this.props;
     const title = this.getTitle(offer);
     const price = this.getPrice(offer);
     const total = this.getTotal(offer);
@@ -55,10 +59,12 @@ Currency: ${i('USD')}`
       equipmentChange: this.equipmentChange,
     };
 
+    const form = hour ? <FormHour {...formData} /> : <FormDay  {...formData} />;
+
     return (
       <FormWrap>
         <div className="title mobile-tablet-hid">{title}</div>
-        <FormPure {...formData} />
+        {form}
         <div>
           <Contact
             type="ride"
@@ -72,7 +78,7 @@ Currency: ${i('USD')}`
             <div className="title">
               {title}
             </div>
-            <FormPure {...formData} />
+            {form}
             <div className="text">
               {i('If you are interested in that ride, leave us your details - our team will contact you:')}
             </div>
