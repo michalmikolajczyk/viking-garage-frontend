@@ -2,14 +2,15 @@ import * as React from 'react';
 import * as _ from 'lodash';
 import * as fx from 'money';
 import * as moment from 'moment';
-import FormPure from './FormPure';
+import FormDay from './FormDay';
+import FormHour from './FormHour';
 import FormWrap from './FormWrap';
 import Contact from '../Contact';
 import Raido from '../Raido';
 import {
   countTotal,
   renderUnit,
-} from '../Groupon/helper';
+} from '../helpers/hours';
 import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
@@ -26,22 +27,32 @@ export default class FormVG extends React.Component<any, any> {
   getTitle = offer => _.get(offer, 'title', '');
   getPrice = offer => renderUnit(offer);
   getTotal = offer => countTotal(offer, this.getRange());
-  getRange = () => (this.state.startDate && this.state.endDate) ? (Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1) : 0;
+  getRange = () => {
+    if (this.props.hour && this.state.interval) return this.state.interval.val;
+    if (!this.props.hour && this.state.startDate && this.state.endDate) return Math.abs(moment(this.state.endDate).diff(moment(this.state.startDate), 'days')) + 1;
+    return 0;
+  }
+
   endDateChange = (ev, endDate) => this.setState({ endDate });
+  intervalChange = (ev, interval) => this.setState({ interval });
   startDateChange = (ev, startDate) => this.setState({ startDate });
   equipmentChange = (ev, index, equipment) => this.setState({ equipment });
 
   getMessage = () => `RIDE REQUEST - ${this.getTitle(this.props.offer)}
 Offer: ${location.hostname}/offer/${this.props.offer.id},
 Start date: ${this.state.startDate || 'no date'},
-End date: ${this.state.endDate || 'no date'},
+End date: ${this.props.hour ? (this.state.startDate || 'no date') : (this.state.endDate || 'no date')},
 Equipment: ${this.state.equipment},
 Price: ${this.getPrice(this.props.offer)},
 Total: ${this.getTotal(this.props.offer)},
+Range: ${this.getRange()} ${this.props.hour ? 'hours' : 'days'}
 Currency: ${i('USD')}`
 
   render() {
-    const { offer } = this.props;
+    const {
+      hour,
+      offer,
+    } = this.props;
     const title = this.getTitle(offer);
     const price = this.getPrice(offer);
     const total = this.getTotal(offer);
@@ -51,14 +62,17 @@ Currency: ${i('USD')}`
       price,
       total,
       endDateChange: this.endDateChange,
+      intervalChange: this.intervalChange,
       startDateChange: this.startDateChange,
       equipmentChange: this.equipmentChange,
     };
 
+    const form = hour ? <FormHour {...formData} /> : <FormDay  {...formData} />;
+
     return (
       <FormWrap>
         <div className="title mobile-tablet-hid">{title}</div>
-        <FormPure {...formData} />
+        {form}
         <div>
           <Contact
             type="ride"
@@ -72,7 +86,7 @@ Currency: ${i('USD')}`
             <div className="title">
               {title}
             </div>
-            <FormPure {...formData} />
+            {form}
             <div className="text">
               {i('If you are interested in that ride, leave us your details - our team will contact you:')}
             </div>

@@ -13,7 +13,7 @@ import * as _ from 'lodash';
 import {
   countTotal,
   renderUnit,
-} from '../Groupon/helper';
+} from '../helpers/hours';
 
 import FormVG from './';
 import { offer } from '../Detail/mockup';
@@ -26,18 +26,25 @@ describe('<FormVG />', () => {
     instance = wrapper.instance();
   });
 
-  it('check for form inner components', () => {
+  it('should displays proper components for daily renting', () => {
     expect(wrapper.find('FormWrap')).to.have.length(1);
-    expect(wrapper.find('FormPure')).to.have.length(2);
+    expect(wrapper.find('FormDay')).to.have.length(1);
     expect(wrapper.find('Contact')).to.have.length(1);
   });
 
-  it('check if simple methods works fine', () => {
+  it('should displays proper components for hourly renting', () => {
+    wrapper = shallow(<FormVG offer={offer} hour={true} />, formsyContext());
+    expect(wrapper.find('FormWrap')).to.have.length(1);
+    expect(wrapper.find('FormHour')).to.have.length(1);
+    expect(wrapper.find('Contact')).to.have.length(1);
+  });
+
+  it('should displays title and price properly', () => {
     expect(instance.getTitle(instance.props.offer)).to.be.equal(offer.title);
     expect(instance.getPrice(instance.props.offer)).to.be.equal(renderUnit(instance.props.offer));
   });
 
-  it('check if total calculation works fine', () => {
+  it('should calculates total price for daily renting', () => {
     const days = [0, 7, -5];
     const price = 55;
     const start = moment().toDate();
@@ -46,6 +53,18 @@ describe('<FormVG />', () => {
       const end = day > 0 ? moment().add(day, 'days').toDate() : moment().subtract(day, 'days').toDate();
       instance['endDateChange'](undefined, end);
       expect(instance.getTotal(instance.props.offer)).to.be.equal(countTotal(instance.props.offer, Math.abs(day) + 1));
+    });
+  });
+
+  it('should calculates total price for hourly renting', () => {
+    wrapper = shallow(<FormVG offer={offer} hour={true} />, formsyContext());
+    instance = wrapper.instance();
+    const hours = [1, 2, 3, 5, 8];
+    const intervals = hours.map((val, ind) => ({ val, ind }));
+    const price = 55;
+    _.forEach(intervals, (interval) => {
+      instance['intervalChange'](undefined, interval);
+      expect(instance.getTotal(instance.props.offer)).to.be.equal(countTotal(instance.props.offer, interval.val));
     });
   });
 });

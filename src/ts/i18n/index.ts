@@ -18,4 +18,4 @@ export default function translate(s?: string) {
 fx.rates = {
   'PLN': 1,
   'USD': 0.27,
-}
+};

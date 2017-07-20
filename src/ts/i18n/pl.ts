@@ -360,13 +360,15 @@ export default {
  * Ride
  */
 
-// FormPure
+// FormDay & FormHour
   'Base price': 'Cena',
   'USD': 'PLN',
   'day': 'dzień',
   'hour': 'godzina',
   'Start Date': 'Data Rozpoczęcia',
   'End Date': 'Data Zakończenia',
+  'Start Hour': 'Godzina Rozpoczęcia',
+  'Duration': 'Czas Trwania',
   'Equipment': 'Wyposażenie',
   'Basic': 'Podstawowe',
   'Full': 'Pełne',

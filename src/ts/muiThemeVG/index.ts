@@ -6,13 +6,14 @@ const muiThemeVG = {
   palette: {
     primary1Color: '#000000',
     primary2Color: '#000000',
+    pickerHeaderColor: '#000000',
   },
   raisedButton: {
-    primaryTextColor: 'white',
+    primaryTextColor: '#FFFFFF',
     primaryColor: raidoRed1,
   },
   appBar: {
-    color: '#ffffff',
+    color: '#FFFFFF',
     textColor: '#000000',
   },
   menuItem: {
@@ -22,6 +23,6 @@ const muiThemeVG = {
     // trackOnColor: raidoRed1,
     thumbOnColor: '#000000',
   },
-}
+};
 
-export default muiThemeVG
+export default muiThemeVG;

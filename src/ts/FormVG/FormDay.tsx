@@ -10,7 +10,7 @@ import {
 import IconWrap from '../IconWrap';
 import i from '../i18n';
 
-export default function FormPure(props) {
+export default function FormDay(props) {
   const {
     price,
     total,
