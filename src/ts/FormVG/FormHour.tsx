@@ -71,7 +71,7 @@ export default function FormHour(props) {
           format={timeFormat}
           autoOk={true}
           value={endDate}
-          minutesStep={15}
+          minutesStep={60}
           hintText={i('Start Hour')}
           onChange={endDateChange}
           fullWidth={true}
