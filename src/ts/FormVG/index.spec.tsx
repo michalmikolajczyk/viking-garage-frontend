@@ -26,25 +26,25 @@ describe('<FormVG />', () => {
     instance = wrapper.instance();
   });
 
-  it('check for form inner components in day form', () => {
+  it('should displays proper components for daily renting', () => {
     expect(wrapper.find('FormWrap')).to.have.length(1);
     expect(wrapper.find('FormDay')).to.have.length(1);
     expect(wrapper.find('Contact')).to.have.length(1);
   });
 
-  it('check for form inner components in hour form', () => {
+  it('should displays proper components for hourly renting', () => {
     wrapper = shallow(<FormVG offer={offer} hour={true} />, formsyContext());
     expect(wrapper.find('FormWrap')).to.have.length(1);
     expect(wrapper.find('FormHour')).to.have.length(1);
     expect(wrapper.find('Contact')).to.have.length(1);
   });
 
-  it('check if displaying title & price works properly', () => {
+  it('should displays title and price properly', () => {
     expect(instance.getTitle(instance.props.offer)).to.be.equal(offer.title);
     expect(instance.getPrice(instance.props.offer)).to.be.equal(renderUnit(instance.props.offer));
   });
 
-  it('check if total calculation for day form works fine', () => {
+  it('should calculates total price for daily renting', () => {
     const days = [0, 7, -5];
     const price = 55;
     const start = moment().toDate();
@@ -56,7 +56,7 @@ describe('<FormVG />', () => {
     });
   });
 
-  it('check if total calculation for hour form works fine', () => {
+  it('should calculates total price for hourly renting', () => {
     wrapper = shallow(<FormVG offer={offer} hour={true} />, formsyContext());
     instance = wrapper.instance();
     const hours = [1, 2, 3, 5, 8];
