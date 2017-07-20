@@ -8,14 +8,14 @@ const subtypes = [
   'off-road',
 ];
 
-export function isHour(offer): boolean {
+export function isHourlySubtype(offer): boolean {
   if (!offer) return false;
   return _.includes(subtypes, offer.subtype);
 }
 
 export function renderUnit(offer): string {
   if (!offer) return '';
-  const unit = isHour(offer) ? 'hour' : 'day';
+  const unit = isHourlySubtype(offer) ? 'hour' : 'day';
   const price = _.get(offer, 'price', 0);
   return `${fx(price).to(i('USD')).toFixed(2)} ${i('USD')} / ${i(unit)}`;
 }
