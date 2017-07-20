@@ -51,7 +51,7 @@
     "enzyme": "^2.7.1",
     "express-handlebars": "^3.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
-    "formsy-material-ui": "^0.6.0",
+    "formsy-material-ui": "0.6.0",
     "formsy-react": "^0.19.2",
     "geolib": "^2.0.22",
     "jsdom": "^9.10.0",
