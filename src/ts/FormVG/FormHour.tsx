@@ -46,11 +46,11 @@ export default function FormHour(props) {
   }
 
   function selectionRendererMeet(ind) {
-    return `Meet up at ${moment(hoursMeet[ind], 'H').format('H:mm')}`;
+    return `${i('Meet up at')} ${moment(hoursMeet[ind], 'H').format('H:mm')}`;
   }
 
   function selectionRendererRide(ind) {
-    return `Ride for ${moment.duration(hoursRide[ind], 'hour').humanize()}`;
+    return `${i('Ride for')} ${moment.duration(hoursRide[ind], 'hour').humanize()}`;
   }
 
   return (
@@ -86,7 +86,7 @@ export default function FormHour(props) {
           onChange={onIntervalChange}
           autoWidth={true}
           fullWidth={true}
-          hintText={i('Ride for...')}
+          hintText={`${i('Ride for')}...`}
           hintStyle={{ paddingLeft: 35 }}
           labelStyle={{ paddingLeft: 35 }}
           selectionRenderer={selectionRendererRide}
@@ -104,7 +104,7 @@ export default function FormHour(props) {
           maxHeight={300}
           autoWidth={true}
           fullWidth={true}
-          hintText={i('Meet up at...')}
+          hintText={`${i('Meet up at')}...`}
           hintStyle={{ paddingLeft: 35 }}
           labelStyle={{ paddingLeft: 35 }}
           selectionRenderer={selectionRendererMeet}
