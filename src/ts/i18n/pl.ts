@@ -368,7 +368,7 @@ export default {
   'Start Date': 'Data Rozpoczęcia',
   'End Date': 'Data Zakończenia',
   'Meet up at': 'Rozpoczęcie o',
-  'Ride for': 'Czas jazd:',
+  'Ride for': 'Czas jazd',
   'Equipment': 'Wyposażenie',
   'Basic': 'Podstawowe',
   'Full': 'Pełne',
