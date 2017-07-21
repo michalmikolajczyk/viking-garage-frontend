@@ -36,17 +36,23 @@ export default class FormVG extends React.Component<any, any> {
   endDateChange = (ev, endDate) => this.setState({ endDate });
   intervalChange = (ev, interval) => this.setState({ interval });
   startDateChange = (ev, startDate) => this.setState({ startDate });
+  startHourChange = (ev, startHour) => this.setState({ startHour });
   equipmentChange = (ev, index, equipment) => this.setState({ equipment });
 
-  getMessage = () => `RIDE REQUEST - ${this.getTitle(this.props.offer)}
+  getMessage = () => {
+    const endOrHour = this.props.hour
+    ? `Start hour: ${_.get(this.state, 'startHour.val', 'no data')}:00`
+    : `End date: ${(this.state.endDate || 'no date')}`;
+    return `RIDE REQUEST - ${this.getTitle(this.props.offer)}
 Offer: ${location.hostname}/offer/${this.props.offer.id},
 Start date: ${this.state.startDate || 'no date'},
-End date: ${this.props.hour ? (this.state.startDate || 'no date') : (this.state.endDate || 'no date')},
+${endOrHour},
 Equipment: ${this.state.equipment},
 Price: ${this.getPrice(this.props.offer)},
 Total: ${this.getTotal(this.props.offer)},
 Range: ${this.getRange()} ${this.props.hour ? 'hours' : 'days'}
 Currency: ${i('USD')}`
+  }
 
   render() {
     const {
@@ -64,6 +70,7 @@ Currency: ${i('USD')}`
       endDateChange: this.endDateChange,
       intervalChange: this.intervalChange,
       startDateChange: this.startDateChange,
+      startHourChange: this.startHourChange,
       equipmentChange: this.equipmentChange,
     };
 

@@ -18,11 +18,12 @@ export default function FormHour(props) {
     total,
     endDate,
     interval,
+    startHour,
     startDate,
     equipment,
-    endDateChange,
     intervalChange,
     equipmentChange,
+    startHourChange,
     startDateChange,
   } = props;
 
@@ -30,13 +31,27 @@ export default function FormHour(props) {
     return moment().isAfter(date, 'days');
   }
 
-  const hours = [1, 2, 3, 5, 8];
+  const hoursRide = [1, 2, 3, 5, 8];
+
+  const hoursMeet = _.range(1, 24);
 
   function onIntervalChange(ev, key) {
-    intervalChange(ev, { val: hours[key], ind: key });
+    const value = { val: hoursRide[key], ind: key }
+    intervalChange(ev, value);
   }
 
-  const timeFormat = i() === 'en' ? 'ampm' : '24hr';
+  function onStartHourChange(ev, key) {
+    const value = { val: hoursMeet[key], ind: key };
+    startHourChange(ev, value);
+  }
+
+  function selectionRendererMeet(ind) {
+    return `Meet up at ${moment(hoursMeet[ind], 'H').format('H:mm')}`;
+  }
+
+  function selectionRendererRide(ind) {
+    return `Ride for ${moment.duration(hoursRide[ind], 'hour').humanize()}`;
+  }
 
   return (
     <div className="form-pure">
@@ -63,36 +78,38 @@ export default function FormHour(props) {
         />
       </div>
       <div className="field">
-        <IconWrap icon="access_time" />
-        <TimePicker
-          id="form-end-date"
-          name="end-date"
-          className="date-picker"
-          format={timeFormat}
-          autoOk={true}
-          value={endDate}
-          minutesStep={60}
-          hintText={i('Start Hour')}
-          onChange={endDateChange}
-          fullWidth={true}
-          hintStyle={{ paddingLeft: 35 }}
-          inputStyle={{ paddingLeft: 35 }}
-        />
-      </div>
-      <div className="field">
         <IconWrap icon="timelapse" />
         <SelectField
-          id="form-equipment"
-          className="equipment"
+          id="form-hourride"
+          className="hourride"
           value={_.get(interval, 'ind')}
           onChange={onIntervalChange}
           autoWidth={true}
           fullWidth={true}
-          hintText={i('Duration')}
+          hintText={i('Ride for...')}
           hintStyle={{ paddingLeft: 35 }}
           labelStyle={{ paddingLeft: 35 }}
+          selectionRenderer={selectionRendererRide}
         >
-          {hours.map((val, ind) => <MenuItem key={ind} value={ind} primaryText={moment.duration(val, 'hour').humanize()} />)}
+          {hoursRide.map((val, ind) => <MenuItem key={ind} value={ind} primaryText={moment.duration(val, 'hour').humanize()} />)}
+        </SelectField>
+      </div>
+      <div className="field">
+        <IconWrap icon="access_time" />
+        <SelectField
+          id="form-hourmeet"
+          className="hourmeet"
+          value={_.get(startHour, 'ind')}
+          onChange={onStartHourChange}
+          maxHeight={300}
+          autoWidth={true}
+          fullWidth={true}
+          hintText={i('Meet up at...')}
+          hintStyle={{ paddingLeft: 35 }}
+          labelStyle={{ paddingLeft: 35 }}
+          selectionRenderer={selectionRendererMeet}
+        >
+          {hoursMeet.map((val, ind) => <MenuItem key={ind} value={ind} primaryText={moment(val, 'H').format('H:mm')} />)}
         </SelectField>
       </div>
       <div className="field empty">
