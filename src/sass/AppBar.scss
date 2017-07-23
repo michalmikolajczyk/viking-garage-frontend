@@ -1,4 +1,4 @@
-.app-bar {
+.appbar {
   position: fixed !important;
   transform: translate3d(0,0,0) !important;
   .title {
@@ -9,19 +9,49 @@
     margin: -8px 0 0 -8px !important;
     box-sizing: border-box;
   }
+  .appbar-search {
+    .input {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      & > div {
+        display: flex !important;
+        padding-top: 5px !important;
+      }
+    }
+    input {
+      padding-right: 30px !important;
+    }
+    .material-icons {
+      line-height: 68px !important;
+      cursor: pointer;
+    }
+    .right-btn {
+      position: absolute;
+      right: 0;
+      width: 24px;
+      height: 64px;
+      flex-direction: column;
+    }
+  }
 }
 
 .border {
-  .app-bar {
+  .appbar {
     border-bottom: 1px solid $col-border;
   }
 }
 
 @media screen and (min-width: $tablet-min) {
-  .app-bar {
+  .appbar {
     .title {
       width: 80px;
       padding: 15px 0 0 40px;
+    }
+    .appbar-search {
+      .right-btn {
+        display: none;
+      }
     }
   }
   .border {
@@ -31,3 +61,18 @@
   }
 }
 
+@media screen and (min-width: $desktop-min) {
+  .appbar {
+    .appbar-search {
+      max-width: 350px;
+      display: none;
+    }
+  }
+  .border {
+    .appbar {
+      .appbar-search {
+        display: block;
+      }
+    }
+  }
+}
