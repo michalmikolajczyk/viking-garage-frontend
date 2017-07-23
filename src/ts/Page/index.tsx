@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link } from 'react-router';
-import AppBar from '../AppBar';
 import Contact from '../Contact';
 import pages from './pages';
 import i from '../i18n';

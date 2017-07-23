@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { browserHistory } from 'react-router';
 import * as _ from 'lodash';
-import { default as AppBarVG } from '../AppBar';
 import NetworkError from '../Dialogs/NetworkError';
 import Accordion from '../Accordion';
 import HeaderVG from './HeaderVG';

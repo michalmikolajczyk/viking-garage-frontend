@@ -102,7 +102,7 @@ export default class Wrapper extends React.Component<any, any> {
 
     return (
       <div>
-        <AppBarVG {...filters}/>
+        <AppBarVG {...filters} location={this.state.location} />
         {childrenWithProps}
         <NetworkError
           open={this.state.networkErr}

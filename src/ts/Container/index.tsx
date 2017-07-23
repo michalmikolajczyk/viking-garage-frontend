@@ -4,8 +4,8 @@ import {
   getMuiTheme,
   MuiThemeProvider,
 } from 'material-ui/styles';
+import Wrapper from '../Wrapper';
 import muiThemeVG from '../muiThemeVG';
-import Footer from '../Footer';
 
 export default class Container extends React.Component<any, any> {
   static contextTypes = { data: React.PropTypes.object };
