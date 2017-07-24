@@ -30,6 +30,7 @@ export default class Distance extends React.Component<any, any> {
             id="search-distance"
             hintText={i('Set distance...')}
             maxSearchResults={5}
+            searchText={this.props.value ? `${this.props.value} km` : ''}
             filter={AutoComplete.noFilter}
             openOnFocus={true}
             onNewRequest={this.onNewRequest}

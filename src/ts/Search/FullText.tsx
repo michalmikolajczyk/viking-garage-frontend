@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { browserHistory } from 'react-router';
 import * as _ from 'lodash';
 import { AutoComplete } from 'material-ui';
 import MobileSearch from './MobileSearch';
@@ -35,6 +36,7 @@ export default class FullText extends React.Component<any, any> {
             lng: place.geometry.location.lng(),
             val: details.description,
           });
+          browserHistory.push('/');
         }
       });
     }
@@ -80,9 +82,9 @@ export default class FullText extends React.Component<any, any> {
           </div>
         </div>
         <MobileSearch
+          {...this.props}
           open={this.state.open}
           toggle={this.toggle}
-          {...this.props}
         />
       </div>
     );
