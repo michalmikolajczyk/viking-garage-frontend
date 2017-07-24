@@ -74,10 +74,10 @@ export default function MenuVG(props: MenuVGProps) {
 
   return (
     <div>
-      <IconMenu className="mobile-only" iconButtonElement={<IconButton><FontIcon className="fa fa-bars" /></IconButton>}>
+      <IconMenu className="mobile-tablet-only" iconButtonElement={<IconButton><FontIcon className="fa fa-bars" /></IconButton>}>
         {menuItems}
       </IconMenu>
-      <div className="mobile-hid">
+      <div className="mobile-tablet-hid">
         {menuItems}
       </div>
     </div>
