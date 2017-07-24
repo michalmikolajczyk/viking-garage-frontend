@@ -7,7 +7,10 @@ import Raido from '../Raido';
 import Menu from '../Menu';
 
 interface AppBarVGProps {
-  location: object;
+  date: any;
+  type: any;
+  location: any;
+  distance: any;
   typeFilter: (type: any) => void;
   dateFilter: (date: any) => void;
   locationFilter: (location: any) => void;

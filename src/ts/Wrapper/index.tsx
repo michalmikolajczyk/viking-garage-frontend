@@ -74,7 +74,7 @@ export default class Wrapper extends React.Component<any, any> {
 
   typeFilter = type => this.setState({ type, offset: 0 }, this.update);
 
-  dateFilter = date => this.setState({ date, offset: 0 }, this.update);
+  dateFilter = date => this.setState({ date: { ...this.state.date, ...date }, offset: 0 }, this.update);
 
   loadMore = () => this.setState({ offset: this.state.offset + this.limit }, this.update);
 
@@ -102,7 +102,7 @@ export default class Wrapper extends React.Component<any, any> {
 
     return (
       <div>
-        <AppBarVG {...filters} location={this.state.location} />
+        <AppBarVG {...props} />
         {childrenWithProps}
         <NetworkError
           open={this.state.networkErr}
