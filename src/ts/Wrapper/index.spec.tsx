@@ -9,7 +9,7 @@ import * as sinonChai from 'sinon-chai';
 chai.use(sinonChai);
 const expect = chai.expect;
 import * as api from './api';
-import { default as Offers } from './';
+import { default as Wrapper } from './';
 import { offers } from '../Detail/mockup';
 
 const coords = {
@@ -17,24 +17,23 @@ const coords = {
   longitude: '21.047533',
 };
 
-describe('<Offers />', () => {
+describe('<Wrapper />', () => {
   let wrapper;
   let instance;
 
   beforeEach(() => {
-    wrapper = shallow(<Offers />);
+    wrapper = shallow(<Wrapper><div /></Wrapper>);
     instance = wrapper.instance();
   });
 
-  it('check for inner components', () => {
+  it('should displays inner components', () => {
     expect(wrapper.find('AppBarVG')).to.have.length(1);
-    expect(wrapper.find('Header')).to.have.length(1);
-    expect(wrapper.find('SearchPure')).to.have.length(1);
-    expect(wrapper.find('OffersList')).to.have.length(1);
+    expect(wrapper.find('NetworkError')).to.have.length(1);
+    expect(wrapper.find('Footer')).to.have.length(1);
   });
 
-  it('check if loads offers on componentDidMount', (done) => {
-    const spy = sinon.spy(Offers.prototype, 'componentDidMount');
+  it('should loads offers immediately ', () => {
+    const spy = sinon.spy(Wrapper.prototype, 'componentDidMount');
     const get = sinon.stub(api, 'get', () => {
       return Promise.resolve([]);
     });
@@ -44,13 +43,11 @@ describe('<Offers />', () => {
     expect(spy).to.be.calledOnce;
     get.restore();
     spy.restore();
-    // sometimes it takes very long (> 2 sec) to render all components with mount
-    done();
   });
 
-  it('check if loading list works properly', () => {
+  it('should loads more offers and displays them', () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
-    instance.setState = sinon.spy(instance.setState)
+    instance.setState = sinon.spy(instance.setState);
 
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.list).to.be.deep.equal([{},{}]);
@@ -66,20 +63,20 @@ describe('<Offers />', () => {
     get['restore']();
   });
 
-  it('check if loads list on backend error', () => {
+  it('should displays internet connection error', () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.state.networkErr).to.be.false;
 
     instance['update']();
-    get.resolves({ err: 'no internet connection'});
+    get.resolves({ err: 'no internet connection' });
 
     expect(instance.setState).to.have.been.calledOnce;
     expect(instance.state.networkErr).to.be.true;
     get['restore']();
   });
 
-  it('check if loads list on unexpected network error', () => {
+  it('should displays unexpected network error', () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.state.networkErr).to.be.false;
@@ -87,7 +84,7 @@ describe('<Offers />', () => {
     instance['update']();
     get.rejects('something gone wrong');
 
-    expect(instance.setState).to.have.been.calledOnce
+    expect(instance.setState).to.have.been.calledOnce;
     expect(instance.state.networkErr).to.be.true;
     get['restore']();
   });

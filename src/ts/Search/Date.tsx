@@ -5,65 +5,56 @@ import { DatePicker } from 'material-ui';
 import i from '../i18n';
 import IconWrap from '../IconWrap';
 
-export default function DateVG(props) {
-  const {
-    value,
-    filter,
-  } = props;
+export default class DateVG extends React.Component<any, any> {
 
-  const end = _.get(value, 'end');
-  const start = _.get(value, 'start');
+  onChangeStart = (event, date) => this.props.filter({ start: date });
 
-  function onChangeStart(event, date) {
-    filter({ start: date });
+  onChangeEnd = (event, date) => this.props.filter({ end: date });
+
+  shouldDisableDateStart = (date) => {
+    if (!_.has(this.props, 'value.end')) return moment().isAfter(date, 'days');
+    return !moment(date).isBetween(moment(), this.props.value.end, 'days', '[]');
   }
 
-  function onChangeEnd(event, date) {
-    filter({ end: date });
+  shouldDisableDateEnd = (date) => {
+    if (!_.has(this.props, 'value.start')) return moment().isAfter(date, 'days');
+    return moment(this.props.value.start).isAfter(date, 'days');
   }
 
-  function shouldDisableDateStart(date) {
-    if (!end) return moment().isAfter(date, 'days');
-    return !moment(date).isBetween(moment(), end, 'days', '[]');
-  }
-
-  function shouldDisableDateEnd(date) {
-    if (!start) return moment().isAfter(date, 'days');
-    return moment(start).isAfter(date, 'days');
-  }
-
-  return (
-    <div className="date-wrap">
-      <div className="filter">
-        <IconWrap icon="today" />
-        <DatePicker
-          id="search-date-start"
-          className="input"
-          value={start}
-          autoOk={true}
-          onChange={onChangeStart}
-          hintText={i('Start Date')}
-          fullWidth={true}
-          hintStyle={{ paddingLeft: 30 }}
-          inputStyle={{ paddingLeft: 30 }}
-          shouldDisableDate={shouldDisableDateStart}
-        />
+  render() {
+    return (
+      <div className="date-wrap">
+        <div className="filter">
+          <IconWrap icon="today" />
+          <DatePicker
+            id="search-date-start"
+            className="input"
+            value={_.get(this.props, 'value.start')}
+            autoOk={true}
+            onChange={this.onChangeStart}
+            hintText={i('Start Date')}
+            fullWidth={true}
+            hintStyle={{ paddingLeft: 30 }}
+            inputStyle={{ paddingLeft: 30 }}
+            shouldDisableDate={this.shouldDisableDateStart}
+          />
+        </div>
+        <div className="filter">
+          <IconWrap icon="date_range" />
+          <DatePicker
+            id="search-date-end"
+            className="input"
+            value={_.get(this.props, 'value.end')}
+            autoOk={true}
+            onChange={this.onChangeEnd}
+            hintText={i('End Date')}
+            fullWidth={true}
+            hintStyle={{ paddingLeft: 30 }}
+            inputStyle={{ paddingLeft: 30 }}
+            shouldDisableDate={this.shouldDisableDateEnd}
+          />
+        </div>
       </div>
-      <div className="filter">
-        <IconWrap icon="date_range" />
-        <DatePicker
-          id="search-date-end"
-          className="input"
-          value={end}
-          autoOk={true}
-          onChange={onChangeEnd}
-          hintText={i('End Date')}
-          fullWidth={true}
-          hintStyle={{ paddingLeft: 30 }}
-          inputStyle={{ paddingLeft: 30 }}
-          shouldDisableDate={shouldDisableDateEnd}
-        />
-      </div>
-    </div>
-  );
+    );
+  }
 }

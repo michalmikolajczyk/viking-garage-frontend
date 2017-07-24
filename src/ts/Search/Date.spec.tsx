@@ -10,7 +10,7 @@ import * as moment from 'moment';
 import DateVG from './Date';
 
 describe('Search <Date />', () => {
-  it('check for inner components', () => {
+  it('should displays inner components', () => {
     const wrapper = shallow(<DateVG />);
     expect(wrapper.find('.date-wrap')).to.have.length(1);
     expect(wrapper.find('.filter')).to.have.length(2);
@@ -18,13 +18,10 @@ describe('Search <Date />', () => {
     expect(wrapper.find('DatePicker')).to.have.length(2);
   });
 
-  it('check if choosing the start date works properly', () => {
+  it('should pick up the start date properly', () => {
     const startDate = moment().toDate();
     const filter = sinon.spy((params) => {
-      const {
-        start,
-        end,
-      } = params;
+      const { start } = params;
       expect(start).to.be.equal(startDate);
     });
     const wrapper = shallow(<DateVG filter={filter} />);
@@ -32,13 +29,10 @@ describe('Search <Date />', () => {
     instance['onChangeStart'](undefined, startDate);
   });
 
-  it('check if choosing the end date works properly', () => {
+  it('should pick up the end date properly', () => {
     const endDate = moment().toDate();
     const filter = sinon.spy((params) => {
-      const {
-        start,
-        end,
-      } = params;
+      const { end } = params;
       expect(end).to.be.equal(endDate);
     });
     const wrapper = shallow(<DateVG filter={filter} />);
@@ -46,7 +40,7 @@ describe('Search <Date />', () => {
     instance['onChangeEnd'](undefined, endDate);
   });
 
-  it('check if dates before today are disabled', () => {
+  it('should displays dates before today as disabled', () => {
     const wrongDate = moment().add(-5, 'days').toDate();
     const okDate = moment().add(5, 'days').toDate();
     const wrapper = shallow(<DateVG filter={() => {}} />);
@@ -57,38 +51,34 @@ describe('Search <Date />', () => {
     expect(instance['shouldDisableDateEnd'](okDate)).to.be.false;
   });
 
-  it('check if dates after picked end date are disabled', () => {
+  it('should displays dates after picked end date as disabled', () => {
     const wrongStartDate = moment().add(10, 'days').toDate();
     const okStartDate = moment().add(1, 'days').toDate();
     const endDate = moment().add(5, 'days').toDate();
-    const wrapper = shallow(<DateVG filter={() => {}} />);
+    const wrapper = shallow(<DateVG filter={() => {}} value={{ end: endDate }} />);
     const instance = wrapper.instance();
-    instance['onChangeEnd'](undefined, endDate);
     expect(instance['shouldDisableDateStart'](wrongStartDate)).to.be.true;
     expect(instance['shouldDisableDateStart'](okStartDate)).to.be.false;
   });
 
-  it('check if dates before picked start date are disabled', () => {
+  it('should displays dates before picked start date as disabled', () => {
     const startDate = moment().add(10, 'days').toDate();
     const wrongEndDate = moment().add(5, 'days').toDate();
     const okEndDate = moment().add(15, 'days').toDate();
-    const wrapper = shallow(<DateVG filter={() => {}} />);
+    const wrapper = shallow(<DateVG filter={() => {}} value={{ start: startDate }} />);
     const instance = wrapper.instance();
-    instance['onChangeStart'](undefined, startDate);
     expect(instance['shouldDisableDateEnd'](wrongEndDate)).to.be.true;
     expect(instance['shouldDisableDateEnd'](okEndDate)).to.be.false;
   });
 
-  it('check if dates between picked start and end date are active', () => {
+  it('should displays dates between picked start and end date as active', () => {
     const startDate = moment().add(5, 'days').toDate();
     const endDate = moment().add(10, 'days').toDate();
     const okMiddle =  moment().add(7, 'days').toDate();
     const before = moment().add(3, 'days').toDate();
     const after = moment().add(13, 'days').toDate();
-    const wrapper = shallow(<DateVG filter={() => {}} />);
+    const wrapper = shallow(<DateVG filter={() => {}} value={{ start: startDate, end: endDate }}/>);
     const instance = wrapper.instance();
-    instance['onChangeStart'](undefined, startDate);
-    instance['onChangeEnd'](undefined, endDate);
     expect(instance['shouldDisableDateEnd'](okMiddle)).to.be.false;
     expect(instance['shouldDisableDateStart'](okMiddle)).to.be.false;
     expect(instance['shouldDisableDateEnd'](before)).to.be.true;
