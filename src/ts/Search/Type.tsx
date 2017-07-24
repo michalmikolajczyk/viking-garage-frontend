@@ -8,10 +8,19 @@ import {
 import IconWrap from '../IconWrap';
 import i from '../i18n';
 
-export default class Select extends React.Component<any, any> {
-  state = { values: new Set() };
+export default class Type extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = { values: _.get(props, 'value.ind', new Set()) };
+  }
 
   selectionRenderer = values => [...values].sort().map(m => m.indexOf('#') > -1 ? m.split('#')[1] : m).join(', ');
+
+  componentWillReceiveProps(props) {
+    if (_.has(props, 'value.ind') && this.state.value !== props.value.ind) {
+      this.setState({ values: props.value.ind });
+    }
+  }
 
   menuItems = () => items.map((item) => {
     if (item.indexOf('#') > -1) {
@@ -45,8 +54,11 @@ export default class Select extends React.Component<any, any> {
 
   save = (values) => {
     const set = new Set(values);
-    this.props.filter(this.selectionRenderer(set).replace(/\s/g, ''));
-    this.setState({ values: set });
+    const update = {
+      ind: set,
+      val: this.selectionRenderer(set).replace(/\s/g, ''),
+    };
+    this.setState({ values: set }, this.props.filter(update));
   }
 
   onChange = (event, index, values) => {
