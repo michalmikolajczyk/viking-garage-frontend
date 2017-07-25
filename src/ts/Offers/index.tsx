@@ -1,5 +1,13 @@
 import * as React from 'react';
 import * as _ from 'lodash';
+import {
+  IDate,
+  IType,
+  TDistance,
+  ILocation,
+  IFiltersFuncs,
+  IFiltersValue,
+} from '../typings';
 import AppBarVG from '../AppBarVG';
 import Header from '../Header';
 import Groupon from '../Groupon';
@@ -14,16 +22,10 @@ interface OffersProps {
   empty: boolean;
   loading: boolean;
 
-  date: any;
-  type: any;
-  location: any;
-  distance: any;
+  filtersFuncs: IFiltersFuncs;
+  filtersValue: IFiltersValue;
 
   loadMore: () => void;
-  typeFilter: (type: any) => void;
-  dateFilter: (date: any) => void;
-  locationFilter: (location: any) => void;
-  distanceFilter: (distance: any) => void;
 };
 
 export default function Offers(props: OffersProps) {
@@ -33,8 +35,7 @@ export default function Offers(props: OffersProps) {
     empty,
     loading,
     loadMore,
-    date,
-    location,
+    filtersValue,
   } = props;
 
   const emptyMsg = empty && (<div className="offers-empty">{i('There is no offers matching to your filters!')}</div>);
@@ -50,10 +51,10 @@ export default function Offers(props: OffersProps) {
       </div>
       {emptyMsg}
       <OffersList
-        date={date}
+        date={filtersValue.date}
         list={list}
         loading={loading}
-        location={location}
+        location={filtersValue.location}
       />
       {loadMoreBtn}
     </div>

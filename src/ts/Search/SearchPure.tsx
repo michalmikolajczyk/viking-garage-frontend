@@ -1,32 +1,38 @@
 import * as React from 'react';
 import { FontIcon } from 'material-ui';
+import {
+  IFiltersFuncs,
+  IFiltersValue,
+} from '../typings';
 import Date from './Date';
 import Type from './Type';
 import Location from './Location';
 import Distance from './Distance';
 
 interface SearchPureProps {
-  date: any;
-  type: any;
-  location: any;
-  distance: any;
-  typeFilter: (type: any) => void;
-  dateFilter: (date: any) => void;
-  locationFilter: (location: any) => void;
-  distanceFilter: (distance: any) => void;
+  filtersFuncs: IFiltersFuncs;
+  filtersValue: IFiltersValue;
 }
 
 export default function SearchPure(props: SearchPureProps) {
+  const {
+    filtersFuncs,
+    filtersValue,
+  } = props;
+
   const {
     date,
     type,
     location,
     distance,
+  } = filtersValue;
+
+  const {
     dateFilter,
     typeFilter,
     distanceFilter,
     locationFilter,
-  } = props;
+  } = filtersFuncs;
 
   return (
     <div className="search">

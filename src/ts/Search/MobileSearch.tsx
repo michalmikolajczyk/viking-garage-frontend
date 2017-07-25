@@ -1,17 +1,15 @@
 import * as React from 'react';
+import {
+  IFiltersFuncs,
+  IFiltersValue,
+} from '../typings';
 import SearchPure from './SearchPure';
 
 interface MobileSearchProps {
   open: boolean;
   toggle: () => void;
-  date: any;
-  type: any;
-  location: any;
-  distance: any;
-  typeFilter: (type: any) => void;
-  dateFilter: (date: any) => void;
-  locationFilter: (location: any) => void;
-  distanceFilter: (distance: any) => void;
+  filtersFuncs: IFiltersFuncs;
+  filtersValue: IFiltersValue;
 }
 
 export default function MobileSearch(props: MobileSearchProps) {

@@ -1,20 +1,18 @@
 import * as React from 'react';
 import { Link } from 'react-router';
 import { AppBar } from 'material-ui';
+import {
+  IFiltersFuncs,
+  IFiltersValue,
+} from '../typings';
 import AppBarWrap from './AppBarWrap';
 import FullText from '../Search/FullText';
 import Raido from '../Raido';
 import Menu from '../Menu';
 
 interface AppBarVGProps {
-  date: any;
-  type: any;
-  location: any;
-  distance: any;
-  typeFilter: (type: any) => void;
-  dateFilter: (date: any) => void;
-  locationFilter: (location: any) => void;
-  distanceFilter: (distance: any) => void;
+  filtersFuncs: IFiltersFuncs;
+  filtersValue: IFiltersValue;
 }
 
 export default function AppBarVG(props: AppBarVGProps) {

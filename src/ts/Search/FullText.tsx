@@ -2,12 +2,21 @@ import * as React from 'react';
 import { browserHistory } from 'react-router';
 import * as _ from 'lodash';
 import { AutoComplete } from 'material-ui';
+import {
+  IFiltersFuncs,
+  IFiltersValue,
+} from '../typings';
 import MobileSearch from './MobileSearch';
 import IconWrap from '../IconWrap';
 import i from '../i18n';
 declare const google: any;
 
-export default class FullText extends React.Component<any, any> {
+interface FullTextProps {
+  filtersFuncs: IFiltersFuncs;
+  filtersValue: IFiltersValue;
+}
+
+export default class FullText extends React.Component<FullTextProps, any> {
   state = {
     data: [],
     open: false,
@@ -20,18 +29,12 @@ export default class FullText extends React.Component<any, any> {
 
   toggle = () => this.setState({ open: !this.state.open });
 
-  componentWillReceiveProps(props) {
-    if (_.has(props, 'value.val') && this.state.value !== props.value.val) {
-      this.setState({ value: props.value.val });
-    }
-  }
-
   onNewRequest = (details, index) => {
     if (this.placesService && details) {
       const placeId = details['place_id'];
       this.placesService.getDetails({ placeId }, (place, status) => {
         if (status === this.statusOk) {
-          this.props.locationFilter({
+          this.props.filtersFuncs.locationFilter({
             lat: place.geometry.location.lat(),
             lng: place.geometry.location.lng(),
             val: details.description,

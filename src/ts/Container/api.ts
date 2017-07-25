@@ -1,13 +1,15 @@
 import API from '../API';
+import * as _ from 'lodash';
 import * as moment from 'moment';
+import { IFiltersValue } from '../typings';
 
-export function get(state) {
-  const location = state.location ? `lat=${state.location.lat}&lng=${state.location.lng}` : '';
-  const distance = state.distance ? `&dist=${state.distance * 1000}` : '';
-  const offset = `&offset=${state.offset}`;
-  const type = state.type ? `&type=${state.type.val.toLowerCase()}` : '';
-  const date = state.date ? `&start=${moment(state.date.start).unix()}&end=${moment(state.date.end).unix()}` : '';
-  const req = `${API.offer}?${location}${distance}${offset}${type}${date}`;
+export function get(values: IFiltersValue, offset: number) {
+  const start = _.has(values, 'date.start') ? `&start=${moment(values.date.start).unix()}` : '';
+  const end = _.has(values, 'date.end') ? `&end=${moment(values.date.end).unix()}` : '';
+  const type = _.has(values, 'type.val') ? `&type=${values.type.val.toLowerCase()}` : '';
+  const distance = values.distance ? `&dist=${values.distance * 1000}` : '';
+  const location = _.has(values, 'location.lat') ? `lat=${values.location.lat}&lng=${values.location.lng}` : '';
+  const req = `${API.offer}?${location}${distance}&offset=${offset}${type}${start}${end}`;
 
   return fetch(req, {
     method: 'GET',
