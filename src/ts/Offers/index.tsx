@@ -9,15 +9,15 @@ import i from '../i18n';
 
 interface OffersProps {
   list: [object];
-  load: boolean;
+  last: boolean;
+  empty: boolean;
+  loading: boolean;
+
   date: any;
   type: any;
   location: any;
   distance: any;
-  empty: boolean;
-  emptyMsg: string;
 
-  ifLoadMore: boolean;
   loadMore: () => void;
   typeFilter: (type: any) => void;
   dateFilter: (date: any) => void;
@@ -28,16 +28,16 @@ interface OffersProps {
 export default function Offers(props: OffersProps) {
   const {
     list,
-    load,
-    date,
+    last,
     empty,
-    location,
-    ifLoadMore,
+    loading,
     loadMore,
+    date,
+    location,
   } = props;
 
   const emptyMsg = empty && (<div className="offers-empty">{i('There is no offers matching to your filters!')}</div>);
-  const loadMoreBtn = ifLoadMore && (<button onClick={loadMore} className="loadmore">{i('Load more')}</button>);
+  const loadMoreBtn = !last && (<button onClick={loadMore} className="loadmore">{i('Load more')}</button>);
 
   return (
     <div>
@@ -50,7 +50,7 @@ export default function Offers(props: OffersProps) {
       <OffersList
         date={date}
         list={list}
-        load={load}
+        loading={loading}
         location={location}
       />
       {loadMoreBtn}
