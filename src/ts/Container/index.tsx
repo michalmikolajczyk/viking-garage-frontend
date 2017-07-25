@@ -7,7 +7,6 @@ import {
 import muiThemeVG from '../muiThemeVG';
 import * as api from './api';
 import NetworkError from '../Dialogs/NetworkError';
-import AppBarVG  from '../AppBarVG';
 import Footer from '../Footer';
 const defaultLimit = 8;
 
@@ -83,7 +82,6 @@ export default class Container extends React.Component<any, any> {
     return (
       <MuiThemeProvider muiTheme={this.muiTheme}>
         <div>
-          <AppBarVG {...props} />
           {childrenWithProps}
           <Footer />
           <NetworkError

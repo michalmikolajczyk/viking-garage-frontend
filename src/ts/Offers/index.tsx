@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
+import AppBarVG from '../AppBarVG';
 import Header from '../Header';
 import Groupon from '../Groupon';
 import SearchPure from '../Search/SearchPure';
@@ -41,6 +42,7 @@ export default function Offers(props: OffersProps) {
 
   return (
     <div>
+      <AppBarVG {...props} />
       <Header />
       <Groupon />
       <div className="mobile-hid">

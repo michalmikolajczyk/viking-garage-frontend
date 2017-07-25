@@ -22,7 +22,7 @@ describe('<Container />', () => {
   });
 
   it('should displays inner components', () => {
-    expect(wrapper.find('AppBarVG')).to.have.length(1);
+    expect(wrapper.find('MuiThemeProvider')).to.have.length(1);
     expect(wrapper.find('NetworkError')).to.have.length(1);
     expect(wrapper.find('Footer')).to.have.length(1);
   });
