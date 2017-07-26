@@ -9,7 +9,7 @@ export const languages = [
 
 let langCode = (() => {
   if (typeof localStorage !== 'undefined' && localStorage.getItem('languageCode') !== null) return localStorage.getItem('languageCode');
-  if (typeof navigator !== 'undefined') return navigator.language || navigator['userLanguage'];
+  if (typeof navigator !== 'undefined') return (navigator.language || navigator['userLanguage']).substr(0, 2);
   return 'en';
 })();
 
