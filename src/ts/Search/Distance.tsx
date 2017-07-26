@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { AutoComplete } from 'material-ui';
-import IconWrap from '../IconWrap';
+import AutocompletePure from './AutocompletePure';
 import i from '../i18n';
 
 const dist = [2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657];
@@ -23,23 +22,15 @@ export default class Distance extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="filter">
-        <IconWrap icon="my_location" />
-        <div className="input">
-          <AutoComplete
-            id="search-distance"
-            hintText={i('Set distance...')}
-            maxSearchResults={5}
-            searchText={this.props.value ? `${this.props.value} km` : ''}
-            filter={AutoComplete.noFilter}
-            openOnFocus={true}
-            onNewRequest={this.onNewRequest}
-            onUpdateInput={this.onUpdateInput}
-            dataSource={this.state.data}
-            fullWidth={true}
-            hintStyle={{ paddingLeft: 30 }}
-          />
-        </div>
-      </div>);
+      <AutocompletePure
+        icon="my_location"
+        subId="search-distance"
+        hintText={i('Set distance...')}
+        searchText={this.props.value ? `${this.props.value} km` : ''}
+        onNewRequest={this.onNewRequest}
+        onUpdateInput={this.onUpdateInput}
+        dataSource={this.state.data}
+      />
+    );
   }
 }

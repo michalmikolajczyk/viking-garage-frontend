@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import { AutoComplete } from 'material-ui';
-import IconWrap from '../IconWrap';
+import AutocompletePure from './AutocompletePure';
 import i from '../i18n';
 declare const google: any;
 
@@ -57,25 +56,16 @@ export default class Location extends React.Component<any, any> {
 
   render() {
     return (
-      <div className={`filter ${this.props.appbar ? 'appbar' : ''}`}>
-        <IconWrap icon="location_on" aria="search by location" />
-        <div className="input">
-          <AutoComplete
-            id="search-location"
-            value={this.state.value}
-            hintText={i('Select place...')}
-            maxSearchResults={5}
-            openOnFocus={true}
-            filter={AutoComplete.noFilter}
-            onNewRequest={this.onNewRequest}
-            onUpdateInput={this.onUpdateInput}
-            dataSource={this.state.data}
-            dataSourceConfig={this.dataConfig}
-            fullWidth={true}
-            hintStyle={{ paddingLeft: 30 }}
-          />
-        </div>
-      </div>
+      <AutocompletePure
+        icon="location_on"
+        subId="search-location"
+        hintText={i('Select place...')}
+        searchText={this.state.value}
+        dataConfig={this.dataConfig}
+        dataSource={this.state.data}
+        onNewRequest={this.onNewRequest}
+        onUpdateInput={this.onUpdateInput}
+      />
     );
   }
 }

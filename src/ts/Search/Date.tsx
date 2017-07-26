@@ -1,9 +1,8 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import { DatePicker } from 'material-ui';
 import i from '../i18n';
-import IconWrap from '../IconWrap';
+import DatePickerPure from './DatePickerPure';
 
 export default class DateVG extends React.Component<any, any> {
 
@@ -24,36 +23,22 @@ export default class DateVG extends React.Component<any, any> {
   render() {
     return (
       <div className="date-wrap">
-        <div className="filter">
-          <IconWrap icon="today" />
-          <DatePicker
-            id="search-date-start"
-            className="input"
-            value={_.get(this.props, 'value.start')}
-            autoOk={true}
-            onChange={this.onChangeStart}
-            hintText={i('Start Date')}
-            fullWidth={true}
-            hintStyle={{ paddingLeft: 30 }}
-            inputStyle={{ paddingLeft: 30 }}
-            shouldDisableDate={this.shouldDisableDateStart}
-          />
-        </div>
-        <div className="filter">
-          <IconWrap icon="date_range" />
-          <DatePicker
-            id="search-date-end"
-            className="input"
-            value={_.get(this.props, 'value.end')}
-            autoOk={true}
-            onChange={this.onChangeEnd}
-            hintText={i('End Date')}
-            fullWidth={true}
-            hintStyle={{ paddingLeft: 30 }}
-            inputStyle={{ paddingLeft: 30 }}
-            shouldDisableDate={this.shouldDisableDateEnd}
-          />
-        </div>
+        <DatePickerPure
+          icon="today"
+          subId="search-date-start"
+          value={_.get(this.props, 'value.start')}
+          hintText={i('Start Date')}
+          onChange={this.onChangeStart}
+          shouldDisableDate={this.shouldDisableDateStart}
+        />
+        <DatePickerPure
+          icon="date_range"
+          subId="search-date-end"
+          value={_.get(this.props, 'value.end')}
+          hintText={i('Start Date')}
+          onChange={this.onChangeEnd}
+          shouldDisableDate={this.shouldDisableDateEnd}
+        />
       </div>
     );
   }

@@ -13,9 +13,7 @@ describe('Search <Date />', () => {
   it('should displays inner components', () => {
     const wrapper = shallow(<DateVG />);
     expect(wrapper.find('.date-wrap')).to.have.length(1);
-    expect(wrapper.find('.filter')).to.have.length(2);
-    expect(wrapper.find('.input')).to.have.length(2);
-    expect(wrapper.find('DatePicker')).to.have.length(2);
+    expect(wrapper.find('DatePickerPure')).to.have.length(2);
   });
 
   it('should pick up the start date properly', () => {

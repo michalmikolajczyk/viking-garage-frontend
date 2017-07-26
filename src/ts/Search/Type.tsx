@@ -1,12 +1,11 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import {
-  SelectField,
   MenuItem,
   Toggle,
 } from 'material-ui';
-import IconWrap from '../IconWrap';
 import i from '../i18n';
+import SelectFieldPure from './SelectFieldPure';
 
 export default class Type extends React.Component<any, any> {
   constructor(props) {
@@ -48,7 +47,7 @@ export default class Type extends React.Component<any, any> {
     }
   })
 
-  isGroup(str: String): boolean {
+  isGroup(str: string): boolean {
     return str.indexOf('#') === -1;
   }
 
@@ -94,24 +93,12 @@ export default class Type extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="filter search-select">
-        <IconWrap icon="keyboard_arrow_down" />
-        <div className="input">
-          <SelectField
-            id="search-select"
-            multiple={true}
-            hintText={i('Select type...')}
-            value={[...this.state.values]}
-            onChange={this.onChange}
-            selectionRenderer={this.selectionRenderer}
-            fullWidth={true}
-            hintStyle={{ paddingLeft: 30 }}
-            labelStyle={{ paddingLeft: 30 }}
-          >
-            {this.menuItems()}
-          </SelectField>
-        </div>
-      </div>
+      <SelectFieldPure
+        value={[...this.state.values]}
+        onChange={this.onChange}
+        selectItems={this.menuItems}
+        selectionRenderer={this.selectionRenderer}
+      />
     );
   }
 }
@@ -165,3 +152,4 @@ const items = _.flatten(_.keys(rawItems).map(item => [
   item,
   ...rawItems[item].map(it => `${item}#${it}`),
 ]));
+
