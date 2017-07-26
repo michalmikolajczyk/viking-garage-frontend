@@ -7,7 +7,7 @@ import i from '../i18n';
 
 export default function Page(props) {
   const type = props.location.pathname.split('/').pop();
-  const msg = pages[type];
+  const msg = pages(i())[type];
 
   const contact1 = msg['button'] && (
     <Contact
@@ -39,7 +39,7 @@ export default function Page(props) {
         {msg['dialog2']['body']}
       </div>
     </Contact>
-  )
+  );
 
   const page2 = msg['title2'] && (
     <div>
@@ -65,11 +65,11 @@ export default function Page(props) {
       {img1}
       <div className="text">{msg['text']}</div>
     </div>
-  )
+  );
 
   return (
     <div>
-      <AppBar />
+      <AppBar refresh={props.refresh} />
       <div className="page">
         <div className="title">{msg['title']}</div>
         <div className="head">{msg['head']}</div>
