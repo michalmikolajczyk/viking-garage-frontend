@@ -83,13 +83,13 @@ export default function MenuVG(props: MenuVGProps) {
         primaryText={`${i('Language')} (${i().toUpperCase()})`}
         menuItems={languageSelection}
       />
-      <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} />
       <MenuItem
         className="menu-item mobile-only"
         primaryText={`${i('Language')} (${i().toUpperCase()})`}
         rightIcon={<ArrowDropRight />}
         menuItems={languageSelection}
       />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} />
     </div>
   );
 

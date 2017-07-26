@@ -6,13 +6,13 @@ import { mountWithTheme } from '../helpers/test-theme';
 
 describe('<Container />', () => {
   it('check if all subcomponents are rendered', () => {
-    const wrapper = mountWithTheme(<Container />);
+    const wrapper = mountWithTheme(<Container><div /></Container>);
     expect(wrapper.find('MuiThemeProvider')).to.have.length(1);
     expect(wrapper.find('Footer')).to.have.length(1);
   });
 
   it('check if children are rendered', () => {
-    const wrapper = mountWithTheme(<Container><div className="children"></div></Container>);
+    const wrapper = mountWithTheme(<Container><div className="children" /></Container>);
     expect(wrapper.find('.children')).to.have.length(1);
   });
 });

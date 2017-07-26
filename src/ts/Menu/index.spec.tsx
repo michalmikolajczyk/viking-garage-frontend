@@ -7,9 +7,9 @@ import * as sinon from 'sinon';
 
 describe('<Menu />', () => {
   it('check for inner components', () => {
-    const wrapper = mountWithTheme(<Menu />);
+    const wrapper = mountWithTheme(<Menu refresh={() => {}} />);
     expect(wrapper.find('.menu')).to.have.length(1);
-    expect(wrapper.find('.menu-item')).to.have.length(4);
+    expect(wrapper.find('.menu-item')).to.have.length(6);
   });
 
   // it('check if user logged in display user menu', () => {
