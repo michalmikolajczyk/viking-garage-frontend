@@ -15,7 +15,7 @@ export default function AppBarVG(props) {
         showMenuIconButton={true}
         title={<Search {...props} />}
         titleStyle={{ padding: '0 10px' }}
-        iconElementRight={<Menu />}
+        iconElementRight={<Menu refresh={props.refresh} />}
         iconElementLeft={<Link to="/" className="title"><Raido /></Link>}
       />
     </AppBarWrap>);

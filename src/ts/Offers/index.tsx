@@ -107,7 +107,7 @@ export default class Offers extends React.Component<any, any> {
 
     return (
       <div>
-        <AppBarVG {...filters}/>
+        <AppBarVG {...filters} refresh={this.props.refresh}/>
         <Header />
         <Groupon />
         <div className="mobile-hid">

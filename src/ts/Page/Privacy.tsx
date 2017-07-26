@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Link } from 'react-router';
 import AppBar from '../AppBar';
 
-export default function Privacy() {
+export default function Privacy(props) {
   return (
     <div>
-      <AppBar />
+      <AppBar refresh={props.refresh} />
       <div className="privacy">
         <div className="title">Introduction</div>
         <p>
