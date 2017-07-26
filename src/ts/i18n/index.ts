@@ -18,7 +18,9 @@ changeLanguage(langCode);
 export function changeLanguage(code) {
   langCode = code;
   moment.locale(code);
-  localStorage.setItem('languageCode', code);
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('languageCode', code);
+  }
 }
 
 const TRANSLATIONS = {
