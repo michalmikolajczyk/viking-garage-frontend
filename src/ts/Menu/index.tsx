@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import {
   browserHistory,
   Link,
@@ -11,9 +12,12 @@ import {
   MenuItem,
   Paper,
 } from 'material-ui';
-import i from '../i18n';
+import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
+import i, { languages, changeLanguage } from '../i18n';
 
-export default function MenuVG(props) {
+interface MenuVGProps { refresh: () => void; }
+
+export default function MenuVG(props: MenuVGProps) {
   // function logout() {
   //   localStorage.removeItem('jwt');
   //   localStorage.removeItem('user');
@@ -55,12 +59,37 @@ export default function MenuVG(props) {
   //   </div>
   // );
 
+  const languageSelection = languages.map((val, key) => {
+    return (
+      <MenuItem
+        primaryText={i(val.lang)}
+        checked={val.code === i()}
+        insetChildren={true}
+        onTouchTap={() => {
+          changeLanguage(val.code);
+          props.refresh();
+        }}
+      />
+    );
+  });
+
   const menuItems = (
     <div className="menu">
       <MenuItem className="menu-item" containerElement={<Link to="/page/owner" />} primaryText={i('Bike Owners')} />
       <MenuItem className="menu-item" containerElement={<Link to="/page/guide" />} primaryText={i('Guides & Coaches')} />
       <MenuItem className="menu-item" containerElement={<Link to="/page/mechanic" />} primaryText={i('Mechanics')} />
+      <MenuItem
+        className="menu-item mobile-hid"
+        primaryText={`${i('Language')} (${i().toUpperCase()})`}
+        menuItems={languageSelection}
+      />
       <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} />
+      <MenuItem
+        className="menu-item mobile-only"
+        primaryText={`${i('Language')} (${i().toUpperCase()})`}
+        rightIcon={<ArrowDropRight />}
+        menuItems={languageSelection}
+      />
     </div>
   );
 
