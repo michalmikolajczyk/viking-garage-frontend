@@ -28,8 +28,8 @@ describe('Offer/Create: <Inputs />', () => {
   });
 
   it('check for inputs of offer', () => {
-    const wrapper = shallow(<Inputs offer={motorcycle} />, formsyContext());
-    expect(wrapper.find('.col')).to.have.length(motorcycle.length);
+    const wrapper = shallow(<Inputs offer={motorcycle()} />, formsyContext());
+    expect(wrapper.find('.col')).to.have.length(motorcycle().length);
   });
 
   it('check if showing table with sub-offer works', () => {

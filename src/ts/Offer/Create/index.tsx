@@ -39,15 +39,15 @@ export default class Create extends React.Component<any, any> {
 
               <Paper className="section">
                 <div className="header">Motorcycle specification</div>
-                <Inputs offer={motorcycle} />
+                <Inputs offer={motorcycle()} />
               </Paper>
 
               <DropImage />
 
               <Paper className="section">
-                <Inputs offer={helmet} type="Helmet" />
-                <Inputs offer={services} type="Services" />
-                <Inputs offer={accessories} type="Accessories" />
+                <Inputs offer={helmet()} type="Helmet" />
+                <Inputs offer={services()} type="Services" />
+                <Inputs offer={accessories()} type="Accessories" />
               </Paper>
 
               <Permissions />
