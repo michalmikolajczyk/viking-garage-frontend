@@ -46,7 +46,7 @@ export default class Detail extends React.Component<any, any> {
 
     return (
       <div>
-        <AppBarVG />
+        <AppBarVG refresh={this.props.refresh} />
         <div className="detail">
           <HeaderVG offer={offer} />
           <FormVG
