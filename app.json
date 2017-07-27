@@ -36,6 +36,10 @@
       "description": "Env var for logs (set to 'server' to show production server logs)",
       "required": false
     },
+    "FB_PIXEL": {
+      "description": "Facebook Pixel Code Identificator",
+      "required": false
+    },
     "GA_TRACKER": {
       "description": "Google Analytics property ID (tracking ID)",
       "required": false
