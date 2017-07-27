@@ -13,9 +13,9 @@ const GA = process.env.GA_TRACKER;
 function send(res, content, context) {
   res.render('index', {
     FB,
+    GA,
     content,
     context,
-    GA: `'${GA}'`,
   });
 }
 
