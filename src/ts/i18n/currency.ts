@@ -9,7 +9,8 @@ fx.rates = {
 export const currencies = ['PLN', 'USD'];
 
 let currCode = (() => {
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('currencyCode') !== null) return localStorage.getItem('currencyCode');
+  if (typeof localStorage !== 'undefined'
+    && localStorage.getItem('currencyCode') !== null) return localStorage.getItem('currencyCode');
   if (typeof navigator !== 'undefined') {
     const langCode = (navigator.language || navigator['userLanguage']).substr(0, 2);
     switch (langCode) {
@@ -23,6 +24,7 @@ let currCode = (() => {
 
 changeCurrency(currCode);
 
+// it's changing currCode variable that is returned by c() function in components
 export function changeCurrency(code) {
   currCode = code;
   if (typeof localStorage !== 'undefined') {
