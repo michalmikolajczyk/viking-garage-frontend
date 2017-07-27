@@ -14,6 +14,7 @@ import {
 } from 'material-ui';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import i, { languages, changeLanguage } from '../i18n';
+import IconWrap from '../IconWrap';
 
 interface MenuVGProps { refresh: () => void; }
 
@@ -80,12 +81,16 @@ export default function MenuVG(props: MenuVGProps) {
       <MenuItem className="menu-item" containerElement={<Link to="/page/mechanic" />} primaryText={i('Mechanics')} />
       <MenuItem
         className="menu-item mobile-hid"
-        primaryText={`${i('Language')} (${i().toUpperCase()})`}
+        leftIcon={<IconWrap icon="flag" aria="Choose your language" />}
+        primaryText={i().toUpperCase()}
+        innerDivStyle={{ padding: '0px 16px 0px 50px' }}
         menuItems={languageSelection}
       />
       <MenuItem
         className="menu-item mobile-only"
         primaryText={`${i('Language')} (${i().toUpperCase()})`}
+        leftIcon={<IconWrap icon="flag" aria="Choose your language" />}
+        innerDivStyle={{ padding: '0px 16px 0px 50px' }}
         rightIcon={<ArrowDropRight />}
         menuItems={languageSelection}
       />
