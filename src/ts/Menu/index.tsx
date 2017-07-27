@@ -12,8 +12,8 @@ import {
   MenuItem,
   Paper,
 } from 'material-ui';
-import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import i, { languages, changeLanguage } from '../i18n';
+import c, { currencies, changeCurrency } from '../i18n/currency';
 import IconWrap from '../IconWrap';
 
 interface MenuVGProps { refresh: () => void; }
@@ -60,7 +60,7 @@ export default function MenuVG(props: MenuVGProps) {
   //   </div>
   // );
 
-  const languageSelection = languages.map((val, key) => {
+  const languageSelection = languages.map((val) => {
     return (
       <MenuItem
         primaryText={i(val.lang)}
@@ -74,25 +74,40 @@ export default function MenuVG(props: MenuVGProps) {
     );
   });
 
+  const currencySelection = currencies.map((val) => {
+    return (
+      <MenuItem
+        primaryText={val}
+        checked={val === c()}
+        insetChildren={true}
+        onTouchTap={() => {
+          changeCurrency(val);
+          props.refresh();
+        }}
+      />
+    );
+  });
+
   const menuItems = (
     <div className="menu">
       <MenuItem className="menu-item" containerElement={<Link to="/page/owner" />} primaryText={i('Bike Owners')} />
       <MenuItem className="menu-item" containerElement={<Link to="/page/guide" />} primaryText={i('Guides & Coaches')} />
       <MenuItem className="menu-item" containerElement={<Link to="/page/mechanic" />} primaryText={i('Mechanics')} />
       <MenuItem
-        className="menu-item mobile-hid"
-        leftIcon={<IconWrap icon="flag" aria="Choose your language" />}
+        className="menu-item"
         primaryText={i().toUpperCase()}
-        innerDivStyle={{ padding: '0px 16px 0px 50px' }}
         menuItems={languageSelection}
+        leftIcon={<IconWrap icon="flag" aria="Choose your language" />}
+        innerDivStyle={{ padding: '0px 16px 0px 50px' }}
+        anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
       />
       <MenuItem
-        className="menu-item mobile-only"
-        primaryText={`${i('Language')} (${i().toUpperCase()})`}
-        leftIcon={<IconWrap icon="flag" aria="Choose your language" />}
+        className="menu-item"
+        primaryText={c()}
+        menuItems={currencySelection}
+        leftIcon={<IconWrap icon="attach_money" aria="Choose your currency" />}
         innerDivStyle={{ padding: '0px 16px 0px 50px' }}
-        rightIcon={<ArrowDropRight />}
-        menuItems={languageSelection}
+        anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
       />
       <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} />
     </div>
