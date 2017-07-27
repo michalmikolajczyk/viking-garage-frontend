@@ -7,13 +7,15 @@ const log = require('debug')('server');
 const render = require('../dist/ssr').default;
 const vgLimit = process.env.VG_LIMIT || 8;
 const API = process.env.API_URL;
+const FB = process.env.FB_PIXEL;
 const GA = process.env.GA_TRACKER;
 
 function send(res, content, context) {
   res.render('index', {
+    FB,
+    GA,
     content,
     context,
-    GA: `'${GA}'`,
   });
 }
 

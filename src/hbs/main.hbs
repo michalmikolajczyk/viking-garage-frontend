@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://res.cloudinary.com/hkhuw4b7v/image/upload/v1500318899/VIKINGGARAGE-logo-1200-600.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="600" />
-  
+
   <link rel="icon" type="image/png" sizes="192x192"  href="https://res.cloudinary.com/hkhuw4b7v/image/upload/v1500289944/favicon/android-icon-192x192_aqpxlx.png">
   <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/hkhuw4b7v/image/upload/v1500289945/favicon/favicon-32x32_gtklq5.png">
   <link rel="icon" type="image/png" sizes="96x96" href="https://res.cloudinary.com/hkhuw4b7v/image/upload/v1500289946/favicon/favicon-96x96_f0cons.png">
@@ -28,10 +28,30 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', {{{GA}}}, 'auto');
+  ga('create', '{{{GA}}}', 'auto');
   ga('send', 'pageview');
   </script>
   <!-- End Google Analytics -->
+
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '{{{FB}}}');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+   <img height="1" width="1"
+  src="https://www.facebook.com/tr?id={{{FB}}}&ev=PageView
+  &noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
