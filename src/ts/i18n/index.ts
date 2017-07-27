@@ -1,6 +1,5 @@
-import pl from './pl';
 import * as moment from 'moment';
-import * as fx from 'money';
+import pl from './pl';
 
 export const languages = [
   { code: 'pl', lang: 'Polish' },
@@ -23,9 +22,7 @@ export function changeLanguage(code) {
   }
 }
 
-const TRANSLATIONS = {
-  pl,
-};
+const TRANSLATIONS = { pl };
 
 export default function i(s?: string) {
   if (typeof s === 'undefined') return langCode;
@@ -34,7 +31,3 @@ export default function i(s?: string) {
   return s;
 };
 
-fx.rates = {
-  PLN: 1,
-  USD: 0.27,
-};
