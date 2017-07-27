@@ -1,10 +1,7 @@
 import * as moment from 'moment';
 import pl from './pl';
 
-export const languages = [
-  { code: 'pl', lang: 'Polish' },
-  { code: 'en', lang: 'English' },
-];
+export const languages = ['pl', 'en'];
 
 let langCode = (() => {
   if (typeof localStorage !== 'undefined' && localStorage.getItem('languageCode') !== null) return localStorage.getItem('languageCode');
