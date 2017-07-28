@@ -12,7 +12,7 @@ export default function LanguageSelection(props: LanguageSelectionProps) {
         value={val}
         primaryText={val.toUpperCase()}
         checked={val === i()}
-        innerDivStyle={{ padding: '0px 35px 0px 45px' }}
+        innerDivStyle={{ padding: '0px 16px 0px 45px' }}
         insetChildren={true}
         onTouchTap={() => {
           changeLanguage(val);
@@ -25,11 +25,9 @@ export default function LanguageSelection(props: LanguageSelectionProps) {
   return (
     <MenuItem
       className="menu-item"
-      leftIcon={<span className="html-symbol-ae">&#198;</span>}
-      primaryText={i().toUpperCase()}
-      rightIcon={<span className="html-symbol-arrow">&#9662;</span>}
+      primaryText={<span>&#198;   {i().toUpperCase()}   &#9662;</span>}
       anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-      innerDivStyle={{ padding: '0px 40px 0px 45px' }}
+      innerDivStyle={{ padding: '0px 16px' }}
       menuItems={languageSelection}
     />
   );
