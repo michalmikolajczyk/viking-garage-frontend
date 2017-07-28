@@ -24,7 +24,7 @@ let currCode = (() => {
 
 changeCurrency(currCode);
 
-// it's changing currCode variable that is returned by c() function in components
+// it's changing currCode variable that is returned by currency() function in components
 export function changeCurrency(code) {
   currCode = code;
   if (typeof localStorage !== 'undefined') {
@@ -32,4 +32,4 @@ export function changeCurrency(code) {
   }
 }
 
-export default function c(): string { return currCode; }
+export default function currency(): string { return currCode; }
