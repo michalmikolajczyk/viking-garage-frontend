@@ -4,7 +4,7 @@ import * as models from './models';
 
 export default function parser(schema: string, items: Object): any {
   if (typeof items === 'undefined') return [];
-  return _.map(models[schema], model => {
+  return _.map(models[schema](), (model) => {
     let value;
     if (typeof items[model.key] === 'undefined' || items[model.key] === null) {
       return {
@@ -16,7 +16,7 @@ export default function parser(schema: string, items: Object): any {
       value = items[model.key] ? i('Yes') : i('No');
     } else {
       if (model.units === 'days') {
-        value = items[model.key] == 1 ? `${items[model.key]} ${i('day')}` : `${items[model.key]} ${i('days')}`;
+        value = items[model.key] === 1 ? `${items[model.key]} ${i('day')}` : `${items[model.key]} ${i('days')}`;
       } else {
         value = `${items[model.key]}` + (model.units ? ` ${model.units}` : '');
       }
@@ -24,6 +24,6 @@ export default function parser(schema: string, items: Object): any {
     return {
       value,
       label: model.label,
-    }
+    };
   });
 }

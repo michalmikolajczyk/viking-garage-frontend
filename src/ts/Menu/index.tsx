@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import {
   browserHistory,
   Link,
@@ -9,11 +10,16 @@ import {
   IconButton,
   IconMenu,
   MenuItem,
+  SelectField,
   Paper,
 } from 'material-ui';
+import LanguageSelection from '../i18n/LanguageSelection';
+import CurrencySelection from '../i18n/CurrencySelection';
 import i from '../i18n';
 
-export default function MenuVG(props) {
+interface MenuVGProps { refresh: () => void; }
+
+export default function MenuVG(props: MenuVGProps) {
   // function logout() {
   //   localStorage.removeItem('jwt');
   //   localStorage.removeItem('user');
@@ -61,6 +67,8 @@ export default function MenuVG(props) {
       <MenuItem className="menu-item" containerElement={<Link to="/page/guide" />} primaryText={i('Guides & Coaches')} />
       <MenuItem className="menu-item" containerElement={<Link to="/page/mechanic" />} primaryText={i('Mechanics')} />
       <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} />
+      <LanguageSelection {...props} />
+      <CurrencySelection {...props} />
     </div>
   );
 

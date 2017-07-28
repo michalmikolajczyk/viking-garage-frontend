@@ -17,6 +17,9 @@ export default {
   'Guides & Coaches': 'Przewodnicy i Trenerzy',
   'Mechanics': 'Mechanicy',
   'FAQ': 'FAQ',
+  'Language': 'Język',
+  'English': 'Angielski',
+  'Polish': 'Polski',
 
 /**
  * Dialogs

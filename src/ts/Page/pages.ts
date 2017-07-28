@@ -1,7 +1,5 @@
-import i from '../i18n';
-
-export default (() => {
-  switch (i()) {
+export default function pages(langCode) {
+  switch (langCode) {
     case 'pl':
       return {
         owner: {
@@ -65,8 +63,8 @@ export default (() => {
         faq: {
           title: 'FAQ',
           text: 'Platforma VIKING GARAGE umożliwia wynajęcie motocykli krótko- i długoterminowo, bezpośrednio od właściciela. Motocykle dostępne są na terenie całej Polski, a także w Portugalii, na Wyspach Kanaryjskich i w Indonezji.\n\nPrawo jazdy nie jest konieczne w przypadku jazdy na torach i w terenie, a przy wynajmie motocykli o pojemności do 125 cm³, do jazdy po ulicy wystarczy kategoria B.\n\nOsoby, które chcą podnosić swoje umiejętności, mogą zainteresować oferty od naszych znajomych, mistrzów Polski w motocross, enduro, freestyle motocross, jak i doświadczonych zawodników i przewodników Enduro w Hiszpanii, Portugalii i w Indonezji.',
-        }
-      }
+        },
+      };
 
     default:
       return {
@@ -131,7 +129,7 @@ export default (() => {
         faq: {
           title: 'FAQ',
           text: 'VIKING GARAGE platform allows you to rent motorcycles for short and long term, directly from the owner. Motorcycles are available in Poland, as well as in Portugal, the Canary Islands and Indonesia.\n\nDriving licenses are not required for on-track or off-road driving. Category B is sufficient to rent motorcycles up to 125 cm³ and street bikes.\n\nThose who want to improve their skills may be interested in offers from our friends, Polish motocross, enduro, freestyle motocross champions as well as experienced enduro tour guides in Spain, Portugal and Indonesia.',
-        }
-      }
+        },
+      };
   }
-})()
+}

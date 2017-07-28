@@ -11,6 +11,7 @@ import {
   countTotal,
   renderUnit,
 } from '../helpers/hours';
+import currency from '../i18n/currency';
 import i from '../i18n';
 
 export default class FormVG extends React.Component<any, any> {
@@ -51,7 +52,7 @@ Equipment: ${this.state.equipment},
 Price: ${this.getPrice(this.props.offer)},
 Total: ${this.getTotal(this.props.offer)},
 Range: ${this.getRange()} ${this.props.hour ? 'hours' : 'days'}
-Currency: ${i('USD')}`
+Currency: ${currency()}`;
   }
 
   render() {

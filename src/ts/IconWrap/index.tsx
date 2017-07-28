@@ -1,7 +1,17 @@
 import * as React from 'react';
 import { FontIcon } from 'material-ui';
 
-export default class IconWrap extends React.Component<any, any> {
+interface IconWrapProp {
+  icon: string;
+  aria?: string;
+  style?: object;
+}
+
+interface IconWrapState {
+  isMounted: boolean;
+}
+
+export default class IconWrap extends React.Component<IconWrapProp, IconWrapState> {
   state = { isMounted: false };
 
   componentDidMount() {
