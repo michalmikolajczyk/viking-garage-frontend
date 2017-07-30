@@ -37,7 +37,7 @@ export default class Offers extends React.Component<any, any> {
 
   componentDidMount() {
     this.update();
-    // this.setLocation();
+    this.setLocation();
   }
 
   update = () => {
@@ -65,7 +65,7 @@ export default class Offers extends React.Component<any, any> {
               lat: pos.coords.latitude.toFixed(6),
               lng: pos.coords.longitude.toFixed(6),
             },
-          });
+          }, this.update);
         },
         () => log('location could not be determined'),
       );
