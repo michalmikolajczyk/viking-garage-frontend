@@ -307,7 +307,7 @@ export default {
   'There is no offers matching to your filters!': 'Brak ofert zgodnych z podanymi kryteriami!',
 
 // Offer
-  'distance': 'odległość',
+  'Distance': 'Odległość',
   // 'day': '',
 
 /**
