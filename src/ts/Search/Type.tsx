@@ -57,7 +57,7 @@ export default class Type extends React.Component<any, any> {
       ind: set,
       val: this.selectionRenderer(set).replace(/\s/g, ''),
     };
-    this.setState({ values: set }, this.props.filter(update));
+    return this.setState({ values: set }, this.props.filter(update));
   }
 
   onChange = (event, index, values) => {
@@ -69,26 +69,23 @@ export default class Type extends React.Component<any, any> {
       if (this.isGroup(diff)) {
         // unchecked group: remove all items from this group
         return this.save(values.filter(v => v.indexOf(diff) === -1));
-      } else {
-        // unchecked label: remove item & uncheck group toggle
-        const group = diff.split('#')[0];
-        return this.save(values.filter(v => v !== group));
       }
-    } else {
-      // user checked (added) new option
-      const diff = values.filter(i => !this.state.values.has(i))[0];
-      if (this.isGroup(diff)) {
-        // checked group: add all items from group
-        const val = values.concat(items.filter(i => i.indexOf(`${diff}#`) > -1));
-        return this.save(val);
-      } else {
-        // checked label: add item & check if should add group toggle (if all items from group is checked)
-        const groupLabel = diff.split('#')[0];
-        const allFromGroup = items.filter(i => i.indexOf(`${groupLabel}#`) > -1);
-        const group = _.difference(allFromGroup, values).length === 0 ? [groupLabel] : [];
-        this.save([...values, ...group]);
-      }
+      // unchecked label: remove item & uncheck group toggle
+      const group = diff.split('#')[0];
+      return this.save(values.filter(v => v !== group));
     }
+    // user checked (added) new option
+    const diff = values.filter(i => !this.state.values.has(i))[0];
+    if (this.isGroup(diff)) {
+      // checked group: add all items from group
+      const val = values.concat(items.filter(i => i.indexOf(`${diff}#`) > -1));
+      return this.save(val);
+    }
+    // checked label: add item & check if should add group toggle (if all items from group is checked)
+    const groupLabel = diff.split('#')[0];
+    const allFromGroup = items.filter(i => i.indexOf(`${groupLabel}#`) > -1);
+    const group = _.difference(allFromGroup, values).length === 0 ? [groupLabel] : [];
+    return this.save([...values, ...group]);
   }
 
   render() {
