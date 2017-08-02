@@ -16,7 +16,7 @@ import muiThemeVG from '../muiThemeVG';
 import * as api from './api';
 import NetworkError from '../Dialogs/NetworkError';
 import Footer from '../Footer';
-const defaultLimit = 8;
+const DEFAULT_LIMIT = 8;
 
 interface ContainerState {
   list: [object];
@@ -35,7 +35,7 @@ export default class Container extends React.Component<any, ContainerState> {
 
   constructor(props, context) {
     super(props);
-    this.limit = parseInt(_.get(context, 'data.vgLimit', defaultLimit), 10);
+    this.limit = parseInt(_.get(context, 'data.vgLimit', DEFAULT_LIMIT), 10);
     this.state = {
       list: _.get(context, 'data.offers.data', [{}, {}]),
       last: false,
@@ -77,7 +77,7 @@ export default class Container extends React.Component<any, ContainerState> {
   // filters callbacks
   loadMore = () => this.setState({ offset: this.state.offset + this.limit }, this.update);
 
-  filters: IFiltersFuncs = {
+  filtersFuncs: IFiltersFuncs = {
     typeFilter: (type: IType) => this.setState({ filters: { ...this.state.filters, type }, offset: 0 }, this.update),
     dateFilter: (date: IDate) => this.setState({ filters: { ...this.state.filters, date: { ...this.state.filters.date, ...date } }, offset: 0 }, this.update),
     distanceFilter: (distance: TDistance) => this.setState({ filters: { ...this.state.filters, distance }, offset: 0 }, this.update),
@@ -85,10 +85,11 @@ export default class Container extends React.Component<any, ContainerState> {
   };
 
   render() {
+    const { filtersFuncs, loadMore } = this;
     const props = {
       ...this.state,
-      loadMore: this.loadMore,
-      filtersFuncs: this.filters,
+      loadMore,
+      filtersFuncs,
       filtersValue: this.state.filters,
     };
     const childrenWithProps = React.cloneElement(this.props.children, props);
