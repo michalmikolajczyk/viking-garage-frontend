@@ -59,7 +59,7 @@ export default class Container extends React.Component<ContainerProps, Container
     this.muiTheme = getMuiTheme({ ...muiThemeVG, userAgent });
   }
 
-  componentDidMount() { this.update(); }
+  componentDidMount() { return this.update(); }
 
   update = () => {
     api.get(this.state.filters, this.state.offset)
