@@ -61,6 +61,10 @@ export default class Container extends React.Component<ContainerProps, Container
 
   componentDidMount() { return this.update(); }
 
+  // forceUpdate() is pass to AppBar to rerender application in case of changing language or currency
+  // check out ./i18n/LanguageSelection and ./i18n/CurrencySelection
+  refresh = () => this.forceUpdate();
+
   update = () => {
     api.get(this.state.filters, this.state.offset)
       .then((res) => {
@@ -90,18 +94,15 @@ export default class Container extends React.Component<ContainerProps, Container
   };
 
   render() {
-    const { filtersFuncs, loadMore } = this;
+    const { refresh, filtersFuncs, loadMore } = this;
     const props = {
       ...this.state,
+      refresh,
       loadMore,
       filtersFuncs,
       filtersValue: this.state.filters,
     };
     const childrenWithProps = React.cloneElement(this.props.children, props);
-
-    // forceUpdate() is pass to AppBar to rerender application in case of changing language or currency
-    // check out ./i18n/LanguageSelection and ./i18n/CurrencySelection
-    const children = React.cloneElement(this.props.children, { refresh: () => this.forceUpdate() });
 
     return (
       <MuiThemeProvider muiTheme={this.muiTheme}>
