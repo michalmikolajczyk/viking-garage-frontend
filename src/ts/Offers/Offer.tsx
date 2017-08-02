@@ -19,6 +19,7 @@ export default function Offer(props) {
     id,
     url,
     title,
+    city,
     coord,
     image,
     price,
@@ -28,14 +29,16 @@ export default function Offer(props) {
   if (location && coord) {
     const coordinates = { latitude: coord.coordinates[0], longitude: coord.coordinates[1] };
     distance = Math.round(geolib.getDistance(location, coordinates) / 1000).toString();
-    distance = `, ${i('distance')}: ${distance} km`;
+    distance = `${distance} km`;
   }
 
   const query = date && { start: moment(date.start).unix(), end: moment(date.end).unix() };
   const renderLink = id ? { pathname: `offer/${id}/${url}`, query } : '/';
   const renderTitle = title || '';
-  const renderPrice = price && `${renderUnit(data)}${distance}`;
+  const renderPrice = price && `${renderUnit(data)}`;
   const renderImage = image && { backgroundImage: `url(${image})` };
+  const renderLocation = city ? `${city}` : '';
+  const renderDistance = (city && distance) ? `, ${distance}` : (distance ? `${i('Distance')}: ${distance}` : '');
 
   return disable ? (
     <div className="card">
@@ -43,6 +46,7 @@ export default function Offer(props) {
       <div className="head">
         <div className="title">{renderTitle}</div>
         <div className="foot">{renderPrice}</div>
+        <div className="foot">{renderLocation}</div>
       </div>
     </div>
   ) : (
@@ -51,6 +55,7 @@ export default function Offer(props) {
       <div className="head">
         <div className="title">{renderTitle}</div>
         <div className="foot">{renderPrice}</div>
+        <div className="foot">{`${renderLocation}${renderDistance}`}</div>
       </div>
     </Link>
   );

@@ -40,7 +40,7 @@ describe('<Offers />', () => {
     });
 
     const wrapper = mountWithTheme(<Offers />);
-    expect(get).to.be.calledOnce;
+    expect(get).to.be.calledTwice;
     expect(spy).to.be.calledOnce;
     get.restore();
     spy.restore();
