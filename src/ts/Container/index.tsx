@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ReactElement } from '@types/react';
 import * as _ from 'lodash';
 import {
   getMuiTheme,
@@ -28,7 +29,11 @@ interface ContainerState {
   filters: IFiltersValue;
 }
 
-export default class Container extends React.Component<any, ContainerState> {
+interface ContainerProps {
+  children: ReactElement<any>;
+}
+
+export default class Container extends React.Component<ContainerProps, ContainerState> {
   static contextTypes = { data: React.PropTypes.object };
   limit: number;
   muiTheme: object;
