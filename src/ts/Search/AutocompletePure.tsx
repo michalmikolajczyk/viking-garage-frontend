@@ -15,6 +15,8 @@ interface AutocompleteProps {
   onUpdateInput: (inp: string) => void;
 }
 
+const paddingLeft = { paddingLeft: 30 };
+
 export default function AutocompletePure(props: AutocompleteProps) {
   const {
     icon,
@@ -44,7 +46,7 @@ export default function AutocompletePure(props: AutocompleteProps) {
           dataSource={dataSource}
           dataSourceConfig={dataConfig}
           fullWidth={true}
-          hintStyle={{ paddingLeft: 30 }}
+          hintStyle={paddingLeft}
         />
       </div>
     </div>

@@ -14,6 +14,8 @@ interface SelectFieldProps {
   selectionRenderer?: (val) => string;
 }
 
+const paddingLeft = { paddingLeft: 30 };
+
 export default function SelectFieldPure(props: SelectFieldProps) {
   const {
     value,
@@ -34,8 +36,8 @@ export default function SelectFieldPure(props: SelectFieldProps) {
           onChange={onChange}
           selectionRenderer={selectionRenderer}
           fullWidth={true}
-          hintStyle={{ paddingLeft: 30 }}
-          labelStyle={{ paddingLeft: 30 }}
+          hintStyle={paddingLeft}
+          labelStyle={paddingLeft}
         >
           {selectItems()}
         </SelectField>

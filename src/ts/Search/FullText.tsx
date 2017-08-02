@@ -23,9 +23,12 @@ export default class FullText extends React.Component<FullTextProps, any> {
     value: '',
   };
   dataConfig = { text: 'description', value: 'place_id' };
-  statusOk = typeof google !== 'undefined' ? google.maps.places.PlacesServiceStatus.OK : null;
-  placesService = typeof google !== 'undefined' ? new google.maps.places.PlacesService(document.createElement('div')) : null;
-  selectService = typeof google !== 'undefined' ? new google.maps.places.AutocompleteService() : null;
+  statusOk = typeof google !== 'undefined'
+    && google.maps.places.PlacesServiceStatus.OK;
+  placesService = typeof google !== 'undefined'
+    && new google.maps.places.PlacesService(document.createElement('div'));
+  selectService = typeof google !== 'undefined'
+    && new google.maps.places.AutocompleteService();
 
   toggle = () => this.setState({ open: !this.state.open });
 
@@ -39,7 +42,7 @@ export default class FullText extends React.Component<FullTextProps, any> {
             lng: place.geometry.location.lng(),
             val: details.description,
           });
-          browserHistory.push('/');
+          return browserHistory.push('/');
         }
       });
     }
@@ -49,15 +52,14 @@ export default class FullText extends React.Component<FullTextProps, any> {
     this.setState({ value: input });
     if (this.selectService && input) {
       this.selectService.getQueryPredictions({ input }, (predictions, status) => {
-        this.setState({
+        return this.setState({
           data: status === this.statusOk
           ? predictions
           : [i('Not found')],
         });
       });
-    } else {
-      this.setState({ data: [] });
     }
+    return this.setState({ data: [] });
   }
 
   render() {

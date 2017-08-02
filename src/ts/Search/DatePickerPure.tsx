@@ -12,6 +12,8 @@ interface DatePickerProps {
   shouldDisableDate: (inp: Date) => boolean;
 }
 
+const paddingLeft = { paddingLeft: 30 };
+
 export default function DatePickerPure(props: DatePickerProps) {
   const {
     icon,
@@ -33,8 +35,8 @@ export default function DatePickerPure(props: DatePickerProps) {
         onChange={onChange}
         hintText={hintText}
         fullWidth={true}
-        hintStyle={{ paddingLeft: 30 }}
-        inputStyle={{ paddingLeft: 30 }}
+        hintStyle={paddingLeft}
+        inputStyle={paddingLeft}
         shouldDisableDate={shouldDisableDate}
       />
     </div>
