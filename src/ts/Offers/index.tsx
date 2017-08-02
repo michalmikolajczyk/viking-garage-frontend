@@ -25,6 +25,7 @@ interface OffersProps {
   filtersFuncs: IFiltersFuncs;
   filtersValue: IFiltersValue;
 
+  refresh: () => void;
   loadMore: () => void;
 };
 

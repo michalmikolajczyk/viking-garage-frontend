@@ -11,6 +11,7 @@ import Raido from '../Raido';
 import Menu from '../Menu';
 
 interface AppBarVGProps {
+  refresh: () => void;
   filtersFuncs: IFiltersFuncs;
   filtersValue: IFiltersValue;
 }
