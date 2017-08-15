@@ -1,19 +1,22 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import { AutoComplete } from 'material-ui';
-import IconWrap from '../IconWrap';
+import AutocompletePure from './AutocompletePure';
 import i from '../i18n';
 declare const google: any;
 
 export default class Location extends React.Component<any, any> {
-  state = {
-    data: [],
-    value: '',
-  };
   dataConfig = { text: 'description', value: 'place_id' };
   statusOk = typeof google !== 'undefined' ? google.maps.places.PlacesServiceStatus.OK : null;
   placesService = typeof google !== 'undefined' ? new google.maps.places.PlacesService(document.createElement('div')) : null;
   selectService = typeof google !== 'undefined' ? new google.maps.places.AutocompleteService() : null;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      value: _.get(props, 'value.val', ''),
+    };
+  }
 
   componentWillReceiveProps(props) {
     if (_.has(props, 'value.val') && this.state.value !== props.value.val) {
@@ -52,36 +55,17 @@ export default class Location extends React.Component<any, any> {
   }
 
   render() {
-    const { appbar } = this.props;
-    const leftIcon = appbar ? 'search' : 'location_on';
-    const hintText = appbar ? '' : i('Select place...');
-    const rightBtn = appbar && (
-      <button className="right-btn" onClick={this.props.toggle}>
-        <IconWrap icon="keyboard_arrow_down" aria="show filters" />
-      </button>
-    );
-
     return (
-      <div className={`filter ${this.props.appbar ? 'appbar' : ''}`}>
-        <IconWrap icon={leftIcon} aria="search by location" />
-        <div className="input">
-          <AutoComplete
-            id="search-location"
-            value={this.state.value}
-            hintText={hintText}
-            maxSearchResults={5}
-            openOnFocus={true}
-            filter={AutoComplete.noFilter}
-            onNewRequest={this.onNewRequest}
-            onUpdateInput={this.onUpdateInput}
-            dataSource={this.state.data}
-            dataSourceConfig={this.dataConfig}
-            fullWidth={true}
-            hintStyle={{ paddingLeft: 30 }}
-          />
-          {rightBtn}
-        </div>
-      </div>
+      <AutocompletePure
+        icon="location_on"
+        subId="search-location"
+        hintText={i('Select place...')}
+        searchText={this.state.value}
+        dataConfig={this.dataConfig}
+        dataSource={this.state.data}
+        onNewRequest={this.onNewRequest}
+        onUpdateInput={this.onUpdateInput}
+      />
     );
   }
 }

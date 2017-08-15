@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { browserHistory } from 'react-router';
 import * as _ from 'lodash';
-import { default as AppBarVG } from '../AppBar';
 import NetworkError from '../Dialogs/NetworkError';
 import Accordion from '../Accordion';
+import AppBarVG from '../AppBarVG';
 import HeaderVG from './HeaderVG';
 import ListVG from './ListVG';
 import parser from '../helpers/parser';
@@ -46,7 +46,7 @@ export default class Detail extends React.Component<any, any> {
 
     return (
       <div>
-        <AppBarVG refresh={this.props.refresh} />
+        <AppBarVG {...this.props} />
         <div className="detail">
           <HeaderVG offer={offer} />
           <FormVG

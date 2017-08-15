@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Link } from 'react-router';
-import AppBar from '../AppBar';
+import AppBarVG from '../AppBarVG';
 
 export default function Privacy(props) {
   return (
     <div>
-      <AppBar refresh={props.refresh} />
+      <AppBarVG {...props} />
       <div className="privacy">
         <div className="title">Introduction</div>
         <p>

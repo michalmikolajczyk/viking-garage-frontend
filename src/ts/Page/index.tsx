@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router';
-import AppBar from '../AppBar';
+import AppBarVG from '../AppBarVG';
 import Contact from '../Contact';
 import pages from './pages';
 import i from '../i18n';
@@ -69,7 +69,7 @@ export default function Page(props) {
 
   return (
     <div>
-      <AppBar refresh={props.refresh} />
+      <AppBarVG {...props} />
       <div className="page">
         <div className="title">{msg['title']}</div>
         <div className="head">{msg['head']}</div>

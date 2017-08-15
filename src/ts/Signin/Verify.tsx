@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { browserHistory } from 'react-router';
-import Offers from '../Offers';
 import NetworkError from '../Dialogs/NetworkError';
 import VerifyError from './VerifyError';
 import VerifySuccess from './VerifySuccess';
@@ -43,7 +42,6 @@ export default class Verify extends React.Component<any, any> {
   render() {
     return (
       <div>
-        <Offers />
         <VerifyError
           open={this.state.verifyError}
           close={this.closeVerifyError}

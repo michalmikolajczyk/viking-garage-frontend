@@ -57,32 +57,8 @@
     left: 0;
     right: 0;
   }
-  &.appbar {
-    .input {
-      height: 64px;
-      display: flex;
-      align-items: center;
-      & > div {
-        display: flex !important;
-        padding-top: 5px !important;
-      }
-    }
-    input {
-      padding-right: 30px !important;
-    }
-    .material-icons {
-      line-height: 68px;
-      cursor: pointer;
-    }
-    .right-btn {
-      position: absolute;
-      right: 0;
-      width: 24px;
-      height: 64px;
-      flex-direction: column;
-    }
-  }
 }
+
 .search-select {
   padding-top: 2px;
 }
@@ -94,6 +70,9 @@
 }
 
 @media screen and (min-width: $tablet-min) {
+  .mobile-search {
+    display: none;
+  }
   .search {
     padding: 30px 20px;
     max-width: 529px;

@@ -31,7 +31,7 @@ describe('Signin: <Verify />', () => {
 
   beforeEach(() => {
     wrapper = shallow(<Verify params={userToken} />);
-    instance = wrapper.instance();    
+    instance = wrapper.instance();
   });
 
   after(() => {
@@ -39,7 +39,6 @@ describe('Signin: <Verify />', () => {
   })
 
   it('check for inner components', () => {
-    expect(wrapper.find('Offers')).to.have.length(1);
     expect(wrapper.find('VerifyError')).to.have.length(1);
     expect(wrapper.find('VerifySuccess')).to.have.length(1);
     expect(wrapper.find('NetworkError')).to.have.length(1);

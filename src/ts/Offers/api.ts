@@ -1,5 +1,5 @@
 import API from '../API';
-import * as moment from 'moment'
+import * as moment from 'moment';
 
 export function get(state) {
   const location = state.location ? `lat=${state.location.lat}&lng=${state.location.lng}` : '';
