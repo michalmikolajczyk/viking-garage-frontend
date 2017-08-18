@@ -14,21 +14,13 @@ export default function Footer(props) {
     <div className="footer">
       <div className="contact">
         <div>
-          <a href="https://www.instagram.com/vikinggarage" target="_blank">
-            INSTAGRAM
-            <span className="mobile-hid"> vikinggarage</span>
-          </a>
+          <a href="https://www.instagram.com/vikinggarage" target="_blank">INSTAGRAM</a>
         </div>
         <div>
-          <a href="https://www.facebook.com/vikinggarage888" target="_blank">
-            FACEBOOK
-            <span className="mobile-hid"> vikinggarage888</span>
-          </a>
+          <a href="https://www.facebook.com/vikinggarage" target="_blank">FACEBOOK</a>
         </div>
         <div>
-          <a href="https://github.com/michalmikolajczyk/" target="_blank">
-            GITHUB
-          </a>
+          <a href="https://github.com/michalmikolajczyk/" target="_blank">GITHUB</a>
         </div>
         <div>
           <a href="mailto:ride@vikinggarage.com" target="_blank">
@@ -37,25 +29,20 @@ export default function Footer(props) {
           </a>
         </div>
         <div>
-          <a href="https://vikinggarage.slack.com" target="_blank">
-            SLACK
-          </a>
+          <a href="https://vikinggarage.slack.com" target="_blank">SLACK</a>
         </div>
         <div className="right">
           <a href="tel:+48697951264" target="_blank">
-            PHONE
+            PHONE &amp; WHATSAPP
             <span className="mobile-hid"> +48 697 951 264</span>
           </a>
+          <span className="mobile-hid"> | <a href="tel:+48667772402" target="_blank">+48 667 772 402</a></span>
         </div>
         <div className="right">
-          <a href="skype:michaljanmikolajczyk?chat" target="_blank">
-            SKYPE
-          </a>
+          <a href="skype:michaljanmikolajczyk?chat" target="_blank">SKYPE</a>
         </div>
         <div className="right">
-          <Link to="/privacy-policy">
-            PRIVACY POLICY
-          </Link>
+          <Link to="/privacy-policy">PRIVACY POLICY</Link>
         </div>
         <div className="copyright">
           <FontIcon style={iconStyle} color="white" className="fa fa-copyright" />
