@@ -10,7 +10,6 @@ import {
 } from '../typings';
 import AppBarVG from '../AppBarVG';
 import Header from '../Header';
-import Groupon from '../Groupon';
 import SearchPure from '../Search/SearchPure';
 import OffersList from './OffersList';
 import * as api from './api';
@@ -46,7 +45,6 @@ export default function Offers(props: OffersProps) {
     <div>
       <AppBarVG {...props} />
       <Header />
-      <Groupon />
       <div className="mobile-hid">
         <SearchPure {...props} />
       </div>

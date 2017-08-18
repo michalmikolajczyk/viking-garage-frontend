@@ -12,7 +12,7 @@
     "start": "node ./server"
   },
   "engines": {
-    "node": "7.10.1"
+    "node": "8.4.0"
   },
   "repository": {
     "type": "git",
