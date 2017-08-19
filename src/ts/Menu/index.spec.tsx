@@ -22,4 +22,6 @@ describe('<Menu />', () => {
   //   expect(wrapper.find('.menu-item')).to.have.length(4);
   //   stub.restore();
   // });
+
+  it('should keep the menu open on mobile, when navigating in submenu', () => {});
 });

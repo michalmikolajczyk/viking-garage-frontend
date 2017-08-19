@@ -8,7 +8,8 @@ import {
   Divider,
   FontIcon,
   IconButton,
-  IconMenu,
+  // IconMenu,
+  Menu,
   MenuItem,
   SelectField,
   Paper,
@@ -72,11 +73,32 @@ export default function MenuVG(props: MenuVGProps) {
     </div>
   );
 
+  const iconButton = (
+    <IconButton
+      className="mobile-tablet-only" 
+      aria-label="More"
+      aria-owns="long-menu"
+      aria-haspopup="true"
+      onClick={this.handleClick}
+    >
+      <FontIcon className="fa fa-bars" />
+    </IconButton>
+  );
   return (
     <div>
-      <IconMenu className="mobile-tablet-only" iconButtonElement={<IconButton><FontIcon className="fa fa-bars" /></IconButton>}>
+      {iconButton}
+      <Menu
+        className="mobile-tablet-only" 
+        anchorEl={iconButton}
+        onRequestClose={this.handleRequestClose}
+        MenuListProps={{
+          style: {
+            width: 200,
+          },
+        }}
+      >
         {menuItems}
-      </IconMenu>
+      </Menu>
       <div className="mobile-tablet-hid">
         {menuItems}
       </div>
