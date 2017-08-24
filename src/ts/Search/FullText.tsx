@@ -30,6 +30,8 @@ export default class FullText extends React.Component<FullTextProps, any> {
   selectService = typeof google !== 'undefined'
     && new google.maps.places.AutocompleteService();
 
+  mediaQueryNarrowCheck = matchMedia ? matchMedia('(max-width: 959px, orientation: landscape)') : {matches: true}
+
   toggle = () => this.setState({ open: !this.state.open });
 
   onNewRequest = (details, index) => {
@@ -63,6 +65,14 @@ export default class FullText extends React.Component<FullTextProps, any> {
   }
 
   render() {
+    const mobileSearchRender = this.mediaQueryNarrowCheck.matches && (
+      <MobileSearch
+        {...this.props}
+        open={this.state.open}
+        toggle={this.toggle}
+      />
+    )
+
     return (
       <div>
         <div className="filter appbar-search">
@@ -86,11 +96,7 @@ export default class FullText extends React.Component<FullTextProps, any> {
             </button>
           </div>
         </div>
-        <MobileSearch
-          {...this.props}
-          open={this.state.open}
-          toggle={this.toggle}
-        />
+        {mobileSearchRender}
       </div>
     );
   }
