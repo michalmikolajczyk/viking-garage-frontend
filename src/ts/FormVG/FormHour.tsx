@@ -35,23 +35,13 @@ export default function FormHour(props) {
 
   const hoursMeet = _.range(1, 24);
 
-  function onIntervalChange(ev, key) {
-    const value = { val: hoursRide[key], ind: key }
-    intervalChange(ev, value);
-  }
+  const onIntervalChange = (ev, key) => intervalChange(ev, { val: hoursRide[key], ind: key })
 
-  function onStartHourChange(ev, key) {
-    const value = { val: hoursMeet[key], ind: key };
-    startHourChange(ev, value);
-  }
+  const onStartHourChange = (ev, key) => startHourChange(ev, { val: hoursMeet[key], ind: key });
 
-  function selectionRendererMeet(ind) {
-    return `${i('Meet up at')} ${moment(hoursMeet[ind], 'H').format('H:mm')}`;
-  }
+  const selectionRendererMeet = ind => `${i('Meet up at')} ${moment(hoursMeet[ind], 'H').format('H:mm')}`
 
-  function selectionRendererRide(ind) {
-    return `${i('Ride for')} ${moment.duration(hoursRide[ind], 'hour').humanize()}`;
-  }
+  const selectionRendererRide = ind => `${i('Ride for')} ${moment.duration(hoursRide[ind], 'hour').humanize()}`
 
   return (
     <div className="form-pure">
