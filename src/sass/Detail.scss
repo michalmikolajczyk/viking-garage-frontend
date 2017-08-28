@@ -121,6 +121,7 @@
         transform: translate3d(0,0,0) !important;
         width: 314px;
         .title {
+          height: 33px;
           font-size: 28px;
           font-weight: $medium;
           letter-spacing: 2px;
@@ -137,6 +138,11 @@
         position: absolute;
         bottom: 60px;
       }
+    }
+  }
+  .V5G5 {
+    .header-wrapper {
+      min-height: 987px;
     }
   }
 }
