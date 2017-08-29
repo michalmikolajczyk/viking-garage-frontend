@@ -107,7 +107,7 @@ export default class Container extends React.Component<ContainerProps, Container
     return (
       <MuiThemeProvider muiTheme={this.muiTheme}>
         <div>
-          {childrenWithProps}
+          <div className="V5G5">{childrenWithProps}</div>
           <Footer />
           <NetworkError
             open={this.state.networkErr}

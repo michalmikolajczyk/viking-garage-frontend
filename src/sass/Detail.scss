@@ -1,3 +1,7 @@
+.V5G5 {
+  min-height: 1597px;
+}
+
 .detail {
   width: 100%;
   box-sizing: border-box;
@@ -59,52 +63,55 @@
       width: calc(100% - 344px);
     }
     // header with photo
-    .headervg {
-      .image {
-        width: 100%;
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-        &:before {
-          content: "";
-          display: block;
+    .header-wrapper {
+      min-height: 987px;
+      .headervg {
+        .image {
           width: 100%;
-          padding-top: 71.45%;
+          background-size: contain;
+          background-position: center center;
+          background-repeat: no-repeat;
+          &:before {
+            content: "";
+            display: block;
+            width: 100%;
+            padding-top: 71.45%;
+          }
         }
-      }
-      .title {
-        font-size: 34px;
-        font-weight: $medium;
-        letter-spacing: 2.43px;
-        padding: 30px 0 0 0;
-      }
-      .owner {
-        display: flex;
-        align-items: center;
-        padding: 30px 0 0 0;
-        .picture {
-          display: inline-block;
-          width: 55px;
-          height: 55px;
-          background-size: cover;
-          border-radius: 50%;
+        .title {
+          font-size: 34px;
+          font-weight: $medium;
+          letter-spacing: 2.43px;
+          padding: 30px 0 0 0;
         }
-        .owner-details {
+        .owner {
+          display: flex;
+          align-items: center;
+          padding: 30px 0 0 0;
+          .picture {
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            background-size: cover;
+            border-radius: 50%;
+          }
+          .owner-details {
+            font-size: 16px;
+            font-weight: $regular;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 10px;
+            vertical-align: top;
+          }
+        }
+        .text {
           font-size: 16px;
-          font-weight: $regular;
+          font-weight: $light;
           letter-spacing: 1px;
-          display: inline-block;
-          padding: 10px;
-          vertical-align: top;
+          padding: 30px 0;
+          line-height: 30px;
+          white-space: pre-wrap;
         }
-      }
-      .text {
-        font-size: 16px;
-        font-weight: $light;
-        letter-spacing: 1px;
-        padding: 30px 0;
-        line-height: 30px;
-        white-space: pre-wrap;
       }
     }
 
@@ -138,11 +145,6 @@
         position: absolute;
         bottom: 60px;
       }
-    }
-  }
-  .V5G5 {
-    .header-wrapper {
-      min-height: 987px;
     }
   }
 }

@@ -45,7 +45,7 @@ export default class Detail extends React.Component<any, any> {
     const isHourly = isHourlySubtype(offer);
 
     return (
-      <div className="V5G5">
+      <div>
         <AppBarVG {...this.props} />
         <div className="detail">
           <div className="header-wrapper">
