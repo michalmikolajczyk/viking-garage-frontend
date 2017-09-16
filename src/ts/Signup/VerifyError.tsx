@@ -5,7 +5,7 @@ import {
 } from 'material-ui';
 import i from '../i18n';
 
-export default function SigninDialog(props) {
+export default function VerifyError(props) {
   const {
     open,
     close,
@@ -14,8 +14,8 @@ export default function SigninDialog(props) {
   const actions = [
     <div className="float-left">
       <FlatButton
-        href="/login"
-        label={i('Log in')}
+        href="/signup"
+        label={i('Create new account')}
         primary={true}
       />
     </div>,
@@ -31,18 +31,18 @@ export default function SigninDialog(props) {
     <Dialog
       open={open}
       contentStyle={{ maxWidth: 650 }}
-      title={i('Invalid e-mail')}
+      title={i('Confirmation link invalid')}
       actions={actions}
     >
-      {i('That e-mail address is already registered.')}
+      {i('The confirmation link was invalid. Please try again to')}
       &#160;
-      {i('Please')}
-      &#160;
-      <a href="/login" className="link">
-        {i('log in')}
+      <a href="/signup" className="link">
+        {i('create account')}
       </a>
       &#160;
-      {i('or use another e-mail address.')}
+      {i('or contact us at')}
+      &#160;
+      <a href="mailto:support@vikinggarage.com" className="link">support@vikinggarage.com</a>.
     </Dialog>
   );
 }

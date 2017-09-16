@@ -1,7 +1,7 @@
 import API from '../API';
 
-export function signin(data) {
-  return fetch(API.signin, {
+export function signup(data) {
+  return fetch(API.signup, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

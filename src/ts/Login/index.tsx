@@ -13,7 +13,7 @@ export default function Login(props) {
         <div className="title-sub">
           {i('New user?')}
           &#160;
-          <Link to="signin" className="title-btn">
+          <Link to="signup" className="title-btn">
             {i('Click here to create your account!')}
           </Link>
         </div>
@@ -22,7 +22,7 @@ export default function Login(props) {
           <Link to="reset" className="foot-btn">
             {i('Reset your password')}
           </Link>
-          <Link to="signin" className="foot-btn create-new">
+          <Link to="signup" className="foot-btn create-new">
             {i('Create new account')}
           </Link>
         </div>

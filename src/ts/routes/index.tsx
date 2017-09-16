@@ -6,13 +6,19 @@ import {
 import Container from '../Container';
 import Offers from '../Offers';
 import Detail from '../Detail';
+import Login from '../Login';
 import NotFound from '../NotFound';
 import Page from '../Page';
+import Profile from '../Profile';
 import Privacy from '../Page/Privacy';
+import Signup from '../Signup';
 
 export default (
   <Route path="/" component={Container}>
     <IndexRoute component={Offers} />
+    <Route path="/login" component={Login} />
+    <Route path="/profile/:id" component={Profile} />
+    <Route path="/signup" component={Signup} />
     <Route path="/offer/:id(/:url)" component={Detail} />
     <Route path="/page/owner" component={Page} />
     <Route path="/page/guide" component={Page} />

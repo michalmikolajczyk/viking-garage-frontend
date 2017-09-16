@@ -19,7 +19,7 @@ export default function LoginDialog(props) {
         primary={true}
       />
       <FlatButton
-        href="signin"
+        href="signup"
         label={i('Create new account')}
         primary={true}
       />

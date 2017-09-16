@@ -20,7 +20,7 @@ const response = {
   }
 }
 
-describe('Signin: <Verify />', () => {
+describe('Signup: <Verify />', () => {
   let wrapper;
   let instance;
   let get;
