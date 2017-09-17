@@ -13,17 +13,17 @@ import { signup } from './api';
 import debug from 'debug';
 const log = debug('app:Signup');
 
-export default class SiginForm extends React.Component<any, any> {
+export default class SignupForm extends React.Component<any, any> {
   state = {
     canSubmit: false,
     openDialog: false,
     networkErr: false,
   }
 
-  submit = (user) => {
+  submit = user => {
     this.setState({ canSubmit: false });
     signup(user)
-      .then((res) => {
+      .then(res => {
         if (res['err']) return this.setState({ openDialog: true });
         browserHistory.push(`/confirm/${user.email}`);
       })
@@ -98,7 +98,6 @@ export default class SiginForm extends React.Component<any, any> {
         <div className="checkbox">
           <FormsyCheckbox
             id="signup-agree"
-            value={true}
             required={true}
             name="agree"
             label={i('I agree to the Terms of Service')}

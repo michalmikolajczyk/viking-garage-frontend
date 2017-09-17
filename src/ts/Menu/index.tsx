@@ -27,9 +27,10 @@ function logout(refresh) {
   browserHistory.push('/');
 };
 
+const checkUser = () => typeof localStorage !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : '';
+
 function userSection() {
-  const user = typeof localStorage !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : '';
-  if (!user) return anonymousUser
+  const user = JSON.parse(localStorage.getItem('user'))
   const image = user && user['image'];
   const iconButtonElement = image
     ? <MenuItem className="user-image" style={{ background: `url(${image})` }}/>
@@ -57,12 +58,8 @@ function userSection() {
   )
 }
 
-const anonymousUser = (
-  <div className="user">
-    <MenuItem className="menu-item" containerElement={<Link to="/signup" />} primaryText={i('Sign in')} />
-    <MenuItem className="menu-item" containerElement={<Link to="/login" />} primaryText={i('Log in')} />
-  </div>
-)
+const logIn = <MenuItem className="menu-item" containerElement={<Link to="/login" />} primaryText={i('Log in')} />
+const signUp = <MenuItem className="menu-item" containerElement={<Link to="/signup" />} primaryText={i('Sign up')} />
 
 export default function MenuVG(props: MenuVGProps) {
   const menuItems = (
@@ -73,7 +70,9 @@ export default function MenuVG(props: MenuVGProps) {
       <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} />
       <LanguageSelection {...props} />
       <CurrencySelection {...props} />
-      {userSection()}
+      {!checkUser() && logIn}
+      {!checkUser() && signUp}
+      {checkUser() && userSection}
     </div>
   );
 

@@ -12,6 +12,7 @@ import Page from '../Page';
 import Profile from '../Profile';
 import Privacy from '../Page/Privacy';
 import Signup from '../Signup';
+import Confirm from '../Signup/Confirm';
 
 export default (
   <Route path="/" component={Container}>
@@ -19,6 +20,7 @@ export default (
     <Route path="/login" component={Login} />
     <Route path="/profile/:id" component={Profile} />
     <Route path="/signup" component={Signup} />
+    <Route path="/confirm/:email" component={Confirm} />
     <Route path="/offer/:id(/:url)" component={Detail} />
     <Route path="/page/owner" component={Page} />
     <Route path="/page/guide" component={Page} />
