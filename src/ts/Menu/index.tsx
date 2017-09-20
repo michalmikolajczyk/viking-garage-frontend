@@ -21,13 +21,15 @@ import i from '../i18n';
 interface MenuVGProps { refresh: () => void; }
 
 function logout(refresh) {
-  localStorage.removeItem('jwt');
-  localStorage.removeItem('user');
+  if (typeof localStorage !== 'undefined') {
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('user');
+  }
   refresh();
   browserHistory.push('/');
 };
 
-const checkUser = () => typeof window.localStorage !== 'undefined' ? !!JSON.parse(window.localStorage.getItem('user')) : false;
+const checkUser = () => typeof localStorage !== 'undefined' ? !!JSON.parse(localStorage.getItem('user')) : false;
 
 function userSection(refresh) {
   const user = JSON.parse(localStorage.getItem('user'))
