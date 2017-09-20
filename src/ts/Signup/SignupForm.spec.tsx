@@ -10,7 +10,7 @@ const expect = chai.expect;
 import { formsyContext } from '../helpers/test-theme';
 import { browserHistory } from 'react-router';
 import * as api from './api';
-import SigninForm from './SigninForm';
+import SignupForm from './SignupForm';
 
 const user = {
   firstname: 'Viking',
@@ -27,12 +27,12 @@ const response = {
   token: 'uuid-token',
 }
 
-describe('Signin: <SigninForm />', () => {
+describe('Signup: <SignupForm />', () => {
   let wrapper;
   let instance;
   let push;
   beforeEach(() => {
-    wrapper = shallow(<SigninForm />, formsyContext());
+    wrapper = shallow(<SignupForm />, formsyContext());
     instance = wrapper.instance();
     push = sinon.stub(browserHistory, 'push', () => {});
   });
@@ -42,72 +42,65 @@ describe('Signin: <SigninForm />', () => {
   });
 
   it('check for inner components', () => {
-    expect(wrapper.find('FormsyText')).to.have.length(5);
-    expect(wrapper.find('[name="firstname"]')).to.have.length(1);
-    expect(wrapper.find('[name="lastname"]')).to.have.length(1);
+    expect(wrapper.find('FormsyText')).to.have.length(3);
     expect(wrapper.find('[name="email"]')).to.have.length(1);
     expect(wrapper.find('[name="password1"]')).to.have.length(1);
     expect(wrapper.find('[name="password2"]')).to.have.length(1);
-
-    expect(wrapper.find('FormsyDate')).to.have.length(1);
-    expect(wrapper.find('[name="birthday"]')).to.have.length(1);
-
     expect(wrapper.find('FormsyCheckbox')).to.have.length(1);
-    expect(wrapper.find('[name="agree"]')).to.have.length(1);
-
+    expect(wrapper.find('[name="consent"]')).to.have.length(1);
     expect(wrapper.find('button.submit')).to.have.length(1);
   });
 
   it('check if submit action gets user info properly', () => {
-    const signin = sinon.stub(api, 'signin', (params) => {
+    const signup = sinon.stub(api, 'signup', (params) => {
       expect(params).to.be.deep.equal(user)
       return Promise.resolve('ok');
     });
     instance['submit'](user);
-    signin.restore();
+    signup.restore();
   });
 
   it('check if submit action works properly', () => {
-    const signin = sinon.stub(api, 'signin')['returnsPromise']();
+    const signup = sinon.stub(api, 'signup')['returnsPromise']();
 
     instance['submit'](user);
-    signin.resolves(response);
+    signup.resolves(response);
 
     expect(push).to.have.been.calledOnce;
     expect(push).to.have.been.calledWith(`/confirm/${user.email}`);
 
-    signin['restore']();
+    signup['restore']();
   });
 
   it('check if submit action shows backend error', () => {
-    const signin = sinon.stub(api, 'signin')['returnsPromise']();
+    const signup = sinon.stub(api, 'signup')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.false;
 
     instance['submit']();
-    signin.resolves({ err: 'no internet connection'});
+    signup.resolves({ err: 'no internet connection'});
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.openDialog).to.be.true;
     expect(instance.state.networkErr).to.be.false;
-    signin['restore']();
+    signup['restore']();
   });
 
   it('check if submit action shows unexpected network error', () => {
-    const signin = sinon.stub(api, 'signin')['returnsPromise']();
+    const signup = sinon.stub(api, 'signup')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.false;
 
     instance['submit']();
-    signin.rejects('something gone wrong');
+    signup.rejects('something gone wrong');
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.openDialog).to.be.false;
     expect(instance.state.networkErr).to.be.true;
-    signin['restore']();
+    signup['restore']();
   });
 });

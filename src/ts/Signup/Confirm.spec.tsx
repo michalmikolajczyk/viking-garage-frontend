@@ -13,7 +13,7 @@ import Confirm from './Confirm';
 
 const userEmail = 'viking.garage.app@gmail.com';
 
-describe('Signin: <Confirm />', () => {
+describe('Signup: <Confirm />', () => {
   let wrapper;
   let instance;
   beforeEach(() => {

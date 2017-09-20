@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Link } from 'react-router';
 import i from '../i18n';
 import Header from '../Header';
-import SigninForm from './SigninForm';
+import SignupForm from './SignupForm';
 
-export default function Signin(props) {
+export default function Signup(props) {
   return (
     <div>
       <Header />
@@ -18,7 +18,7 @@ export default function Signin(props) {
           </Link>
         </div>
         <div className="inputs">
-          <SigninForm />
+          <SignupForm />
         </div>
       </div>
     </div>

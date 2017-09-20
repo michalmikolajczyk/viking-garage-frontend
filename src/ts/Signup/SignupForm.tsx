@@ -7,30 +7,30 @@ import {
   FormsyText,
 } from 'formsy-material-ui/lib';
 import i from '../i18n';
-import SigninDialog from './SigninDialog';
+import SignupDialog from './SignupDialog';
 import NetworkError from '../Dialogs/NetworkError';
-import { signin } from './api';
+import { signup } from './api';
 import debug from 'debug';
-const log = debug('app:Signin');
+const log = debug('app:Signup');
 
-export default class SiginForm extends React.Component<any, any> {
+export default class SignupForm extends React.Component<any, any> {
   state = {
     canSubmit: false,
     openDialog: false,
     networkErr: false,
   }
 
-  submit = (user) => {
+  submit = user => {
     this.setState({ canSubmit: false });
-    signin(user)
-      .then((res) => {
+    signup(user)
+      .then(res => {
         if (res['err']) return this.setState({ openDialog: true });
         browserHistory.push(`/confirm/${user.email}`);
       })
       .catch(err => this.setState({ networkErr: true }));
   }
 
-  closeSigninDialog = () => this.setState({ openDialog: false })
+  closeSignupDialog = () => this.setState({ openDialog: false })
 
   closeNetworkErr = () => this.setState({ networkErr: false })
 
@@ -42,25 +42,7 @@ export default class SiginForm extends React.Component<any, any> {
         onSubmit={this.submit}
       >
         <FormsyText
-          id="signin-firstname"
-          name="firstname"
-          required={true}
-          fullWidth={true}
-          floatingLabelText={i('First Name')}
-          validations="minLength:3"
-          validationError={i('Please add more characters (minimum 3)')}
-        />
-        <FormsyText
-          id="signin-lastname"
-          name="lastname"
-          required={true}
-          fullWidth={true}
-          floatingLabelText={i('Last Name')}
-          validations="minLength:3"
-          validationError={i('Please add more characters (minimum 3)')}
-        />
-        <FormsyText
-          id="signin-email"
+          id="signup-email"
           name="email"
           required={true}
           fullWidth={true}
@@ -68,15 +50,8 @@ export default class SiginForm extends React.Component<any, any> {
           validations="isEmail"
           validationError={i('Wrong e-mail address!')}
         />
-        <FormsyDate
-          id="signin-birthday"
-          name="birthday"
-          floatingLabelText={i('Date of birth')}
-          required={true}
-          fullWidth={true}
-        />
         <FormsyText
-          id="signin-password1"
+          id="signup-password1"
           name="password1"
           type="password"
           required={true}
@@ -86,7 +61,7 @@ export default class SiginForm extends React.Component<any, any> {
           validationError={i('Password too short! Minimum 6 chars')}
         />
         <FormsyText
-          id="signin-password2"
+          id="signup-password2"
           name="password2"
           type="password"
           required={true}
@@ -97,10 +72,9 @@ export default class SiginForm extends React.Component<any, any> {
         />
         <div className="checkbox">
           <FormsyCheckbox
-            id="signin-agree"
-            value={true}
+            id="signup-agree"
             required={true}
-            name="agree"
+            name="consent"
             label={i('I agree to the Terms of Service')}
             validations="isTrue"
             validationError={i('You should agree with Terms of Service')}
@@ -112,9 +86,9 @@ export default class SiginForm extends React.Component<any, any> {
         >
           {i('Sign in')}
         </button>
-        <SigninDialog
+        <SignupDialog
           open={this.state.openDialog}
-          close={this.closeSigninDialog}
+          close={this.closeSignupDialog}
         />
         <NetworkError
           open={this.state.networkErr}

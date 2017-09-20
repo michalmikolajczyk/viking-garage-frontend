@@ -101,7 +101,7 @@ export default {
   'Invalid e-mail address': 'Nieprawidłowy adres e-mail',
   'Provided e-mail was invalid, please try again': 'Podany e-mail jest nieprawidłowy, proszę spróbuj ponownie',
 /**
- * Signin
+ * Signup
  */
 // Confirm
   'Please confirm your account': 'Potwierdź swoje konto',
@@ -122,7 +122,7 @@ export default {
   'Already have an account?': 'Masz już konto?',
   'Click here to log in!': 'Kliknij żeby się zalogować!',
 
-// Signin Dialog
+// Signup Dialog
   // 'Log in': '',
   // 'Cancel': '',
   'Invalid e-mail': 'Nieprawidłowy e-mail',
@@ -131,7 +131,7 @@ export default {
   'log in': 'zaloguj się',
   'or use another e-mail address.': 'lub użyj innego adresu e-mail',
 
-// Signin Form
+// Signup Form
   'First Name': 'Imię',
   'Please add more characters (minimum 3)': 'Proszę wprowadź więcej znaków (minimum 3)',
   'Last Name': 'Nazwisko',
