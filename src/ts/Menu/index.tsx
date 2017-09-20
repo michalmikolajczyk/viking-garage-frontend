@@ -27,23 +27,24 @@ function logout(refresh) {
   browserHistory.push('/');
 };
 
-const checkUser = () => typeof localStorage !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : '';
+const checkUser = () => typeof window.localStorage !== 'undefined' ? !!JSON.parse(window.localStorage.getItem('user')) : false;
 
-function userSection() {
+function userSection(refresh) {
   const user = JSON.parse(localStorage.getItem('user'))
   const image = user && user['image'];
   const iconButtonElement = image
     ? <MenuItem className="user-image" style={{ background: `url(${image})` }}/>
     : <IconWrap icon="account_circle" aria="user account" />
-
   const paperStyle = {
     height: 30,
     width: 30,
   }
+  const iconButtonElementWrapper = <IconButton><Paper style={paperStyle} circle={true}>{iconButtonElement}</Paper></IconButton>
+
   return (
     <IconMenu
       className="user-profile"
-      iconButtonElement={<Paper style={paperStyle} circle={true}>{iconButtonElement}</Paper>}
+      iconButtonElement={iconButtonElementWrapper}
       anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
       desktop={true}
     >
@@ -53,7 +54,7 @@ function userSection() {
       <MenuItem primaryText={i('Messages')} containerElement={<Link to="/user/inbox" />} />
       <MenuItem primaryText={i('Account')} containerElement={<Link to="/user/account" />} />
       <Divider />
-      <MenuItem primaryText={i('Log out')} onClick={logout} />
+      <MenuItem primaryText={i('Log out')} onClick={logout.bind(this, refresh)} />
     </IconMenu>
   )
 }
@@ -72,7 +73,7 @@ export default function MenuVG(props: MenuVGProps) {
       <CurrencySelection {...props} />
       {!checkUser() && logIn}
       {!checkUser() && signUp}
-      {checkUser() && userSection}
+      {checkUser() && userSection(props.refresh)}
     </div>
   );
 

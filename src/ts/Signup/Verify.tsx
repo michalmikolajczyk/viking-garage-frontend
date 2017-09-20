@@ -6,10 +6,13 @@ import VerifySuccess from './VerifySuccess';
 import { verify } from './api';
 
 export default class Verify extends React.Component<any, any> {
-  state = {
-    networkErr: false,
-    verifyError: false,
-    verifySuccess: false,
+  constructor(props) {
+    super(props)
+    this.state = {
+      networkErr: false,
+      verifyError: false,
+      verifySuccess: false,
+    }
   }
 
   componentDidMount() {
@@ -19,7 +22,7 @@ export default class Verify extends React.Component<any, any> {
   verifyAccount() {
     const token = this.props.params.token;
     verify({ token })
-      .then((res) => {
+      .then(res => {
         if (res['err']) return this.setState({ verifyError: true });
         const token = res['token'];
         const user = res['user'];

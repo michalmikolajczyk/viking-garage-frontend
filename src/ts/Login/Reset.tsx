@@ -17,10 +17,10 @@ export default class Reset extends React.Component<any, any> {
 
   submit = (email) => {
     this.setState({ canSubmit: false });
-    reset(email)
+    return reset(email)
       .then((res) => {
         if (res['err']) return this.setState({ openDialog: true });
-        browserHistory.push('/check');
+        return browserHistory.push('/check');
       })
       .catch(err => this.setState({ networkErr: true }));
   }

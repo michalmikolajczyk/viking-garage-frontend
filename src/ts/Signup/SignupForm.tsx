@@ -42,24 +42,6 @@ export default class SignupForm extends React.Component<any, any> {
         onSubmit={this.submit}
       >
         <FormsyText
-          id="signup-firstname"
-          name="firstname"
-          required={true}
-          fullWidth={true}
-          floatingLabelText={i('First Name')}
-          validations="minLength:3"
-          validationError={i('Please add more characters (minimum 3)')}
-        />
-        <FormsyText
-          id="signup-lastname"
-          name="lastname"
-          required={true}
-          fullWidth={true}
-          floatingLabelText={i('Last Name')}
-          validations="minLength:3"
-          validationError={i('Please add more characters (minimum 3)')}
-        />
-        <FormsyText
           id="signup-email"
           name="email"
           required={true}
@@ -67,13 +49,6 @@ export default class SignupForm extends React.Component<any, any> {
           floatingLabelText={i('E-mail')}
           validations="isEmail"
           validationError={i('Wrong e-mail address!')}
-        />
-        <FormsyDate
-          id="signup-birthday"
-          name="birthday"
-          floatingLabelText={i('Date of birth')}
-          required={true}
-          fullWidth={true}
         />
         <FormsyText
           id="signup-password1"
@@ -99,7 +74,7 @@ export default class SignupForm extends React.Component<any, any> {
           <FormsyCheckbox
             id="signup-agree"
             required={true}
-            name="agree"
+            name="consent"
             label={i('I agree to the Terms of Service')}
             validations="isTrue"
             validationError={i('You should agree with Terms of Service')}

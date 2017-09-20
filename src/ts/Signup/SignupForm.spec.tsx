@@ -42,19 +42,12 @@ describe('Signup: <SignupForm />', () => {
   });
 
   it('check for inner components', () => {
-    expect(wrapper.find('FormsyText')).to.have.length(5);
-    expect(wrapper.find('[name="firstname"]')).to.have.length(1);
-    expect(wrapper.find('[name="lastname"]')).to.have.length(1);
+    expect(wrapper.find('FormsyText')).to.have.length(3);
     expect(wrapper.find('[name="email"]')).to.have.length(1);
     expect(wrapper.find('[name="password1"]')).to.have.length(1);
     expect(wrapper.find('[name="password2"]')).to.have.length(1);
-
-    expect(wrapper.find('FormsyDate')).to.have.length(1);
-    expect(wrapper.find('[name="birthday"]')).to.have.length(1);
-
     expect(wrapper.find('FormsyCheckbox')).to.have.length(1);
-    expect(wrapper.find('[name="agree"]')).to.have.length(1);
-
+    expect(wrapper.find('[name="consent"]')).to.have.length(1);
     expect(wrapper.find('button.submit')).to.have.length(1);
   });
 
