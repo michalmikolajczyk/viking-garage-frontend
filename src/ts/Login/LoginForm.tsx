@@ -25,8 +25,10 @@ export default class LoginForm extends React.Component<any, any> {
         const data = res['data'];
         const token = data.token;
         const user = data.user;
-        localStorage.setItem('jwt', token);
-        localStorage.setItem('user', JSON.stringify(user));
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('jwt', token);
+          localStorage.setItem('user', JSON.stringify(user));
+        }
         browserHistory.push('/');
       })
       .catch(err => this.setState({ networkErr: true }));

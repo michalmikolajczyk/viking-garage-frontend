@@ -13,7 +13,7 @@ describe('<Menu />', () => {
   });
 
   it('check if user logged in display user menu', () => {
-    const stub = sinon.stub(window.localStorage, 'getItem')
+    const stub = sinon.stub(localStorage, 'getItem')
       .returns(JSON.stringify({ image: 'url-to-image', email: 'user@example.com' }));
     const wrapper = mountWithTheme(<Menu refresh={() => {}} />);
     expect(stub.callCount).to.equal(4)
