@@ -18,6 +18,7 @@ interface props {
   button: any;
   success: object;
   message?: Function;
+  suffix?: any;
 }
 
 export default class Contact extends React.Component<props, any> {
@@ -58,6 +59,7 @@ export default class Contact extends React.Component<props, any> {
       button,
       success,
       children,
+      suffix
     } = this.props;
 
     const actions = [
@@ -106,6 +108,7 @@ export default class Contact extends React.Component<props, any> {
                 onValid={this.onValid}
                 onInvalid={this.onInvalid}
               />
+              {suffix}
             </div>
           </div>
         </Dialog>

@@ -5,15 +5,18 @@ import DataProvider from './DataProvider';
 import Main from './Main';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 const { AppContainer } = require('react-hot-loader');
+import {StripeProvider} from 'react-stripe-elements';
 
 injectTapEventPlugin();
 const root = document.getElementById('app');
 
 render(
   <AppContainer>
-    <DataProvider data={window['APP_DATA']}>
-      <Main />
-    </DataProvider>
+    <StripeProvider apiKey="pk_test_12345">
+      <DataProvider data={window['APP_DATA']}>
+        <Main />
+      </DataProvider>
+    </StripeProvider>
   </AppContainer>,
   root,
 );

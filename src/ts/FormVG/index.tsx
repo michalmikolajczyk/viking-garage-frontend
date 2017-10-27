@@ -7,14 +7,16 @@ import FormHour from './FormHour';
 import FormWrap from './FormWrap';
 import Contact from '../Contact';
 import Raido from '../Raido';
+import Payment from '../Payment';
 import {
   countTotal,
   renderUnit,
 } from '../helpers/hours';
 import currency from '../i18n/currency';
 import i from '../i18n';
+import {injectStripe} from 'react-stripe-elements';
 
-export default class FormVG extends React.Component<any, any> {
+class FormVG extends React.Component<any, any> {
   constructor(props) {
     super(props);
     const { start, end } = props;
@@ -78,6 +80,7 @@ Currency: ${currency()}`;
     const form = hour ? <FormHour {...formData} /> : <FormDay  {...formData} />;
 
     return (
+      
       <FormWrap>
         <div className="title mobile-tablet-hid">{title}</div>
         {form}
@@ -90,6 +93,7 @@ Currency: ${currency()}`;
               title: i('Your ride is booked.'),
               body: i('Our team will contact you within the next 24 hours in order to confirm it and discuss the details.\n\nGet ready for an unforgettable experience with VIKING GARAGE!'),
             }}
+            suffix={<Payment />}
           >
             <div className="title">
               {title}
@@ -104,3 +108,5 @@ Currency: ${currency()}`;
     );
   }
 }
+
+export default injectStripe(FormVG);
