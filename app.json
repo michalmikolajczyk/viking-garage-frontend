@@ -55,8 +55,8 @@
       "required": true
     },
     "PORT": {
-      "description": "Port to run application server",
-      "required": true
+      "description": "Port to run application server, not required only at Heroku",
+      "required": false
     },
     "VG_LIMIT": {
       "description": "Limit for pagination in main view",

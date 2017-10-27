@@ -4,12 +4,13 @@
   "description": "VIKING GARAGE frontend",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run build:ssr && npm run build:app",
+    "postinstall": "npm run fix-material && npm run build:ssr && npm run build:app",
     "build:app": "webpack --optimize-minimize --config webpack/webpack.config.prod-app.js --progress --colors",
     "build:ssr": "webpack --optimize-minimize --config webpack/webpack.config.prod-ssr.js --progress --colors",
     "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx src/ts/**/**/*.spec.tsx",
     "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx",
-    "start": "node ./server"
+    "start": "node ./server",
+    "fix-material": "./scripts/sed-autocomplete.sh || ./scripts/sed-autocomplete-nix.sh"
   },
   "engines": {
     "node": "8.4.0"
@@ -56,7 +57,7 @@
     "formsy-react": "^0.19.2",
     "geolib": "^2.0.22",
     "jsdom": "^9.10.0",
-    "material-ui": "^0.18.7",
+    "material-ui": "^0.19.4",
     "mocha": "^3.2.0",
     "moment": "^2.17.1",
     "money": "^0.2.0",
