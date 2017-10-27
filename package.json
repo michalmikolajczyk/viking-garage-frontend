@@ -10,7 +10,7 @@
     "test": "mocha -r ts-node/register -r test-setup.js src/ts/**/*.spec.tsx src/ts/**/**/*.spec.tsx",
     "lint": "tslint ./src/ts/*.tsx ./src/ts/**/*.tsx ./src/ts/**/**/*.tsx",
     "start": "node ./server",
-    "fix-material": "sed -i '' '389s/.*/              if (itemValue \\&\\& itemValue.type \\&\\& (itemValue.type.muiName === _MenuItem2.default.muiName || itemValue.type.muiName === _Divider2.default.muiName)) {/' node_modules/material-ui/AutoComplete/AutoComplete.js"
+    "fix-material": "./scripts/sed-autocomplete.sh || ./scripts/sed-autocomplete-nix.sh"
   },
   "engines": {
     "node": "8.4.0"
