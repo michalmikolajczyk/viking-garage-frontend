@@ -10,7 +10,7 @@ import parser from '../helpers/parser';
 import { isHourlySubtype } from '../helpers/hours';
 import FormVG from '../FormVG';
 import * as api from './api';
-import {Elements} from 'react-stripe-elements';
+import { Elements } from 'react-stripe-elements';
 
 export default class Detail extends React.Component<any, any> {
   static contextTypes = { data: React.PropTypes.object };

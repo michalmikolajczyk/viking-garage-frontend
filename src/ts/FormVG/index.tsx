@@ -13,8 +13,7 @@ import {
   renderUnit,
 } from '../helpers/hours';
 import currency from '../i18n/currency';
-import i from '../i18n';
-import {injectStripe} from 'react-stripe-elements';
+import i18n from '../i18n';
 
 class FormVG extends React.Component<any, any> {
   constructor(props) {
@@ -78,9 +77,8 @@ Currency: ${currency()}`;
     };
 
     const form = hour ? <FormHour {...formData} /> : <FormDay  {...formData} />;
-
+    const i = i18n;
     return (
-      
       <FormWrap>
         <div className="title mobile-tablet-hid">{title}</div>
         {form}
@@ -109,4 +107,4 @@ Currency: ${currency()}`;
   }
 }
 
-export default injectStripe(FormVG);
+export default FormVG;

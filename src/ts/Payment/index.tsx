@@ -1,6 +1,6 @@
 import * as React from 'react';
 // import * as _ from 'lodash';
-import {CardElement} from 'react-stripe-elements';
+import { CardElement, injectStripe } from 'react-stripe-elements';
 
 class Payment extends React.Component {
   render() {
@@ -13,4 +13,4 @@ class Payment extends React.Component {
   }
 };
 
-export default Payment;
+export default injectStripe(Payment);

@@ -9,8 +9,10 @@ import Reaction from './Reaction';
 import ContactForm from './ContactForm';
 import NetworkError from '../Dialogs/NetworkError';
 import Raido from '../Raido';
-import i from '../i18n';
+import i18n from '../i18n';
 import { contact } from './api';
+
+const i = i18n;
 
 interface props {
   type: string;
@@ -29,7 +31,7 @@ export default class Contact extends React.Component<props, any> {
     canSubmit: false,
     openDialog: false,
     networkErr: false,
-  }
+  };
 
   submit = (data) => {
     const body = this.props.message && this.props.message();
