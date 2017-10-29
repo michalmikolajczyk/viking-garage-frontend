@@ -8,9 +8,8 @@ import HeaderVG from './HeaderVG';
 import ListVG from './ListVG';
 import parser from '../helpers/parser';
 import { isHourlySubtype } from '../helpers/hours';
-import FormVG from '../FormVG';
+import ElementsFormVGWrapper from '../FormVG/ElementsFormVGWrapper';
 import * as api from './api';
-import { Elements } from 'react-stripe-elements';
 
 export default class Detail extends React.Component<any, any> {
   static contextTypes = { data: React.PropTypes.object };
@@ -52,14 +51,12 @@ export default class Detail extends React.Component<any, any> {
           <div className="header-wrapper">
             <HeaderVG offer={offer} />
           </div>
-          <Elements>
-            <FormVG
-              hour={isHourly}
-              offer={offer}
-              end={this.state.end}
-              start={this.state.start}
-            />
-          </Elements>
+          <ElementsFormVGWrapper
+            hour={isHourly}
+            offer={offer}
+            end={this.state.end}
+            start={this.state.start}
+          />
           <div className="brief-text mobile-tablet-only">
             {_.get(offer, 'brief')}
           </div>
