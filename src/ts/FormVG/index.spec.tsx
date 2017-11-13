@@ -28,14 +28,14 @@ describe('<FormVG />', () => {
   it('should display proper components for daily renting', () => {
     expect(wrapper.find('FormWrap')).to.have.length(1);
     expect(wrapper.find('FormDay')).to.have.length(1);
-    expect(wrapper.find('Contact')).to.have.length(1);
+    expect(wrapper.find('Booking')).to.have.length(1);
   });
 
   it('should display proper components for hourly renting', () => {
     wrapper = mount(<FormVG offer={offer} hour={true} />, formsyContext());
     expect(wrapper.find('FormWrap')).to.have.length(1);
     expect(wrapper.find('FormHour')).to.have.length(1);
-    expect(wrapper.find('Contact')).to.have.length(1);
+    expect(wrapper.find('Booking')).to.have.length(1);
   });
 
   it('should displays title and price properly', () => {

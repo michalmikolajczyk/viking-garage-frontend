@@ -58,6 +58,11 @@
       "description": "Port to run application server, not required only at Heroku",
       "required": false
     },
+    "STRIPE_PUB_KEY": {
+      "description": "Stripe publishable key",
+      "value": "pk_test_12345",
+      "required": true
+    },
     "VG_LIMIT": {
       "description": "Limit for pagination in main view",
       "required": false

@@ -6,13 +6,14 @@ import Main from './Main';
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 const { AppContainer } = require('react-hot-loader');
 import { StripeProvider } from 'react-stripe-elements';
+const stripePubKey = process.env.STRIPE_PUB_KEY;
 
 injectTapEventPlugin();
 const root = document.getElementById('app');
 
 render(
   <AppContainer>
-    <StripeProvider apiKey="pk_test_12345">
+    <StripeProvider apiKey={stripePubKey}>
       <DataProvider data={window['APP_DATA']}>
         <Main />
       </DataProvider>

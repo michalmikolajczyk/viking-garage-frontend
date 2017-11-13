@@ -7,6 +7,7 @@ import DataProvider from './DataProvider';
 import muiThemeVG from './muiThemeVG';
 import routes from './routes';
 import { StripeProvider } from 'react-stripe-elements';
+const stripePubKey = process.env.STRIPE_PUB_KEY;
 
 injectTapEventPlugin();
 
@@ -18,7 +19,7 @@ export default function render(location, data) {
       if (props) {
         resolve(
           renderToString(
-            <StripeProvider apiKey="pk_test_12345">
+            <StripeProvider apiKey={stripePubKey}>
               <DataProvider data={data}>
                 <RouterContext {...props} />
               </DataProvider>

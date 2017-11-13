@@ -378,13 +378,13 @@ export default {
   'Total': 'Łączna cena',
 
 // RideDialog
-  'If you are interested in that ride, leave us your details - our team will contact you:':
-  'Jeśli jesteś zainteresowany jazdą, zostaw nam swoje dane - nasz zespół skontaktuje się z Tobą:',
+  'Please check the details for the ride': 'Sprawdź szczegóły jazdy',
+  'Fill in your details to book the ride': 'Uzupełnij swoje dane, żeby zarezerwować jazdę',
   'Your Name': 'Twoje Imię',
   'Your Email Address': 'Twój Adress Email',
-  'PS: You can also call us (WhatsApp works):':
-  'PS: Możesz także zadzwonić do nas',
-  'Phone:': 'Telefon:',
+  'You can always reach us via telephone or WhatsApp at':
+  'Jesteśmy dostępni pod telefonem albo WhatsApp',
+  'phone number:': 'numer telefonu:',
 
 // RideSuccess
   'Your ride is booked.': 'Twoja jazda jest zarezerwowana.',

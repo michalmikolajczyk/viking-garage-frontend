@@ -5,9 +5,8 @@ import * as moment from 'moment';
 import FormDay from './FormDay';
 import FormHour from './FormHour';
 import FormWrap from './FormWrap';
-import Contact from '../Contact';
+import Booking from '../Booking';
 import Raido from '../Raido';
-import Payment from '../Payment';
 import {
   countTotal,
   renderUnit,
@@ -15,7 +14,7 @@ import {
 import currency from '../i18n/currency';
 import i18n from '../i18n';
 
-class FormVG extends React.Component<any, any> {
+export default class FormVG extends React.Component<any, any> {
   constructor(props) {
     super(props);
     const { start, end } = props;
@@ -83,28 +82,15 @@ Currency: ${currency()}`;
         <div className="title mobile-tablet-hid">{title}</div>
         {form}
         <div>
-          <Contact
+          <Booking
             type="ride"
             button={<div className="btn-main btn-ride"><Raido />IDE</div>}
             message={this.getMessage}
-            success={{
-              title: i('Your ride is booked.'),
-              body: i('Our team will contact you within the next 24 hours in order to confirm it and discuss the details.\n\nGet ready for an unforgettable experience with VIKING GARAGE!'),
-            }}
-            suffix={<Payment />}
-          >
-            <div className="title">
-              {title}
-            </div>
-            {form}
-            <div className="text">
-              {i('If you are interested in that ride, leave us your details - our team will contact you:')}
-            </div>
-          </Contact>
+            form={form}
+            offerTitle={title}
+          />
         </div>
       </FormWrap>
     );
   }
 }
-
-export default FormVG;

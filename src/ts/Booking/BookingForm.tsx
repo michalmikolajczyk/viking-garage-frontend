@@ -55,13 +55,6 @@ export default class ContactForm extends React.Component<props, null> {
             floatingLabelText={i('Message (optional)')}
           />
         </Form>
-        <div className="text">
-          {i('PS: You can also call us (WhatsApp works):')}
-          <br />
-          <a href="tel:+48697951264" target="_blank">
-            {i('Phone:')} +48 697 951 264
-          </a>
-        </div>
       </div>
     );
   }

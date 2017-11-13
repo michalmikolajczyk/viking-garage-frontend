@@ -1,4 +1,4 @@
-const url = process.env.API_URL || 'https://viking-garage-api-staging.herokuapp.com'
+const url = process.env.API_URL || 'https://viking-garage-api-staging.herokuapp.com';
 
 const API = {
 
@@ -17,6 +17,9 @@ const API = {
 
 // contact
   contact: `${url}/contact`,
+
+// booking
+  booking: `${url}/booking`,
 
 // offer
   offer: `${url}/offer`,

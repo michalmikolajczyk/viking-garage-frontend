@@ -6,23 +6,25 @@ import {
   RaisedButton,
 } from 'material-ui';
 import Reaction from './Reaction';
-import ContactForm from './ContactForm';
+import BookingForm from './BookingForm';
 import NetworkError from '../Dialogs/NetworkError';
 import Raido from '../Raido';
 import i18n from '../i18n';
-import { contact } from './api';
+import { booking } from './api';
+import Payment from '../Payment';
 
 const i = i18n;
 
 interface props {
+  form: any;
+  offerTitle: string;
   type: string;
   title?: string;
   button: any;
-  success: object;
   message?: Function;
 }
 
-export default class Contact extends React.Component<props, any> {
+export default class Booking extends React.Component<props, any> {
   formsy: any;
 
   constructor(props) {
@@ -33,24 +35,33 @@ export default class Contact extends React.Component<props, any> {
       canSubmit: false,
       openDialog: false,
       networkErr: false,
+      paymentDetails: null,
+      stripeTrigger: false,
     };
   }
 
   submit = (data) => {
     const body = this.props.message && this.props.message();
     this.setState({ wait: true });
-    return contact({ ...data, body, type: this.props.type, code: i() })
+    return booking({ ...data, body, type: this.props.type, code: i() })
       .then((res) => {
         if (res && res['err']) return this.setState({ networkErr: true, wait: false });
-        return this.setState({
-          wait: false,
-          open: false,
-          openDialog: true,
-        });
+        this.setState({ wait: false, open: false, openDialog: true });
+        this.initStripe(data);
         
       })
       .catch(err => this.setState({ networkErr: true, wait: false }));
     }
+
+  initStripe = (data) => {
+    console.log('init Stripe');
+    return this.setState({ paymentDetails: data, stripeTrigger: true });
+  }
+
+  terminateStripe = () => {
+    console.log('terminate Stripe');
+    return this.setState({ paymentDetails: null, stripeTrigger: false });
+  }
 
   open = () => this.setState({ open: true });
   close = () => this.setState({ open: false });
@@ -61,11 +72,17 @@ export default class Contact extends React.Component<props, any> {
 
   render() {
     const {
-      title,
       button,
-      success,
       children,
+      form,
+      offerTitle,
+      title,
     } = this.props;
+
+    const success = {
+      title: i('Your ride is booked.'),
+      body: i('Our team will contact you within the next 24 hours in order to confirm it and discuss the details.\n\nGet ready for an unforgettable experience with VIKING GARAGE!'),
+    };
 
     const actions = [
       <FlatButton
@@ -106,13 +123,34 @@ export default class Contact extends React.Component<props, any> {
         >
           <div className="dialog-scroll">
             <div className="contact-body ">
-              {this.props.children}
-              <ContactForm
+              <div className="title">
+                {offerTitle}
+              </div>
+              <div className="text">
+                {i('Please check the details for the ride')}
+              </div>
+              {form}
+              <div className="text">
+                {i('Fill in your details to book the ride')}
+              </div>
+              <BookingForm
                 ref={f => this.formsy = f}
                 submit={this.submit}
                 onValid={this.onValid}
                 onInvalid={this.onInvalid}
               />
+              <Payment 
+                stripeTrigger={this.state.stripeTrigger}
+                paymentDetails={this.state.paymentDetails}
+                processStripe={this.terminateStripe}
+              />
+              <div className="text">
+                {i('If anything is unclear, you can reach us via telephone or WhatsApp at')}
+                <br />
+                <a href="tel:+48697951264" target="_blank">
+                  {i('phone number:')} +48 697 951 264
+                </a>
+              </div>
             </div>
           </div>
         </Dialog>
