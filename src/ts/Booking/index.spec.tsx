@@ -84,7 +84,7 @@ describe('<Contact />', () => {
     expect(instance.state.networkErr).to.be.false;
 
     instance['submit']();
-    contact.resolves({ err: 'no internet connection'});
+    contact.resolves({ err: 'no internet connection' });
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.wait).to.be.false;

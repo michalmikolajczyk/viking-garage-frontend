@@ -24,6 +24,9 @@ const API = {
 // offer
   offer: `${url}/offer`,
 
+// payment
+  payment: `${url}/payment`,
+
 };
 
 export default API;

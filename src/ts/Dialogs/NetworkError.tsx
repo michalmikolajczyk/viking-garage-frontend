@@ -3,7 +3,8 @@ import {
   Dialog,
   FlatButton,
 } from 'material-ui';
-import i from '../i18n';
+import i18n from '../i18n';
+const i = i18n;
 
 export default function NetworkError(props) {
   const {

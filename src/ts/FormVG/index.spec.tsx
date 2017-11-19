@@ -63,7 +63,7 @@ describe('<FormVG />', () => {
     instance.startHourChange(undefined, start);
     expect(instance.state.startHour).to.be.equal(start);
     expect(instance.getMessage()).to.contain(`${start.val}:00`);
-  })
+  });
 
   it('should calculates total price for hourly renting', () => {
     wrapper = shallow(<FormVG offer={offer} hour={true} />, formsyContext());

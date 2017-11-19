@@ -28,8 +28,9 @@ export function change(data) {
 }
 
 export function check(token) {
-  return fetch(API.check, {
-    headers: { Authorization: `JWT ${token}` },
-  })
+  // return fetch(API.check, {
+  //   headers: { Authorization: `JWT ${token}` },
+  // })
+  return fetch(API.check)
   .then(res => res.json());
 }

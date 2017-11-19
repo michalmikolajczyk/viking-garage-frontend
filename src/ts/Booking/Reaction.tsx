@@ -7,7 +7,7 @@ import Raido from '../Raido';
 import i18n from '../i18n';
 const i = i18n;
 
-export default function Reaction(props){
+export default function Reaction(props) {
   const {
     data,
     open,
@@ -38,6 +38,8 @@ export default function Reaction(props){
       <div className="dialog-scroll">
         <div className="reaction">
           {data.body}
+          <br /><br />
+          {data.payment}
         </div>
       </div>
     </Dialog>

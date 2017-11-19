@@ -402,6 +402,6 @@ export default {
 
 // Select
   'Select some values': 'Wybierz wartość',
-}
+};
 
 

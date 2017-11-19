@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Form } from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
-import i from '../i18n';
+import i18n from '../i18n';
+const i = i18n;
 
 interface props {
   onValid: Function;

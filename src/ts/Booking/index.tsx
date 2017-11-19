@@ -33,41 +33,42 @@ export default class Booking extends React.Component<props, any> {
       open: false,
       wait: false,
       canSubmit: false,
-      openDialog: false,
+      openConfirmation: false,
       networkErr: false,
       paymentDetails: null,
       stripeTrigger: false,
     };
   }
 
-  submit = (data) => {
+  bookingSubmit = (data) => {
     const body = this.props.message && this.props.message();
     this.setState({ wait: true });
     return booking({ ...data, body, type: this.props.type, code: i() })
       .then((res) => {
         if (res && res['err']) return this.setState({ networkErr: true, wait: false });
-        this.setState({ wait: false, open: false, openDialog: true });
-        this.initStripe(data);
-        
+        return this.setState({ paymentDetails: res, stripeTrigger: true });
       })
       .catch(err => this.setState({ networkErr: true, wait: false }));
     }
 
-  initStripe = (data) => {
-    console.log('init Stripe');
-    return this.setState({ paymentDetails: data, stripeTrigger: true });
-  }
-
-  terminateStripe = () => {
-    console.log('terminate Stripe');
-    return this.setState({ paymentDetails: null, stripeTrigger: false });
+  terminateStripe = (err, data) => {
+    const state = {
+      wait: false,
+      open: false,
+      openConfirmation: true,
+      paymentSuccess: true,
+      paymentDetails: null,
+      stripeTrigger: false,
+    };
+    if (err) state.paymentSuccess = false;
+    return this.setState(state);
   }
 
   open = () => this.setState({ open: true });
   close = () => this.setState({ open: false });
   onValid = () => this.setState({ canSubmit: true });
   onInvalid = () => this.setState({ canSubmit: false });
-  closeOpenDialog = () => this.setState({ openDialog: false });
+  closeConfirmation = () => this.setState({ openConfirmation: false });
   closeNetworkErr = () => this.setState({ networkErr: false });
 
   render() {
@@ -82,6 +83,7 @@ export default class Booking extends React.Component<props, any> {
     const success = {
       title: i('Your ride is booked.'),
       body: i('Our team will contact you within the next 24 hours in order to confirm it and discuss the details.\n\nGet ready for an unforgettable experience with VIKING GARAGE!'),
+      payment: this.state.paymentSuccess ? 'The payment was processed successfully.' : 'The payment was not completed,\nplease check booking details here (link)',
     };
 
     const actions = [
@@ -135,14 +137,14 @@ export default class Booking extends React.Component<props, any> {
               </div>
               <BookingForm
                 ref={f => this.formsy = f}
-                submit={this.submit}
+                submit={this.bookingSubmit}
                 onValid={this.onValid}
                 onInvalid={this.onInvalid}
               />
               <Payment 
                 stripeTrigger={this.state.stripeTrigger}
                 paymentDetails={this.state.paymentDetails}
-                processStripe={this.terminateStripe}
+                terminateStripe={this.terminateStripe}
               />
               <div className="text">
                 {i('If anything is unclear, you can reach us via telephone or WhatsApp at')}
@@ -160,8 +162,8 @@ export default class Booking extends React.Component<props, any> {
         />
         <Reaction
           data={success}
-          open={this.state.openDialog}
-          close={this.closeOpenDialog}
+          open={this.state.openConfirmation}
+          close={this.closeConfirmation}
         />
       </div>
     );
