@@ -1,5 +1,8 @@
 const webpack = require('webpack');
 const common = require('./common.config');
+// read env vars from local .env file
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {
   entry: './src/ts/ssr.tsx',

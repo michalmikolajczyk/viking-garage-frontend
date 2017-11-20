@@ -25,7 +25,7 @@ const serverProd = require('./server-prod');
 const port = process.env.PORT;
 const nodeEnv = process.env.NODE_ENV;
 
-if (nodeEnv === 'production') {
+if (nodeEnv === 'production' || nodeEnv = 'localSSR') {
   serverProd.listen(port);
 } else {
   serverDev.listen(port);

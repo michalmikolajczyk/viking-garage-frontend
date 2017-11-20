@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { injectStripe, PaymentRequestButtonElement } from 'react-stripe-elements';
+import { injectStripe, PaymentRequestButtonElement } from 'react-stripe-elements-universal';
 
 class PaymentRequestForm extends React.Component<any, any> {
   constructor(props) {

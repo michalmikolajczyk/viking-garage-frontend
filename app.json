@@ -29,7 +29,7 @@
   "env": {
     "API_URL": {
       "description": "URL to API for server side render requests",
-      "value": "https://viking-garage-api-staging.herokuapp.com/",
+      "value": "https://viking-garage-api-staging.herokuapp.com",
       "required": true
     },
     "DEBUG": {

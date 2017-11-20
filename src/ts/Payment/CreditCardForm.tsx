@@ -3,7 +3,7 @@ import * as React from 'react';
 import { 
   CardElement, 
   injectStripe
-} from 'react-stripe-elements';
+} from 'react-stripe-elements-universal';
 import PaymentRequestForm from './PaymentRequestForm';
 
 class Payment extends React.Component<any, any> {

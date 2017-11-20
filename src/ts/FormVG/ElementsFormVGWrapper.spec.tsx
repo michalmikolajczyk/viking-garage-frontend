@@ -3,7 +3,7 @@ import * as React from 'react';
 import { expect } from 'chai';
 import ElementsFormVGWrapper from './ElementsFormVGWrapper';
 require('../helpers/stripe-mock');
-import { StripeProvider } from 'react-stripe-elements';
+import { StripeProvider } from 'react-stripe-elements-universal';
 import { mountWithTheme } from '../helpers/test-theme';
 
 function stripeContained(WrappedComponent) {

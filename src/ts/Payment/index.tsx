@@ -1,7 +1,7 @@
 import * as React from 'react';
 import CreditCardForm from './CreditCardForm';
 import PaymentRequestForm from './PaymentRequestForm';
-import { injectStripe } from 'react-stripe-elements';
+import { injectStripe } from 'react-stripe-elements-universal';
 import * as api from './api';
 
 class Payment extends React.Component<any, any> {
