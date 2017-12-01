@@ -12,6 +12,7 @@ import Raido from '../Raido';
 import i18n from '../i18n';
 import { booking } from './api';
 import Payment from '../Payment';
+const paymentFlag = process.env.PAYMENTS || false;
 
 const i = i18n;
 
@@ -40,26 +41,33 @@ export default class Booking extends React.Component<props, any> {
     };
   }
 
+  terminateStripeEndState = {
+    wait: false,
+    open: false,
+    openConfirmation: true,
+    paymentSuccess: true,
+    paymentDetails: null,
+    stripeTrigger: false,
+  };
+
+  bookingCompletion = (res) => {
+    if (paymentFlag) return this.setState({ paymentDetails: res, stripeTrigger: true });
+    return this.setState(Object.assign({}, this.terminateStripeEndState));
+  }
+
   bookingSubmit = (data) => {
     const body = this.props.message && this.props.message();
     this.setState({ wait: true });
     return booking({ ...data, body, type: this.props.type, code: i() })
       .then((res) => {
         if (res && res['err']) return this.setState({ networkErr: true, wait: false });
-        return this.setState({ paymentDetails: res, stripeTrigger: true });
+        return this.bookingCompletion(res);
       })
       .catch(err => this.setState({ networkErr: true, wait: false }));
     }
 
   terminateStripe = (err, data) => {
-    const state = {
-      wait: false,
-      open: false,
-      openConfirmation: true,
-      paymentSuccess: true,
-      paymentDetails: null,
-      stripeTrigger: false,
-    };
+    const state = Object.assign({}, this.terminateStripeEndState);
     if (err) state.paymentSuccess = false;
     return this.setState(state);
   }
@@ -141,11 +149,13 @@ export default class Booking extends React.Component<props, any> {
                 onValid={this.onValid}
                 onInvalid={this.onInvalid}
               />
-              <Payment 
-                stripeTrigger={this.state.stripeTrigger}
-                paymentDetails={this.state.paymentDetails}
-                terminateStripe={this.terminateStripe}
-              />
+              {paymentFlag && (
+                <Payment 
+                  stripeTrigger={this.state.stripeTrigger}
+                  paymentDetails={this.state.paymentDetails}
+                  terminateStripe={this.terminateStripe}
+                />
+              )}
               <div className="text">
                 {i('If anything is unclear, you can reach us via telephone or WhatsApp at')}
                 <br />

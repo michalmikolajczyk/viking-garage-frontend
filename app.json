@@ -54,6 +54,10 @@
       "value": "false",
       "required": true
     },
+    "PAYMENTS": {
+      "description": "Turn payments on / off",
+      "required": false
+    },
     "PORT": {
       "description": "Port to run application server, not required only at Heroku",
       "required": false
@@ -62,6 +66,10 @@
       "description": "Stripe publishable key",
       "value": "pk_test_12345",
       "required": true
+    },
+    "USERS": {
+      "description": "Turn users on / off",
+      "required": false
     },
     "VG_LIMIT": {
       "description": "Limit for pagination in main view",

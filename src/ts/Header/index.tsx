@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Raido from '../Raido';
-import i from '../i18n';
+import i18n from '../i18n';
+const i = i18n;
 
 export default function Header(props) {
   return (
@@ -12,12 +13,7 @@ export default function Header(props) {
         </div>
       </div>
       <div className="text">
-        {i('rent motorcycles and gear')}
-        <br />
-        {i('find mechanics, coaches, trails')}
-        <div className="text-in">
-          {i('everywhere in the world')}
-        </div>
+        <a href="">{i('Ride \'Em')}</a>, <a href="">{i('Don\'t Hide \'Em')}</a>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ module.exports = {
         warnings: false
       }
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'API_URL', 'STRIPE_PUB_KEY']),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'API_URL', 'PAYMENTS', 'STRIPE_PUB_KEY', 'USERS'])
   ]),
 
   module: common.module,

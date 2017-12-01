@@ -40,15 +40,13 @@
 @media screen and (min-width: $tablet-min) {
   .page {
     .image {
-      max-width: 530px;
-      height: 350px;
+      height: 610px;
       margin: 15px auto;
     }
     .text {
       font-size: 20px;
       font-weight: 100;
-      max-width: 500px;
-      margin: 0 auto;
+      margin: 34px auto;
       line-height: 25px;
     }
     .page-btn {
@@ -59,6 +57,12 @@
 
 @media screen and (min-width: $desktop-min) {
   .page {
+    .page-body {
+      box-sizing: border-box;
+      max-width: 1280px;
+      padding: 0 80px;
+      margin: 0 auto;
+    }
     .title {
       font-size: 45px;
     }
