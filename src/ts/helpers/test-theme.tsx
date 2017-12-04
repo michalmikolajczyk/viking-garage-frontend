@@ -14,6 +14,17 @@ export function mountWithTheme(node) {
   });
 }
 
+export function renderWithTheme(node) {
+  return mount(node, {
+    context: {
+      muiTheme: getMuiTheme(),
+    },
+    childContextTypes: {
+      muiTheme: React.PropTypes.object.isRequired,
+    },
+  });
+}
+
 export function muiContext() {
   return {
     context: {

@@ -1,7 +1,7 @@
 import 'mocha';
 import * as React from 'react';
 import * as chai from 'chai';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import * as sinon from 'sinon';
 require('sinon-stub-promise')(sinon);
 import * as sinonChai from 'sinon-chai';
@@ -14,7 +14,6 @@ import {
   countTotal,
   renderUnit,
 } from '../helpers/hours';
-
 import FormVG from './';
 import { offer } from '../Detail/mockup';
 
@@ -22,21 +21,21 @@ describe('<FormVG />', () => {
   let wrapper;
   let instance;
   beforeEach(() => {
-    wrapper = shallow(<FormVG offer={offer} />, formsyContext());
+    wrapper = mount(<FormVG offer={offer} />, formsyContext());
     instance = wrapper.instance();
   });
 
-  it('should displays proper components for daily renting', () => {
+  it('should display proper components for daily renting', () => {
     expect(wrapper.find('FormWrap')).to.have.length(1);
     expect(wrapper.find('FormDay')).to.have.length(1);
-    expect(wrapper.find('Contact')).to.have.length(1);
+    expect(wrapper.find('Booking')).to.have.length(1);
   });
 
-  it('should displays proper components for hourly renting', () => {
-    wrapper = shallow(<FormVG offer={offer} hour={true} />, formsyContext());
+  it('should display proper components for hourly renting', () => {
+    wrapper = mount(<FormVG offer={offer} hour={true} />, formsyContext());
     expect(wrapper.find('FormWrap')).to.have.length(1);
     expect(wrapper.find('FormHour')).to.have.length(1);
-    expect(wrapper.find('Contact')).to.have.length(1);
+    expect(wrapper.find('Booking')).to.have.length(1);
   });
 
   it('should displays title and price properly', () => {
@@ -64,7 +63,7 @@ describe('<FormVG />', () => {
     instance.startHourChange(undefined, start);
     expect(instance.state.startHour).to.be.equal(start);
     expect(instance.getMessage()).to.contain(`${start.val}:00`);
-  })
+  });
 
   it('should calculates total price for hourly renting', () => {
     wrapper = shallow(<FormVG offer={offer} hour={true} />, formsyContext());

@@ -54,7 +54,7 @@ export default function Page(props) {
   const img1 = msg['image1'] && (<div className="image" style={{ backgroundImage: `url(${msg['image1']})` }} />);
 
   const text = msg['texta'] ? (
-    <div>
+    <div className="page-body">
       {img1}
       <div className="text">{msg['texta']}</div>
       <div className="image" style={{ backgroundImage: `url(${msg['imageb']})` }} />

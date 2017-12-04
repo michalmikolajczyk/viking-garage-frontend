@@ -1,12 +1,17 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('../webpack/webpack.config.dev');
+var fs = require('fs');
 
 module.exports = {
   listen: function(port) {
     new WebpackDevServer(webpack(config), {
       publicPath: config.output.publicPath,
       hot: true,
+      https: {
+        cert: fs.readFileSync("server/server.crt"),
+        key: fs.readFileSync("server/server.key")
+      },
       historyApiFallback: {
         rewrites: [
           {

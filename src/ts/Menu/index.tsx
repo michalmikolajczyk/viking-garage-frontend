@@ -16,7 +16,9 @@ import {
 import IconWrap from '../IconWrap'
 import LanguageSelection from '../i18n/LanguageSelection';
 import CurrencySelection from '../i18n/CurrencySelection';
-import i from '../i18n';
+import i18n from '../i18n';
+const i = i18n;
+const usersFlag = process.env.USERS || false;
 
 interface MenuVGProps { refresh: () => void; }
 
@@ -58,7 +60,7 @@ function userSection(refresh) {
       <Divider />
       <MenuItem primaryText={i('Log out')} onClick={logout.bind(this, refresh)} />
     </IconMenu>
-  )
+  );
 }
 
 const logIn = <MenuItem className="menu-item" containerElement={<Link to="/login" />} primaryText={i('Log in')} />
@@ -67,15 +69,15 @@ const signUp = <MenuItem className="menu-item" containerElement={<Link to="/sign
 export default function MenuVG(props: MenuVGProps) {
   const menuItems = (
     <div className="menu">
-      <MenuItem className="menu-item" containerElement={<Link to="/page/owner" />} primaryText={i('Bike Owners')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/page/guide" />} primaryText={i('Guides & Coaches')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/page/mechanic" />} primaryText={i('Mechanics')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} />
-      <LanguageSelection {...props} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/owner" />} primaryText={i('List Your Motorcycle')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/experts" />} primaryText={i('Bike Experts')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/blog" />} primaryText={i('Blog')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/about" />} primaryText={i('About')} />
+      {/* <LanguageSelection {...props} /> */}
       <CurrencySelection {...props} />
-      {!checkUser() && logIn}
-      {!checkUser() && signUp}
-      {checkUser() && userSection(props.refresh)}
+      {usersFlag && !checkUser() && logIn}
+      {usersFlag && !checkUser() && signUp}
+      {usersFlag && checkUser() && userSection(props.refresh)}
     </div>
   );
 

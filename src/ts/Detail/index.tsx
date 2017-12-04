@@ -8,7 +8,7 @@ import HeaderVG from './HeaderVG';
 import ListVG from './ListVG';
 import parser from '../helpers/parser';
 import { isHourlySubtype } from '../helpers/hours';
-import FormVG from '../FormVG';
+import ElementsFormVGWrapper from '../FormVG/ElementsFormVGWrapper';
 import * as api from './api';
 
 export default class Detail extends React.Component<any, any> {
@@ -51,7 +51,7 @@ export default class Detail extends React.Component<any, any> {
           <div className="header-wrapper">
             <HeaderVG offer={offer} />
           </div>
-          <FormVG
+          <ElementsFormVGWrapper
             hour={isHourly}
             offer={offer}
             end={this.state.end}

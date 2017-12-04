@@ -6,6 +6,8 @@ import { MuiThemeProvider } from 'material-ui/styles';
 import DataProvider from './DataProvider';
 import muiThemeVG from './muiThemeVG';
 import routes from './routes';
+import { StripeProvider } from 'react-stripe-elements-universal';
+const stripePubKey = process.env.STRIPE_PUB_KEY;
 
 injectTapEventPlugin();
 
@@ -17,9 +19,11 @@ export default function render(location, data) {
       if (props) {
         resolve(
           renderToString(
-            <DataProvider data={data}>
-              <RouterContext {...props} />
-            </DataProvider>
+            <StripeProvider apiKey={stripePubKey}>
+              <DataProvider data={data}>
+                <RouterContext {...props} />
+              </DataProvider>
+            </StripeProvider>
           )
         );
       }

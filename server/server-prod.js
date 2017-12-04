@@ -10,6 +10,9 @@ const API = process.env.API_URL;
 const FB = process.env.FB_PIXEL;
 const GA = process.env.GA_TRACKER;
 
+const https = require('https');
+const http = require('http');
+
 function send(res, content, context) {
   res.render('index', {
     FB,
@@ -37,11 +40,13 @@ module.exports = {
 
     app.use('/dist', express.static(path.resolve('dist')));
 
-    app.use(function (req, res, next) {
-      const httpsAddress = ['https://', req.get('Host'), req.url].join('');
-      if (req.headers['x-forwarded-proto'] !== 'https') return res.redirect(httpsAddress);
-      return next();
-    });
+    if (process.env.NODE_ENV === 'production') {
+      app.use(function (req, res, next) {
+        const httpsAddress = ['https://', req.get('Host'), req.url].join('');
+        if (req.headers['x-forwarded-proto'] !== 'https') return res.redirect(httpsAddress);
+        return next();
+      });
+    }
 
     app.get('/', (req, res, next) => {
       request(API + '/offer', (err, response, body) => {
@@ -84,7 +89,16 @@ module.exports = {
         .catch(err => res.send('Internal Server Error'));
     });
 
-    app.listen(port);
+    if (process.env.NODE_ENV === 'production') {
+      app.listen(port);
+    } else if (process.env.NODE_ENV === 'localSSR') {
+      const privateKey = fs.readFileSync(__dirname + '/server.key', 'utf8');
+      const certificate = fs.readFileSync(__dirname + '/server.crt', 'utf8');
+      const credential = { key: privateKey, cert: certificate };
+      https.createServer(credential, app).listen(port, () => {
+        log(`Server running at ${port}`);
+      });
+    }
 
     console.log('Environment: ' + process.env.NODE_ENV + '\nListen on port: ' + port);
   }

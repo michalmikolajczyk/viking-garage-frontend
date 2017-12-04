@@ -102,7 +102,7 @@ export default class Type extends React.Component<any, any> {
 
 const rawItems = {
   Motorcycle: [
-    'GROUPON®',
+    // 'GROUPON®',
     'Off-road',
     'Street',
     'Dual-sport',

@@ -40,10 +40,10 @@ export default function SearchPure(props: SearchPureProps) {
         value={location}
         filter={locationFilter}
       />
-      <Distance
+      {/* <Distance
         value={distance}
         filter={distanceFilter}
-      />
+      /> */}
       <Type
         value={type}
         filter={typeFilter}

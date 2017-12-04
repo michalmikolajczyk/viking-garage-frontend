@@ -6,6 +6,7 @@ import {
 import Raido from '../Raido';
 import i18n from '../i18n';
 const i = i18n;
+const paymentFlag = process.env.PAYMENTS || false;
 
 export default function Reaction(props) {
   const {
@@ -38,9 +39,10 @@ export default function Reaction(props) {
       <div className="dialog-scroll">
         <div className="reaction">
           {data.body}
+          <br /><br />
+          {paymentFlag && data.payment}
         </div>
       </div>
     </Dialog>
   );
 }
-

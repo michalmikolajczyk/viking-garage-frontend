@@ -29,7 +29,7 @@
   "env": {
     "API_URL": {
       "description": "URL to API for server side render requests",
-      "value": "https://viking-garage-api-staging.herokuapp.com/",
+      "value": "https://viking-garage-api-staging.herokuapp.com",
       "required": true
     },
     "DEBUG": {
@@ -54,8 +54,21 @@
       "value": "false",
       "required": true
     },
+    "PAYMENTS": {
+      "description": "Turn payments on / off",
+      "required": false
+    },
     "PORT": {
       "description": "Port to run application server, not required only at Heroku",
+      "required": false
+    },
+    "STRIPE_PUB_KEY": {
+      "description": "Stripe publishable key",
+      "value": "pk_test_12345",
+      "required": true
+    },
+    "USERS": {
+      "description": "Turn users on / off",
       "required": false
     },
     "VG_LIMIT": {

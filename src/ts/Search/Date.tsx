@@ -35,7 +35,7 @@ export default class DateVG extends React.Component<any, any> {
           icon="date_range"
           subId="search-date-end"
           value={_.get(this.props, 'value.end')}
-          hintText={i('Start Date')}
+          hintText={i('End Date')}
           onChange={this.onChangeEnd}
           shouldDisableDate={this.shouldDisableDateEnd}
         />

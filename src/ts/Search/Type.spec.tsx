@@ -12,7 +12,7 @@ import Type from './Type';
 
 const rawItems = {
   Motorcycle: [
-    'GROUPON®',
+    // 'GROUPON®',
     'Off-road',
     'Street',
     'Dual-sport',

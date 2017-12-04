@@ -31,3 +31,7 @@ package-lock.json
 
 # Thumbnails
 ._*
+
+*.key
+*.crt
+server/ssl

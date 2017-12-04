@@ -25,7 +25,7 @@ export default function CurrencySelection(props: CurrencySelectionProps) {
   return (
     <MenuItem
       className="menu-item"
-      primaryText={<span>&#164;   {currency()}   &#9662;</span>}
+      primaryText={<span>{currency()}   &#9662;</span>}
       anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
       innerDivStyle={{ padding: '0px 16px' }}
       menuItems={currencySelection}

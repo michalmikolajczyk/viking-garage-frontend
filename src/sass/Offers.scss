@@ -78,6 +78,17 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
   }
 }
 
+.offers-outer-wrapper {
+  position: absolute;
+  top: 693px;
+  left: 0;
+  right: 0;
+  width: 1680px;
+  height: 110px;
+  background-color: rgba(255,255,255,0.89);
+  bottom: 0;
+}
+
 @media screen and (min-width: $tablet-min) {
   .offers {
     .card {
@@ -126,6 +137,10 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
     padding: 0 80px;
     max-width: 1280px;
     box-sizing: border-box;
+  }
+  .offers-extra-orbital-wrapper {
+    height: 110px;
+    margin-top: -110px;
   }
 }
 

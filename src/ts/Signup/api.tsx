@@ -7,6 +7,7 @@ export function signup(data) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
+    credentials: 'include', // Don't forget to specify this if you need cookies
   })
   .then(res => res.json());
 }
@@ -18,6 +19,7 @@ export function resend(data) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
+    credentials: 'include', // Don't forget to specify this if you need cookies
   })
   .then(res => res.json());
 }
@@ -29,6 +31,7 @@ export function verify(data) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
+    credentials: 'include', // Don't forget to specify this if you need cookies
   })
   .then(res => res.json());
 }
