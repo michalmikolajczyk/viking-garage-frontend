@@ -2,8 +2,11 @@ import * as React from 'react';
 
 // Scroll logic based on https://gist.github.com/Warry/4254579
 export default class AppBarWrap extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = { visible: false };
+  }
   requestId: number;
-  state = { visible: false };
 
   componentDidMount() {
     this.handleScroll();
@@ -16,10 +19,8 @@ export default class AppBarWrap extends React.Component<any, any> {
   handleScroll = () => {
     if (this.state.visible && window.scrollY === 0) {
       this.setState({ visible: false });
-    } else {
-      if (!this.state.visible && window.scrollY > 0) {
-        this.setState({ visible: true });
-      }
+    } else if (!this.state.visible && window.scrollY > 0) {
+      this.setState({ visible: true });
     }
     this.requestId = window.requestAnimationFrame(this.handleScroll);
   }

@@ -26,7 +26,7 @@ export default function AppBarVG(props: AppBarVGProps) {
         title={<FullText {...props} />}
         titleStyle={{ padding: '0 10px' }}
         iconElementRight={<Menu refresh={props.refresh} />}
-        iconElementLeft={<Link to="/" className="title"><Raido /></Link>}
+        iconElementLeft={<Link to="/" className="title">VIKING GA<span className="replace"><Raido /></span>AGE</Link>}
       />
     </AppBarWrap>
   );

@@ -44,7 +44,7 @@ describe('<Contact />', () => {
       expect(params.type).to.be.equal('contact');
       return Promise.resolve('ok');
     });
-    instance['submit'](user);
+    instance['bookingSubmit'](user);
     contact.restore();
   });
 
@@ -53,7 +53,7 @@ describe('<Contact />', () => {
       expect(params.body).to.be.equal(message);
       return Promise.resolve('ok');
     });
-    instance['submit'](user);
+    instance['bookingSubmit'](user);
     contact.restore();
   });
 
@@ -62,15 +62,14 @@ describe('<Contact />', () => {
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.openDialog).to.be.false;
+    expect(instance.state.openConfirmation).to.be.false;
 
-    instance['submit'](user);
+    instance['bookingSubmit'](user);
     contact.resolves();
-
-    expect(instance.setState).to.have.been.calledThrice;
+    expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.wait).to.be.false;
     expect(instance.state.open).to.be.false;
-    expect(instance.state.openDialog).to.be.true;
+    expect(instance.state.openConfirmation).to.be.true;
 
     contact['restore']();
   });
@@ -80,15 +79,15 @@ describe('<Contact />', () => {
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.openDialog).to.be.false;
+    expect(instance.state.openConfirmation).to.be.false;
     expect(instance.state.networkErr).to.be.false;
 
-    instance['submit']();
+    instance['bookingSubmit']();
     contact.resolves({ err: 'no internet connection' });
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.openDialog).to.be.false;
+    expect(instance.state.openConfirmation).to.be.false;
     expect(instance.state.networkErr).to.be.true;
     contact['restore']();
   });
@@ -98,15 +97,15 @@ describe('<Contact />', () => {
     instance.setState = sinon.spy(instance.setState);
     expect(instance.setState).to.not.have.been.called;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.openDialog).to.be.false;
+    expect(instance.state.openConfirmation).to.be.false;
     expect(instance.state.networkErr).to.be.false;
 
-    instance['submit']();
+    instance['bookingSubmit']();
     contact.rejects('something gone wrong');
 
     expect(instance.setState).to.have.been.calledTwice;
     expect(instance.state.wait).to.be.false;
-    expect(instance.state.openDialog).to.be.false;
+    expect(instance.state.openConfirmation).to.be.false;
     expect(instance.state.networkErr).to.be.true;
     contact['restore']();
   });

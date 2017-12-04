@@ -2,12 +2,26 @@
   position: fixed !important;
   transform: translate3d(0,0,0) !important;
   .title {
-    width: 30px;
     height: 64px;
     display: block;
     padding: 15px 0 0 15px;
     margin: -8px 0 0 -8px !important;
-    box-sizing: border-box;
+    box-sizing: border-box;    
+    font-size: 34px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    .replace {
+      width: 21px;
+      position: relative;
+      display: inline-block;
+      .raido {
+        width: 21px;
+        height: 42px;
+        position: absolute;
+        top: -36px;
+        left: 1px;
+      }
+    }
   }
   .appbar-search {
     .input {
@@ -45,7 +59,6 @@
 @media screen and (min-width: $tablet-min) {
   .appbar {
     .title {
-      width: 80px;
       padding: 15px 0 0 40px;
     }
     .appbar-search {
@@ -54,9 +67,13 @@
       }
     }
   }
-  .border {
-    .title {
-      border-right: 1px solid $col-border;
+  .replace {
+    width: 40px;
+    .raido {
+      width: 28px;
+      height: 70px;
+      top: -59px;
+      left: 7px;
     }
   }
 }
@@ -68,11 +85,11 @@
       display: none;
     }
   }
-  .border {
-    .appbar {
-      .appbar-search {
-        display: block;
-      }
-    }
-  }
+  // .border {
+  //   .appbar {
+  //     .appbar-search {
+  //       display: block;
+  //     }
+  //   }
+  // }
 }

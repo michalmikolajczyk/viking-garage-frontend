@@ -69,11 +69,11 @@ const signUp = <MenuItem className="menu-item" containerElement={<Link to="/sign
 export default function MenuVG(props: MenuVGProps) {
   const menuItems = (
     <div className="menu">
-      <MenuItem className="menu-item" containerElement={<Link to="/page/owner" />} primaryText={i('Bike Owners')} />
-      { /* <MenuItem className="menu-item" containerElement={<Link to="/page/guide" />} primaryText={i('Guides & Coaches')} /> */ }
-      {/* <MenuItem className="menu-item" containerElement={<Link to="/page/mechanic" />} primaryText={i('Mechanics')} /> */}
-      {/* <MenuItem className="menu-item" containerElement={<Link to="/page/faq" />} primaryText={i('FAQ')} /> */}
-      <LanguageSelection {...props} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/owner" />} primaryText={i('List Your Motorcycle')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/experts" />} primaryText={i('Bike Experts')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/blog" />} primaryText={i('Blog')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/page/about" />} primaryText={i('About')} />
+      {/* <LanguageSelection {...props} /> */}
       <CurrencySelection {...props} />
       {usersFlag && !checkUser() && logIn}
       {usersFlag && !checkUser() && signUp}
