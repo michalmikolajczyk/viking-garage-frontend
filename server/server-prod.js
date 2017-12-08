@@ -1,5 +1,6 @@
 const express = require('express');
 const request = require('request');
+const rp = require('request-promise');
 const path = require('path');
 const hbs = require('express-handlebars');
 const fs = require('fs');
@@ -49,18 +50,24 @@ module.exports = {
     }
 
     app.get('/', (req, res, next) => {
-      request(API + '/offer', (err, response, body) => {
-        if (err || response.statusCode != 200) return errorHandler(err, req, res, next, 'API error');
-        const json = JSON.parse(body);
-        const data = {
-          vgLimit,
-          offers: json,
-          userAgent: req.headers['user-agent'],
-        };
-        render(req.url, data)
-          .then(app => send(res, app, JSON.stringify(data)))
-          .catch(err => errorHandler(err, req, res, next, 'Internal error'));
-      })
+      let data;
+      const requestOffersPoland = rp(API + '/offer?country=Poland')
+      const requestOffersBali = rp(API + '/offer?country=Indonesia')
+      Promise.all([requestOffersPoland, requestOffersBali])
+        .then((responses) => {
+          // if (err || response.statusCode != 200) return errorHandler(err, req, res, next, 'API error');
+          const offersPoland = JSON.parse(responses[0])
+          const offersBali = JSON.parse(responses[1])
+          data = {
+            vgLimit,
+            offers: [offersPoland, offersBali],
+            userAgent: req.headers['user-agent'],
+          };
+          return data;
+        })
+        .then(data => render(req.url, data))
+        .then(app => send(res, app, JSON.stringify(data)))
+        .catch(err => errorHandler(err, req, res, next, 'Internal error'));
     });
 
     app.get('/offer/*', (req, res, next) => {

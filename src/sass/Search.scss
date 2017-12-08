@@ -93,4 +93,28 @@
     margin: 0 auto;
     box-sizing: border-box;
   }
+
+  .filter-location > .material-icons,
+  .filter-type > .material-icons,
+  .filter-date > .material-icons {
+    color: rgba(0, 0, 0, 1) !important;
+  }
+
+  .filter-location .input > div > div,
+  .filter-type .input > div,
+  .filter-date .input > div {
+    font-size: 24px !important;
+    font-weight: 300;
+  }
+
+  .filter-location .input > div > div,
+  .filter-date .input > div {
+    height: 50px !important;
+  }
+
+  .filter-location .input > div > div > div,
+  .filter-type .input > div > div,
+  .filter-date .input > div > div {
+    color: rgba(0, 0, 0, 1) !important;
+  }
 }

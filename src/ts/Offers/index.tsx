@@ -12,11 +12,11 @@ import AppBarVG from '../AppBarVG';
 import Header from '../Header';
 import SearchPure from '../Search/SearchPure';
 import OffersList from './OffersList';
-import * as api from './api';
 import i18n from '../i18n';
 const i = i18n;
 
 interface OffersProps {
+  listBali?: [object];
   list: [object];
   last: boolean;
   empty: boolean;
@@ -27,11 +27,13 @@ interface OffersProps {
 
   refresh: () => void;
   loadMore: () => void;
+  resetSearch: () => void;
 };
 
 export default function Offers(props: OffersProps) {
   const {
     list,
+    listBali,
     last,
     empty,
     loading,
@@ -42,6 +44,9 @@ export default function Offers(props: OffersProps) {
   const emptyMsg = empty && (<div className="offers-empty">{i('There is no offers matching to your filters!')}</div>);
   const loadMoreBtn = !last && (<button onClick={loadMore} className="loadmore">{i('Load more')}</button>);
 
+  // note to future self:
+  // consider making multiple OffersList containers
+  // one for every market
   return (
     <div>
       <AppBarVG {...props} />
@@ -53,6 +58,7 @@ export default function Offers(props: OffersProps) {
       <OffersList
         date={filtersValue.date}
         list={list}
+        listBali={listBali}
         loading={loading}
         location={filtersValue.location}
       />

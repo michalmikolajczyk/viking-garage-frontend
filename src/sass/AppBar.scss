@@ -4,22 +4,22 @@
   .title {
     height: 64px;
     display: block;
-    padding: 15px 0 0 15px;
+    padding: 18px 0 0 15px;
     margin: -8px 0 0 -8px !important;
     box-sizing: border-box;    
-    font-size: 34px;
+    font-size: 27px;
     font-weight: 300;
     letter-spacing: 1px;
     .replace {
-      width: 21px;
+      width: 18px;
       position: relative;
       display: inline-block;
       .raido {
         width: 21px;
-        height: 42px;
+        height: 33px;
         position: absolute;
-        top: -36px;
-        left: 1px;
+        top: -27px;
+        left: -1px;
       }
     }
   }
@@ -37,14 +37,15 @@
       padding-right: 30px !important;
     }
     .material-icons {
-      line-height: 68px !important;
+      line-height: 64px !important;
       cursor: pointer;
     }
     .right-btn {
       position: absolute;
       right: 0;
       width: 24px;
-      height: 64px;
+      height: 62px;
+      margin-top: 2px;
       flex-direction: column;
     }
   }
@@ -60,20 +61,21 @@
   .appbar {
     .title {
       padding: 15px 0 0 40px;
+      font-size: 34px;
+      .replace {
+        width: 21px;
+        .raido {
+          width: 21px;
+          height: 42px;
+          top: -36px;
+          left: 1px;
+        }
+      }
     }
     .appbar-search {
       .right-btn {
         display: none;
       }
-    }
-  }
-  .replace {
-    width: 40px;
-    .raido {
-      width: 28px;
-      height: 70px;
-      top: -59px;
-      left: 7px;
     }
   }
 }

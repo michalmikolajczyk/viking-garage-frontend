@@ -4,8 +4,10 @@ import * as fx from 'money';
 import { FontIcon } from 'material-ui';
 import * as geolib from 'geolib';
 import { Link } from 'react-router';
-import i from '../i18n';
+import i18n from '../i18n';
 import { renderUnit } from '../helpers/hours';
+import Raido from '../Raido';
+const i = i18n;
 
 export default function Offer(props) {
   const {
@@ -56,6 +58,7 @@ export default function Offer(props) {
         <div className="title">{renderTitle}</div>
         <div className="foot">{renderPrice}</div>
         <div className="foot">{`${renderLocation}${renderDistance}`}</div>
+        <div className="ride-button-cta">RENT NOW</div>
       </div>
     </Link>
   );

@@ -25,7 +25,7 @@ export default function SelectFieldPure(props: SelectFieldProps) {
   } = props;
 
   return (
-    <div className="filter search-select">
+    <div className="filter search-select filter-type">
       <IconWrap icon="keyboard_arrow_down" />
       <div className="input">
         <SelectField

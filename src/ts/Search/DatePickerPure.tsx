@@ -25,7 +25,7 @@ export default function DatePickerPure(props: DatePickerProps) {
   } = props;
 
   return (
-    <div className="filter">
+    <div className="filter filter-date">
       <IconWrap icon="today" />
       <DatePicker
         id={subId}
