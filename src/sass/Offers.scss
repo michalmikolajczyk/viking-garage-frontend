@@ -67,12 +67,14 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
       @extend .dots;
       font-size: 15px;
       font-weight: 300;
+      max-width: 62%;
     }
     .foot {
       @extend .dots;
       font-size: 12px;
       font-weight: 300;
       padding-top: 5px;
+      max-width: 62%;
     }
     .ride-button-cta {
       position: absolute;
@@ -193,6 +195,7 @@ h2.heading-two {
     max-width: 1280px;
     padding: 0 80px;
     margin: 34px auto 21px;
+    box-sizing: border-box;
   }
 }
 
