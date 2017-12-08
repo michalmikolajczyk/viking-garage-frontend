@@ -66,23 +66,9 @@ export default class FullText extends React.Component<FullTextProps, any> {
     return (
       <div>
         <div className="filter appbar-search">
-          <IconWrap icon="search" aria="search by any word" />
           <div className="input">
-            <AutoComplete
-              id="search-location"
-              value={this.state.value}
-              maxSearchResults={5}
-              openOnFocus={true}
-              filter={AutoComplete.noFilter}
-              onNewRequest={this.onNewRequest}
-              onUpdateInput={this.onUpdateInput}
-              dataSource={this.state.data}
-              dataSourceConfig={this.dataConfig}
-              fullWidth={true}
-              hintStyle={{ paddingLeft: 30 }}
-            />
             <button className="right-btn" onClick={this.toggle}>
-              <IconWrap icon="keyboard_arrow_down" aria="show filters" />
+              <IconWrap icon="search" aria="show filters" />
             </button>
           </div>
         </div>

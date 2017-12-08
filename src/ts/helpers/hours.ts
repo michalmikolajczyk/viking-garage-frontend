@@ -1,12 +1,15 @@
 import * as _ from 'lodash';
 import * as fx from 'money';
-import c from '../i18n/currency';
-import i from '../i18n';
+import currency from '../i18n/currency';
+import i18n from '../i18n';
+const c = currency;
+const i = i18n;
+const accounting = require('accounting');
 
 const subtypes = [
-  'dual-sport',
-  'groupon®',
-  'off-road',
+  // 'dual-sport',
+  // 'groupon®',
+  // 'off-road',
 ];
 
 export function isHourlySubtype(offer): boolean {
@@ -18,11 +21,15 @@ export function renderUnit(offer): string {
   if (!offer) return '';
   const unit = isHourlySubtype(offer) ? 'hour' : 'day';
   const price = _.get(offer, 'price', 0);
-  return `${fx(price).to(c()).toFixed(2)} ${c()} / ${i(unit)}`;
+  const format = { symbol: c(),  format: '%v %s', precision: 0 };
+  const finalValue = accounting.formatMoney(fx(price).to(c()), format);
+  return `${finalValue} / ${i(unit)}`;
 }
 
 export function countTotal(offer, range: number): string {
   if (!_.has(offer, 'subtype')) return '';
   const total = _.get(offer, 'price', 0) * range;
-  return `${fx(total).to(c()).toFixed(2)} ${c()}`;
+  const format = { symbol: c(),  format: '%v %s', precision: 0 };
+  const finalValue = accounting.formatMoney(fx(total).to(c()), format);
+  return `${finalValue}`;
 }

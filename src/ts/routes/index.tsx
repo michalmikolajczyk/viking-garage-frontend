@@ -30,10 +30,10 @@ export default (
     <Route path="/change/:token" component={Change} />
     <Route path="/check" component={Check} />
     <Route path="/offer/:id(/:url)" component={Detail} />
-    <Route path="/page/owner" component={Page} />
-    <Route path="/page/guide" component={Page} />
-    <Route path="/page/mechanic" component={Page} />
-    <Route path="/page/faq" component={Page} />
+    {/* <Route path="/page/owner" component={Page} /> */}
+    {/* <Route path="/page/experts" component={Page} /> */}
+    {/* <Route path="/page/blog" component={Page} /> */}
+    {/* <Route path="/page/about" component={Page} /> */}
     <Route path="/privacy-policy" component={Privacy} />
     <Route path="*" component={NotFound} />
   </Route>

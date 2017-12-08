@@ -31,7 +31,7 @@ export default function AutocompletePure(props: AutocompleteProps) {
   } = props;
 
   return (
-    <div className="filter">
+    <div className="filter filter-location">
       <IconWrap icon={icon} aria={aria} />
       <div className="input">
         <AutoComplete

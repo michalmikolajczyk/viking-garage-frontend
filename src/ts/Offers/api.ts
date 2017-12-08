@@ -7,7 +7,8 @@ export function get(state) {
   const offset = `&offset=${state.offset}`;
   const type = state.type ? `&type=${state.type.toLowerCase()}` : '';
   const date = state.date ? `&start=${moment(state.date.start).unix()}&end=${moment(state.date.end).unix()}` : '';
-  const req = `${API.offer}?${location}${distance}${offset}${type}${date}`;
+  const country = state.country ? `country=${state.country}` : '';
+  const req = `${API.offer}?${location}${distance}${offset}${type}${date}${country}`;
 
   return fetch(req, {
     method: 'GET',

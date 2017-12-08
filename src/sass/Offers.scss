@@ -1,5 +1,4 @@
 $card-mobile-head: 78px;
-
 $card-height: 378px;
 $card-width: 529px;
 $card-head-color: rgba(0, 0, 0, 0.55);
@@ -32,7 +31,7 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
 .card {
   width: 100%;
   display: flex;
-  margin: 0 auto 33px;
+  margin: 0 auto 55px;
   position: relative;
   &:before {
     content: "";
@@ -67,26 +66,41 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
     .title {
       @extend .dots;
       font-size: 15px;
-      font-weight: $medium;
+      font-weight: 300;
     }
     .foot {
       @extend .dots;
       font-size: 12px;
-      font-weight: $medium;
+      font-weight: 300;
       padding-top: 5px;
+    }
+    .ride-button-cta {
+      position: absolute;
+      top: 26%;
+      right: 15px;
+      font-size: 18px;
+      border: solid 1px white;
+      padding: 8px 15px;
+      letter-spacing: 1px;
     }
   }
 }
 
 .offers-outer-wrapper {
-  position: absolute;
-  top: 693px;
-  left: 0;
-  right: 0;
-  width: 1680px;
-  height: 110px;
-  background-color: rgba(255,255,255,0.89);
-  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(255,255,255,0.69);
+}
+
+h2.heading-two {
+  font-weight: 300;
+  font-size: 21px;
+  
+  padding: 0 15px;
+  margin: 34px 0 21px;
+  color: #bb0b00;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: $tablet-min) {
@@ -110,6 +124,15 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
       }
     }
   }
+  
+  h2.heading-two {
+    max-width: 529px;
+    padding: 0 20px;
+    margin: 0 auto 21px;
+    font-size: 34px;
+    box-sizing: content-box;
+  }
+
 }
 
 @media screen and (min-width: $desktop-min) {
@@ -127,9 +150,18 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
       height: 114px;
       .title {
         font-size: 21px;
+        font-weight: 300;
       }
       .foot {
-        font-size: 13px
+        font-size: 13px;
+        font-weight: 300;
+      }
+      .ride-button-cta {
+        top: 32%;
+        right: 34px;
+        font-size: 21px;
+        border: solid 1px white;
+        padding: 8px 21px;
       }
     }
   }
@@ -141,6 +173,26 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
   .offers-extra-orbital-wrapper {
     height: 110px;
     margin-top: -110px;
+  }
+
+  .offers-outer-wrapper {
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    top: 693px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 110px;
+    bottom: 0;
+  }
+
+  h2.heading-two {
+    font-weight: 300;
+    font-size: 34px;
+    max-width: 1280px;
+    padding: 0 80px;
+    margin: 34px auto 21px;
   }
 }
 

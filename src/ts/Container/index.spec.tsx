@@ -34,13 +34,13 @@ describe('<Container />', () => {
     });
 
     const wrapper = mountWithTheme(<Container><div /></Container>);
-    expect(get).to.be.calledOnce;
+    expect(get).to.be.calledTwice;
     expect(spy).to.be.calledOnce;
     get.restore();
     spy.restore();
   });
 
-  it('should loads more offers and displays them', () => {
+  it('should load more offers and displays them', async () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
 
@@ -48,36 +48,37 @@ describe('<Container />', () => {
     expect(instance.state.list).to.be.deep.equal([{},{}]);
     expect(instance.state.loading).to.be.true;
 
-    instance['update']();
     get.resolves(offers);
+    await instance['update']();
 
     expect(instance.setState).to.have.been.calledOnce;
     expect(instance.state.list).to.be.deep.equal(offers.data);
     expect(instance.state.loading).to.be.false;
-
-    get['restore']();
+    
+    get['restore']();    
+    
   });
 
-  it('should displays internet connection error', () => {
+  it('should displays internet connection error', async () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.state.networkErr).to.be.false;
 
-    instance['update']();
-    get.resolves({ err: 'no internet connection' });
+    get.rejects('no internet connection');
+    await instance['update']();
 
     expect(instance.setState).to.have.been.calledOnce;
     expect(instance.state.networkErr).to.be.true;
     get['restore']();
   });
 
-  it('should displays unexpected network error', () => {
+  it('should displays unexpected network error', async () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
     instance.setState = sinon.spy(instance.setState);
     expect(instance.state.networkErr).to.be.false;
 
-    instance['update']();
     get.rejects('something gone wrong');
+    await instance['update']();
 
     expect(instance.setState).to.have.been.calledOnce;
     expect(instance.state.networkErr).to.be.true;

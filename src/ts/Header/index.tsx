@@ -8,15 +8,13 @@ export default function Header(props) {
     <div className="header">
       <div className="beauty">
         <div className="figure">
-          <img src="http://res.cloudinary.com/hkhuw4b7v/image/upload/q_100/a_180/v1512385573/IMG_2176_latap7.jpg" />
+          <img src="https://res.cloudinary.com/hkhuw4b7v/image/upload/v1512728384/IMG_2540_pts8oc.jpg" />
         </div>
-        <div className="text">
-          <span className="raido-spanner"><span className="replace"><Raido /></span>IDE</span>
-          <br />
-          {i('better motorcycles')}
+        <h1 className="text heading-one">
+          <span className="raido-spanner"><span className="replace"><Raido /></span>ide</span> {i('better motorcycles')}
           <br />
           {i('from locals')}
-        </div>
+        </h1>
       </div>
     </div>
   );
