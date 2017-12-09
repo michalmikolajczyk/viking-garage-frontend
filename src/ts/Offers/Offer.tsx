@@ -25,11 +25,18 @@ export default function Offer(props) {
     coord,
     image,
     price,
+    lat,
+    lng,
   } = data;
 
   let distance = '';
-  if (location && coord) {
-    const coordinates = { latitude: coord.coordinates[0], longitude: coord.coordinates[1] };
+  if (location && lat && lng) {
+    // watch out! that data should not be processed on the front end, because it is already
+    // processed on the back end, just with errors!
+    // check out the `coord` property
+    
+    // const coordinates = { latitude: coord.coordinates[0], longitude: coord.coordinates[1] };
+    const coordinates = { latitude: lat, longitude: lng };
     distance = Math.round(geolib.getDistance(location, coordinates) / 1000).toString();
     distance = `${distance} km`;
   }
