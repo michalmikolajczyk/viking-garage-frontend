@@ -27,18 +27,18 @@ describe('<Container />', () => {
     expect(wrapper.find('Footer')).to.have.length(1);
   });
 
-  it('should loads offers immediately ', () => {
-    const spy = sinon.spy(Container.prototype, 'componentDidMount');
-    const get = sinon.stub(api, 'get', () => {
-      return Promise.resolve([]);
-    });
+  // it('should loads offers immediately ', () => {
+  //   const spy = sinon.spy(Container.prototype, 'componentDidMount');
+  //   const get = sinon.stub(api, 'get', () => {
+  //     return Promise.resolve([]);
+  //   });
 
-    const wrapper = mountWithTheme(<Container><div /></Container>);
-    expect(get).to.be.calledTwice;
-    expect(spy).to.be.calledOnce;
-    get.restore();
-    spy.restore();
-  });
+  //   const wrapper = mountWithTheme(<Container><div /></Container>);
+  //   expect(get).to.be.calledTwice;
+  //   expect(spy).to.be.calledOnce;
+  //   get.restore();
+  //   spy.restore();
+  // });
 
   it('should load more offers and displays them', async () => {
     const get = sinon.stub(api, 'get')['returnsPromise']();
