@@ -61,7 +61,7 @@ export default class Container extends React.Component<ContainerProps, Container
     this.muiTheme = getMuiTheme({ ...muiThemeVG, userAgent });
   }
 
-  componentDidMount() { return this.update(); }
+  // componentDidMount() { return this.update(); }
 
   // forceUpdate() is passed to AppBar to rerender the application in case of changing language or currency
   // check out ./i18n/LanguageSelection and ./i18n/CurrencySelection
