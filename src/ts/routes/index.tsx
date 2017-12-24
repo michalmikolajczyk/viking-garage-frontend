@@ -3,8 +3,12 @@ import {
   Route,
   IndexRoute,
 } from 'react-router';
+import About from '../Page/About';
+import Blog from '../Blog';
 import Container from '../Container';
 import Offers from '../Offers';
+import Expert from '../Page/Expert';
+import Owner from '../Page/Owner';
 import Detail from '../Detail';
 import Login from '../Login';
 import Reset from '../Login/Reset';
@@ -30,10 +34,10 @@ export default (
     <Route path="/change/:token" component={Change} />
     <Route path="/check" component={Check} />
     <Route path="/offer/:id(/:url)" component={Detail} />
-    {/* <Route path="/page/owner" component={Page} /> */}
-    {/* <Route path="/page/experts" component={Page} /> */}
-    {/* <Route path="/page/blog" component={Page} /> */}
-    {/* <Route path="/page/about" component={Page} /> */}
+    <Route path="/owner" component={Owner} />
+    <Route path="/expert" component={Expert} />
+    <Route path="/blog" component={Blog} />
+    <Route path="/about" component={About} />
     <Route path="/privacy-policy" component={Privacy} />
     <Route path="*" component={NotFound} />
   </Route>

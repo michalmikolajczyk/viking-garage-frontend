@@ -69,10 +69,10 @@ const signUp = <MenuItem className="menu-item" containerElement={<Link to="/sign
 export default function MenuVG(props: MenuVGProps) {
   const menuItems = (
     <div className="menu">
-      <MenuItem className="menu-item" containerElement={<Link to="/page/owner" />} primaryText={i('List Your Motorcycle')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/page/experts" />} primaryText={i('Bike Experts')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/page/blog" />} primaryText={i('Blog')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/page/about" />} primaryText={i('About')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/owner" />} primaryText={i('List Your Motorcycle')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/expert" />} primaryText={i('Bike Experts Offers')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/about" />} primaryText={i('About')} />
+      <MenuItem className="menu-item" containerElement={<Link to="/blog" />} primaryText={i('Blog')} />
       {/* <LanguageSelection {...props} /> */}
       <CurrencySelection {...props} />
       {usersFlag && !checkUser() && logIn}
