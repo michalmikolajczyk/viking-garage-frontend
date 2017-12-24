@@ -1,20 +1,31 @@
 .page {
   padding: 64px 0;
   text-align: center;
+  .page-body {
+    > * {
+      padding: 13px 0 21px;
+    }
+  }
+  .title, .head, .subhead, .text {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
   .title {
-    font-size: 35px;
-    padding: 15px;
+    font-size: 34px;
+    margin: 0 auto;
+    font-weight: 300;
+    padding-top: 34px;
   }
   .head {
-    font-size: 20px;
-    padding: 15px;
+    font-size: 27px;
+    font-weight: 300;
+  }
+  .subhead {
+    font-size: 21px;
+    font-weight: 300; 
   }
   .image {
     width: 100%;
-    height: 200px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
   }
   .text {
     text-align: left;
@@ -22,11 +33,9 @@
     font-size: 16px;
     font-weight: 300;
     line-height: 22px;
-    padding: 15px;
   }
   .page-btn {
     max-width: 290px;
-    padding: 15px;
     display: block;
     box-sizing: border-box;
     border: 1px solid black;
@@ -40,11 +49,16 @@
 @media screen and (min-width: $tablet-min) {
   .page {
     .image {
-      height: 610px;
       margin: 15px auto;
     }
+    .head {
+      font-size: 27px;
+    }
+    .subhead {
+      font-size: 21px;
+    }
     .text {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 100;
       margin: 34px auto;
       line-height: 25px;
@@ -56,6 +70,7 @@
 }
 
 @media screen and (min-width: $desktop-min) {
+  
   .page {
     .page-body {
       box-sizing: border-box;
@@ -63,12 +78,29 @@
       padding: 0 80px;
       margin: 0 auto;
     }
+    .title, .head, .subhead, .text {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
     .title {
-      font-size: 45px;
+      font-size: 72px;
+      line-height: 81px;
+      letter-spacing: 3px;
     }
     .head {
-      font-size: 24px;
+      font-size: 46px;
+      letter-spacing: 2px;
       white-space: pre-line;
+    }
+    .subhead {
+      font-size: 27px;
+      font-weight: 300; 
+    }
+    .text {
+      line-height: 30px;
+      a {
+        text-decoration: underline;
+      }
     }
     .page-btn {
       font-size: 24px;
