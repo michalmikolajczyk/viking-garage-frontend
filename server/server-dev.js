@@ -6,6 +6,7 @@ var fs = require('fs');
 module.exports = {
   listen: function(port) {
     new WebpackDevServer(webpack(config), {
+      disableHostCheck: true,
       publicPath: config.output.publicPath,
       hot: true,
       https: {

@@ -22,7 +22,7 @@ module.exports = {
         warnings: false
       }
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'API_URL', 'PAYMENTS', 'STRIPE_PUB_KEY', 'USERS', 'VG_LIMIT'])
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'API_URL', 'PAYMENTS', 'STRIPE_PUB_KEY', 'USERS', 'VG_LIMIT', 'GA_TRACKER'])
   ]),
 
   module: common.module,

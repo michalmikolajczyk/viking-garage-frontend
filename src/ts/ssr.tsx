@@ -7,6 +7,7 @@ import DataProvider from './DataProvider';
 import muiThemeVG from './muiThemeVG';
 import routes from './routes';
 import { StripeProvider } from 'react-stripe-elements-universal';
+
 const stripePubKey = process.env.STRIPE_PUB_KEY;
 
 injectTapEventPlugin();

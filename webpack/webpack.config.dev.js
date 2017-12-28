@@ -27,6 +27,6 @@ module.exports = {
     // Add the Webpack HMR plugin so it will notify the browser when the app code changes
     new webpack.HotModuleReplacementPlugin(),
     new WebpackNotifierPlugin({ alwaysNotify: true }),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'API_URL', 'PAYMENTS', 'STRIPE_PUB_KEY', 'USERS', 'VG_LIMIT'])
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'API_URL', 'PAYMENTS', 'STRIPE_PUB_KEY', 'USERS', 'VG_LIMIT', 'GA_TRACKER'])
   ]),
 };
