@@ -5,6 +5,8 @@ import {
 } from 'react-router';
 import About from '../Page/About';
 import Blog from '../Blog';
+import BlogForm from '../Blog/BlogForm';
+import BlogArticle from '../Blog/BlogArticle';
 import Container from '../Container';
 import Offers from '../Offers';
 import Expert from '../Page/Expert';
@@ -37,6 +39,9 @@ export default (
     <Route path="/owner" component={Owner} />
     <Route path="/expert" component={Expert} />
     <Route path="/blog" component={Blog} />
+    <Route path="/blog/add" component={BlogForm} />
+    <Route path="/blog/:title" component={BlogArticle} />
+    <Route path="/blog/:title/edit" component={BlogForm} />
     <Route path="/about" component={About} />
     <Route path="/privacy-policy" component={Privacy} />
     <Route path="*" component={NotFound} />

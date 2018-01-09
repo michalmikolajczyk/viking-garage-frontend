@@ -11,7 +11,7 @@ import NetworkError from '../Dialogs/NetworkError';
 import Raido from '../Raido';
 import i18n from '../i18n';
 import { booking } from './api';
-import Payment from '../Payment';
+import Payment from '../Payment/StripeIndex';
 const paymentFlag = process.env.PAYMENTS || false;
 
 const i = i18n;

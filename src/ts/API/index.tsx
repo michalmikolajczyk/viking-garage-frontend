@@ -2,6 +2,9 @@ const url = process.env.API_URL || 'https://viking-garage-api-staging.herokuapp.
 
 const API = {
 
+  // blog
+  blog: `${url}/blog`,
+
 // login
   change: `${url}/user/change`,
   check: `${url}/user/check`,
