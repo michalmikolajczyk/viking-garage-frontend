@@ -17,6 +17,12 @@ export default function OffersList(props) {
 
   return (
     <div>
+      <div className="indiegogo-wrapper">
+        <a href="https://www.indiegogo.com/projects/viking-garage-disrupting-a-motorcycle-industry-community" target="_blank">
+          <img src="http://res.cloudinary.com/hkhuw4b7v/image/upload/c_scale,w_233/v1515392258/IGG_Logo_Frame_Black_RGB_fmyyan.png" className="indiegogo-img" alt="Indiegogo" />
+          <h2 className="heading-two jet-black">Hello there! Check out the special offers in our campaign on Indiegogo!</h2>
+        </a>
+      </div>
       {listBali && <h2 className="heading-two">Hot rides in Bali</h2>}
       {listBali && (
         <div className={`offers ${loading ? 'loading' : ''}`}>
