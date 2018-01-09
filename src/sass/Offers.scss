@@ -4,6 +4,21 @@ $card-width: 529px;
 $card-head-color: rgba(0, 0, 0, 0.55);
 $card-head-dark: rgba(0, 0, 0, 0.65);
 
+.indiegogo-wrapper {
+  max-width: 1280px;
+  margin: 0 auto 89px;
+  > a {
+    display: block;
+    > h2.jet-black {
+      color: black;
+      text-decoration: underline;
+    }
+    img {
+      padding: 21px 80px;
+    }
+  }
+}
+
 .offers, .loadmore {
   width: 100%;
   margin: 0 auto;

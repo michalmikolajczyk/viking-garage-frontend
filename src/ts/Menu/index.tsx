@@ -72,7 +72,8 @@ export default function MenuVG(props: MenuVGProps) {
       <MenuItem className="menu-item" containerElement={<Link to="/owner" />} primaryText={i('List Your Motorcycle')} />
       <MenuItem className="menu-item" containerElement={<Link to="/expert" />} primaryText={i('Bike Experts Offers')} />
       <MenuItem className="menu-item" containerElement={<Link to="/about" />} primaryText={i('About')} />
-      <MenuItem className="menu-item" containerElement={<Link to="/blog" />} primaryText={i('Blog')} />
+      {/* <MenuItem className="menu-item" containerElement={<Link to="/blog" />} primaryText={i('Blog')} /> */}
+      <MenuItem className="menu-item" containerElement={<a href="https://www.indiegogo.com/projects/viking-garage-disrupting-a-motorcycle-industry-community" target="_blank" />} primaryText={i('Indiegogo')} />
       {/* <LanguageSelection {...props} /> */}
       <CurrencySelection {...props} />
       {usersFlag && !checkUser() && logIn}
