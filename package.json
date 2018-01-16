@@ -57,6 +57,7 @@
     "formsy-material-ui": "0.6.0",
     "formsy-react": "^0.19.2",
     "geolib": "^2.0.22",
+    "js-cookie": "^2.2.0",
     "jsdom": "^9.10.0",
     "material-ui": "^0.19.4",
     "mocha": "^3.2.0",

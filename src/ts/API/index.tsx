@@ -21,6 +21,9 @@ const API = {
 // booking
   booking: `${url}/booking`,
 
+// newsletter
+  newsletter: `${url}/newsletter`,
+
 // offer
   offer: `${url}/offer`,
 

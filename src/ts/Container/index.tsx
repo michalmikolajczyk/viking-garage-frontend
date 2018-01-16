@@ -15,6 +15,7 @@ import {
 } from '../typings';
 import muiThemeVG from '../muiThemeVG';
 import * as api from './api';
+import Newsletter from '../Newsletter';
 import NetworkError from '../Dialogs/NetworkError';
 import Footer from '../Footer';
 const DEFAULT_LIMIT = process.env.VG_LIMIT || 8;
@@ -143,6 +144,7 @@ export default class Container extends React.Component<ContainerProps, Container
             open={this.state.networkErr}
             close={this.closeNetworkErr}
           />
+          <Newsletter />
         </div>
       </MuiThemeProvider>
     );

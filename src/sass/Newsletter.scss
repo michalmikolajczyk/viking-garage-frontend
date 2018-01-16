@@ -1,0 +1,13 @@
+.newsletter-dialog > div > div {
+  * {
+    border-radius: 0 !important;
+  }
+  .newsletter-close {
+    position: absolute;
+    right: 21px;
+    top: 13px;
+    font-size: 24px;
+    font-weight: 300;
+    cursor: default;
+  }
+}
