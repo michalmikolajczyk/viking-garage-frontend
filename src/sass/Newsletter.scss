@@ -4,10 +4,31 @@
   }
   .newsletter-close {
     position: absolute;
-    right: 21px;
-    top: 13px;
+    right: 0;
+    top: 0;
     font-size: 24px;
     font-weight: 300;
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    padding: 5px 8px;
     cursor: default;
+  }
+  .newsletter-subscribe-button {
+    margin-top: 34px;
+  }
+}
+
+@media screen and (min-width: $tablet-min) {
+  .newsletter-dialog > div > div {
+    .newsletter-close {
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+    }
+    .newsletter-subscribe-button {
+      margin-top: 21px;
+    }
   }
 }

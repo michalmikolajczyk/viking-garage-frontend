@@ -73,7 +73,7 @@ export default class BlogForm extends React.Component<any, BlogFormState> {
     const props = this.props;
     const form = (
       <div>
-        <p>Sign up for better motorcycle experience with VIKING GARAGE, delivered to your inbox once a week</p>
+        <p>Sign up for the better motorcycle experience with VIKING GARAGE, delivered to your inbox once a week.</p>
         <Formsy.Form
           onValidSubmit={this.submit}
           onValid={this.enableButton}
@@ -88,7 +88,7 @@ export default class BlogForm extends React.Component<any, BlogFormState> {
             validationError="Please type in a valid email"
           />
           <br /><br />
-          <RaisedButton type="submit" disabled={!this.state.canSubmit}>Subscribe</RaisedButton>
+          <RaisedButton className="newsletter-subscribe-button" type="submit" disabled={!this.state.canSubmit}>Subscribe</RaisedButton>
         </Formsy.Form>
       </div>
     );
