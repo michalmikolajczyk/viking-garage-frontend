@@ -5,7 +5,6 @@ $card-head-color: rgba(0, 0, 0, 0.55);
 $card-head-dark: rgba(0, 0, 0, 0.65);
 
 .indiegogo-wrapper {
-  max-width: 1280px;
   margin: 0 auto 89px;
   > a {
     display: block;
@@ -14,7 +13,10 @@ $card-head-dark: rgba(0, 0, 0, 0.65);
       text-decoration: underline;
     }
     img {
-      padding: 21px 80px;
+      padding: 34px 0 0;
+      width: 233px;
+      display: block;
+      margin: 0 auto;
     }
   }
 }
@@ -121,6 +123,16 @@ h2.heading-two {
 }
 
 @media screen and (min-width: $tablet-min) {
+  .indiegogo-wrapper {
+    > a {
+      > h2.jet-black {
+        padding-top: 34px;
+      }
+      img {
+        padding: 21px 0;
+      }
+    }
+  }
   .offers {
     .card {
       margin: 0 auto 92px auto;
@@ -153,6 +165,19 @@ h2.heading-two {
 }
 
 @media screen and (min-width: $desktop-min) {
+  .indiegogo-wrapper {
+    max-width: 1280px;
+    margin: 0 auto 89px;
+    > a {
+      > h2.jet-black {
+        padding-top: 55px;
+      }
+      img {
+        float: left;
+      }
+    }
+  }
+
   .offers {
     padding: 0 80px;
     max-width: 1280px;
