@@ -38,7 +38,7 @@ export default class BlogForm extends React.Component<any, BlogFormState> {
   }
 
   componentDidMount() {
-    if (!Cookie.get('newsletter')) setTimeout(() => this.setState({ open: true }), 3000);
+    if (!Cookie.get('newsletter')) setTimeout(() => this.setState({ open: true }), 34000);
   }
 
   disableButton = () => {
