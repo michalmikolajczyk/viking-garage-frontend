@@ -8,6 +8,7 @@ import Blog from '../Blog';
 import Container from '../Container';
 import Offers from '../Offers';
 import Expert from '../Page/Expert';
+import FAQ from '../Page/FAQ';
 import Owner from '../Page/Owner';
 import Detail from '../Detail';
 import Login from '../Login';
@@ -36,6 +37,7 @@ export default (
     <Route path="/offer/:id(/:url)" component={Detail} />
     <Route path="/owner" component={Owner} />
     <Route path="/expert" component={Expert} />
+    <Route path="/faq" component={FAQ} />
     <Route path="/blog" component={Blog} />
     <Route path="/about" component={About} />
     <Route path="/privacy-policy" component={Privacy} />
