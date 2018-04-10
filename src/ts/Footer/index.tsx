@@ -44,6 +44,9 @@ export default function Footer(props) {
         <div className="right">
           <Link to="/privacy-policy">PRIVACY POLICY</Link>
         </div>
+        <div className="right">
+          <Link to="/faq">FAQ</Link>
+        </div>
         <div className="copyright">
           <FontIcon style={iconStyle} color="white" className="fa fa-copyright" />
           2017 VIKING GARAGE
