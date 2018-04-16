@@ -84,7 +84,7 @@ Currency: ${currency()}`;
         <div>
           <Booking
             type="ride"
-            button={<div className="btn-main btn-ride"><Raido />IDE</div>}
+            button={<div id="ride-button-bstep1" className="btn-main btn-ride"><Raido />IDE</div>}
             message={this.getMessage}
             form={form}
             offerTitle={title}
