@@ -103,6 +103,7 @@ export default class Booking extends React.Component<props, any> {
       />,
       <RaisedButton
         label={i('Submit')}
+        id="ride-button-bstep2"
         primary={true}
         keyboardFocused={true}
         disabled={!this.state.canSubmit || this.state.wait}
