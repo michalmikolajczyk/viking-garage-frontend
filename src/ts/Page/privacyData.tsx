@@ -1,5 +1,5 @@
 const data = {
-  title: 'FAQ',
+  title: 'Privacy Policy',
   data: [
     {
       sectionTitle: 'Introduction',
