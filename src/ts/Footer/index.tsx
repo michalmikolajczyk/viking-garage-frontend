@@ -31,7 +31,7 @@ export default function Footer(props) {
         <div>
           <a href="https://vikinggarage.slack.com" target="_blank">SLACK</a>
         </div>
-        <div className="right">
+        <div>
           <a href="tel:+48697951264" target="_blank">
             PHONE &amp; WHATSAPP
             <span className="mobile-hid"> +48 697 951 264</span>
@@ -43,6 +43,9 @@ export default function Footer(props) {
         </div>
         <div className="right">
           <Link to="/privacy-policy">PRIVACY POLICY</Link>
+        </div>
+        <div className="right">
+          <Link to="/terms-of-service">TERMS OF SERVICE</Link>
         </div>
         <div className="right">
           <Link to="/faq">FAQ</Link>

@@ -4,7 +4,6 @@ import AppBarVG from '../AppBarVG';
 import faqData from './privacyData';
 
 export default function Privacy(props) {
-  console.log(faqData);
   const handleSection = (item, key) => (
     <div key={key}>
       <div className="title">{item.sectionTitle}</div>

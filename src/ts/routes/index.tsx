@@ -9,6 +9,7 @@ import Container from '../Container';
 import Offers from '../Offers';
 import Expert from '../Page/Expert';
 import FAQ from '../Page/FAQ';
+import TOS from '../Page/TOS';
 import Owner from '../Page/Owner';
 import Detail from '../Detail';
 import Login from '../Login';
@@ -41,6 +42,7 @@ export default (
     <Route path="/blog" component={Blog} />
     <Route path="/about" component={About} />
     <Route path="/privacy-policy" component={Privacy} />
+    <Route path="/terms-of-service" component={TOS} />
     <Route path="*" component={NotFound} />
   </Route>
 );

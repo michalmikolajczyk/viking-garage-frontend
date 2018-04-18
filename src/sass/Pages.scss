@@ -46,6 +46,33 @@
   }
 }
 
+.tos-title {
+  margin-bottom: 34px;
+  width: 100%;
+  text-align: center;
+}
+
+ol.tos-list {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+ol.tos-list > li {
+  counter-increment: customlistcounter;
+  margin-bottom: 55px;
+}
+
+ol.tos-list > li:before {
+  content: "§ " counter(customlistcounter);
+  width: 3em;
+  margin: 0 auto;
+  display: block;
+}
+
+ol.tos-list:first-child {
+  counter-reset: customlistcounter;
+}
+
 @media screen and (min-width: $tablet-min) {
   .page {
     .image {
